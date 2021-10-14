@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+let minifier = require('minifier');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +12,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.js('resources/assets/js/app.js', 'public/assets/js')
+    .copy('resources/assets/images', 'public/assets/images')
+    .sass('resources/assets/sass/style.scss', 'public/assets/css/style.css')
+    .version()
+    .sass('resources/assets/sass/auth/auth.scss', 'public/assets/css/auth.css')
+    .version();
+mix.then(() => {
+    minifier.minify('public/assets/css/style.css')
+    minifier.minify('public/assets/css/auth.css')
+});
