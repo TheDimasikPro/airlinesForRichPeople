@@ -8,9 +8,13 @@
     text-decoration: none;
 }
 
+$base: 2px;
 // colors
 $black: #222;
 $white: #fff;
+$bg-color: #f4f5f7;
+$border-input: #d9d9d9;
+$btn-border: #ffa260;
 // colors
 
 // variable
@@ -18,12 +22,43 @@ $padding-xs: 20px;
 $padding-sm: 60px;
 $padding-b: 120px;
 
+$margin-vartical-sm: 20px;
+$margin-vartical-md: 50px;
+$margin-vartical-big: 100px;
+
 $fw-regular: 400px;
 $fw-medium: 500px;
 $fw-bold: 700px;
 
+$fw-reg: 400;
+$fw-bold: 700;
+
+$fz-sm: $base*7;
+$fz-md: $base*12;
+$fz-big: $base*20;
 // variable
 
+body{
+    font-size: $base*7;
+    font-family: 'Roboto-Regular',sans-serif;
+    font-weight: $fw-reg;
+    color: $black;
+    background: $bg-color;
+}
 button,input{
     padding: 6px 12px;
+}
+
+.upper{
+    text-transform: uppercase;
+}
+.link{
+    transition: 0.2s;
+    color: $black;
+    padding-bottom: $base;
+    border-bottom: $base solid;
+    border-color: transparent;
+    &:hover,&:focus{
+        border-color: $btn-border;
+    }
 }

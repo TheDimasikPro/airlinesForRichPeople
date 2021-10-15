@@ -1,1 +1,80 @@
-@import '../overall_style.scss'
+@import '../overall_style.scss';
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background: $white;
+    padding: $padding-sm;
+    border-radius: $base*5;
+
+    .form_auth,.block_form_auth{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .title_auth{
+            font-size: $fz-big;
+            font-weight: $fw-bold;
+            margin: $margin-vartical-sm 0;
+            display: inline-block;
+        }
+        .input_auth_block{
+            margin-top: $margin-vartical-sm;
+            font-size: $fz-sm;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .input_w_img_block{
+                display: flex;
+                input{
+                    border-bottom: 2px solid #d9d9d9;
+                    font-size: $base*8;
+                    margin-top: $margin-vartical-sm/2;
+                    width: 100%;
+                    transition: 0.2s;
+                    &:focus{
+                        border-bottom: 2px solid $black;
+                    }
+                }
+            }
+            label{
+                font-size: $fz-sm+$base;
+            }
+        }
+        .auth_text{
+            margin-top: $margin-vartical-sm;
+        }
+        .btn_auth{
+            margin-top: $margin-vartical-big;
+            font-size: $fz-sm + $base*3;
+            letter-spacing: $base/2;
+            border: 2px solid;
+            border-color: $btn-border;
+            border-radius: $base*5;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: 0.2s;
+            &:hover,&:focus{
+                box-shadow: 0 0.5em 0.5em -0.4em $btn-border;
+                transform: translateY(-0.25em);
+                border-color: $btn-border;
+            }
+        }
+
+        .reg_block{
+            display: flex;
+            flex-direction: column;
+            width: $base*300;
+            .short_info_nav{
+                .reg_nav{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}
