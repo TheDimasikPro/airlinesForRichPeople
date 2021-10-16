@@ -11,23 +11,22 @@
 </head>
 <body>
     <div class="container">
-        <form action="" class="form_auth">
+        <form action="" class="form_auth df aic">
             <span class="title_auth">Авторизация</span> 
             <!-- /.title_auth -->
-            <div class="input_auth_block">
+            <div class="input_auth_block df">
                 <label for="login" class="label_auth">Логин</label> 
                 <!-- /.label_auth -->
-                <div class="input_w_img_block">
+                <div class="input_w_img_block df">
                     <input type="text" id="login" required class="input_auth">
                 </div>
                 <!-- /.input_w_img_block -->
-                
             </div>
             <!-- /.input_auth_block -->
-            <div class="input_auth_block">
+            <div class="input_auth_block df">
                 <label for="password" class="label_auth">Пароль</label> 
                 <!-- /.label_auth -->
-                <div class="input_w_img_block">
+                <div class="input_w_img_block df">
                     <input type="password" id="password" required class="input_auth">
                 </div>
                 <!-- /.input_w_img_block -->
@@ -38,7 +37,7 @@
                 <!-- /.link -->
             </span> 
             <!-- /.auth_text -->
-            <button class="btn_login btn_auth upper">Авторизоваться</button> 
+            <button class="btn_login btn_first upper">Авторизоваться</button> 
             <!-- /.btn btn_auth -->
         </form>
         <!-- /.form_auth -->
