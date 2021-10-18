@@ -13,14 +13,6 @@
         font-size: $fz_base;
     }
     .d_menu{
-        .logo_image{
-            width: 150px;
-            .link_header{
-                img{
-                    max-width: 100%;
-                }
-            }
-        }
         .search{
             .form_search{
                 .span_big_input{
@@ -54,9 +46,45 @@
         .nav_menu{
             .geo_posistion_people{
                 margin-right: 20px;
+                position: relative;
                 .fa-globe{
                     margin-right: 20px;
                     cursor: auto;
+                }
+                .geo_info{
+                    border-bottom: 1px solid transparent;
+                    padding-bottom: 2px;
+                    cursor: pointer;
+                }
+                .country_currency{
+                    transform-origin: 0 0;
+                    transform: scaleY(0);
+                    top: 30px;
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                    max-height: 188px;
+                    width: 150px;
+                    overflow-y: scroll;
+                    border-top: 0;
+                    border-bottom: 1px solid $gray_3;
+                    position: absolute;
+                    z-index: 1000;
+                    @include custom_scroll_bar;
+                    .country_currency__item{
+                        padding: 6px 12px;
+                        border-bottom: 1px solid $gray_3;
+                        border-left: 1px solid $gray_3;
+                        background: $white;
+                        &:hover{
+                            cursor: pointer;
+                            background: $gray_4;
+                        }
+                    }
+                }
+                .country_currency_active{
+                    transform: scaleY(1);
                 }
             }
             .my_cabinet{

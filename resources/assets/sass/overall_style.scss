@@ -1,14 +1,3 @@
-*{
-    border:none;
-    background: none;
-    outline: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-    transition: 0.2s;
-}
 
 
 // colors
@@ -30,19 +19,94 @@ $gray_5: #E5E5E5;
 $fz_base: 14px;
 $fz_second: 16px;
 $fz_last: 20px;
+$fz_h1: 32px;
+$fz_h2: 26px;
 // font-size
 
+// mixin
+@mixin custom_scroll_bar {
+    &::-webkit-scrollbar {
+        width: 7px;
+        background-color: $gray_2;
+    }
+      
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $light_green;
+    }
+      
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        background-color: $gray_2;
+    }
+}
+@mixin custom_scroll_bar_body {
+    &::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+        background-color: $gray_2;
+    }
+      
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $light_green;
+    }
+      
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        background-color: $gray_2;
+    }
+}
+$prefixes: ("-moz-", "");
+@mixin selection($color, $background) {
+    @each $prefix in $prefixes {
+        ::#{$prefix}selection {
+            color: $color;
+            background: $background;
+        }
+    }
+}
+
+*{
+    border:none;
+    background: none;
+    outline: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.2s;
+    @include selection(white, $light_green);
+}
+*::after,*::before{
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+h1,h2,h3{
+    margin: 20px 0;
+}
+h2{
+    font-size: $fz_h2;
+}
+// mixin
 body{
     background: $gray_1;
     // background: #F9F9F9;
     font-size: 14px;
     font-family: 'Roboto-Regular',sans-serif;
+    @include custom_scroll_bar_body;
 }
 button,input{
     padding: 6px 12px;
 }
 a{
     color: $black;
+    display: inline-block;
 }
 .df_jcspb_aic{
     display: flex;
@@ -61,6 +125,7 @@ a{
 button{
     cursor: pointer;
 }
+
 .upper{
     text-transform: uppercase;
 }
@@ -112,5 +177,14 @@ button{
     &:hover{
         animation: pulse 0.8s;
         box-shadow: 0 0 0 2em rgba($white,0);
+    }
+}
+
+.logo_image{
+    width: 150px;
+    .link_header{
+        img{
+            max-width: 100%;
+        }
     }
 }

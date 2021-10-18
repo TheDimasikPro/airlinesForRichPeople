@@ -1,3 +1,60 @@
 .non_view{
     display: none;
 }
+
+#footer{
+    background: $white;
+    padding: 50px 0;
+    border-top: 1px solid $gray_5;
+}
+.footer_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        text-align: center;
+    }
+    .link_contacts{
+        padding: 6px 12px;
+        font-weight: 700;
+        background: $light_green;
+        &:hover{
+            background: $green;
+            color: $white;
+        }
+    }
+    .footer_info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        width: 100%;
+        .logo_image{
+            width: auto;
+            .link_footer{
+                width: 400px;
+                img{
+                    width: 300px;
+                }
+                
+            }
+        }
+        .licensy{
+            max-width: 500px;
+        }
+    }
+    .footer_social_media{
+        a{
+            padding-bottom: 3px;
+            &:last-child{
+                margin-left: 30px;
+            }
+            &:hover{
+                border-bottom: 1px solid $black;
+            }
+        }
+        .fab{
+            font-size: $fz_h1;
+        }
+    }
+}

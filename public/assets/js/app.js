@@ -126,6 +126,15 @@ $(document).ready(function () {
       console.log('cccc');
     }
   });
+  $('.geo_info').click(function () {
+    if (!$('.country_currency').hasClass('country_currency_active')) {
+      $('.country_currency').addClass('country_currency_active');
+      $('.geo_info').css('border-bottom', '1px solid #52C9B9');
+    } else {
+      $('.country_currency').removeClass('country_currency_active');
+      $('.geo_info').removeAttr('style');
+    }
+  });
 });
 
 /***/ }),

@@ -49,6 +49,18 @@
                         RU <span>(RUB, <i class="fas fa-ruble-sign"></i>)</span>
                     </p>
                     <!-- /.geo_info -->
+                    <ul class="country_currency">
+                        <li class="country_currency__item">Америка</li>
+                        <li class="country_currency__item">Англия</li>
+                        <li class="country_currency__item">Россия</li>
+                        <li class="country_currency__item">Россия</li>
+                        <li class="country_currency__item">Россия</li>
+                        <li class="country_currency__item">Россия</li>
+                        <li class="country_currency__item">Россия</li>
+                        <li class="country_currency__item">Россия</li>
+                        <li class="country_currency__item">Россия</li>
+                    </ul>
+                    <!-- /.country_currency -->
                 </li>
                 <!-- /.geo_posistion_people -->
                 <li class="my_cabinet">

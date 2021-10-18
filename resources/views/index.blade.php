@@ -241,40 +241,59 @@
 </section>
 
 <section class="container">
-    <div class="resorts">
-        <div class="resort_card">
-            <img src="" alt="" class="resotr_img">
-                <p class="shortdesk_resort">
-                    <h2 class="title_resort"></h2>
-                    <!-- /.title_resort -->
-                    <span class="starting_price"></span> 
-                    <!-- /.starting_price -->
-                </p>
-                <!-- /.shortdesk_resort -->
+    <div class="resorts df">
+        <h2>Наши лучшие предложения</h2>
+        <div class="resort_cards_block df_jcspb_aic">
+            <div class="resort_card">
+                <a href="">
+                    <img src="/assets/images/resorts/russia.jpg" alt="russia" class="resotr_img">
+                    <div class="shortdesk_resort">
+                        <h2 class="title_resort">Россия</h2>
+                        <!-- /.title_resort -->
+                        <span class="starting_price">
+                            от 5000 <i class="fas fa-ruble-sign"></i>
+                        </span> 
+                        <!-- /.starting_price -->
+                    </div>
+                    <!-- /.shortdesk_resort -->
+                </a>
+                
+            </div>
+            <!-- /.resort_card -->
+            <div class="resort_card">
+                <a href="">
+                    <img src="/assets/images/resorts/maldivy.jpg" alt="maldivy" class="resotr_img">
+                    <div class="shortdesk_resort">
+                        <h2 class="title_resort">Мальдивы</h2>
+                        <!-- /.title_resort -->
+                        <span class="starting_price">
+                            от 51000 <i class="fas fa-ruble-sign"></i>
+                        </span> 
+                        <!-- /.starting_price -->
+                    </div>
+                    <!-- /.shortdesk_resort -->
+                </a>
+                
+            </div>
+            <!-- /.resort_card -->
+            <div class="resort_card">
+                <a href="">
+                    <img src="/assets/images/resorts/new-york.jpg" alt="new-york" class="resotr_img">
+                    <div class="shortdesk_resort">
+                        <h2 class="title_resort">New York</h2>
+                        <!-- /.title_resort -->
+                        <span class="starting_price">
+                            от 45000 <i class="fas fa-ruble-sign"></i>
+                        </span> 
+                        <!-- /.starting_price -->
+                    </div>
+                    <!-- /.shortdesk_resort -->
+                </a>
+                
+            </div>
+            <!-- /.resort_card -->
         </div>
-        <!-- /.resort_card -->
-        <div class="resort_card">
-            <img src="" alt="" class="resotr_img">
-                <p class="shortdesk_resort">
-                    <h2 class="title_resort"></h2>
-                    <!-- /.title_resort -->
-                    <span class="starting_price"></span> 
-                    <!-- /.starting_price -->
-                </p>
-                <!-- /.shortdesk_resort -->
-        </div>
-        <!-- /.resort_card -->
-        <div class="resort_card">
-            <img src="" alt="" class="resotr_img">
-                <p class="shortdesk_resort">
-                    <h2 class="title_resort"></h2>
-                    <!-- /.title_resort -->
-                    <span class="starting_price"></span> 
-                    <!-- /.starting_price -->
-                </p>
-                <!-- /.shortdesk_resort -->
-        </div>
-        <!-- /.resort_card -->
+        <!-- /.resort_cards_block -->
     </div>
     <!-- /.resorts -->
 </section>
