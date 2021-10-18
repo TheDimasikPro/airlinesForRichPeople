@@ -21,7 +21,24 @@ button, input {
 }
 
 a {
-  color: #222;
+  color: #222222;
+}
+
+.df_jcspb_aic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.df_jcc_aic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.df_aic {
+  display: flex;
+  align-items: center;
 }
 
 button {
@@ -66,6 +83,32 @@ button {
   transform: rotate(180deg);
 }
 
+.btn_style_1 {
+  width: 240px;
+  font-weight: 700;
+  font-size: 14px;
+  background: #52C9B9;
+  height: 35px;
+  color: #ffffff;
+  margin-left: 20px;
+  outline-offset: 0px;
+}
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #52C9B9;
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #52C9B9;
+  }
+}
+.btn_style_1:hover {
+  -webkit-animation: pulse 0.8s;
+          animation: pulse 0.8s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+
 #header {
   border: 1px solid #E5E5E5;
   padding: 30px 0;
@@ -78,20 +121,14 @@ button {
 #header .fas:hover {
   color: red;
 }
-#header .d_menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#header .fa-ruble-sign {
+  font-size: 14px;
 }
 #header .d_menu .logo_image {
   width: 150px;
 }
 #header .d_menu .logo_image .link_header img {
   max-width: 100%;
-}
-#header .d_menu .search .form_search {
-  display: flex;
-  align-items: center;
 }
 #header .d_menu .search .form_search .span_big_input {
   position: relative;
@@ -101,7 +138,7 @@ button {
   transition: 1s;
 }
 #header .d_menu .search .form_search .span_big_input .search_input:focus {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #222222;
 }
 #header .d_menu .search .form_search .span_big_input .bottom_slider_big_input {
   position: absolute;
@@ -110,20 +147,14 @@ button {
   top: 97%;
   margin: 0 auto;
   height: 1px;
-  background-color: #000;
+  background-color: #222222;
   width: 0%;
   transition: width 1s;
 }
 #header .d_menu .search .form_search .span_big_input:hover .bottom_slider_big_input {
   width: 100%;
 }
-#header .d_menu .nav_menu {
-  display: flex;
-  align-items: center;
-}
 #header .d_menu .nav_menu .geo_posistion_people {
-  display: flex;
-  align-items: center;
   margin-right: 20px;
 }
 #header .d_menu .nav_menu .geo_posistion_people .fa-globe {
@@ -136,35 +167,30 @@ button {
   padding: 30px;
   padding-top: 20px;
   border-radius: 10px;
-  background: white;
+  background: #ffffff;
   border: 1px solid #E5E5E5;
   margin-top: 20px;
   height: 130px;
 }
 .work_with_flights .flights_list {
-  display: flex;
-  align-items: center;
   font-size: 20px;
 }
 .work_with_flights .flights_list li {
   width: 250px;
   height: 40px;
   font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: #F7F7F7;
-  color: #999;
+  color: #999999;
   cursor: pointer;
 }
 .work_with_flights .flights_list li.active_flights_list_item {
   transition: 0s;
   border-top: 2px solid #8CDE4E;
   background: white;
-  color: #222;
+  color: #222222;
 }
 .work_with_flights .flights_list li:hover {
-  color: #222;
+  color: #222222;
 }
 .work_with_flights .flights_list .active_buy_ticket {
   background: #F7F7F7;
@@ -190,9 +216,6 @@ button {
   width: 250px;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .input_search_block {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .input_search_block .dropbtn {
@@ -217,15 +240,15 @@ button {
   width: 300px;
   overflow-y: scroll;
   border-top: 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
   position: absolute;
   z-index: 1000;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item {
   padding: 6px 12px;
-  border-bottom: 1px solid #eee;
-  border-left: 1px solid #eee;
-  background: #FFFFFF;
+  border-bottom: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  background: #ffffff;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item:hover {
   cursor: pointer;
@@ -256,31 +279,6 @@ button {
 }
 .work_with_flights .check_in_block .form_check_in #input_info_ticket_reserv {
   margin-left: 20px;
-}
-.work_with_flights .check_in_block .form_check_in .search_reserve {
-  width: 240px;
-  font-weight: 700;
-  font-size: 15px;
-  background: #52C9B9;
-  height: 35px;
-  color: white;
-  margin-left: 20px;
-  outline-offset: 0px;
-}
-@-webkit-keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 #52C9B9;
-  }
-}
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 #52C9B9;
-  }
-}
-.work_with_flights .check_in_block .form_check_in .search_reserve:hover {
-  -webkit-animation: pulse 0.8s;
-          animation: pulse 0.8s;
-  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
 }
 
 .non_view {

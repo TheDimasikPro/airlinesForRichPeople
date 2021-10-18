@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/style.min.css">
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Regular.ttf" crossorigin>
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Bold.ttf" crossorigin>
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/0b1222bcc2.js" crossorigin="anonymous"></script>
     <title>Rich Airlines</title>
 </head>
@@ -18,7 +19,7 @@
         <div class="m_menu"></div>
         <!-- /.m_menu -->
         <!-- десктопное меню -->
-        <div class="d_menu">
+        <div class="d_menu df_jcspb_aic">
             <div class="logo_image">
                 <a href="" class="link_header">
                     <img src="/assets/images/logo.png" alt="" class="logo">
@@ -27,7 +28,7 @@
             </div>
             <!-- /.logo_image -->
             <div class="search">
-                <form action="" class="form form_search">
+                <form action="" class="form form_search df_aic">
                     <span class="span_big_input">
                         <input type="text" class="big_input search_input" placeholder="Поиск по сайту" autocomplete="off">
                         <div class="bottom_slider_big_input"></div>
@@ -41,11 +42,11 @@
                 <!-- /.form form_search -->
             </div>
             <!-- /.search -->
-            <ul class="nav_menu">
-                <li class="geo_posistion_people">
+            <ul class="nav_menu df_aic">
+                <li class="geo_posistion_people df_aic">
                     <i class="fas fa-globe"></i>
                     <p class="geo_info">
-                        RU <span>(RUB, р)</span>
+                        RU <span>(RUB, <i class="fas fa-ruble-sign"></i>)</span>
                     </p>
                     <!-- /.geo_info -->
                 </li>

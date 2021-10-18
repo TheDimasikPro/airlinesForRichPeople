@@ -9,8 +9,31 @@
     box-sizing: border-box;
     transition: 0.2s;
 }
+
+
+// colors
+$light_green: #52C9B9;
+$light_green_2: #84C2AD;
+$green: #8CDE4E;
+$black_green: #BEBEBE;
+$black_green_2: #999999;
+$black: #222222;
+$gray_1: #FDFDFD;
+$white: #ffffff;
+$gray_2: #f9f9fd;
+$gray_3: #eeeeee;
+$gray_4: #F7F7F7;
+$gray_5: #E5E5E5;
+// colors
+
+// font-size
+$fz_base: 14px;
+$fz_second: 16px;
+$fz_last: 20px;
+// font-size
+
 body{
-    background: #FDFDFD;
+    background: $gray_1;
     // background: #F9F9F9;
     font-size: 14px;
     font-family: 'Roboto-Regular',sans-serif;
@@ -19,7 +42,21 @@ button,input{
     padding: 6px 12px;
 }
 a{
-    color: #222;
+    color: $black;
+}
+.df_jcspb_aic{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.df_jcc_aic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.df_aic{
+    display: flex;
+    align-items: center;
 }
 button{
     cursor: pointer;
@@ -37,23 +74,43 @@ button{
     width: 250px;
     height: 35px;
     font-weight: 400;
-    border: 1px solid #BEBEBE;
+    border: 1px solid $black_green;
     padding-right: 35px;
 }
 .md_input{
     width: 400px;
     height: 35px;
     font-weight: 400;
-    border: 1px solid #BEBEBE;
+    border: 1px solid $black_green;
 }
 .big_input{
     width: 500px;
     position: relative;
     height: 30px;
-    font-size: 16px;
+    font-size: $fz_second;
     font-weight: 400;
 }
 .rotate_180{
     transform-origin: center;
     transform: rotate(180deg);
+}
+
+.btn_style_1{
+    width: 240px;
+    font-weight: 700;
+    font-size: $fz_base;
+    background: $light_green;
+    height: 35px;
+    color: $white;
+    margin-left: 20px;
+    outline-offset: 0px;
+    @keyframes pulse {
+        0% { 
+            box-shadow: 0 0 0 0 $light_green;
+        }
+    }
+    &:hover{
+        animation: pulse 0.8s;
+        box-shadow: 0 0 0 2em rgba($white,0);
+    }
 }

@@ -1,19 +1,18 @@
 #header{
-    // border-bottom: 1px solid #F9F9F9;
-    border: 1px solid #E5E5E5;
+    border: 1px solid $gray_5;
     padding: 30px 0;
     .fas{
         transition: 0.6s;
-        font-size: 20px;
+        font-size: $fz_last;
         cursor: pointer;
         &:hover{
             color: red;
         }
     }
+    .fa-ruble-sign{
+        font-size: $fz_base;
+    }
     .d_menu{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         .logo_image{
             width: 150px;
             .link_header{
@@ -24,16 +23,14 @@
         }
         .search{
             .form_search{
-                display: flex;
-                align-items: center;
                 .span_big_input{
                     position: relative;
                     
                     .search_input{
-                        border-bottom: 1px solid #BEBEBE;
+                        border-bottom: 1px solid $black_green;
                         transition: 1s;
                         &:focus{
-                            border-bottom: 1px solid #000;
+                            border-bottom: 1px solid $black;
                         }
                     }
                     .bottom_slider_big_input{
@@ -43,7 +40,7 @@
                         top:97%;
                         margin:0 auto;
                         height: 1px;
-                        background-color: #000;
+                        background-color: $black;
                         width: 0%;
                         transition: width 1s;
                     }
@@ -55,11 +52,7 @@
             }
         }
         .nav_menu{
-            display: flex;
-            align-items: center;
             .geo_posistion_people{
-                display: flex;
-                align-items: center;
                 margin-right: 20px;
                 .fa-globe{
                     margin-right: 20px;

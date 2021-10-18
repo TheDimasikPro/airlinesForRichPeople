@@ -20,9 +20,9 @@ mix.js('resources/assets/js/app.js', 'public/assets/js')
     .copy('resources/assets/images', 'public/assets/images')
     .sass('resources/assets/sass/style.scss', 'public/assets/css/style.css')
     .sass('resources/assets/sass/auth/auth.scss', 'public/assets/css/auth.css')
-    .browserSync({ 
-        proxy: 'http://127.0.0.1:8000'
-    });
+    // .browserSync({ 
+    //     proxy: 'http://127.0.0.1:8000'
+    // });
 mix.then(() => {
     minifier.minify('public/assets/css/style.css')
     minifier.minify('public/assets/css/auth.css')
