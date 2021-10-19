@@ -10,6 +10,15 @@
         'dev' => true,
     ),
     'versions' => array(
+        'adrianorosa/laravel-geolocation' => array(
+            'pretty_version' => 'v1.0.0',
+            'version' => '1.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../adrianorosa/laravel-geolocation',
+            'aliases' => array(),
+            'reference' => 'dba3e65e6b05ef6b922e385c06a3a221509de233',
+            'dev_requirement' => false,
+        ),
         'asm89/stack-cors' => array(
             'pretty_version' => 'v2.0.3',
             'version' => '2.0.3.0',

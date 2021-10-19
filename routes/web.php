@@ -24,9 +24,13 @@ Route::get('/reg', [RegisterController::class,'index']);
 // определние ip пользователя и его страны
 Route::get('/ip', function () {
     if ($position = Location::get()) {
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $data = Location::get($ip);
+        dd($data);
         // Successfully retrieved position.
-        echo $_SERVER['REMOTE_ADDR']; // ip
-        echo $position->countryName;
+        // echo $_SERVER['REMOTE_ADDR']; // ip
+        // echo Location::get($_SERVER['REMOTE_ADDR']);
     } else {
         // Failed retrieving position.
     }

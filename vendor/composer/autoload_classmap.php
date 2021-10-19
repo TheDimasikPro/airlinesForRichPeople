@@ -6,6 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Adrianorosa\\GeoLocation\\Console\\GeoLocationCommand' => $vendorDir . '/adrianorosa/laravel-geolocation/src/Console/GeoLocationCommand.php',
+    'Adrianorosa\\GeoLocation\\Contracts\\LookupInterface' => $vendorDir . '/adrianorosa/laravel-geolocation/src/Contracts/LookupInterface.php',
+    'Adrianorosa\\GeoLocation\\GeoLocation' => $vendorDir . '/adrianorosa/laravel-geolocation/src/GeoLocation.php',
+    'Adrianorosa\\GeoLocation\\GeoLocationDetails' => $vendorDir . '/adrianorosa/laravel-geolocation/src/GeoLocationDetails.php',
+    'Adrianorosa\\GeoLocation\\GeoLocationException' => $vendorDir . '/adrianorosa/laravel-geolocation/src/GeoLocationException.php',
+    'Adrianorosa\\GeoLocation\\GeoLocationManager' => $vendorDir . '/adrianorosa/laravel-geolocation/src/GeoLocationManager.php',
+    'Adrianorosa\\GeoLocation\\GeoLocationServiceProvider' => $vendorDir . '/adrianorosa/laravel-geolocation/src/GeoLocationServiceProvider.php',
+    'Adrianorosa\\GeoLocation\\Providers\\IpInfo' => $vendorDir . '/adrianorosa/laravel-geolocation/src/Providers/IpInfo.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -813,7 +821,6 @@ return array(
     'Faker\\Provider\\nl_BE\\Payment' => $vendorDir . '/fakerphp/faker/src/Faker/Provider/nl_BE/Payment.php',
     'Faker\\Provider\\nl_BE\\Person' => $vendorDir . '/fakerphp/faker/src/Faker/Provider/nl_BE/Person.php',
     'Faker\\Provider\\nl_BE\\PhoneNumber' => $vendorDir . '/fakerphp/faker/src/Faker/Provider/nl_BE/PhoneNumber.php',
-    'Faker\\Provider\\nl_BE\\Text' => $vendorDir . '/fakerphp/faker/src/Faker/Provider/nl_BE/Text.php',
     'Faker\\Provider\\nl_NL\\Address' => $vendorDir . '/fakerphp/faker/src/Faker/Provider/nl_NL/Address.php',
     'Faker\\Provider\\nl_NL\\Color' => $vendorDir . '/fakerphp/faker/src/Faker/Provider/nl_NL/Color.php',
     'Faker\\Provider\\nl_NL\\Company' => $vendorDir . '/fakerphp/faker/src/Faker/Provider/nl_NL/Company.php',

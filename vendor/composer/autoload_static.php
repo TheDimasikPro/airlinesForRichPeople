@@ -21,9 +21,9 @@ class ComposerStaticInit7b3848cee6dac2230954156947de25fb
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
@@ -182,6 +182,7 @@ class ComposerStaticInit7b3848cee6dac2230954156947de25fb
         array (
             'Asm89\\Stack\\' => 12,
             'App\\' => 4,
+            'Adrianorosa\\GeoLocation\\' => 24,
         ),
     );
 
@@ -538,6 +539,10 @@ class ComposerStaticInit7b3848cee6dac2230954156947de25fb
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'Adrianorosa\\GeoLocation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -551,6 +556,14 @@ class ComposerStaticInit7b3848cee6dac2230954156947de25fb
     );
 
     public static $classMap = array (
+        'Adrianorosa\\GeoLocation\\Console\\GeoLocationCommand' => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src/Console/GeoLocationCommand.php',
+        'Adrianorosa\\GeoLocation\\Contracts\\LookupInterface' => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src/Contracts/LookupInterface.php',
+        'Adrianorosa\\GeoLocation\\GeoLocation' => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src/GeoLocation.php',
+        'Adrianorosa\\GeoLocation\\GeoLocationDetails' => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src/GeoLocationDetails.php',
+        'Adrianorosa\\GeoLocation\\GeoLocationException' => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src/GeoLocationException.php',
+        'Adrianorosa\\GeoLocation\\GeoLocationManager' => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src/GeoLocationManager.php',
+        'Adrianorosa\\GeoLocation\\GeoLocationServiceProvider' => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src/GeoLocationServiceProvider.php',
+        'Adrianorosa\\GeoLocation\\Providers\\IpInfo' => __DIR__ . '/..' . '/adrianorosa/laravel-geolocation/src/Providers/IpInfo.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -1358,7 +1371,6 @@ class ComposerStaticInit7b3848cee6dac2230954156947de25fb
         'Faker\\Provider\\nl_BE\\Payment' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Payment.php',
         'Faker\\Provider\\nl_BE\\Person' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Person.php',
         'Faker\\Provider\\nl_BE\\PhoneNumber' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/PhoneNumber.php',
-        'Faker\\Provider\\nl_BE\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Text.php',
         'Faker\\Provider\\nl_NL\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Address.php',
         'Faker\\Provider\\nl_NL\\Color' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Color.php',
         'Faker\\Provider\\nl_NL\\Company' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Company.php',
