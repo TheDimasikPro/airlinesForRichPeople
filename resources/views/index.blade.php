@@ -93,7 +93,7 @@
                                 </div>
                                 <!-- /.info_country -->
                                 <div class="airport_name">
-
+                                    свсв
                                 </div>
                                 <!-- /.airport_name -->
                             </li>
@@ -200,7 +200,7 @@
                                 </div>
                                 <!-- /.info_country -->
                                 <div class="airport_name">
-
+свсв
                                 </div>
                                 <!-- /.airport_name -->
                             </li>
@@ -246,9 +246,9 @@
         <div class="resort_cards_block df_jcspb_aic">
             <div class="resort_card">
                 <a href="">
-                    <img src="/assets/images/resorts/russia.jpg" alt="russia" class="resotr_img">
+                    <img src="/assets/images/resorts/moscow.jpg" alt="moscow" class="resotr_img">
                     <div class="shortdesk_resort">
-                        <h2 class="title_resort">Россия</h2>
+                        <h2 class="title_resort">Москва</h2>
                         <!-- /.title_resort -->
                         <span class="starting_price">
                             от 5000 <i class="fas fa-ruble-sign"></i>
@@ -257,7 +257,6 @@
                     </div>
                     <!-- /.shortdesk_resort -->
                 </a>
-                
             </div>
             <!-- /.resort_card -->
             <div class="resort_card">
@@ -273,7 +272,6 @@
                     </div>
                     <!-- /.shortdesk_resort -->
                 </a>
-                
             </div>
             <!-- /.resort_card -->
             <div class="resort_card">
@@ -289,13 +287,68 @@
                     </div>
                     <!-- /.shortdesk_resort -->
                 </a>
-                
             </div>
             <!-- /.resort_card -->
         </div>
         <!-- /.resort_cards_block -->
     </div>
     <!-- /.resorts -->
+</section>
+<!-- /.container -->
+
+<section class="container">
+    <div class="add_services">
+        <h2>Дополнительные услуги</h2>
+        <div class="add_services_block df_jcspb_aic">
+            <div class="add_services_card">
+                <a href="">
+                    <img src="/assets/images/resorts/maldivy.jpg" alt="maldivy" class="add_services_img">
+                    <div class="shortdesk_add_services">
+                        <h2 class="title_add_services">Провоз питомца в самолете</h2>
+                        <!-- /.title_resort -->
+                        <span class="add_services_price">
+                            от 51000 <i class="fas fa-ruble-sign"></i>
+                        </span> 
+                        <!-- /.add_services_price -->
+                    </div>
+                    <!-- /.shortdesk_add_services -->
+                </a>
+            </div>
+            <!-- /.add_services_card -->
+            <div class="add_services_card">
+                <a href="">
+                    <img src="/assets/images/resorts/maldivy.jpg" alt="maldivy" class="add_services_img">
+                    <div class="shortdesk_add_services">
+                        <h2 class="title_add_services">Мальдивы</h2>
+                        <!-- /.title_resort -->
+                        <span class="add_services_price">
+                            от 51000 <i class="fas fa-ruble-sign"></i>
+                        </span> 
+                        <!-- /.add_services_price -->
+                    </div>
+                    <!-- /.shortdesk_add_services -->
+                </a>
+            </div>
+            <!-- /.add_services_card -->
+            <div class="add_services_card">
+                <a href="">
+                    <img src="/assets/images/resorts/maldivy.jpg" alt="maldivy" class="add_services_img">
+                    <div class="shortdesk_add_services">
+                        <h2 class="title_add_services">Мальдивы</h2>
+                        <!-- /.title_resort -->
+                        <span class="add_services_price">
+                            от 51000 <i class="fas fa-ruble-sign"></i>
+                        </span> 
+                        <!-- /.add_services_price -->
+                    </div>
+                    <!-- /.shortdesk_add_services -->
+                </a>
+            </div>
+            <!-- /.add_services_card -->
+        </div>
+        <!-- /.add_services_block -->
+    </div>
+    <!-- /.add_services -->
 </section>
 <!-- /.container -->
 @include('inc.footer')

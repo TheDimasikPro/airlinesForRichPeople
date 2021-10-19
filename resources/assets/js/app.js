@@ -29,7 +29,6 @@ $(document).ready(function(){
                 elements[i].style.display = "";
                 $(elements[i]).addClass('select_elem_airport');
                 $('#'+id_input+'.dropdown_content__item').removeClass('show_drop_content');
-                console.log($(elements[i]));
             }
             else {
                 elements[i].style.display = "none";
@@ -105,12 +104,16 @@ $(document).ready(function(){
 
     $('.drop_from_flights .dropdown_content__item').click(function (e) {
         $('#id_i_s_f_f').val(e.target.innerText);
-        $('.drop_from_flights').removeClass('show-drop-content');
-        e.target.classList.add("select_elem_airport");
-        // $('.id_country').text("");
+        $('.drop_from_flights').removeClass('show_drop_content');
+        $('.drop_from_flights .dropdown_content__item').removeClass('select_elem_airport');
+        $(this).addClass("select_elem_airport");
     });
-
-
+    $('.drop_to_flights .dropdown_content__item').click(function (e) {
+        $('#id_i_s_f_t').val(e.target.innerText);
+        $('.drop_from_flights').removeClass('show_drop_content');
+        $('.drop_to_flights .dropdown_content__item').removeClass('select_elem_airport');
+        $(this).addClass("select_elem_airport");
+    });
 
     input_search_from_flights.keyup(function () {
         var id_input = $(this).attr("id");
@@ -119,7 +122,15 @@ $(document).ready(function(){
         searchInFlightsList(id_input,filter,elements);
         if($(this).val() === ""){
             $(elements).removeClass('select_elem_airport');
-            console.log('cccc');
+        }
+    });
+    input_search_to_flights.keyup(function () {
+        var id_input = $(this).attr("id");
+        var filter = $(this).val().toUpperCase(); // приводим все к верхнему регистру
+        var elements = $('.drop_to_flights .dropdown_content__item'); // все элементы с классом dropdown-content--item
+        searchInFlightsList(id_input,filter,elements);
+        if($(this).val() === ""){
+            $(elements).removeClass('select_elem_airport');
         }
     });
 
@@ -131,6 +142,30 @@ $(document).ready(function(){
         else{
             $('.country_currency').removeClass('country_currency_active');
             $('.geo_info').removeAttr('style');
+        }
+    });
+
+    window.addEventListener('click', e => { // при клике в любом месте окна браузера
+        const target = e.target // находим элемент, на котором был клик
+        if (!target.closest('.geo_info')) { // если этот элемент или его родительские элементы не geo_info
+            $('.country_currency').removeClass('country_currency_active');
+            $('.geo_info').removeAttr('style');
+        }
+        if (!target.closest('#dropbtn_from_flights')) { // если этот элемент или его родительские элементы не geo_info
+            $('#dropbtn_from_flights').removeClass('rotate_180');
+            $('.drop_from_flights').removeClass('show_drop_content');
+            if (target.closest('#id_i_s_f_f')) {
+                $('.drop_from_flights').addClass('show_drop_content');
+                $(dropbtn_from_flights).addClass('rotate_180');
+            }
+        }
+        if (!target.closest('#dropbtn_to_flights')) { // если этот элемент или его родительские элементы не geo_info
+            $('#dropbtn_to_flights').removeClass('rotate_180');
+            $('.drop_to_flights').removeClass('show_drop_content');
+            if (target.closest('#id_i_s_f_t')) {
+                $('.drop_to_flights').addClass('show_drop_content');
+                $(dropbtn_to_flights).addClass('rotate_180');
+            }
         }
     });
 });

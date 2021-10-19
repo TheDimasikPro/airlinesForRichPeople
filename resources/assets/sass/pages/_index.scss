@@ -124,33 +124,36 @@
     }
 }
 
-.resorts{
+.resorts,.add_services{
     flex-direction: column;
-    padding: 100px 0;
-    .resort_cards_block{
+    padding: 50px 0;
+    .resort_cards_block,.add_services_block{
         margin-top: 50px;
+        align-items: flex-start;
         a{
             display: block;
         }
-        .resort_card{
+        .resort_card,.add_services_card{
             display: flex;
             flex-direction: column;
-            .resotr_img{
+            .resotr_img,.add_services_img{
                 width: 350px;
                 height: 300px;
             }
-            .shortdesk_resort{
+            .shortdesk_resort,.shortdesk_add_services{
                 padding: 10px;
-                .title_resort{
+                .title_resort,.title_add_services{
                     color: $light_green_2;
+                    max-width: 300px;
                 }
-                .starting_price{
+                .starting_price,.add_services_price{
                     font-size: $fz_last;
                 }
             }
             
             &:hover{
                 margin-top: -30px;
+                margin-bottom: 30px;
                 -webkit-box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
                 -moz-box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
                 box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);

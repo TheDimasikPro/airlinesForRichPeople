@@ -17,7 +17,8 @@
     .link_contacts{
         padding: 6px 12px;
         font-weight: 700;
-        background: $light_green;
+        color: $light_green;
+        font-size: $fz_last;
         &:hover{
             background: $green;
             color: $white;
