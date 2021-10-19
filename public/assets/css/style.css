@@ -8,6 +8,7 @@
   text-decoration: none;
   box-sizing: border-box;
   transition: 0.2s;
+  scroll-behavior: smooth;
 }
 * ::-moz-selection {
   color: white;
@@ -94,9 +95,17 @@ button {
   padding: 0 10px;
 }
 
+.min_input {
+  width: 150px;
+  height: 40px;
+  font-weight: 400;
+  border: 1px solid #BEBEBE;
+  padding-right: 35px;
+}
+
 .sm_input {
   width: 250px;
-  height: 35px;
+  height: 40px;
   font-weight: 400;
   border: 1px solid #BEBEBE;
   padding-right: 35px;
@@ -104,7 +113,7 @@ button {
 
 .md_input {
   width: 400px;
-  height: 35px;
+  height: 40px;
   font-weight: 400;
   border: 1px solid #BEBEBE;
 }
@@ -115,6 +124,11 @@ button {
   height: 30px;
   font-size: 16px;
   font-weight: 400;
+}
+
+input[type=button] {
+  cursor: pointer;
+  text-align: left;
 }
 
 .rotate_180 {
@@ -155,9 +169,20 @@ button {
   max-width: 100%;
 }
 
+.header_fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
 #header {
+  transition: 0.5s;
   border: 1px solid #E5E5E5;
   padding: 30px 0;
+  z-index: 1000;
+  background: #FDFDFD;
+  margin-bottom: 50px;
 }
 #header .fas {
   transition: 0.6s;
@@ -257,8 +282,7 @@ button {
   border-radius: 10px;
   background: #ffffff;
   border: 1px solid #E5E5E5;
-  margin-top: 50px;
-  height: 130px;
+  height: 160px;
 }
 .work_with_flights .flights_list {
   font-size: 20px;
@@ -289,19 +313,32 @@ button {
 }
 .work_with_flights .search_tickets_block .form_search_tickets {
   display: flex;
-  margin-top: 10px;
-}
-.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs {
-  position: absolute;
-}
-.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs:last-child {
-  margin-left: 260px;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 35px;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown {
   display: flex;
   flex-direction: column;
   position: relative;
   width: 250px;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown.dd_count_pass {
+  width: 150px;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown.dd_count_pass .input_count_pass_block {
+  position: relative;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown.dd_count_pass .input_count_pass_block .dropbtn {
+  position: absolute;
+  right: 0;
+  padding: 0;
+  height: 35px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .input_search_block {
   position: relative;
@@ -319,13 +356,14 @@ button {
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content {
   transform-origin: 0 0;
+  opacity: 0;
   transform: scaleY(0);
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   max-height: 188px;
-  width: 300px;
-  overflow-y: scroll;
+  width: 200px;
+  overflow-y: auto;
   border-top: 0;
   border-bottom: 1px solid #eeeeee;
   position: absolute;
@@ -333,13 +371,54 @@ button {
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item {
   padding: 6px 12px;
-  border-bottom: 1px solid #eeeeee;
-  border-left: 1px solid #eeeeee;
+  border: 1px solid #eeeeee;
   background: #ffffff;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item:hover {
   cursor: pointer;
   background: #F7F7F7;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item:last-child {
+  border-bottom: none;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item:not(:first-child) {
+  border-top: none;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dc_count_pass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dc_count_pass:hover {
+  cursor: auto;
+  background: #ffffff;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dc_count_pass .info_count_pass .title_count_pass {
+  font-weight: bold;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dc_count_pass .info_count_pass .desc_pass {
+  margin-top: 5px;
+  color: #999999;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dc_count_pass .btn_group_count_pass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dc_count_pass .btn_group_count_pass .result_count_pass {
+  margin: 0 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dc_count_pass .btn_group_count_pass .btn {
+  border-radius: 50%;
+  border: 1px solid #BEBEBE;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .select_elem_airport {
   background-color: #84C2AD;
@@ -357,9 +436,28 @@ button {
   border-radius: 10px;
   background-color: #f9f9fd;
 }
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .drop_count_pass {
+  max-height: none;
+  width: 280px;
+}
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .show_drop_content {
   position: relative;
   transform: scaleY(1);
+  opacity: 1;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .btn_style_1 {
+  width: 100px;
+  height: 40px;
+  margin-left: 0;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .min_input {
+  cursor: pointer;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .block_inputs_active {
+  border-top: 2px solid #8CDE4E;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .block_inputs_active input {
+  border-top: none;
 }
 .work_with_flights .search_tickets_block .non_view {
   display: none;

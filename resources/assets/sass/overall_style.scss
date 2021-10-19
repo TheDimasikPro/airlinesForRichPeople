@@ -80,6 +80,7 @@ $prefixes: ("-moz-", "");
     box-sizing: border-box;
     transition: 0.2s;
     @include selection(white, $light_green);
+    scroll-behavior: smooth;
 }
 *::after,*::before{
     box-sizing: border-box;
@@ -104,6 +105,7 @@ body{
 button,input{
     padding: 6px 12px;
 }
+
 a{
     color: $black;
     display: inline-block;
@@ -135,16 +137,23 @@ button{
     margin: 0 auto;
     padding: 0 10px;
 }
+.min_input{
+    width: 150px;
+    height: 40px;
+    font-weight: 400;
+    border: 1px solid $black_green;
+    padding-right: 35px;
+}
 .sm_input{
     width: 250px;
-    height: 35px;
+    height: 40px;
     font-weight: 400;
     border: 1px solid $black_green;
     padding-right: 35px;
 }
 .md_input{
     width: 400px;
-    height: 35px;
+    height: 40px;
     font-weight: 400;
     border: 1px solid $black_green;
 }
@@ -155,6 +164,14 @@ button{
     font-size: $fz_second;
     font-weight: 400;
 }
+input[type="button"]{
+    cursor: pointer;
+    text-align: left;
+    // color: $black_green;
+}
+// input::-webkit-input-placeholder{
+//     color: $black_green;
+// }
 .rotate_180{
     transform-origin: center;
     transform: rotate(180deg);

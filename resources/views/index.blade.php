@@ -200,7 +200,7 @@
                                 </div>
                                 <!-- /.info_country -->
                                 <div class="airport_name">
-свсв
+                                    свсв
                                 </div>
                                 <!-- /.airport_name -->
                             </li>
@@ -222,8 +222,103 @@
                     <!-- /.dropdown -->
                 </div>
                 <!-- /.form_search_block_inputs -->
+                <div class="form_search_block_inputs">
+                    <input type="text" readonly autocomplete="off" class="min_input" id="id_i_d_t" value="Туда:">
+                </div>
+                <!-- /.form_date_there_block -->
+                <div class="form_search_block_inputs">
+                    <input type="text" readonly autocomplete="off" class="min_input" id="id_i_d_b" value="Обратно:">
+                </div>
+                <!-- /.form_date_back_block -->
+                <div class="form_search_block_inputs">
+                    <div class="dropdown dd_count_pass">
+                        <div class="input_count_pass_block df_jcc_aic">
+                            <input type="text" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="1 пассажир:">
+                            <button class="dropbtn" type="button" id="dropbtn_count_pass">
+                                <i class="fas fa-arrow-down"></i>
+                            </button>
+                            <!-- /.dropbtn -->
+                        </div>
+                        <!-- /.input_search_from_block -->
+                        <ul class="dropdown_content drop_count_pass">
+                            <li class="dropdown_content__item dc_count_pass">
+                                <div class="info_count_pass">
+                                    <div class="title_count_pass">Взрослые</div>
+                                    <!-- /.title_count_pass -->
+                                    <div class="desc_pass">Старше 12 лет</div>
+                                    <!-- /.desc_count_pass -->
+                                </div>
+                                <!-- /.info_pass -->
+                                <div class="btn_group_count_pass">
+                                    <button type="button" class="btn count_pass_minus">
+                                        <i class="fas fa-minus"></i>
+                                    </button> 
+                                    <!-- /.btn count_pass_minus -->
+                                    <span class="result_count_pass">0</span>
+                                    <!-- /.result_count_pass -->
+                                    <button type="button" class="btn count_pass_plus">
+                                        <i class="fas fa-plus"></i>
+                                    </button> 
+                                    <!-- /.btn count_pass_plus -->
+                                </div>
+                                <!-- /.btn_group_count_pass -->
+                            </li>
+                            <li class="dropdown_content__item dc_count_pass">
+                                <div class="info_count_pass">
+                                    <div class="title_count_pass">Дети</div>
+                                    <!-- /.title_count_pass -->
+                                    <div class="desc_pass">2 - 11 лет</div>
+                                    <!-- /.desc_count_pass -->
+                                </div>
+                                <!-- /.info_pass -->
+                                <div class="btn_group_count_pass">
+                                    <button type="button" class="btn count_pass_minus">
+                                        <i class="fas fa-minus"></i>
+                                    </button> 
+                                    <!-- /.btn count_pass_minus -->
+                                    <span class="result_count_pass">0</span>
+                                    <!-- /.result_count_pass -->
+                                    <button type="button" class="btn count_pass_plus">
+                                        <i class="fas fa-plus"></i>
+                                    </button> 
+                                    <!-- /.btn count_pass_plus -->
+                                </div>
+                                <!-- /.btn_group_count_pass -->
+                            </li>
+                            <li class="dropdown_content__item dc_count_pass">
+                                <div class="info_count_pass">
+                                    <div class="title_count_pass">Младенцы</div>
+                                    <!-- /.title_count_pass -->
+                                    <div class="desc_pass">До 2 лет</div>
+                                    <!-- /.desc_count_pass -->
+                                </div>
+                                <!-- /.info_pass -->
+                                <div class="btn_group_count_pass">
+                                    <button type="button" class="btn count_pass_minus">
+                                        <i class="fas fa-minus"></i>
+                                    </button> 
+                                    <!-- /.btn count_pass_minus -->
+                                    <span class="result_count_pass">0</span>
+                                    <!-- /.result_count_pass -->
+                                    <button type="button" class="btn count_pass_plus">
+                                        <i class="fas fa-plus"></i>
+                                    </button> 
+                                    <!-- /.btn count_pass_plus -->
+                                </div>
+                                <!-- /.btn_group_count_pass -->
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.dropdown -->
+                </div>
+                <!-- /.form_date_back_block -->
+                <div class="form_search_block_inputs">
+                    <button class="btn_style_1 upper">найти</button>
+                </div>
+                <!-- /.form_search_block_inputs -->
             </form>
             <!-- /.form form_search_tickets -->
+
         </div>
         <!-- /.search_tickets_block -->
         <div class="check_in_block non_view">
@@ -302,7 +397,7 @@
         <div class="add_services_block df_jcspb_aic">
             <div class="add_services_card">
                 <a href="">
-                    <img src="/assets/images/resorts/maldivy.jpg" alt="maldivy" class="add_services_img">
+                    <img src="/assets/images/services/dog.jpg" alt="maldivy" class="add_services_img">
                     <div class="shortdesk_add_services">
                         <h2 class="title_add_services">Провоз питомца в самолете</h2>
                         <!-- /.title_resort -->
@@ -317,9 +412,9 @@
             <!-- /.add_services_card -->
             <div class="add_services_card">
                 <a href="">
-                    <img src="/assets/images/resorts/maldivy.jpg" alt="maldivy" class="add_services_img">
+                    <img src="/assets/images/services/transfer.jpg" alt="maldivy" class="add_services_img">
                     <div class="shortdesk_add_services">
-                        <h2 class="title_add_services">Мальдивы</h2>
+                        <h2 class="title_add_services">Трансфер от аэропорта до отеля</h2>
                         <!-- /.title_resort -->
                         <span class="add_services_price">
                             от 51000 <i class="fas fa-ruble-sign"></i>
@@ -332,9 +427,9 @@
             <!-- /.add_services_card -->
             <div class="add_services_card">
                 <a href="">
-                    <img src="/assets/images/resorts/maldivy.jpg" alt="maldivy" class="add_services_img">
+                    <img src="/assets/images/services/hotel_sey.jpg" alt="maldivy" class="add_services_img">
                     <div class="shortdesk_add_services">
-                        <h2 class="title_add_services">Мальдивы</h2>
+                        <h2 class="title_add_services">Предоставление списка лучших отелей города</h2>
                         <!-- /.title_resort -->
                         <span class="add_services_price">
                             от 51000 <i class="fas fa-ruble-sign"></i>

@@ -1,6 +1,17 @@
+.header_fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    
+}
 #header{
+    transition: 0.5s;
     border: 1px solid $gray_5;
     padding: 30px 0;
+    z-index: 1000;
+    background: $gray_1;
+    margin-bottom: 50px;
     .fas{
         transition: 0.6s;
         font-size: $fz_last;

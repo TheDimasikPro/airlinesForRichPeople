@@ -6,8 +6,8 @@
     border-radius: 10px;
     background: $white;
     border: 1px solid $gray_5;
-    margin-top: 50px;
-    height: 130px;
+    // margin-top: 50px;
+    height: 160px;
     .flights_list{
         font-size: $fz_last;
         li{
@@ -36,17 +36,32 @@
         margin-top: 5px;
         .form_search_tickets{
             display: flex;
-            margin-top: 10px;
-            .form_search_block_inputs{
-                position: absolute;
-                &:last-child{
-                    margin-left: 260px;
-                }
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 35px;
+            .form_search_block_inputs{    
                 .dropdown{
                     display: flex;
                     flex-direction: column;
                     position: relative;
                     width: 250px;
+                    &.dd_count_pass{
+                        width: 150px;
+                        .input_count_pass_block{
+                            position: relative;
+                            .dropbtn{
+                                position: absolute;
+                                right: 0;
+                                padding: 0;
+                                height: 35px;
+                                width: 25px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                transition: 0.2s;
+                            }
+                        }
+                    }
                     .input_search_block{
                         position: relative;
                         .dropbtn{
@@ -62,27 +77,73 @@
                         }
                         
                     }
+                    
                     .dropdown_content{
                         transform-origin: 0 0;
+                        opacity: 0;
                         transform: scaleY(0);
                         display: flex;
                         flex-direction: column;
                         margin-bottom: 10px;
                         max-height: 188px;
-                        width: 300px;
-                        overflow-y: scroll;
+                        width: 200px;
+                        overflow-y: auto;
                         border-top: 0;
                         border-bottom: 1px solid $gray_3;
                         position: absolute;
                         z-index: 1000;
                         .dropdown_content__item{
                             padding: 6px 12px;
-                            border-bottom: 1px solid $gray_3;
-                            border-left: 1px solid $gray_3;
+                            border:1px solid $gray_3;
                             background: $white;
                             &:hover{
                                 cursor: pointer;
                                 background: $gray_4;
+                            }
+                            &:last-child{
+                                border-bottom: none;
+                            }
+                            &:not(:first-child){
+                                border-top: none;
+                            }
+                        }
+                        .dc_count_pass{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 20px;
+                            &:hover{
+                                cursor: auto;
+                                background: $white;
+                            }
+                            
+                            .info_count_pass{
+                                .title_count_pass{
+                                    font-weight: bold;
+                                }
+                                .desc_pass{
+                                    margin-top: 5px;
+                                    color: $black_green_2;
+                                }
+                            }
+                            .btn_group_count_pass{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                .result_count_pass{
+                                    margin: 0 10px;
+                                    font-weight: bold;
+                                    font-size: $fz_second;
+                                }
+                                .btn{
+                                    border-radius: 50%;
+                                    border: 1px solid $black_green;
+                                    width: 25px;
+                                    height: 25px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
                             }
                         }
                         .select_elem_airport{
@@ -104,11 +165,33 @@
                             background-color: $gray_2;
                         }
                     }
+                    .drop_count_pass{
+                        max-height: none;
+                        width: 280px;
+                    }
                     .show_drop_content{
                         position: relative;
                         transform: scaleY(1);
+                        opacity: 1;
                     }
                 }
+                .btn_style_1{
+                    width: 100px;
+                    height: 40px;
+                    margin-left: 0;
+                }
+                .min_input{
+                    cursor: pointer;
+                }
+            }
+            .block_inputs_active{
+                border-top: 2px solid $green;
+                input{
+                    border-top: none;
+                }
+            }
+            .form_date_there_block{
+                
             }
         }
         .non_view{
