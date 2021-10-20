@@ -21,17 +21,17 @@
                         <ul class="dropdown_content drop_from_flights">
                             <li class="dropdown_content__item">
                                 <div class="info_country">
-                                    <div class="city_name"></div>
+                                    <div class="city_name">Moscow</div>
                                     <!-- /.city_name -->
-                                    <div class="country_name"></div>
-                                    <!-- /.country_name -->
+                                    <div class="desc_airport_eng">Airport, Moscow, Russia</div>
+                                    <!-- /.desc_airport_eng -->
                                 </div>
                                 <!-- /.info_country -->
                                 <div class="airport_name">
-
+                                    MOW
                                 </div>
                                 <!-- /.airport_name -->
-                                </li>
+                            </li>
                             <li class="dropdown_content__item">
                                 <div class="info_country">
                                     <div class="city_name"></div>
@@ -222,11 +222,11 @@
                     <!-- /.dropdown -->
                 </div>
                 <!-- /.form_search_block_inputs -->
-                <div class="form_search_block_inputs">
+                <div class="form_search_block_inputs there_data" id="id_i_d_t_block">
                     <input type="text" readonly autocomplete="off" class="min_input" id="id_i_d_t" value="Туда:">
                 </div>
                 <!-- /.form_date_there_block -->
-                <div class="form_search_block_inputs">
+                <div class="form_search_block_inputs back_data" id="id_i_d_b_block">
                     <input type="text" readonly autocomplete="off" class="min_input" id="id_i_d_b" value="Обратно:">
                 </div>
                 <!-- /.form_date_back_block -->
@@ -250,13 +250,13 @@
                                 </div>
                                 <!-- /.info_pass -->
                                 <div class="btn_group_count_pass">
-                                    <button type="button" class="btn count_pass_minus">
+                                    <button type="button" class="btn count_pass_minus" id="btn_minus_old">
                                         <i class="fas fa-minus"></i>
                                     </button> 
                                     <!-- /.btn count_pass_minus -->
-                                    <span class="result_count_pass">0</span>
+                                    <span class="result_count_pass" id="old_count_pass">0</span>
                                     <!-- /.result_count_pass -->
-                                    <button type="button" class="btn count_pass_plus">
+                                    <button type="button" class="btn count_pass_plus" id="btn_plus_old">
                                         <i class="fas fa-plus"></i>
                                     </button> 
                                     <!-- /.btn count_pass_plus -->
@@ -272,13 +272,13 @@
                                 </div>
                                 <!-- /.info_pass -->
                                 <div class="btn_group_count_pass">
-                                    <button type="button" class="btn count_pass_minus">
+                                    <button type="button" class="btn count_pass_minus" id="btn_minus_kids">
                                         <i class="fas fa-minus"></i>
                                     </button> 
                                     <!-- /.btn count_pass_minus -->
-                                    <span class="result_count_pass">0</span>
+                                    <span class="result_count_pass" id="kids_count_pass">0</span>
                                     <!-- /.result_count_pass -->
-                                    <button type="button" class="btn count_pass_plus">
+                                    <button type="button" class="btn count_pass_plus" id="btn_plus_kids">
                                         <i class="fas fa-plus"></i>
                                     </button> 
                                     <!-- /.btn count_pass_plus -->
@@ -294,13 +294,13 @@
                                 </div>
                                 <!-- /.info_pass -->
                                 <div class="btn_group_count_pass">
-                                    <button type="button" class="btn count_pass_minus">
+                                    <button type="button" class="btn count_pass_minus" id="btn_minus_baby">
                                         <i class="fas fa-minus"></i>
                                     </button> 
                                     <!-- /.btn count_pass_minus -->
-                                    <span class="result_count_pass">0</span>
+                                    <span class="result_count_pass" id="baby_count_pass">0</span>
                                     <!-- /.result_count_pass -->
-                                    <button type="button" class="btn count_pass_plus">
+                                    <button type="button" class="btn count_pass_plus" id="btn_plus_baby">
                                         <i class="fas fa-plus"></i>
                                     </button> 
                                     <!-- /.btn count_pass_plus -->

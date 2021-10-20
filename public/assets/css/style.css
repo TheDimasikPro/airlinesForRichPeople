@@ -362,7 +362,7 @@ input[type=button] {
   flex-direction: column;
   margin-bottom: 10px;
   max-height: 188px;
-  width: 200px;
+  width: 250px;
   overflow-y: auto;
   border-top: 0;
   border-bottom: 1px solid #eeeeee;
@@ -370,9 +370,12 @@ input[type=button] {
   z-index: 1000;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item {
-  padding: 6px 12px;
+  padding: 15px;
   border: 1px solid #eeeeee;
   background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item:hover {
   cursor: pointer;
@@ -383,6 +386,18 @@ input[type=button] {
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item:not(:first-child) {
   border-top: none;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item .info_country {
+  color: #999999;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item .info_country .city_name {
+  font-size: 16px;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item .info_country .desc_airport_eng {
+  margin-top: 6px;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item .airport_name {
+  color: #999999;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dc_count_pass {
   display: flex;
@@ -422,6 +437,9 @@ input[type=button] {
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .select_elem_airport {
   background-color: #84C2AD;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .select_elem_airport .info_country, .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .select_elem_airport .airport_name {
+  color: #222222;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar {
   width: 7px;

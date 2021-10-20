@@ -86,16 +86,20 @@
                         flex-direction: column;
                         margin-bottom: 10px;
                         max-height: 188px;
-                        width: 200px;
+                        width: 250px;
                         overflow-y: auto;
                         border-top: 0;
                         border-bottom: 1px solid $gray_3;
                         position: absolute;
                         z-index: 1000;
                         .dropdown_content__item{
-                            padding: 6px 12px;
+                            // padding: 6px 12px;
+                            padding: 15px;
                             border:1px solid $gray_3;
                             background: $white;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
                             &:hover{
                                 cursor: pointer;
                                 background: $gray_4;
@@ -105,6 +109,19 @@
                             }
                             &:not(:first-child){
                                 border-top: none;
+                            }
+
+                            .info_country{
+                                color: $black_green_2;
+                                .city_name{
+                                    font-size: $fz_second;
+                                }
+                                .desc_airport_eng{
+                                    margin-top: 6px;
+                                }
+                            }
+                            .airport_name{
+                                color: $black_green_2;
                             }
                         }
                         .dc_count_pass{
@@ -148,6 +165,10 @@
                         }
                         .select_elem_airport{
                             background-color: $light_green_2;
+                           
+                            .info_country,.airport_name{
+                                color: $black;
+                            }
                         }
                         &::-webkit-scrollbar {
                             width: 7px;
