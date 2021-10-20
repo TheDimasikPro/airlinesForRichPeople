@@ -20,12 +20,22 @@
         <!-- /.m_menu -->
         <!-- десктопное меню -->
         <div class="d_menu df_jcspb_aic">
-            <div class="logo_image">
-                <a href="" class="link_header">
-                    <img src="/assets/images/logo.png" alt="" class="logo">
-                </a> 
-                <!-- /.link_header -->
+            <div class="left_col df_aic">
+                <button class="btn btn_additional_menu">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-times non_view"></i>  
+                </button> 
+                <!-- /.btn .additional menu-->
+                
+                <div class="logo_image">
+                    <a href="" class="link_header">
+                        <img src="/assets/images/logo.png" alt="" class="logo">
+                    </a> 
+                    <!-- /.link_header -->
+                </div>
             </div>
+            <!-- /.left_col -->
+            
             <!-- /.logo_image -->
             <div class="search">
                 <form action="" class="form form_search df_aic">
@@ -49,18 +59,50 @@
                         RU <span>(RUB, <i class="fas fa-ruble-sign"></i>)</span>
                     </p>
                     <!-- /.geo_info -->
-                    <ul class="country_currency">
-                        <li class="country_currency__item">Америка</li>
-                        <li class="country_currency__item">Англия</li>
-                        <li class="country_currency__item">Россия</li>
-                        <li class="country_currency__item">Россия</li>
-                        <li class="country_currency__item">Россия</li>
-                        <li class="country_currency__item">Россия</li>
-                        <li class="country_currency__item">Россия</li>
-                        <li class="country_currency__item">Россия</li>
-                        <li class="country_currency__item">Россия</li>
-                    </ul>
-                    <!-- /.country_currency -->
+                    <div class="language_currency">
+                        <ul class="country_currency">
+                            <li class="country_currency__item">
+                                <p>Выберите язык</p>
+                            </li>
+                            <li class="country_currency__item">
+                                <input type="radio" name="radio_lang" id="rus_lang">
+                                <span>
+                                    <img src="/assets/images/flags/ru.svg" alt="ru" class="lang_img">
+                                    <p>Russian</p>
+                                </span>
+                            </li>
+                            <li class="country_currency__item">
+                                <input type="radio" name="radio_lang" id="en_lang">
+                                <span>
+                                    <img src="/assets/images/flags/en.svg" alt="en" class="lang_img">
+                                    <p>English</p>
+                                </span>
+                            </li>
+                        </ul>
+                        <!-- /.country_currency -->
+                        <ul class="country_currency">
+                            <li class="country_currency__item">
+                                <p>Выберите валюту</p>
+                            </li>
+                            <li class="country_currency__item">
+                                <input type="radio" name="radio_lang" id="rus_lang">
+                                <span>
+                                    <i class="fas fa-ruble-sign" aria-hidden="true"></i>
+                                    <p>Ruble</p>
+                                </span>
+                            </li>
+                            <li class="country_currency__item">
+                                <input type="radio" name="radio_lang" id="en_lang">
+                                <span>
+                                    <img src="/assets/images/flags/en.svg" alt="en" class="lang_img">
+                                    <p>English</p>
+                                </span>
+                            </li>
+                        </ul>
+                        <!-- /.country_currency -->
+                    </div>
+                    <!-- /.language_currency -->
+                    
                 </li>
                 <!-- /.geo_posistion_people -->
                 <li class="my_cabinet">
@@ -76,4 +118,33 @@
         <!-- /.d_menu -->
     </div>
     <!-- /.container -->
+    <div class="additional_sub_menu">
+        <div class="container df_jcspb_aic">
+            <ul class="add_sub_menu_list">
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Провоз животных на борту</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Об авиакомпании</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Питание на борту</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Всё о багаже</li></a>
+            </ul>
+            <ul class="add_sub_menu_list">
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Управление заказом</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Статус рейса</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Регистрация на рейс</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Каталог аэропортов</li></a>
+            </ul>
+            <ul class="add_sub_menu_list">
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Новости</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Контакты</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Руководство авиакомпании</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Вакансии</li></a>
+            </ul>
+            <ul class="add_sub_menu_list">
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Розыск багажа</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Дополнительные услуги к рейсу</li></a>
+                <a href="" class="sub_menu__link"><li class="sub_menu__item">Способы оплаты</li></a>
+            </ul>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.additional_sub_menu -->
 </header>

@@ -48,6 +48,17 @@ $(document).ready(function () {
     }
   }
 
+  $('.btn_additional_menu').click(function () {
+    if (!$('.additional_sub_menu').hasClass('additional_sub_menu__view')) {
+      $('.additional_sub_menu').addClass('additional_sub_menu__view');
+      $('.btn_additional_menu .fa-bars').addClass('non_view');
+      $('.btn_additional_menu .fa-times').removeClass('non_view');
+    } else {
+      $('.additional_sub_menu').removeClass('additional_sub_menu__view');
+      $('.btn_additional_menu .fa-bars').removeClass('non_view');
+      $('.btn_additional_menu .fa-times').addClass('non_view');
+    }
+  });
   flights_list_item.click(function () {
     if ($(this).hasClass('check_in')) {
       $('.check_in_block').removeClass('non_view');
@@ -69,7 +80,7 @@ $(document).ready(function () {
   dropbtn_from_flights.click(function () {
     $('.drop_to_flights').removeClass('show_drop_content');
     $('.drop_count_pass').removeClass('show_drop_content');
-    $('.country_currency').removeClass('country_currency_active');
+    $('.language_currency').removeClass('language_currency_active');
     $(dropbtn_to_flights).removeClass('rotate_180');
     $('#dropbtn_count_pass').removeClass('rotate_180');
     var drop_from_flights_elem = $('.drop_from_flights');
@@ -87,7 +98,7 @@ $(document).ready(function () {
   dropbtn_to_flights.click(function () {
     $('.drop_from_flights').removeClass('show_drop_content');
     $('.drop_count_pass').removeClass('show_drop_content');
-    $('.country_currency').removeClass('country_currency_active');
+    $('.language_currency').removeClass('language_currency_active');
     $(dropbtn_from_flights).removeClass('rotate_180');
     $('#dropbtn_count_pass').removeClass('rotate_180');
     input_search_to_flights.focus();
@@ -105,7 +116,7 @@ $(document).ready(function () {
     $('.drop_to_flights').removeClass('show_drop_content');
     $(dropbtn_to_flights).removeClass('rotate_180');
     $('.drop_count_pass').removeClass('show_drop_content');
-    $('.country_currency').removeClass('country_currency_active');
+    $('.language_currency').removeClass('language_currency_active');
     $('#dropbtn_count_pass').removeClass('rotate_180');
     var drop_from_flights_elem = $('.drop_from_flights');
 
@@ -116,7 +127,7 @@ $(document).ready(function () {
   input_search_to_flights.click(function () {
     $('.drop_from_flights').removeClass('show_drop_content');
     $('.drop_count_pass').removeClass('show_drop_content');
-    $('.country_currency').removeClass('country_currency_active');
+    $('.language_currency').removeClass('language_currency_active');
     $(dropbtn_from_flights).removeClass('rotate_180');
     $('#dropbtn_count_pass').removeClass('rotate_180');
     var drop_to_flights_elem = $('.drop_to_flights');
@@ -131,7 +142,10 @@ $(document).ready(function () {
     if ($(this).hasClass('back_data')) {
       $('#id_i_d_t_block').addClass('block_inputs_active');
       $('#id_i_d_b_block').addClass('block_inputs_active');
-      $('#id_i_d_t').click();
+
+      if (!$('#id_i_d_t_block').hasClass('calendar_active')) {
+        $('#id_i_d_t').click();
+      }
     } else if (!$(this).hasClass('there_data')) {
       $(this).addClass('block_inputs_active');
     } else if ($(this).hasClass('there_data')) {
@@ -181,17 +195,24 @@ $(document).ready(function () {
       $(elements).removeClass('select_elem_airport');
     }
   });
-  $('.geo_info').click(function () {
+  $('.geo_posistion_people').click(function () {
     $('.drop_count_pass').removeClass('show_drop_content');
     $('#dropbtn_count_pass').removeClass('rotate_180');
 
-    if (!$('.country_currency').hasClass('country_currency_active')) {
-      $('.country_currency').addClass('country_currency_active');
-      $('.geo_info').css('border-bottom', '1px solid #52C9B9');
-    } else {
-      $('.country_currency').removeClass('country_currency_active');
-      $('.geo_info').removeAttr('style');
+    if (!$('.country_currency__item').hasClass('country_currency__item__active')) {
+      if (!$('.language_currency').hasClass('language_currency_active')) {
+        $('.language_currency').addClass('language_currency_active');
+        $('.geo_info').css('border-bottom', '1px solid #52C9B9');
+      } else {
+        $('.language_currency').removeClass('language_currency_active');
+        $('.geo_info').removeAttr('style');
+      }
     }
+  });
+  $('.country_currency__item').click(function () {
+    $('.country_currency__item').removeClass('country_currency__item__active');
+    $(this).addClass('country_currency__item__active');
+    console.log('cccc');
   });
   window.addEventListener('click', function (e) {
     // при клике в любом месте окна браузера
@@ -200,10 +221,13 @@ $(document).ready(function () {
     if (!target.closest('.search_tickets_block')) {
       $('.form_search_block_inputs').removeClass('block_inputs_active');
 
-      if (!target.closest('.geo_info')) {
-        $('.country_currency').removeClass('country_currency_active');
+      if (!target.closest('.geo_posistion_people')) {
+        $('.language_currency').removeClass('language_currency_active');
         $('.geo_info').removeAttr('style');
-      }
+      } // if (target.closest('.country_currency__item')) {
+      //     console.log('ccccccccc');
+      // }
+
 
       if (!target.closest('#dropbtn_from_flights')) {
         $('#dropbtn_from_flights').removeClass('rotate_180');
@@ -234,12 +258,20 @@ $(document).ready(function () {
           $('#dropbtn_count_pass').addClass('rotate_180');
         }
       }
+
+      if (!target.closest('.fa-bars')) {
+        if (!$('.fa-times').hasClass('non_view')) {
+          $('.fa-bars').removeClass('non_view');
+          $('.fa-times').addClass('non_view');
+          $('.additional_sub_menu').removeClass('additional_sub_menu__view');
+        }
+      }
     }
   });
   input_count_pass_block.click(function () {
     $('.drop_from_flights').removeClass('show_drop_content');
     $('.drop_to_flights').removeClass('show_drop_content');
-    $('.country_currency').removeClass('country_currency_active');
+    $('.language_currency').removeClass('language_currency_active');
     $(dropbtn_from_flights).removeClass('rotate_180');
     $(dropbtn_to_flights).removeClass('rotate_180');
     var drop_count_pass_elem = $('.drop_count_pass');
@@ -257,7 +289,13 @@ $(document).ready(function () {
     $('.drop_from_flights').removeClass('show_drop_content');
     $('.drop_to_flights').removeClass('show_drop_content');
     $('.drop_count_pass').removeClass('show_drop_content');
-    $('.country_currency').removeClass('country_currency_active');
+    $('.language_currency').removeClass('language_currency_active');
+
+    if (!$('#id_i_d_t_block').hasClass('calendar_active')) {
+      $('#id_i_d_t_block').addClass('calendar_active');
+    } else {
+      $('#id_i_d_t_block').removeClass('calendar_active');
+    }
   });
   $('#id_i_d_t').daterangepicker({
     autoUpdateInput: false,

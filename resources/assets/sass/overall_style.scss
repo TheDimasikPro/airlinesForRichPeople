@@ -81,6 +81,7 @@ $prefixes: ("-moz-", "");
     transition: 0.2s;
     @include selection(white, $light_green);
     scroll-behavior: smooth;
+    font-family: 'Roboto-Regular',sans-serif;
 }
 *::after,*::before{
     box-sizing: border-box;
@@ -99,7 +100,7 @@ body{
     background: $gray_1;
     // background: #F9F9F9;
     font-size: 14px;
-    font-family: 'Roboto-Regular',sans-serif;
+    
     @include custom_scroll_bar_body;
 }
 button,input{

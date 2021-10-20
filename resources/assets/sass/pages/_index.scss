@@ -33,13 +33,13 @@
     }
     .search_tickets_block{
         display: flex;
-        margin-top: 5px;
+        margin-top: 40px;
         .form_search_tickets{
             display: flex;
             justify-content: space-between;
             width: 100%;
-            margin-top: 35px;
-            .form_search_block_inputs{    
+            .form_search_block_inputs{
+                height: 40px;
                 .dropdown{
                     display: flex;
                     flex-direction: column;
@@ -100,6 +100,7 @@
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
+                            color: $black;
                             &:hover{
                                 cursor: pointer;
                                 background: $gray_4;
@@ -112,16 +113,13 @@
                             }
 
                             .info_country{
-                                color: $black_green_2;
                                 .city_name{
                                     font-size: $fz_second;
                                 }
                                 .desc_airport_eng{
                                     margin-top: 6px;
+                                    color: $black_green_2;
                                 }
-                            }
-                            .airport_name{
-                                color: $black_green_2;
                             }
                         }
                         .dc_count_pass{
