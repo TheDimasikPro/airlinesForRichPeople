@@ -123,39 +123,60 @@
                     color: $black;
                     transform-origin: 0 0;
                     transform: scaleY(0);
-                    top: 30px;
+                    top: 25px;
                     right: 0;
                     display: flex;
                     margin-bottom: 10px;
                     max-height: 188px;
-                    width: 250px;
-                    overflow-y: scroll;
-                    border-top: 0;
-                    border-bottom: 1px solid $gray_3;
+                    // width: 400px;
+                    overflow-y: auto;
+                    // border-top: 0;
+                    border: 1px solid $gray_3;
                     position: absolute;
                     z-index: 1000;
                     background: $white;
                     @include custom_scroll_bar;
-                    .country_currency__item{
-                        padding: 10px;
-                        border-bottom: 1px solid $gray_3;
-                        border-left: 1px solid $gray_3;
-                        background: $white;
-                        display: flex;
-                        align-items: center;
-                        span{
-                            display: flex;
-                            align-items: center;
-                            .lang_img,.fas{
-                                width: 14px;
-                                height: 14px;
-                                margin: 0 10px;
+                    .country_currency{
+                        &:first-child{
+                            width: 150px;
+                            .country_currency__item{
+                                border-bottom: 1px solid $gray_3;
                             }
                         }
-                        &:hover{
-                            cursor: auto;
+                        &:last-child{
+                            width: 250px;
+                            .country_currency__item{
+                                border-bottom: 1px solid $gray_3;
+                                border-left: 1px solid $gray_3;
+                            }
+                        }
+                        .country_currency__item{
+                            padding: 10px;
+                            background: $white;
+                            display: flex;
+                            align-items: center;
+                            span{
+                                display: flex;
+                                align-items: center;
+                                .lang_img{
+                                    width: 14px;
+                                    height: 14px;
+                                    margin: 0 10px;
+                                }
+                                .fas{
+                                    margin: 0 10px;
+                                    font-size: $fz_second;
+                                }
+                            }
+                            &:hover{
+                                cursor: auto;
+                            }
+                            &:last-child{
+                                border-bottom: none;
+                            }
                         }
                     }
+                    
                 }
                 .language_currency_active{
                     transform: scaleY(1);

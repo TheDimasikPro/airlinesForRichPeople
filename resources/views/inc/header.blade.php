@@ -85,17 +85,17 @@
                                 <p>Выберите валюту</p>
                             </li>
                             <li class="country_currency__item">
-                                <input type="radio" name="radio_lang" id="rus_lang">
+                                <input type="radio" name="radio_currency" id="ruble">
                                 <span>
                                     <i class="fas fa-ruble-sign" aria-hidden="true"></i>
                                     <p>Ruble</p>
                                 </span>
                             </li>
                             <li class="country_currency__item">
-                                <input type="radio" name="radio_lang" id="en_lang">
+                                <input type="radio" name="radio_currency" id="USA_dollar">
                                 <span>
-                                    <img src="/assets/images/flags/en.svg" alt="en" class="lang_img">
-                                    <p>English</p>
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <p>United States dollar</p>
                                 </span>
                             </li>
                         </ul>

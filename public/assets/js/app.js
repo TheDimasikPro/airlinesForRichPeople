@@ -60,6 +60,10 @@ $(document).ready(function () {
     }
   });
   flights_list_item.click(function () {
+    $('.nav_menu .geo_posistion_people').removeAttr('style');
+    $('.geo_posistion_people').removeClass('geo_posistion_people__active');
+    $('.language_currency').removeClass('language_currency_active');
+
     if ($(this).hasClass('check_in')) {
       $('.check_in_block').removeClass('non_view');
       $('.form_search_block_inputs').removeClass('block_inputs_active');
@@ -83,6 +87,8 @@ $(document).ready(function () {
     $('.language_currency').removeClass('language_currency_active');
     $(dropbtn_to_flights).removeClass('rotate_180');
     $('#dropbtn_count_pass').removeClass('rotate_180');
+    $('.nav_menu .geo_posistion_people').removeAttr('style');
+    $('.geo_posistion_people').removeClass('geo_posistion_people__active');
     var drop_from_flights_elem = $('.drop_from_flights');
     input_search_from_flights.focus();
     moveCaretToEnd(input_search_from_flights);
@@ -101,6 +107,8 @@ $(document).ready(function () {
     $('.language_currency').removeClass('language_currency_active');
     $(dropbtn_from_flights).removeClass('rotate_180');
     $('#dropbtn_count_pass').removeClass('rotate_180');
+    $('.nav_menu .geo_posistion_people').removeAttr('style');
+    $('.geo_posistion_people').removeClass('geo_posistion_people__active');
     input_search_to_flights.focus();
     moveCaretToEnd(input_search_to_flights);
     var dropbtn_to_flights_elem = $('.drop_to_flights');
@@ -118,6 +126,8 @@ $(document).ready(function () {
     $('.drop_count_pass').removeClass('show_drop_content');
     $('.language_currency').removeClass('language_currency_active');
     $('#dropbtn_count_pass').removeClass('rotate_180');
+    $('.nav_menu .geo_posistion_people').removeAttr('style');
+    $('.geo_posistion_people').removeClass('geo_posistion_people__active');
     var drop_from_flights_elem = $('.drop_from_flights');
 
     if (!$('.drop_from_flights').hasClass('show_drop_content')) {
@@ -130,6 +140,8 @@ $(document).ready(function () {
     $('.language_currency').removeClass('language_currency_active');
     $(dropbtn_from_flights).removeClass('rotate_180');
     $('#dropbtn_count_pass').removeClass('rotate_180');
+    $('.nav_menu .geo_posistion_people').removeAttr('style');
+    $('.geo_posistion_people').removeClass('geo_posistion_people__active');
     var drop_to_flights_elem = $('.drop_to_flights');
 
     if (!$('.drop_to_flights').hasClass('show_drop_content')) {
@@ -138,6 +150,9 @@ $(document).ready(function () {
   });
   $('.form_search_block_inputs').click(function () {
     $('.form_search_block_inputs').removeClass('block_inputs_active');
+    $('.nav_menu .geo_posistion_people').removeAttr('style');
+    $('.geo_posistion_people').removeClass('geo_posistion_people__active');
+    $('.language_currency').removeClass('language_currency_active');
 
     if ($(this).hasClass('back_data')) {
       $('#id_i_d_t_block').addClass('block_inputs_active');
@@ -195,24 +210,31 @@ $(document).ready(function () {
       $(elements).removeClass('select_elem_airport');
     }
   });
-  $('.geo_posistion_people').click(function () {
+  $('.geo_posistion_people').click(function (e) {
     $('.drop_count_pass').removeClass('show_drop_content');
     $('#dropbtn_count_pass').removeClass('rotate_180');
 
-    if (!$('.country_currency__item').hasClass('country_currency__item__active')) {
+    if (!$(this).hasClass('geo_posistion_people__active')) {
+      $('.geo_posistion_people').addClass('geo_posistion_people__active');
+
       if (!$('.language_currency').hasClass('language_currency_active')) {
         $('.language_currency').addClass('language_currency_active');
-        $('.geo_info').css('border-bottom', '1px solid #52C9B9');
+        $('.geo_posistion_people').css('color', '#52C9B9');
       } else {
         $('.language_currency').removeClass('language_currency_active');
-        $('.geo_info').removeAttr('style');
+        $('.geo_posistion_people').removeAttr('style');
+      }
+    } else {
+      var child = $('.geo_posistion_people').find($(e.target));
+
+      if (child == null) {
+        $('.geo_posistion_people').removeClass('geo_posistion_people__active');
       }
     }
   });
-  $('.country_currency__item').click(function () {
-    $('.country_currency__item').removeClass('country_currency__item__active');
-    $(this).addClass('country_currency__item__active');
-    console.log('cccc');
+  $('input[name="radio_lang"]').change(function () {// изменения языка сайта
+  });
+  $('input[name="radio_currency"]').change(function () {// изменение валюты на сайте
   });
   window.addEventListener('click', function (e) {
     // при клике в любом месте окна браузера
@@ -222,12 +244,10 @@ $(document).ready(function () {
       $('.form_search_block_inputs').removeClass('block_inputs_active');
 
       if (!target.closest('.geo_posistion_people')) {
+        $('.nav_menu .geo_posistion_people').removeAttr('style');
+        $('.geo_posistion_people').removeClass('geo_posistion_people__active');
         $('.language_currency').removeClass('language_currency_active');
-        $('.geo_info').removeAttr('style');
-      } // if (target.closest('.country_currency__item')) {
-      //     console.log('ccccccccc');
-      // }
-
+      }
 
       if (!target.closest('#dropbtn_from_flights')) {
         $('#dropbtn_from_flights').removeClass('rotate_180');
@@ -236,6 +256,8 @@ $(document).ready(function () {
         if (target.closest('#id_i_s_f_f')) {
           $('.drop_from_flights').addClass('show_drop_content');
           $(dropbtn_from_flights).addClass('rotate_180');
+          $('.nav_menu .geo_posistion_people').removeAttr('style');
+          $('.geo_posistion_people').removeClass('geo_posistion_people__active');
         }
       }
 
@@ -246,6 +268,9 @@ $(document).ready(function () {
         if (target.closest('#id_i_s_f_t')) {
           $('.drop_to_flights').addClass('show_drop_content');
           $(dropbtn_to_flights).addClass('rotate_180');
+          $('.nav_menu .geo_posistion_people').removeAttr('style');
+          $('.geo_posistion_people').removeClass('geo_posistion_people__active');
+          $('.language_currency').removeClass('language_currency_active');
         }
       }
 
@@ -256,6 +281,9 @@ $(document).ready(function () {
         if (target.closest('.drop_count_pass')) {
           $('.drop_count_pass').addClass('show_drop_content');
           $('#dropbtn_count_pass').addClass('rotate_180');
+          $('.nav_menu .geo_posistion_people').removeAttr('style');
+          $('.geo_posistion_people').removeClass('geo_posistion_people__active');
+          $('.language_currency').removeClass('language_currency_active');
         }
       }
 
@@ -264,6 +292,9 @@ $(document).ready(function () {
           $('.fa-bars').removeClass('non_view');
           $('.fa-times').addClass('non_view');
           $('.additional_sub_menu').removeClass('additional_sub_menu__view');
+          $('.nav_menu .geo_posistion_people').removeAttr('style');
+          $('.geo_posistion_people').removeClass('geo_posistion_people__active');
+          $('.language_currency').removeClass('language_currency_active');
         }
       }
     }

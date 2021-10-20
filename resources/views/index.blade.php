@@ -322,7 +322,7 @@
         </div>
         <!-- /.search_tickets_block -->
         <div class="check_in_block non_view">
-            <form action="" class="form form_check_in">
+            <form action="" class="form form_check_in df_jcspb_aic">
                 <input type="text" autocomplete="off" class="md_input" id="input_last_name_user" placeholder="Фамилия пассажира">
                 <input type="text" autocomplete="off" class="md_input" id="input_info_ticket_reserv" placeholder="Номер брони / билета">
                 <button class="btn search_reserve btn_style_1 upper" type="button">Найти бронь</button> 

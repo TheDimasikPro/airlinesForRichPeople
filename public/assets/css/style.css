@@ -284,15 +284,13 @@ input[type=button] {
   color: #222222;
   transform-origin: 0 0;
   transform: scaleY(0);
-  top: 30px;
+  top: 25px;
   right: 0;
   display: flex;
   margin-bottom: 10px;
   max-height: 188px;
-  width: 250px;
-  overflow-y: scroll;
-  border-top: 0;
-  border-bottom: 1px solid #eeeeee;
+  overflow-y: auto;
+  border: 1px solid #eeeeee;
   position: absolute;
   z-index: 1000;
   background: #ffffff;
@@ -310,25 +308,43 @@ input[type=button] {
   border-radius: 10px;
   background-color: #f9f9fd;
 }
-#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency__item {
-  padding: 10px;
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency:first-child {
+  width: 150px;
+}
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency:first-child .country_currency__item {
+  border-bottom: 1px solid #eeeeee;
+}
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency:last-child {
+  width: 250px;
+}
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency:last-child .country_currency__item {
   border-bottom: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
+}
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency .country_currency__item {
+  padding: 10px;
   background: #ffffff;
   display: flex;
   align-items: center;
 }
-#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency__item span {
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency .country_currency__item span {
   display: flex;
   align-items: center;
 }
-#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency__item span .lang_img, #header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency__item span .fas {
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency .country_currency__item span .lang_img {
   width: 14px;
   height: 14px;
   margin: 0 10px;
 }
-#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency__item:hover {
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency .country_currency__item span .fas {
+  margin: 0 10px;
+  font-size: 16px;
+}
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency .country_currency__item:hover {
   cursor: auto;
+}
+#header .d_menu .nav_menu .geo_posistion_people .language_currency .country_currency .country_currency__item:last-child {
+  border-bottom: none;
 }
 #header .d_menu .nav_menu .geo_posistion_people .language_currency_active {
   transform: scaleY(1);
@@ -537,8 +553,8 @@ input[type=button] {
 .work_with_flights .search_tickets_block .non_view {
   display: none;
 }
-.work_with_flights .check_in_block .form_check_in #input_info_ticket_reserv {
-  margin-left: 20px;
+.work_with_flights .check_in_block .form_check_in .search_reserve {
+  height: 40px;
 }
 
 .resorts, .add_services {
