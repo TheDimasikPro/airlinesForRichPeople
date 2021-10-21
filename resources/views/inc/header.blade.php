@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @yield('styles_link')
     <link rel="stylesheet" href="/assets/css/style.min.css">
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Regular.ttf" crossorigin>
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Bold.ttf" crossorigin>
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/0b1222bcc2.js" crossorigin="anonymous"></script>
-    <title>Rich Airlines</title>
+    <title>@yield('title_page')</title>
 </head>
 <body>
     

@@ -1,9 +1,6 @@
-@include('inc.header')
-<main class="container">
-    <section class="section_auth">
-        cdcd
-    </section>
-    <!-- /.section_auth -->
-</main>
-<!-- /.container -->
-@include('inc.footer')
+@extends('layouts.app_layout')
+@section('title_page','Авторизация')
+
+@section('content')
+    cdcd
+@endsection
