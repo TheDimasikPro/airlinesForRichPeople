@@ -1,58 +1,39 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/auth.min.css">
-    <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Regular.ttf" crossorigin>
-    <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Bold.ttf" crossorigin>
-    <title>Регистрация | AirlinesForRichPeople</title>
-</head>
-<body>
-    {{-- в регистрации должна быть почта, телефон, данные профиля(Фамилия,Имя,Дата рождения / Пол,Город проживания,Тип документа / Серия и номер,Страна выдачи) и пароль --}}
-    
-    {{-- регистрация будет проходить в несколько этапов: 
-    1) почта, телефон
-    2) данные профиля
-    3) пароль
-    4) финиш --}}
-    
-    <div class="container">
-        <div action="" class="block_form_auth">
-            <span class="title_auth">Регистрация</span> 
-            <!-- /.title_auth -->
-            <div class="reg_block">
-                <p class="important_message">
-                    <span>*</span> - Все поля обязательны для заполнения
-                </p>
-                <!-- /.important_message -->
-                <div class="short_info_nav">
-                    <nav class="reg_nav">
-                        <li>Контактные данные</li>
-                        <li>Личные данные</li>
-                        <li>Пароль</li>
-                        <li>Финиш</li>
-                    </nav>
-                </div>
-                <!-- /.short_info_nav -->
-                <div class="reg_block_all_info">
-                    <div class="short_all_info">
+@extends('layouts.app_layout')
+@section('title_page','Авторизация')
+@section('styles_link')
+    <link rel="stylesheet" href="/assets/css/auth.min.css">
+@endsection
+@section('content')
+    <div class="container df_jcc_aic">
+        <form action="" class="form form_auth">
+            <h1>Регистрация</h1>
 
-                        {{-- несколько списков  все списки и формы будут показывать через ajax --}}
-                        {{-- аналог это Уралськие авиалинии --}}
-                    </div>
-                    <!-- /.short_all_info -->
-                     {{-- несколько форм --}}
-                </div>
-                <!-- /.reg_block_all_info -->
+            {{-- регистрация проходит в несколько этапов
+            1) почта и телефон
+            2) паспортные данные, фио, год рождения
+            3) пароль4) финиш --}}
+
+            <div class="form_auth_block">
+                <label for="login">Login</label>
+                <input type="text" autocomplete="off" class="form_auth_input md_input" id="login" name="login" placeholder="Введите свой логин">
             </div>
-            <!-- /.reg_block -->
-            <button class="btn_reg btn_auth upper">Зарегистрироваться</button> 
-            <!-- /.btn btn_auth -->
-        </div>
-        <!-- /.block_form_auth -->
+            <!-- /.form_auth_block -->
+            <div class="form_auth_block">
+                <label for="password">Password</label>
+                <input type="password" autocomplete="off" class="form_auth_input md_input" id="password" name="password" placeholder="Введите свой пароль">
+            </div>
+            <!-- /.form_auth_block -->
+            <div class="form_auth_block">
+                <button class="btn btn_style_1 upper">Зарегистрироваться</button> 
+                <!-- /.btn btn_style_1 upper-->
+            </div>
+            <!-- /.form_auth_block -->
+            <div class="form_auth_block df_jcspb_aic">
+                <a href="{{ route('login_page') }}" class="link_auth link_login_page">Авторизоваться</a>
+            </div>
+            <!-- /.form_auth_block -->
+        </form>
+        <!-- /.form form_auth -->
     </div>
     <!-- /.container -->
-</body>
-</html>
+@endsection
