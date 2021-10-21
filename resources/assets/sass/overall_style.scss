@@ -69,6 +69,10 @@ $prefixes: ("-moz-", "");
     }
 }
 
+@mixin input_overall_style {
+    height: 40px;
+    font-weight: 400;
+}
 *{
     border:none;
     background: none;
@@ -140,39 +144,37 @@ button{
 }
 .min_input{
     width: 150px;
-    height: 40px;
-    font-weight: 400;
+    @include input_overall_style;
     border: 1px solid $black_green;
     padding-right: 35px;
 }
 .sm_input{
     width: 250px;
-    height: 40px;
-    font-weight: 400;
+    @include input_overall_style;
     border: 1px solid $black_green;
     padding-right: 35px;
 }
 .md_input{
     width: 400px;
-    height: 40px;
-    font-weight: 400;
+    @include input_overall_style;
     border: 1px solid $black_green;
 }
 .big_input{
     width: 500px;
-    position: relative;
-    height: 30px;
+    @include input_overall_style;
     font-size: $fz_second;
-    font-weight: 400;
+}
+.super_big_input{
+    width: 700px;
+    font-size: $fz_second;
+    border: 1px solid $black_green;
+    @include input_overall_style;
 }
 input[type="button"]{
     cursor: pointer;
     text-align: left;
-    // color: $black_green;
 }
-// input::-webkit-input-placeholder{
-//     color: $black_green;
-// }
+
 .rotate_180{
     transform-origin: center;
     transform: rotate(180deg);
@@ -185,7 +187,6 @@ input[type="button"]{
     background: $light_green;
     height: 35px;
     color: $white;
-    // margin-left: 20px;
     outline-offset: 0px;
     @keyframes pulse {
         0% { 

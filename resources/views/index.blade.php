@@ -1,6 +1,8 @@
 @extends('layouts.app_layout')
 @section('title_page','Rich Airlines')
-
+@section('styles_link')
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+@endsection
 @section('content')
     <section class="container">
         <div class="work_with_flights">
@@ -236,7 +238,7 @@
                     <div class="form_search_block_inputs">
                         <div class="dropdown dd_count_pass">
                             <div class="input_count_pass_block df_jcc_aic">
-                                <input type="text" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="1 пассажир:">
+                                <input type="text" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="0 пассажиров">
                                 <button class="dropbtn" type="button" id="dropbtn_count_pass">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>

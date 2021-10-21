@@ -14,7 +14,8 @@ $(document).ready(function () {
   var input_search_from_flights = $('#id_i_s_f_f');
   var input_search_to_flights = $('#id_i_s_f_t');
   var flights_list_item = $('.flights_list_item');
-  var input_count_pass_block = $('.input_count_pass_block'); // функции
+  var input_count_pass_block = $('.input_count_pass_block');
+  var input_count_pass = $('#id_i_c_pass'); // функции
 
   function showdropDownListCitiesSearchFlights(button, dropdown_info) {
     $(button).addClass('rotate_180');
@@ -356,6 +357,35 @@ $(document).ready(function () {
   var old_count_pass = $('#old_count_pass');
   var kids_count_pass = $('#kids_count_pass');
   var baby_count_pass = $('#baby_count_pass');
+
+  function countPassInput() {
+    var old_count_pass = Number($('#old_count_pass').text());
+    var kids_count_pass = Number($('#kids_count_pass').text());
+    var baby_count_pass = Number($('#baby_count_pass').text());
+    var new_value = old_count_pass + kids_count_pass + baby_count_pass;
+
+    if (new_value == 1) {
+      var new_value_input = new_value + " пассажир";
+      $(input_count_pass).val(new_value_input);
+    } else if (new_value < 5 && new_value != 0) {
+      var new_value_input = new_value + " пассажира";
+      $(input_count_pass).val(new_value_input);
+    } else if (new_value == 21) {
+      var new_value_input = new_value + " пассажир";
+      $(input_count_pass).val(new_value_input);
+    } else if (new_value >= 5 && new_value < 21) {
+      var new_value_input = new_value + " пассажиров";
+      $(input_count_pass).val(new_value_input);
+    } else if (new_value == 0) {
+      var new_value_input = new_value + " пассажиров";
+      $(input_count_pass).val(new_value_input);
+    } else if (new_value >= 5 && new_value > 21) {
+      var new_value_input = new_value + " пассажира";
+      $(input_count_pass).val(new_value_input);
+    }
+  }
+
+  ;
   btn_plus_old.click(function (e) {
     e.preventDefault();
     var old_count_pass_value = Number(old_count_pass.text());
@@ -365,6 +395,7 @@ $(document).ready(function () {
     } else {
       var new_value = old_count_pass_value + 1;
       old_count_pass.text(new_value);
+      countPassInput();
     }
   });
   btn_minus_old.click(function (e) {
@@ -376,6 +407,7 @@ $(document).ready(function () {
     } else {
       var new_value = old_count_pass_value - 1;
       old_count_pass.text(new_value);
+      countPassInput();
     }
   });
   btn_plus_kids.click(function (e) {
@@ -387,6 +419,7 @@ $(document).ready(function () {
     } else {
       var new_value = kids_count_pass_value + 1;
       kids_count_pass.text(new_value);
+      countPassInput();
     }
   });
   btn_minus_kids.click(function (e) {
@@ -398,6 +431,7 @@ $(document).ready(function () {
     } else {
       var new_value = kids_count_pass_value - 1;
       kids_count_pass.text(new_value);
+      countPassInput();
     }
   });
   btn_plus_baby.click(function (e) {
@@ -409,6 +443,7 @@ $(document).ready(function () {
     } else {
       var new_value = baby_count_pass_value + 1;
       baby_count_pass.text(new_value);
+      countPassInput();
     }
   });
   btn_minus_baby.click(function (e) {
@@ -420,6 +455,7 @@ $(document).ready(function () {
     } else {
       var new_value = baby_count_pass_value - 1;
       baby_count_pass.text(new_value);
+      countPassInput();
     }
   });
 });

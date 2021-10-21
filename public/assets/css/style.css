@@ -120,9 +120,16 @@ button {
 
 .big_input {
   width: 500px;
-  position: relative;
-  height: 30px;
+  height: 40px;
+  font-weight: 400;
   font-size: 16px;
+}
+
+.super_big_input {
+  width: 700px;
+  font-size: 16px;
+  border: 1px solid #BEBEBE;
+  height: 40px;
   font-weight: 400;
 }
 

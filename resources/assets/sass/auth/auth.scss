@@ -1,4 +1,5 @@
 @import '../overall_style.scss';
+@import '../header.scss';
 .form_auth{
     display: flex;
     flex-direction: column;
@@ -37,5 +38,49 @@
         .link_login_page{
             width: 110px;
         }
+
+        .form_auth__row{
+            display: flex;
+            .stages_list{
+                width: 700px;
+                .stages_list__item{
+                    font-weight: bold;
+                    color: $black_green;
+                    font-size: $fz_second;
+                    &.stages_list__item_active{
+                        color: $black
+                    }
+                }
+            }
+            .form_auth_block{
+                display: flex;
+                flex-direction: column;
+                .btn{
+                    width: 700px;
+                }
+                .form_auth_input{
+                    border: none;
+                    border-bottom: 1px solid $black_green;
+                    
+                    display: inline-block;
+                    &:after{
+                        display:block;
+                        content: '';
+                        border-bottom: 1px solid $black;  
+                        transform: scaleX(0);  
+                        transition: transform 0.8s ;
+                        transform-origin: 100% 50%;
+                    }
+                    &:hover:after{
+                        transform: scaleX(1); 
+                        // background: red;
+                    }
+                }
+                .form_auth_input:hover:after{
+                    transform: scaleX(1);
+                }
+            }
+        }
     }
 }
+@import '../footer.scss';
