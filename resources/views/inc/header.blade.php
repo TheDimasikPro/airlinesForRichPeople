@@ -106,7 +106,7 @@
                 </li>
                 <!-- /.geo_posistion_people -->
                 <li class="my_cabinet">
-                    <a href="" class="link_header">
+                    <a href="{{ route('login_page') }}" class="link_header">
                         <i class="fas fa-user"></i>
                     </a>
                     <!-- /.link_header -->
