@@ -195,6 +195,7 @@ input[type="button"]{
     &:hover{
         animation: pulse 0.8s;
         box-shadow: 0 0 0 2em rgba($white,0);
+        color: $black;
     }
 }
 

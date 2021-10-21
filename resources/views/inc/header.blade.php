@@ -28,7 +28,7 @@
                 <!-- /.btn .additional menu-->
                 
                 <div class="logo_image">
-                    <a href="" class="link_header">
+                    <a href="{{ route('index_page') }}" class="link_header">
                         <img src="/assets/images/logo.png" alt="" class="logo">
                     </a> 
                     <!-- /.link_header -->
@@ -122,7 +122,7 @@
         <div class="container df_jcspb_aic">
             <ul class="add_sub_menu_list">
                 <a href="" class="sub_menu__link"><li class="sub_menu__item">Провоз животных на борту</li></a>
-                <a href="" class="sub_menu__link"><li class="sub_menu__item">Об авиакомпании</li></a>
+                <a href="{{ route('about_page') }}" class="sub_menu__link"><li class="sub_menu__item">Об авиакомпании</li></a>
                 <a href="" class="sub_menu__link"><li class="sub_menu__item">Питание на борту</li></a>
                 <a href="" class="sub_menu__link"><li class="sub_menu__item">Всё о багаже</li></a>
             </ul>

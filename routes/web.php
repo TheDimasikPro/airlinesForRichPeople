@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
 
@@ -17,9 +18,9 @@ use Stevebauman\Location\Facades\Location;
 |
 */
 
-Route::get('/', [IndexController::class,'index']);
-Route::get('/login', [LoginController::class,'index']);
-Route::get('/reg', [RegisterController::class,'index']);
+Route::get('/', [IndexController::class,'index'])->name('index_page');
+Route::get('/login', [LoginController::class,'index'])->name('login_page');
+Route::get('/reg', [RegisterController::class,'index'])->name('reg_page');
 
 // определние ip пользователя и его страны
 Route::get('/ip', function () {
@@ -38,3 +39,5 @@ Route::get('/ip', function () {
     // $data = \Location::get($ip);
     // dd($data);
 });
+
+Route::get('/about',[MainController::class,'returnViewAbout'])->name('about_page');
