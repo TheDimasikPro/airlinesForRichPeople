@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @yield('styles_link')
     <link rel="stylesheet" href="/assets/css/style.min.css">
+    {{-- <link rel="stylesheet" href="/assets/css/auth.min.css"> --}}
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Regular.ttf" crossorigin>
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Bold.ttf" crossorigin>
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
