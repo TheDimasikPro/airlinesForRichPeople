@@ -71,7 +71,7 @@
                     }
                 }
 
-                #dropbtn_prefix_phone{
+                #dropbtn_prefix_phone,#dropbtn_gender_code{
                     position: absolute;
                     display:block;
                     right: 0;
@@ -89,7 +89,7 @@
                     width: 0%;
                     transition: width 1s;
                 }
-                .prefix_phone_list{
+                .prefix_phone_list,.gender_code_list{
                     transform-origin: 0 0;
                     transform: scaleY(0);
                     background: $white;
@@ -105,7 +105,7 @@
                     z-index: 1000;
                     top: 66px;
                     @include custom_scroll_bar_body;
-                    .prefix_phone_list__item{
+                    .prefix_phone_list__item,.gender_code_list__item{
                         padding: 10px;
                         border:1px solid $gray_3;
                         background: $white;
@@ -146,8 +146,11 @@
     padding: 10px;
     margin-left: -10px;
     background: $white;
-    // animation: slidein 1s ease-in-out;
-    border: 1px solid $black_green_2;
+    animation: slidein 0.8s ease-in-out;
+    opacity: 1;
+    z-index: 1000;
+    // border: 2px solid $black_green_2;
+    box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
 }
 @keyframes slidein {
     0% {

@@ -106,11 +106,96 @@
                         </div>
                     </form>
                     <!-- /.form_auth_contact_data -->
+                    <form action="" class="form_auth_profile_data">
+                        <div class="form_auth_block">
+                            <label for="full_name">Full name</label>
+                            <input type="text" autocomplete class="super_big_input form_auth_input" id="full_name" name="full_name" placeholder="Введите полное имя">
+                            <div class="form_auth__slider_input"></div>
+                            <!-- /.form_auth__slider_input -->
+                        </div>
+                        <!-- /.form_auth_block -->
+                        <div class="form_auth__row df_jcspb_aic">
+                            <div class="form_auth_block">
+                                <label for="date_birthday">Date birthday</label>
+                                <input type="date" autocomplete class="sm_input_2 form_auth_input" id="date_birthday" name="date_birthday" placeholder="Дата рождения">
+                                <div class="form_auth__slider_input"></div>
+                            </div>
+                            <!-- /.form_auth_block -->
+                            <div class="form_auth_block">
+                                <label for="gender_code">Gender</label>
+                                <input type="text" autocomplete class="sm_input_2 form_auth_input" readonly id="gender_code" name="gender_code" placeholder="Пол">
+                                <button class="dropbtn" type="button" id="dropbtn_gender_code">
+                                    <i class="fas fa-arrow-down" id=""></i>
+                                </button>
+                                
+                                <div class="form_auth__slider_input"></div>
+                                <!-- /.form_auth__slider_input -->
+                                <ul class="gender_code_list">
+                                    <li class="gender_code_list__item">Мужской</li>
+                                    <li class="gender_code_list__item">Женский</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form_auth_block">
+                            <label for="city_name">City</label>
+                            <input type="text" autocomplete class="super_big_input form_auth_input" id="city_name" name="city_name" placeholder="Введите название своего города">
+                            <div class="form_auth__slider_input"></div>
+                            <!-- /.form_auth__slider_input -->
+                        </div>
+                        <div class="form_auth__row df_jcspb_aic">
+                            <div class="form_auth_block">
+                                <label for="date_birthday">Date birthday</label>
+                                <input type="date" autocomplete class="sm_input_2 form_auth_input" id="date_birthday" name="date_birthday" placeholder="Дата рождения">
+                                <div class="form_auth__slider_input"></div>
+                            </div>
+                            <!-- /.form_auth_block -->
+                            <div class="form_auth_block">
+                                <label for="gender_code">Gender</label>
+                                <input type="text" autocomplete class="sm_input_2 form_auth_input" readonly id="gender_code" name="gender_code" placeholder="Пол">
+                                <button class="dropbtn" type="button" id="dropbtn_gender_code">
+                                    <i class="fas fa-arrow-down" id=""></i>
+                                </button>
+                                
+                                <div class="form_auth__slider_input"></div>
+                                <!-- /.form_auth__slider_input -->
+                                <ul class="gender_code_list">
+                                    <li class="gender_code_list__item">Мужской</li>
+                                    <li class="gender_code_list__item">Женский</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form_auth_block">
+                            <label for="city_name">City</label>
+                            <input type="text" autocomplete class="super_big_input form_auth_input" id="city_name" name="city_name" placeholder="Введите название своего города">
+                            <div class="form_auth__slider_input"></div>
+                            <!-- /.form_auth__slider_input -->
+                        </div>
+                        <div class="form_auth_block">
+                            <button class="btn btn_style_1 upper" type="button" id="complete_contact_data">Продолжить</button> 
+                            <!-- /.btn btn_style_1 upper-->
+                        </div>
+                        <!-- /.form_auth_block -->
+                        <!-- /.form_auth__row -->
+                        {{-- <div class="form_auth_block">
+                            <label for="date_birthday">Date birthday</label>
+                            <input type="date" autocomplete class="sm_input_2 form_auth_input" id="date_birthday" name="date_birthday" placeholder="Дата рождения">
+                            <div class="form_auth__slider_input"></div>
+                            <!-- /.form_auth__slider_input -->
+                        </div>
+                        <!-- /.form_auth_block --> --}}
+                    </form>
+                    <!-- /.form_auth_profile_data -->
                 </div>
                 <!-- /.form_auth__row -->
             </div>
             <!-- /.form_auth_block -->
            
+            
+
+
+
+
+
             {{-- <div class="form_auth_block">
                 <button class="btn btn_style_1 upper">Зарегистрироваться</button> 
                 <!-- /.btn btn_style_1 upper-->

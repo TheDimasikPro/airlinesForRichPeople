@@ -154,6 +154,12 @@ button{
     border: 1px solid $black_green;
     padding-right: 35px;
 }
+.sm_input_2{
+    width: 322px;
+    @include input_overall_style;
+    border: 1px solid $black_green;
+    padding-right: 35px;
+}
 .md_input{
     width: 400px;
     @include input_overall_style;

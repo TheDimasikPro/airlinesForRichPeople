@@ -111,6 +111,14 @@ button {
   padding-right: 35px;
 }
 
+.sm_input_2 {
+  width: 322px;
+  height: 40px;
+  font-weight: 400;
+  border: 1px solid #BEBEBE;
+  padding-right: 35px;
+}
+
 .md_input {
   width: 400px;
   height: 40px;
