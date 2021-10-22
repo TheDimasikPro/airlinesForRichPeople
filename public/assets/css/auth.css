@@ -252,7 +252,7 @@ input[type=button] {
 }
 #header .d_menu .search .form_search .span_big_input .search_input {
   border-bottom: 1px solid #BEBEBE;
-  transition: 1s;
+  transition: 0.8s;
 }
 #header .d_menu .search .form_search .span_big_input .search_input:focus {
   border-bottom: 1px solid #222222;
@@ -261,7 +261,7 @@ input[type=button] {
   position: absolute;
   display: block;
   left: 0;
-  top: 97%;
+  top: 39px;
   margin: 0 auto;
   height: 1px;
   background-color: #222222;
@@ -363,10 +363,13 @@ input[type=button] {
   border: 1px solid #E5E5E5;
   box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
   margin: 20px 0;
+  min-height: 420px;
+  justify-content: flex-start;
 }
 .form_auth .form_auth_block {
   display: flex;
   flex-direction: column;
+  position: relative;
   margin-top: 20px;
 }
 .form_auth .form_auth_block:last-child {
@@ -413,28 +416,148 @@ input[type=button] {
 .form_auth .form_auth_block .form_auth__row .form_auth_block {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .form_auth .form_auth_block .form_auth__row .form_auth_block .btn {
   width: 700px;
 }
 .form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth_input {
+  transition: 0.8s;
   border: none;
   border-bottom: 1px solid #BEBEBE;
-  display: inline-block;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth_input:after {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth_input:focus {
+  border-color: #222222;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_prefix_phone {
+  position: absolute;
   display: block;
-  content: "";
-  border-bottom: 1px solid #222222;
-  transform: scaleX(0);
-  transition: transform 0.8s;
-  transform-origin: 100% 50%;
+  right: 0;
+  top: 50%;
+  cursor: pointer;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth_input:hover:after {
-  transform: scaleX(1);
+.form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth__slider_input {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 65px;
+  margin: 0 auto;
+  height: 1px;
+  background-color: #222222;
+  width: 0%;
+  transition: width 1s;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth_input:hover:after {
-  transform: scaleX(1);
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list {
+  transform-origin: 0 0;
+  transform: scaleY(0);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  max-height: 200px;
+  width: 150px;
+  overflow-y: auto;
+  border-top: 0;
+  border-bottom: 1px solid #eeeeee;
+  position: absolute;
+  z-index: 1000;
+  top: 66px;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: #f9f9fd;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #52C9B9;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9fd;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item {
+  padding: 10px;
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #222222;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:hover {
+  cursor: pointer;
+  background: #F7F7F7;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:last-child {
+  border-bottom: none;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:not(:first-child) {
+  border-top: none;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .select_prefix_phone {
+  background: #84C2AD;
+  color: #ffffff;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block:hover .form_auth__slider_input {
+  width: 100%;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .show_drop_content {
+  transform: scaleY(1);
+}
+
+.form_auth_card__anim {
+  position: absolute;
+  padding: 10px;
+  margin-left: -10px;
+  background: #ffffff;
+  border: 1px solid #999999;
+}
+
+@-webkit-keyframes slidein {
+  0% {
+    margin-top: -20px;
+  }
+  30% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -15px;
+  }
+  70% {
+    margin-top: 0px;
+  }
+  85% {
+    margin-top: -10px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    margin-top: -20px;
+  }
+  30% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -15px;
+  }
+  70% {
+    margin-top: 0px;
+  }
+  85% {
+    margin-top: -10px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+.form_auth_block__anim {
+  bottom: 0;
 }
 
 .non_view {

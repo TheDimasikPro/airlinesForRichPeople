@@ -252,7 +252,7 @@ input[type=button] {
 }
 #header .d_menu .search .form_search .span_big_input .search_input {
   border-bottom: 1px solid #BEBEBE;
-  transition: 1s;
+  transition: 0.8s;
 }
 #header .d_menu .search .form_search .span_big_input .search_input:focus {
   border-bottom: 1px solid #222222;
@@ -261,7 +261,7 @@ input[type=button] {
   position: absolute;
   display: block;
   left: 0;
-  top: 97%;
+  top: 39px;
   margin: 0 auto;
   height: 1px;
   background-color: #222222;

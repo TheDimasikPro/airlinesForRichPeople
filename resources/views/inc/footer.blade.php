@@ -42,5 +42,6 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="/assets/js/app.js"></script>
+<script src="/assets/js/maskedinput.min.js"></script>
 </body>
 </html>

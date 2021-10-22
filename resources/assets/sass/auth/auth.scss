@@ -7,9 +7,12 @@
     border: 1px solid $gray_5;
     box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
     margin: 20px 0;
+    min-height: 420px;
+    justify-content: flex-start;
     .form_auth_block{
         display: flex;
         flex-direction: column;
+        position: relative;
         margin-top: 20px;
         &:last-child{
             flex-direction: row;
@@ -55,32 +58,123 @@
             .form_auth_block{
                 display: flex;
                 flex-direction: column;
+                position: relative;
                 .btn{
                     width: 700px;
                 }
                 .form_auth_input{
+                    transition: 0.8s;
                     border: none;
                     border-bottom: 1px solid $black_green;
-                    
-                    display: inline-block;
-                    &:after{
-                        display:block;
-                        content: '';
-                        border-bottom: 1px solid $black;  
-                        transform: scaleX(0);  
-                        transition: transform 0.8s ;
-                        transform-origin: 100% 50%;
-                    }
-                    &:hover:after{
-                        transform: scaleX(1); 
-                        // background: red;
+                    &:focus{
+                        border-color: $black;
                     }
                 }
-                .form_auth_input:hover:after{
-                    transform: scaleX(1);
+
+                #dropbtn_prefix_phone{
+                    position: absolute;
+                    display:block;
+                    right: 0;
+                    top: 50%;
+                    cursor: pointer;
                 }
+                .form_auth__slider_input{
+                    position: absolute;
+                    display:block;
+                    left: 0;
+                    top: 65px;
+                    margin:0 auto;
+                    height: 1px;
+                    background-color: $black;
+                    width: 0%;
+                    transition: width 1s;
+                }
+                .prefix_phone_list{
+                    transform-origin: 0 0;
+                    transform: scaleY(0);
+                    background: $white;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                    max-height: 200px;
+                    width: 150px;
+                    overflow-y: auto;
+                    border-top: 0;
+                    border-bottom: 1px solid $gray_3;
+                    position: absolute;
+                    z-index: 1000;
+                    top: 66px;
+                    @include custom_scroll_bar_body;
+                    .prefix_phone_list__item{
+                        padding: 10px;
+                        border:1px solid $gray_3;
+                        background: $white;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        color: $black;
+                        &:hover{
+                            cursor: pointer;
+                            background: $gray_4;
+                        }
+                        &:last-child{
+                            border-bottom: none;
+                        }
+                        &:not(:first-child){
+                            border-top: none;
+                        }
+                    }
+                    .select_prefix_phone{
+                        background: $light_green_2;
+                        color: $white;
+                    }
+                }
+                &:hover .form_auth__slider_input{
+                    width: 100%;
+                }
+                .show_drop_content{
+                    transform: scaleY(1);
+                }
+                
             }
         }
     }
+    
+}
+.form_auth_card__anim{
+    position: absolute;
+    padding: 10px;
+    margin-left: -10px;
+    background: $white;
+    // animation: slidein 1s ease-in-out;
+    border: 1px solid $black_green_2;
+}
+@keyframes slidein {
+    0% {
+        margin-top: -20px;
+    }
+  
+    30% {
+        margin-top: 0px;
+    }
+  
+    50% {
+        margin-top: -15px;
+    }
+    70%{
+        margin-top: 0px;
+    }
+    85%{
+        margin-top: -10px;
+        
+    }
+    100%{
+        margin-top: 0px;
+        // margin-left: -10px;
+    }
+  }
+.form_auth_block__anim{
+    // margin-top: auto;
+    bottom: 0;
 }
 @import '../footer.scss';

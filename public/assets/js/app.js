@@ -15,7 +15,8 @@ $(document).ready(function () {
   var input_search_to_flights = $('#id_i_s_f_t');
   var flights_list_item = $('.flights_list_item');
   var input_count_pass_block = $('.input_count_pass_block');
-  var input_count_pass = $('#id_i_c_pass'); // функции
+  var input_count_pass = $('#id_i_c_pass');
+  var dropbtn_prefix_phone = $('#dropbtn_prefix_phone'); // функции
 
   function showdropDownListCitiesSearchFlights(button, dropdown_info) {
     $(button).addClass('rotate_180');
@@ -298,6 +299,22 @@ $(document).ready(function () {
           $('.language_currency').removeClass('language_currency_active');
         }
       }
+
+      if (!target.closest('#dropbtn_prefix_phone')) {
+        var dropbtn_prefix_phone = $('#dropbtn_prefix_phone');
+
+        if (target.closest('.form_auth_input[id="prefix_phone"]')) {
+          if (!$('.prefix_phone_list').hasClass('show_drop_content')) {
+            showdropDownListCitiesSearchFlights(dropbtn_prefix_phone, $('.prefix_phone_list'));
+          } else {
+            $('.prefix_phone_list').removeClass('show_drop_content');
+            dropbtn_prefix_phone.removeClass('rotate_180');
+          }
+        } else {
+          $('.prefix_phone_list').removeClass('show_drop_content');
+          $(dropbtn_prefix_phone).removeClass('rotate_180');
+        }
+      }
     }
   });
   input_count_pass_block.click(function () {
@@ -457,6 +474,44 @@ $(document).ready(function () {
       baby_count_pass.text(new_value);
       countPassInput();
     }
+  });
+  dropbtn_prefix_phone.click(function (e) {
+    e.preventDefault();
+
+    if (!$('.prefix_phone_list').hasClass('show_drop_content')) {
+      showdropDownListCitiesSearchFlights(this, $('.prefix_phone_list'));
+    } else {
+      $('.prefix_phone_list').removeClass('show_drop_content');
+      $(this).removeClass('rotate_180');
+    }
+  });
+  $('.prefix_phone_list__item').click(function () {
+    var prefix_phone__text = $(this).text();
+    $('#prefix_phone').val(prefix_phone__text);
+    $(this).addClass('select_prefix_phone');
+  });
+  $("#phone").mask("(999)999-999-9", {
+    completed: function completed() {
+      console.log("харош");
+    }
+  });
+  $('#complete_contact_data').click(function (e) {
+    e.preventDefault();
+    $('.form_auth_contact_data').addClass('form_auth_card__anim');
+    $('#auth_block_btn').addClass('form_auth_block__anim');
+    $('#auth_block_btn').css('margin-top', 'auto');
+    setTimeout(function () {
+      $('.form_auth_contact_data').css('margin-left', '-1000px'); // $('.form_auth_contact_data').css('display','none');
+      // $('.form_auth_contact_data').removeClass('form_auth_card__anim');
+      // $('#auth_block_btn').removeClass('form_auth_block__anim');
+      // $('#auth_block_btn').removeAttr('style');
+      // $('.form_auth_contact_data').removeAttr('style');
+    }, 1000);
+    setTimeout(function () {
+      // $('.form_auth_contact_data').css('padding','0');
+      // $('.form_auth_contact_data').css('margin-left','0');
+      $('.form_auth_contact_data').css('display', 'none');
+    }, 1350);
   });
 });
 
