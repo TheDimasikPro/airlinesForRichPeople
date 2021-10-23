@@ -643,9 +643,9 @@ $(document).ready(function () {
     $('#auth_block_btn').addClass('form_auth_block__anim');
     $('#auth_block_btn').css('margin-top', 'auto');
     setTimeout(function () {
-      $('#auth_block_btn').removeAttr('style');
-    }, 50);
-    setTimeout(function () {
+      $('#main_form_auth').animate({
+        minHeight: "675px"
+      }, 500);
       setTimeout(function () {
         $('.form_auth_profile_data').css('display', "block");
       }, 650);
@@ -660,12 +660,90 @@ $(document).ready(function () {
         $('.form_auth_profile_data').removeClass('form_auth_non_view');
         $('.stages_list__item').removeClass('stages_list__item_active');
         $('.stages_list__item:nth-child(2)').addClass('stages_list__item_active');
+        $('#auth_block_btn').removeClass('form_auth_block__anim');
       }, 1380);
       setTimeout(function () {
         // $('.form_auth_contact_data').css('display','none');
         $('.form_auth_contact_data').addClass('form_auth_card__complete_anim');
+        $('.form_auth_contact_data').removeAttr('style');
+      }, 500);
+    }, 500);
+    setTimeout(function () {
+      $('#auth_block_btn').removeAttr('style');
+    }, 2370);
+  });
+  $('#complete_profile_data').click(function (e) {
+    e.preventDefault();
+    $('.form_auth_profile_data').removeAttr('style');
+    $('.form_auth_profile_data').addClass('form_auth_card__anim');
+    $('#auth_block_btn').addClass('form_auth_block__anim');
+    $('#auth_block_btn').css('margin-top', 'auto');
+    setTimeout(function () {
+      $('#main_form_auth').removeAttr('style');
+      $('#main_form_auth').animate({
+        minHeight: "335px"
+      }, 1300);
+      setTimeout(function () {
+        $('.form_auth_password_data').css('display', "block");
+      }, 650);
+      $('.form_auth_password_data').animate({
+        marginLeft: "0px",
+        opacity: "1"
+      }, 1200);
+      $('.form_auth_profile_data').animate({
+        marginLeft: "-1500px"
       }, 700);
-    }, 1000);
+      setTimeout(function () {
+        $('.form_auth_password_data').removeClass('form_auth_non_view');
+        $('.stages_list__item').removeClass('stages_list__item_active');
+        $('.stages_list__item:nth-child(3)').addClass('stages_list__item_active');
+        $('#auth_block_btn').removeClass('form_auth_block__anim');
+      }, 1380);
+      setTimeout(function () {
+        // $('.form_auth_contact_data').css('display','none');
+        $('.form_auth_profile_data').addClass('form_auth_card__complete_anim');
+        $('.form_auth_profile_data').removeAttr('style');
+      }, 700);
+    }, 500);
+    setTimeout(function () {
+      $('#auth_block_btn').removeAttr('style');
+    }, 2370);
+  });
+  $('#complete_password_data').click(function (e) {
+    e.preventDefault();
+    $('.form_auth_password_data').removeAttr('style');
+    $('.form_auth_password_data').addClass('form_auth_card__anim');
+    $('#auth_block_btn').addClass('form_auth_block__anim');
+    $('#auth_block_btn').css('margin-top', 'auto');
+    setTimeout(function () {
+      $('#main_form_auth').animate({
+        minHeight: "660px"
+      }, 500);
+      setTimeout(function () {
+        $('.form_auth_finish_data').css('display', "block");
+      }, 650);
+      $('.form_auth_finish_data').animate({
+        marginLeft: "0px",
+        opacity: "1"
+      }, 1200);
+      $('.form_auth_password_data').animate({
+        marginLeft: "-1500px"
+      }, 700);
+      setTimeout(function () {
+        $('.form_auth_finish_data').removeClass('form_auth_non_view');
+        $('.stages_list__item').removeClass('stages_list__item_active');
+        $('.stages_list__item:nth-child(4)').addClass('stages_list__item_active');
+        $('#auth_block_btn').removeClass('form_auth_block__anim');
+      }, 1380);
+      setTimeout(function () {
+        // $('.form_auth_contact_data').css('display','none');
+        $('.form_auth_password_data').addClass('form_auth_card__complete_anim');
+        $('.form_auth_password_data').removeAttr('style');
+      }, 700);
+    }, 500);
+    setTimeout(function () {
+      $('#auth_block_btn').removeAttr('style');
+    }, 1800);
   });
   $('#show_passwod').click(function (e) {
     e.preventDefault();
@@ -684,6 +762,9 @@ $(document).ready(function () {
       $('#input_password').attr('type', 'password');
       $('#show_passwod').removeClass('non_view');
     }
+  });
+  $('#btn_restart_registered').click(function () {
+    location.reload();
   });
 });
 

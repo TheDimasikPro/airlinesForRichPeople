@@ -422,42 +422,43 @@ input[type=button] {
 .form_auth .form_auth_block .form_auth__row .stages_list .stages_list__item.stages_list__item_active {
   color: #222222;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second {
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-top: 20px;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .btn {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .btn {
   width: 700px;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth_input {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .form_auth_input {
   transition: 0.8s;
   border: none;
   border-bottom: 1px solid #BEBEBE;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth_input:focus {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .form_auth_input:focus {
   border-color: #222222;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block #type_document,
-.form_auth .form_auth_block .form_auth__row .form_auth_block #prefix_phone,
-.form_auth .form_auth_block .form_auth__row .form_auth_block #gender_code,
-.form_auth .form_auth_block .form_auth__row .form_auth_block #input_country_of_issue:hover {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second #type_document,
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second #prefix_phone,
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second #gender_code,
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second #input_country_of_issue:hover {
   cursor: pointer;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_prefix_phone, .form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_gender_code, .form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_type_document, .form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_country_of_issue {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second #dropbtn_prefix_phone, .form_auth .form_auth_block .form_auth__row .form_auth_block_second #dropbtn_gender_code, .form_auth .form_auth_block .form_auth__row .form_auth_block_second #dropbtn_type_document, .form_auth .form_auth_block .form_auth__row .form_auth_block_second #dropbtn_country_of_issue {
   position: absolute;
   display: block;
   right: 0;
   top: 50%;
   cursor: pointer;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block #show_passwod, .form_auth .form_auth_block .form_auth__row .form_auth_block #hide_passwod {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second #show_passwod, .form_auth .form_auth_block .form_auth__row .form_auth_block_second #hide_passwod {
   position: absolute;
   top: 50%;
   right: 0;
   font-size: 16px;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth__slider_input {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .form_auth__slider_input {
   position: absolute;
   display: block;
   left: 0;
@@ -468,7 +469,7 @@ input[type=button] {
   width: 0%;
   transition: width 1s;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list {
   transform-origin: 0 0;
   transform: scaleY(0);
   background: #ffffff;
@@ -484,21 +485,21 @@ input[type=button] {
   z-index: 1000;
   top: 66px;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list::-webkit-scrollbar {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list::-webkit-scrollbar {
   width: 12px;
   height: 12px;
   background-color: #f9f9fd;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list::-webkit-scrollbar-thumb {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #52C9B9;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list::-webkit-scrollbar-track {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: #f9f9fd;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .country_of_issue_list__item {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .country_of_issue_list__item {
   padding: 10px;
   border: 1px solid #eeeeee;
   background: #ffffff;
@@ -507,35 +508,61 @@ input[type=button] {
   align-items: center;
   color: #222222;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .country_of_issue_list__item:hover {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .country_of_issue_list__item:hover {
   cursor: pointer;
   background: #F7F7F7;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .country_of_issue_list__item:last-child {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .country_of_issue_list__item:last-child {
   border-bottom: none;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .country_of_issue_list__item:not(:first-child) {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .country_of_issue_list__item:not(:first-child) {
   border-top: none;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .select_list__item {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .select_list__item {
   background: #84C2AD;
   color: #ffffff;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .select_list__item:hover {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list .select_list__item:hover {
   color: #222222;
   background: #84C2AD;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block:hover .form_auth__slider_input {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second:hover .form_auth__slider_input {
   width: 100%;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .show_drop_content {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .show_drop_content {
   transform: scaleY(1);
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list {
   width: 322px;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list {
   width: 700px;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .title_text_finish h3 {
+  margin-bottom: 10px;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .title_text_finish span {
+  color: red;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .all_info_user_registered {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .all_info_user_registered .user_info_list {
+  width: 100%;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .all_info_user_registered .user_info_list .user_info_list__item {
+  padding: 8px 0;
+  border-bottom: 1px solid #999999;
+  display: flex;
+  justify-content: space-between;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .all_info_user_registered .user_info_list:first-child .user_info_list__item {
+  width: 100%;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second .all_info_user_registered .user_info_list:last-child .user_info_list__item_row .user_info_list__item {
+  width: 330px;
 }
 
 .form_auth_card__complete_anim {
@@ -558,8 +585,8 @@ input[type=button] {
   padding: 10px;
   margin-left: -10px;
   background: #ffffff;
-  -webkit-animation: slidein 0.8s ease-in-out;
-          animation: slidein 0.8s ease-in-out;
+  -webkit-animation: slidein 0.5s ease-in-out;
+          animation: slidein 0.5s ease-in-out;
   opacity: 1;
   z-index: 1000;
   box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
@@ -568,18 +595,6 @@ input[type=button] {
 @-webkit-keyframes slidein {
   0% {
     margin-top: -25px;
-  }
-  30% {
-    margin-top: 0px;
-  }
-  50% {
-    margin-top: -20px;
-  }
-  70% {
-    margin-top: 0px;
-  }
-  85% {
-    margin-top: -15px;
   }
   100% {
     margin-top: 0px;
@@ -590,23 +605,12 @@ input[type=button] {
   0% {
     margin-top: -25px;
   }
-  30% {
-    margin-top: 0px;
-  }
-  50% {
-    margin-top: -20px;
-  }
-  70% {
-    margin-top: 0px;
-  }
-  85% {
-    margin-top: -15px;
-  }
   100% {
     margin-top: 0px;
   }
 }
 .form_auth_block__anim {
+  margin-top: auto;
   bottom: 0;
 }
 
