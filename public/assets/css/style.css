@@ -117,6 +117,7 @@ button {
   font-weight: 400;
   border: 1px solid #BEBEBE;
   padding-right: 35px;
+  font-size: 16px;
 }
 
 .md_input {

@@ -42,6 +42,7 @@
             width: 110px;
         }
 
+        
         .form_auth__row{
             display: flex;
             .stages_list{
@@ -70,13 +71,25 @@
                         border-color: $black;
                     }
                 }
+                #type_document,
+                #prefix_phone,
+                #gender_code,
+                #input_country_of_issue:hover{
+                    cursor: pointer;
+                }
 
-                #dropbtn_prefix_phone,#dropbtn_gender_code{
+                #dropbtn_prefix_phone,#dropbtn_gender_code,#dropbtn_type_document,#dropbtn_country_of_issue{
                     position: absolute;
                     display:block;
                     right: 0;
                     top: 50%;
                     cursor: pointer;
+                }
+                #show_passwod,#hide_passwod{
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    font-size: $fz_second;
                 }
                 .form_auth__slider_input{
                     position: absolute;
@@ -89,7 +102,7 @@
                     width: 0%;
                     transition: width 1s;
                 }
-                .prefix_phone_list,.gender_code_list{
+                .prefix_phone_list,.gender_code_list,.type_document_list,.country_of_issue_list{
                     transform-origin: 0 0;
                     transform: scaleY(0);
                     background: $white;
@@ -105,7 +118,7 @@
                     z-index: 1000;
                     top: 66px;
                     @include custom_scroll_bar_body;
-                    .prefix_phone_list__item,.gender_code_list__item{
+                    .prefix_phone_list__item,.gender_code_list__item,.type_document_list__item,.country_of_issue_list__item{
                         padding: 10px;
                         border:1px solid $gray_3;
                         background: $white;
@@ -124,9 +137,13 @@
                             border-top: none;
                         }
                     }
-                    .select_prefix_phone{
+                    .select_list__item{
                         background: $light_green_2;
                         color: $white;
+                        &:hover{
+                            color: $black;
+                            background: $light_green_2;
+                        }
                     }
                 }
                 &:hover .form_auth__slider_input{
@@ -135,11 +152,30 @@
                 .show_drop_content{
                     transform: scaleY(1);
                 }
-                
+                .gender_code_list,.type_document_list{
+                    width: 322px;
+                }
+                .country_of_issue_list{
+                    width: 700px;
+                }
             }
         }
     }
     
+}
+
+.form_auth_card__complete_anim{
+    margin-left: -1500px;
+    opacity: 1;
+    display: none;
+}
+.form_auth_non_view{
+    display: none;
+    opacity: 0;
+    position: absolute;
+    background: $white;
+    margin-left: 5000px;
+    box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
 }
 .form_auth_card__anim{
     position: absolute;
@@ -149,12 +185,11 @@
     animation: slidein 0.8s ease-in-out;
     opacity: 1;
     z-index: 1000;
-    // border: 2px solid $black_green_2;
     box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
 }
 @keyframes slidein {
     0% {
-        margin-top: -20px;
+        margin-top: -25px;
     }
   
     30% {
@@ -162,13 +197,13 @@
     }
   
     50% {
-        margin-top: -15px;
+        margin-top: -20px;
     }
     70%{
         margin-top: 0px;
     }
     85%{
-        margin-top: -10px;
+        margin-top: -15px;
         
     }
     100%{

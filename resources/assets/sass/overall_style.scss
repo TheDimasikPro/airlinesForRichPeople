@@ -159,6 +159,7 @@ button{
     @include input_overall_style;
     border: 1px solid $black_green;
     padding-right: 35px;
+    font-size: $fz_second;
 }
 .md_input{
     width: 400px;

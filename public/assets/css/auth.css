@@ -117,6 +117,7 @@ button {
   font-weight: 400;
   border: 1px solid #BEBEBE;
   padding-right: 35px;
+  font-size: 16px;
 }
 
 .md_input {
@@ -437,12 +438,24 @@ input[type=button] {
 .form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth_input:focus {
   border-color: #222222;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_prefix_phone, .form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_gender_code {
+.form_auth .form_auth_block .form_auth__row .form_auth_block #type_document,
+.form_auth .form_auth_block .form_auth__row .form_auth_block #prefix_phone,
+.form_auth .form_auth_block .form_auth__row .form_auth_block #gender_code,
+.form_auth .form_auth_block .form_auth__row .form_auth_block #input_country_of_issue:hover {
+  cursor: pointer;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_prefix_phone, .form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_gender_code, .form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_type_document, .form_auth .form_auth_block .form_auth__row .form_auth_block #dropbtn_country_of_issue {
   position: absolute;
   display: block;
   right: 0;
   top: 50%;
   cursor: pointer;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block #show_passwod, .form_auth .form_auth_block .form_auth__row .form_auth_block #hide_passwod {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 16px;
 }
 .form_auth .form_auth_block .form_auth__row .form_auth_block .form_auth__slider_input {
   position: absolute;
@@ -455,7 +468,7 @@ input[type=button] {
   width: 0%;
   transition: width 1s;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list {
   transform-origin: 0 0;
   transform: scaleY(0);
   background: #ffffff;
@@ -471,21 +484,21 @@ input[type=button] {
   z-index: 1000;
   top: 66px;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list::-webkit-scrollbar {
   width: 12px;
   height: 12px;
   background-color: #f9f9fd;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar-thumb {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #52C9B9;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar-track {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list::-webkit-scrollbar-track, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: #f9f9fd;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .country_of_issue_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .prefix_phone_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .gender_code_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .type_document_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .country_of_issue_list__item {
   padding: 10px;
   border: 1px solid #eeeeee;
   background: #ffffff;
@@ -494,25 +507,50 @@ input[type=button] {
   align-items: center;
   color: #222222;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:hover {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .country_of_issue_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .prefix_phone_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .gender_code_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .type_document_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .country_of_issue_list__item:hover {
   cursor: pointer;
   background: #F7F7F7;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:last-child {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .country_of_issue_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .prefix_phone_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .gender_code_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .type_document_list__item:last-child, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .country_of_issue_list__item:last-child {
   border-bottom: none;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:not(:first-child) {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .country_of_issue_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .prefix_phone_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .gender_code_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .type_document_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .country_of_issue_list__item:not(:first-child) {
   border-top: none;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .select_prefix_phone, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .select_prefix_phone {
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .select_list__item, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .select_list__item {
   background: #84C2AD;
   color: #ffffff;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .prefix_phone_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list .select_list__item:hover, .form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list .select_list__item:hover {
+  color: #222222;
+  background: #84C2AD;
 }
 .form_auth .form_auth_block .form_auth__row .form_auth_block:hover .form_auth__slider_input {
   width: 100%;
 }
 .form_auth .form_auth_block .form_auth__row .form_auth_block .show_drop_content {
   transform: scaleY(1);
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .gender_code_list, .form_auth .form_auth_block .form_auth__row .form_auth_block .type_document_list {
+  width: 322px;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_block .country_of_issue_list {
+  width: 700px;
+}
+
+.form_auth_card__complete_anim {
+  margin-left: -1500px;
+  opacity: 1;
+  display: none;
+}
+
+.form_auth_non_view {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  background: #ffffff;
+  margin-left: 5000px;
+  box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
 }
 
 .form_auth_card__anim {
@@ -529,19 +567,19 @@ input[type=button] {
 
 @-webkit-keyframes slidein {
   0% {
-    margin-top: -20px;
+    margin-top: -25px;
   }
   30% {
     margin-top: 0px;
   }
   50% {
-    margin-top: -15px;
+    margin-top: -20px;
   }
   70% {
     margin-top: 0px;
   }
   85% {
-    margin-top: -10px;
+    margin-top: -15px;
   }
   100% {
     margin-top: 0px;
@@ -550,19 +588,19 @@ input[type=button] {
 
 @keyframes slidein {
   0% {
-    margin-top: -20px;
+    margin-top: -25px;
   }
   30% {
     margin-top: 0px;
   }
   50% {
-    margin-top: -15px;
+    margin-top: -20px;
   }
   70% {
     margin-top: 0px;
   }
   85% {
-    margin-top: -10px;
+    margin-top: -15px;
   }
   100% {
     margin-top: 0px;
