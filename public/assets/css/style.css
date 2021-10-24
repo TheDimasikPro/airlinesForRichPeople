@@ -32,6 +32,10 @@ h1, h2, h3 {
   margin: 20px 0;
 }
 
+h1 {
+  font-size: 32px;
+}
+
 h2 {
   font-size: 26px;
 }
@@ -603,6 +607,137 @@ input[type=button] {
   margin-top: -30px;
   margin-bottom: 30px;
   box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
+}
+
+.about_us {
+  margin: 50px 0;
+}
+.about_us h1 {
+  text-align: center;
+}
+.about_us .about_us__text {
+  font-size: 16px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.our_history {
+  display: flex;
+  flex-direction: column;
+}
+.our_history h2 {
+  text-align: center;
+}
+.our_history .airbus_images_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.our_history .airbus_images_block .image_block {
+  max-width: 550px;
+}
+.our_history .airbus_images_block .image_block .airbus_images_block__img {
+  max-width: 100%;
+}
+.our_history .airbus_images_block .image_block:last-child {
+  margin-left: 20px;
+}
+.our_history .our_history__text {
+  font-size: 16px;
+  line-height: 25px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.our_history .our_history__text p {
+  width: 550px;
+}
+.our_history .our_history__text p:last-child {
+  margin-left: 20px;
+}
+
+.order_managment_block {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.order_managment_block .order_managment__form {
+  display: flex;
+  flex-direction: column;
+}
+.order_managment_block .order_managment__form label {
+  font-size: 16px;
+}
+.order_managment_block .order_managment__form label a {
+  color: #52C9B9;
+  border-bottom: 1px solid transparent;
+}
+.order_managment_block .order_managment__form label a:hover {
+  border-bottom: 1px solid #004369;
+}
+.order_managment_block .order_managment__form .order_m_block__input {
+  display: flex;
+  flex-direction: column;
+}
+.order_managment_block .order_managment__form .order_m_block__input:not(:first-child) {
+  margin-top: 20px;
+}
+.order_managment_block .order_managment__form .order_m_block__input .order_m_input {
+  height: 40px;
+  border-bottom: 1px solid #BEBEBE;
+}
+
+.baggage_block {
+  display: flex;
+  flex-direction: column;
+}
+
+.baggage_block__cards {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.baggage_block__cards .baggage_block__card_item {
+  display: flex;
+  max-width: 100%;
+  border: 1px solid #BEBEBE;
+}
+.baggage_block__cards .baggage_block__card_item:not(:first-child) {
+  margin-top: 50px;
+}
+.baggage_block__cards .baggage_block__card_item:hover {
+  box-shadow: 0px 15px 18px 5px rgba(153, 153, 153, 0.2);
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__img {
+  width: 300px;
+  height: auto;
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block {
+  padding: 20px;
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__title {
+  margin: 0;
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text {
+  margin-top: 10px;
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text ul {
+  margin-top: 10px;
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text ul li {
+  list-style: square inside;
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text a {
+  color: #52C9B9;
+  border-bottom: 1px solid transparent;
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text a:hover {
+  border-bottom: 1px solid #004369;
+}
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text .baggage_card__sub_text .documents_animals p {
+  margin-top: 20px;
 }
 
 .non_view {

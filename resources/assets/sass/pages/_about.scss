@@ -1,0 +1,49 @@
+.about_us{
+    margin: 50px 0;
+    h1{
+        text-align: center;
+    }
+    .about_us__text{
+        font-size: $fz_second;
+        text-align: center;
+        line-height: 25px;
+    }
+}
+.our_history{
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    h2{
+        text-align: center;
+    }
+    .airbus_images_block{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        // width: 700px;
+        .image_block{
+            max-width: 550px;
+            .airbus_images_block__img{
+                max-width: 100%;
+            }
+            &:last-child{
+                margin-left: 20px;
+            }
+        }
+    }
+    .our_history__text{
+        font-size: $fz_second;
+        line-height: 25px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        p{
+            width: 550px;
+            &:last-child{
+                margin-left: 20px;
+            }
+        }
+    }
+}

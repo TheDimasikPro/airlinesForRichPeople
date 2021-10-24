@@ -1,0 +1,30 @@
+.order_managment_block{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .order_managment__form{
+        display: flex;
+        flex-direction: column;
+        label{
+            font-size: $fz_second;
+            a{
+                color: $light_green;
+                border-bottom: 1px solid transparent;
+                &:hover{
+                    border-bottom: 1px solid $blue;
+                }
+            }
+        }
+        .order_m_block__input{
+            display: flex;
+            flex-direction: column;
+            &:not(:first-child){
+                margin-top: 20px;
+            }
+            .order_m_input{
+                height: 40px;
+                border-bottom: 1px solid $black_gray;
+            }
+        }
+    }
+}

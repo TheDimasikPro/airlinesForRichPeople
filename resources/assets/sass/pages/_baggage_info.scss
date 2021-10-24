@@ -1,0 +1,58 @@
+.baggage_block{
+    display: flex;
+    flex-direction: column;
+}
+.baggage_block__cards{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    // margin-bottom: 20px;
+    .baggage_block__card_item{
+        display: flex;
+        max-width: 100%;
+        border: 1px solid $black_gray;
+        &:not(:first-child){
+            margin-top: 50px;
+        }
+        &:hover{
+            box-shadow: 0px 15px 18px 5px rgba($color: $black_gray_2, $alpha: 0.2)
+        }
+        .baggage_card__img{
+            width: 300px;
+            height: auto;
+        }
+       
+        .baggage_card__text_block{
+            padding: 20px;
+            .baggage_card__title{
+                margin: 0;
+            }
+            .baggage_card__text{
+                margin-top: 10px;
+                ul{
+                    margin-top: 10px;
+                    li{
+                        list-style: square inside;
+                    }
+                }
+                a{
+                    color: $light_green;
+                    border-bottom: 1px solid transparent;
+                    &:hover{
+                        border-bottom: 1px solid $blue;
+                    }
+                }
+                .baggage_card__sub_text{
+                    .documents_animals{
+                        p{
+                            margin-top: 20px;
+                            
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
+    }
+}
