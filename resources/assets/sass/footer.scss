@@ -9,54 +9,32 @@
     margin-top: 50px;
 }
 .footer_section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h2{
-        text-align: center;
-    }
-    .link_contacts{
-        padding: 6px 12px;
-        font-weight: 700;
-        color: $light_green;
-        font-size: $fz_last;
-        &:hover{
-            background: $green;
-            color: $white;
-        }
-    }
     .footer_info{
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin-top: 30px;
-        width: 100%;
-        .logo_image{
-            width: auto;
-            .link_footer{
-                width: 400px;
-                img{
-                    width: 300px;
+        &:first-child{
+            @include sub_menu_list_footer_and_header;
+        }
+        &:last-child{
+            align-items: center;
+            margin-top: 50px;
+            .logo_image{
+                width: 250px;
+            }
+            .link_header{
+                svg{
+                    width: 50px;
+                    height: 50px;
+                    &:hover{
+                        fill: $blue;
+                        circle{
+                            stroke: $blue;
+                        }
+                    }
                 }
-                
             }
         }
-        .licensy{
-            max-width: 500px;
-        }
+        
     }
-    .footer_social_media{
-        a{
-            padding-bottom: 3px;
-            &:last-child{
-                margin-left: 30px;
-            }
-            &:hover{
-                border-bottom: 1px solid $black;
-            }
-        }
-        .fab{
-            font-size: $fz_h1;
-        }
-    }
+    
 }

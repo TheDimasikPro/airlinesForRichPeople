@@ -4,8 +4,8 @@
 $light_green: #52C9B9;
 $light_green_2: #84C2AD;
 $green: #8CDE4E;
-$black_green: #BEBEBE;
-$black_green_2: #999999;
+$black_gray: #BEBEBE;
+$black_gray_2: #999999;
 $black: #222222;
 $gray_1: #FDFDFD;
 $white: #ffffff;
@@ -13,6 +13,7 @@ $gray_2: #f9f9fd;
 $gray_3: #eeeeee;
 $gray_4: #F7F7F7;
 $gray_5: #E5E5E5;
+$blue: #004369;
 // colors
 
 // font-size
@@ -32,7 +33,7 @@ $fz_h2: 26px;
       
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
-        background-color: $light_green;
+        background-color: $blue;
     }
       
     &::-webkit-scrollbar-track {
@@ -50,7 +51,7 @@ $fz_h2: 26px;
       
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
-        background-color: $light_green;
+        background-color: $blue;
     }
       
     &::-webkit-scrollbar-track {
@@ -72,6 +73,26 @@ $prefixes: ("-moz-", "");
 @mixin input_overall_style {
     height: 40px;
     font-weight: 400;
+}
+
+@mixin sub_menu_list_footer_and_header {
+    .add_sub_menu_list{
+        display: flex;
+        flex-direction: column;
+        .sub_menu__link{
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+            &:not(:first-child){
+                margin-top: 20px;
+            }
+            &:hover{
+                border-color: $light_green;
+            }
+            .sub_menu__item{
+                width: 210px;
+            }
+        }
+    }
 }
 *{
     border:none;
@@ -102,9 +123,7 @@ h2{
 // mixin
 body{
     background: $gray_1;
-    // background: #F9F9F9;
     font-size: 14px;
-    
     @include custom_scroll_bar_body;
 }
 button,input{
@@ -136,7 +155,9 @@ button{
 .upper{
     text-transform: uppercase;
 }
-
+.warning_text{
+    color: red;
+}
 .container{
     max-width: 1200px;
     margin: 0 auto;
@@ -145,26 +166,26 @@ button{
 .min_input{
     width: 150px;
     @include input_overall_style;
-    border: 1px solid $black_green;
+    border: 1px solid $black_gray;
     padding-right: 35px;
 }
 .sm_input{
     width: 250px;
     @include input_overall_style;
-    border: 1px solid $black_green;
+    border: 1px solid $black_gray;
     padding-right: 35px;
 }
 .sm_input_2{
     width: 322px;
     @include input_overall_style;
-    border: 1px solid $black_green;
+    border: 1px solid $black_gray;
     padding-right: 35px;
     font-size: $fz_second;
 }
 .md_input{
     width: 400px;
     @include input_overall_style;
-    border: 1px solid $black_green;
+    border: 1px solid $black_gray;
 }
 .big_input{
     width: 500px;
@@ -174,7 +195,7 @@ button{
 .super_big_input{
     width: 700px;
     font-size: $fz_second;
-    border: 1px solid $black_green;
+    border: 1px solid $black_gray;
     @include input_overall_style;
 }
 input[type="button"]{
@@ -201,10 +222,13 @@ input[type="button"]{
         }
     }
     &:hover{
-        animation: pulse 0.8s;
-        box-shadow: 0 0 0 2em rgba($white,0);
-        color: $black;
+        background: $blue;
     }
+    // &:hover{
+    //     animation: pulse 0.8s;
+    //     box-shadow: 0 0 0 2em rgba($white,0);
+    //     color: $black;
+    // }
 }
 
 .logo_image{

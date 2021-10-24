@@ -47,7 +47,7 @@ body::-webkit-scrollbar {
 }
 body::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #52C9B9;
+  background-color: #004369;
 }
 body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
@@ -87,6 +87,10 @@ button {
 
 .upper {
   text-transform: uppercase;
+}
+
+.warning_text {
+  color: red;
 }
 
 .container {
@@ -172,10 +176,7 @@ input[type=button] {
   }
 }
 .btn_style_1:hover {
-  -webkit-animation: pulse 0.8s;
-          animation: pulse 0.8s;
-  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
-  color: #222222;
+  background: #004369;
 }
 
 .logo_image {
@@ -183,13 +184,6 @@ input[type=button] {
 }
 .logo_image .link_header img {
   max-width: 100%;
-}
-
-.header_fixed {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
 }
 
 #header {
@@ -317,7 +311,7 @@ input[type=button] {
 }
 #header .d_menu .nav_menu .geo_posistion_people .language_currency::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #52C9B9;
+  background-color: #004369;
 }
 #header .d_menu .nav_menu .geo_posistion_people .language_currency::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
@@ -462,6 +456,19 @@ input[type=button] {
   position: absolute;
   z-index: 1000;
 }
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar {
+  width: 7px;
+  background-color: #f9f9fd;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #004369;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9fd;
+}
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item {
   padding: 15px;
   border: 1px solid #eeeeee;
@@ -530,18 +537,8 @@ input[type=button] {
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .select_elem_airport .info_country, .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .select_elem_airport .airport_name {
   color: #222222;
 }
-.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar {
-  width: 7px;
-  background-color: #f9f9fd;
-}
-.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #52C9B9;
-}
-.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  background-color: #f9f9fd;
+.work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .select_elem_airport .info_country .desc_airport_eng, .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .select_elem_airport .airport_name .desc_airport_eng {
+  color: #ffffff;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .drop_count_pass {
   max-height: none;
@@ -619,52 +616,41 @@ input[type=button] {
   margin-top: 50px;
 }
 
-.footer_section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.footer_section h2 {
-  text-align: center;
-}
-.footer_section .link_contacts {
-  padding: 6px 12px;
-  font-weight: 700;
-  color: #52C9B9;
-  font-size: 20px;
-}
-.footer_section .link_contacts:hover {
-  background: #8CDE4E;
-  color: #ffffff;
-}
 .footer_section .footer_info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 30px;
-  width: 100%;
 }
-.footer_section .footer_info .logo_image {
-  width: auto;
+.footer_section .footer_info:first-child .add_sub_menu_list {
+  display: flex;
+  flex-direction: column;
 }
-.footer_section .footer_info .logo_image .link_footer {
-  width: 400px;
-}
-.footer_section .footer_info .logo_image .link_footer img {
-  width: 300px;
-}
-.footer_section .footer_info .licensy {
-  max-width: 500px;
-}
-.footer_section .footer_social_media a {
+.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__link {
   padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
 }
-.footer_section .footer_social_media a:last-child {
-  margin-left: 30px;
+.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__link:not(:first-child) {
+  margin-top: 20px;
 }
-.footer_section .footer_social_media a:hover {
-  border-bottom: 1px solid #222222;
+.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__link:hover {
+  border-color: #52C9B9;
 }
-.footer_section .footer_social_media .fab {
-  font-size: 32px;
+.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__link .sub_menu__item {
+  width: 210px;
+}
+.footer_section .footer_info:last-child {
+  align-items: center;
+  margin-top: 50px;
+}
+.footer_section .footer_info:last-child .logo_image {
+  width: 250px;
+}
+.footer_section .footer_info:last-child .link_header svg {
+  width: 50px;
+  height: 50px;
+}
+.footer_section .footer_info:last-child .link_header svg:hover {
+  fill: #004369;
+}
+.footer_section .footer_info:last-child .link_header svg:hover circle {
+  stroke: #004369;
 }

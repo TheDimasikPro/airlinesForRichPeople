@@ -9,6 +9,9 @@
     margin: 20px 0;
     min-height: 420px;
     justify-content: flex-start;
+    h1{
+        margin-bottom: 5px;
+    }
     .form_auth_block{
         display: flex;
         flex-direction: column;
@@ -28,13 +31,13 @@
             padding-bottom: 3px;
             border-bottom: 2px solid transparent;
             width: 142px;
-            &:hover{
-                border-color: $light_green;
-            }
+            // &:hover{
+            //     border-color: $blue;
+            // }
             &:last-child{
                 border-bottom: 2px solid $light_green;
                 &:hover{
-                    border-color: $green;
+                    border-color: $blue;
                 }
             }
         }
@@ -49,10 +52,11 @@
                 width: 700px;
                 .stages_list__item{
                     font-weight: bold;
-                    color: $black_green;
+                    color: $black_gray;
                     font-size: $fz_second;
                     &.stages_list__item_active{
-                        color: $black
+                        // color: $black
+                        color: $blue;
                     }
                 }
             }
@@ -67,7 +71,7 @@
                 .form_auth_input{
                     transition: 0.8s;
                     border: none;
-                    border-bottom: 1px solid $black_green;
+                    border-bottom: 1px solid $black_gray;
                     &:focus{
                         border-color: $black;
                     }
@@ -165,7 +169,7 @@
                         margin-bottom: 10px;
                     }
                     span{
-                        color: red;
+                        color: $black_gray_2;
                     }
                 }
                 .all_info_user_registered{
@@ -178,7 +182,7 @@
                         width: 100%;
                         .user_info_list__item{
                             padding: 8px 0;
-                            border-bottom: 1px solid $black_green_2;
+                            border-bottom: 1px solid $black_gray_2;
                             display: flex;
                             justify-content: space-between;
                         }

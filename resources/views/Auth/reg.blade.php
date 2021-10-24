@@ -7,11 +7,10 @@
     <div class="container df_jcc_aic">
         <div class="form form_auth" id="main_form_auth">
             <h1>Регистрация</h1>
-
-            {{-- регистрация проходит в несколько этапов
-            1) почта и телефон
-            2) паспортные данные, фио, год рождения
-            3) пароль4) финиш --}}
+            <p class="warning_text">
+                * При регистрации все поля должны быть заполнены
+            </p>
+            <!-- /.warning_text -->
             <div class="form_auth_block">
                 <div class="form_auth__row">
                     <ul class="stages_list df_jcspb_aic">
@@ -24,10 +23,10 @@
                 </div>
                 <!-- /.form_auth__row -->
                 <div class="form_auth__row">
-                    <form action="" class="form_auth_contact_data" autocomplete="off">
+                    <form action="" class="form_auth_contact_data" autocomplete="new">
                         <div class="form_auth_block_second">
                             <label for="email">E-mail</label>
-                            <input type="email" autocomplete class="super_big_input form_auth_input" id="email" name="email" placeholder="Введите свою почту">
+                            <input type="email" autocomplete="off" class="super_big_input form_auth_input" id="email" name="email" placeholder="Введите свою почту">
                             <div class="form_auth__slider_input"></div>
                             <!-- /.form_auth__slider_input -->
                         </div>
@@ -35,7 +34,7 @@
                         <div class="form_auth__row df_jcspb_aic">
                             <div class="form_auth_block_second">
                                 <label for="prefix_phone">Prefix phone</label>
-                                <input type="tel" autocomplete class="min_input form_auth_input" readonly id="prefix_phone" name="phone" value="+7">
+                                <input type="tel" autocomplete="new" class="min_input form_auth_input" readonly id="prefix_phone" name="phone" value="+7">
                                 <button class="dropbtn" type="button" id="dropbtn_prefix_phone" aria-label="dropbtn_prefix_phone">
                                     <i class="fas fa-arrow-down" id=""></i>
                                 </button>
@@ -43,56 +42,56 @@
                                 <div class="form_auth__slider_input"></div>
                                 <!-- /.form_auth__slider_input -->
                                 <ul class="prefix_phone_list">
-                                    <li class="prefix_phone_list__item">+7</li>
-                                    <li class="prefix_phone_list__item">+20</li>
-                                    <li class="prefix_phone_list__item">+21</li>
-                                    <li class="prefix_phone_list__item">+30</li>
-                                    <li class="prefix_phone_list__item">+31</li>
-                                    <li class="prefix_phone_list__item">+33</li>
-                                    <li class="prefix_phone_list__item">+34</li>
-                                    <li class="prefix_phone_list__item">+351</li>
-                                    <li class="prefix_phone_list__item">+355</li>
-                                    <li class="prefix_phone_list__item">+356</li>
-                                    <li class="prefix_phone_list__item">+357</li>
-                                    <li class="prefix_phone_list__item">+358</li>
-                                    <li class="prefix_phone_list__item">+359</li>
-                                    <li class="prefix_phone_list__item">+36</li>
-                                    <li class="prefix_phone_list__item">+371</li>
-                                    <li class="prefix_phone_list__item">+374</li>
-                                    <li class="prefix_phone_list__item">+355</li>
-                                    <li class="prefix_phone_list__item">+380</li>
-                                    <li class="prefix_phone_list__item">+382</li>
-                                    <li class="prefix_phone_list__item">+385</li>
-                                    <li class="prefix_phone_list__item">+386</li>
-                                    <li class="prefix_phone_list__item">+39</li>
-                                    <li class="prefix_phone_list__item">+41</li>
-                                    <li class="prefix_phone_list__item">+420</li>
-                                    <li class="prefix_phone_list__item">+43</li>
-                                    <li class="prefix_phone_list__item">+44</li>
-                                    <li class="prefix_phone_list__item">+47</li>
-                                    <li class="prefix_phone_list__item">+48</li>
-                                    <li class="prefix_phone_list__item">+49</li>
-                                    <li class="prefix_phone_list__item">+66</li>
-                                    <li class="prefix_phone_list__item">+81</li>
-                                    <li class="prefix_phone_list__item">+84</li>
-                                    <li class="prefix_phone_list__item">+86</li>
-                                    <li class="prefix_phone_list__item">+90</li>
-                                    <li class="prefix_phone_list__item">+91</li>
-                                    <li class="prefix_phone_list__item">+962</li>
-                                    <li class="prefix_phone_list__item">+971</li>
-                                    <li class="prefix_phone_list__item">+972</li>
-                                    <li class="prefix_phone_list__item">+973</li>
-                                    <li class="prefix_phone_list__item">+992</li>
-                                    <li class="prefix_phone_list__item">+994</li>
-                                    <li class="prefix_phone_list__item">+995</li>
-                                    <li class="prefix_phone_list__item">+996</li>
-                                    <li class="prefix_phone_list__item">+998</li>
+                                    <li class="prefix_phone_list__item" data-value="+7" data-count-number-phone-not-prefix="10">+7</li>
+                                    <li class="prefix_phone_list__item" data-value="+20" data-count-number-phone-not-prefix="10">+20</li>
+                                    <li class="prefix_phone_list__item" data-value="+21" data-count-number-phone-not-prefix="10">+21</li>
+                                    <li class="prefix_phone_list__item" data-value="+30" data-count-number-phone-not-prefix="10">+30</li>
+                                    <li class="prefix_phone_list__item" data-value="+31" data-count-number-phone-not-prefix="9">+31</li>
+                                    <li class="prefix_phone_list__item" data-value="+33" data-count-number-phone-not-prefix="9">+33</li>
+                                    <li class="prefix_phone_list__item" data-value="+34" data-count-number-phone-not-prefix="9">+34</li>
+                                    <li class="prefix_phone_list__item" data-value="+351" data-count-number-phone-not-prefix="9">+351</li>
+                                    <li class="prefix_phone_list__item" data-value="+355" data-count-number-phone-not-prefix="">+355</li>
+                                    <li class="prefix_phone_list__item" data-value="+356" data-count-number-phone-not-prefix="">+356</li>
+                                    <li class="prefix_phone_list__item" data-value="+357" data-count-number-phone-not-prefix="">+357</li>
+                                    <li class="prefix_phone_list__item" data-value="+358" data-count-number-phone-not-prefix="">+358</li>
+                                    <li class="prefix_phone_list__item" data-value="+359" data-count-number-phone-not-prefix="">+359</li>
+                                    <li class="prefix_phone_list__item" data-value="+36" data-count-number-phone-not-prefix="">+36</li>
+                                    <li class="prefix_phone_list__item" data-value="+371" data-count-number-phone-not-prefix="">+371</li>
+                                    <li class="prefix_phone_list__item" data-value="+374" data-count-number-phone-not-prefix="">+374</li>
+                                    <li class="prefix_phone_list__item" data-value="+375" data-count-number-phone-not-prefix="">+375</li>
+                                    <li class="prefix_phone_list__item" data-value="+380" data-count-number-phone-not-prefix="">+380</li>
+                                    <li class="prefix_phone_list__item" data-value="+382" data-count-number-phone-not-prefix="">+382</li>
+                                    <li class="prefix_phone_list__item" data-value="+385" data-count-number-phone-not-prefix="">+385</li>
+                                    <li class="prefix_phone_list__item" data-value="+386" data-count-number-phone-not-prefix="">+386</li>
+                                    <li class="prefix_phone_list__item" data-value="+39" data-count-number-phone-not-prefix="">+39</li>
+                                    <li class="prefix_phone_list__item" data-value="+41" data-count-number-phone-not-prefix="">+41</li>
+                                    <li class="prefix_phone_list__item" data-value="+420" data-count-number-phone-not-prefix="">+420</li>
+                                    <li class="prefix_phone_list__item" data-value="+43" data-count-number-phone-not-prefix="">+43</li>
+                                    <li class="prefix_phone_list__item" data-value="+44" data-count-number-phone-not-prefix="">+44</li>
+                                    <li class="prefix_phone_list__item" data-value="+47" data-count-number-phone-not-prefix="">+47</li>
+                                    <li class="prefix_phone_list__item" data-value="+48" data-count-number-phone-not-prefix="">+48</li>
+                                    <li class="prefix_phone_list__item" data-value="+49" data-count-number-phone-not-prefix="">+49</li>
+                                    <li class="prefix_phone_list__item" data-value="+66" data-count-number-phone-not-prefix="">+66</li>
+                                    <li class="prefix_phone_list__item" data-value="+81" data-count-number-phone-not-prefix="">+81</li>
+                                    <li class="prefix_phone_list__item" data-value="+84" data-count-number-phone-not-prefix="">+84</li>
+                                    <li class="prefix_phone_list__item" data-value="+86" data-count-number-phone-not-prefix="">+86</li>
+                                    <li class="prefix_phone_list__item" data-value="+90" data-count-number-phone-not-prefix="">+90</li>
+                                    <li class="prefix_phone_list__item" data-value="+91" data-count-number-phone-not-prefix="">+91</li>
+                                    <li class="prefix_phone_list__item" data-value="+962" data-count-number-phone-not-prefix="">+962</li>
+                                    <li class="prefix_phone_list__item" data-value="+971" data-count-number-phone-not-prefix="">+971</li>
+                                    <li class="prefix_phone_list__item" data-value="+972" data-count-number-phone-not-prefix="">+972</li>
+                                    <li class="prefix_phone_list__item" data-value="+973" data-count-number-phone-not-prefix="">+973</li>
+                                    <li class="prefix_phone_list__item" data-value="+992" data-count-number-phone-not-prefix="">+992</li>
+                                    <li class="prefix_phone_list__item" data-value="+994" data-count-number-phone-not-prefix="">+994</li>
+                                    <li class="prefix_phone_list__item" data-value="+995" data-count-number-phone-not-prefix="">+995</li>
+                                    <li class="prefix_phone_list__item" data-value="+996" data-count-number-phone-not-prefix="">+996</li>
+                                    <li class="prefix_phone_list__item" data-value="+998" data-count-number-phone-not-prefix="">+998</li>
                                 </ul>
                             </div>
                             <!-- /.form_auth_block_second -->
                             <div class="form_auth_block_second">
                                 <label for="phone">Phone</label>
-                                <input type="tel" autocomplete class="big_input form_auth_input" id="phone" name="phone" placeholder="Введите номер своего телефона">
+                                <input type="tel" autocomplete="new" class="big_input form_auth_input" id="phone" name="phone" placeholder="Введите номер своего телефона">
                                 <div class="form_auth__slider_input"></div>
                                 <!-- /.form_auth__slider_input -->
                             </div>

@@ -317,8 +317,8 @@
                         <!-- /.dropdown -->
                     </div>
                     <!-- /.form_date_back_block -->
-                    <div class="form_search_block_inputs">
-                        <button class="btn_style_1 upper">найти</button>
+                    <div class="form_search_block_inputs btn_search_block">
+                        <button class="btn_style_1 upper" id="btn_search" aria-label="btn_search">найти</button>
                     </div>
                     <!-- /.form_search_block_inputs -->
                 </form>

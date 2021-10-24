@@ -164,10 +164,12 @@ $(document).ready(function () {
       $('#id_i_d_t_block').addClass('block_inputs_active');
       $('#id_i_d_b_block').addClass('block_inputs_active');
 
-      if (!$('#id_i_d_t_block').hasClass('calendar_active')) {
+      if (!$('.back_data').hasClass('non_click_input')) {
         $('#id_i_d_t').click();
+        $('.back_data').addClass('non_click_input');
+        console.log("есть клик");
       }
-    } else if (!$(this).hasClass('there_data')) {
+    } else if (!$(this).hasClass('there_data') && !$(this).hasClass('btn_search_block')) {
       $(this).addClass('block_inputs_active');
     } else if ($(this).hasClass('there_data')) {
       $('#id_i_d_t_block').addClass('block_inputs_active');
@@ -248,6 +250,8 @@ $(document).ready(function () {
 
     if (!target.closest('.search_tickets_block')) {
       $('.form_search_block_inputs').removeClass('block_inputs_active');
+      $('.back_data').removeClass('non_click_input');
+      $('#id_i_d_t_block').removeClass('calendar_active');
 
       if (!target.closest('.geo_posistion_people')) {
         $('.nav_menu .geo_posistion_people').removeAttr('style');
@@ -301,6 +305,10 @@ $(document).ready(function () {
           $('.nav_menu .geo_posistion_people').removeAttr('style');
           $('.geo_posistion_people').removeClass('geo_posistion_people__active');
           $('.language_currency').removeClass('language_currency_active');
+        }
+
+        if (target.closest('.geo_posistion_people')) {
+          $('.geo_posistion_people').click();
         }
       }
 
@@ -397,8 +405,7 @@ $(document).ready(function () {
 
     if (!$('#id_i_d_t_block').hasClass('calendar_active')) {
       $('#id_i_d_t_block').addClass('calendar_active');
-    } else {
-      $('#id_i_d_t_block').removeClass('calendar_active');
+      $('.back_data').addClass('non_click_input');
     }
   });
   $('#id_i_d_t').daterangepicker({
@@ -418,6 +425,10 @@ $(document).ready(function () {
     $('#id_i_d_b').val('Обратно:');
     $('#id_i_d_t_block').removeClass('block_inputs_active');
     $('#id_i_d_b_block').removeClass('block_inputs_active');
+  });
+  $('#id_i_d_b').click(function (e) {
+    e.preventDefault();
+    $('#id_i_d_t').click();
   }); // счетчик кол-ва пассажиров на форме поиска билетов
 
   var btn_minus_old = $('#btn_minus_old');
@@ -540,11 +551,39 @@ $(document).ready(function () {
       $(this).removeClass('rotate_180');
     }
   });
+  $("#phone").mask("(999)999-999-9", {
+    completed: function completed() {
+      console.log("харош");
+    }
+  });
   $('.prefix_phone_list__item').click(function () {
     var prefix_phone__text = $(this).text();
     $('#prefix_phone').val(prefix_phone__text);
     $('.prefix_phone_list__item').removeClass('select_list__item');
     $(this).addClass('select_list__item');
+    var str_mask = "(";
+
+    for (var index = 0; index < Number($(this).attr('data-count-number-phone-not-prefix')); index++) {
+      if (str_mask.length == 4) {
+        str_mask += ")";
+      }
+
+      if (str_mask.length == 8) {
+        str_mask += "-";
+      }
+
+      if (str_mask.length == 12) {
+        str_mask += "-";
+      }
+
+      str_mask += "9";
+    }
+
+    $("#phone").mask(str_mask, {
+      completed: function completed() {
+        console.log("харош");
+      }
+    });
   });
   dropbtn_gender_code.click(function (e) {
     e.preventDefault();
@@ -579,11 +618,6 @@ $(document).ready(function () {
     $(this).addClass('select_list__item');
   });
   $("#series_document_number").mask("99 99 999999", {
-    completed: function completed() {
-      console.log("харош");
-    }
-  });
-  $("#phone").mask("(999)999-999-9", {
     completed: function completed() {
       console.log("харош");
     }
@@ -670,7 +704,7 @@ $(document).ready(function () {
     }, 500);
     setTimeout(function () {
       $('#auth_block_btn').removeAttr('style');
-    }, 2370);
+    }, 1800);
   });
   $('#complete_profile_data').click(function (e) {
     e.preventDefault();
@@ -679,10 +713,9 @@ $(document).ready(function () {
     $('#auth_block_btn').addClass('form_auth_block__anim');
     $('#auth_block_btn').css('margin-top', 'auto');
     setTimeout(function () {
-      $('#main_form_auth').removeAttr('style');
       $('#main_form_auth').animate({
         minHeight: "335px"
-      }, 1300);
+      }, 500);
       setTimeout(function () {
         $('.form_auth_password_data').css('display', "block");
       }, 650);
@@ -707,7 +740,7 @@ $(document).ready(function () {
     }, 500);
     setTimeout(function () {
       $('#auth_block_btn').removeAttr('style');
-    }, 2370);
+    }, 1800);
   });
   $('#complete_password_data').click(function (e) {
     e.preventDefault();
@@ -736,7 +769,6 @@ $(document).ready(function () {
         $('#auth_block_btn').removeClass('form_auth_block__anim');
       }, 1380);
       setTimeout(function () {
-        // $('.form_auth_contact_data').css('display','none');
         $('.form_auth_password_data').addClass('form_auth_card__complete_anim');
         $('.form_auth_password_data').removeAttr('style');
       }, 700);
