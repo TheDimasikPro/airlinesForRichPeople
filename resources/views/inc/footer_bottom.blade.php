@@ -6,7 +6,7 @@
         <!-- /.footer_info -->
         <div class="footer_info">
             <div class="logo_image">
-                <a href="{{ route('index_page') }}" class="link_header">
+                <a href="{{ route('index__page') }}" class="link_header">
                     <img src="/assets/images/logo.png" alt="" class="logo">
                 </a> 
                 <!-- /.link_header -->

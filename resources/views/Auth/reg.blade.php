@@ -328,7 +328,7 @@
             </div>
             <!-- /.form_auth_block -->
             <div class="form_auth_block df_jcspb_aic" id="auth_block_btn">
-                <a href="{{ route('login_page') }}" class="link_auth link_login_page">Авторизоваться</a>
+                <a href="{{ route('login__page') }}" class="link_auth link_login_page">Авторизоваться</a>
             </div>
             <!-- /.form_auth_block -->
         </div>

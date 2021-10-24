@@ -24,7 +24,7 @@
             <!-- /.form_auth_block -->
             <div class="form_auth_block df_jcspb_aic">
                 <a href="" class="link_auth">Забыли свой пароль?</a>
-                <a href="{{ route('reg_page') }}" class="link_auth">Зарегистрироваться</a>
+                <a href="{{ route('reg__page') }}" class="link_auth">Зарегистрироваться</a>
             </div>
             <!-- /.form_auth_block -->
         </form>

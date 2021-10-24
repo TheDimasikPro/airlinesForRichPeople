@@ -19,4 +19,10 @@ class MainController extends Controller
     {
         return view('payment_methods');
     }
+    public function returnViewIndexCheckIn()
+    {
+        return view('index',[
+            "check_in" => true
+        ]);
+    }
 }

@@ -20,9 +20,9 @@ use Stevebauman\Location\Facades\Location;
 |
 */
 
-Route::get('/', [IndexController::class,'index'])->name('index_page');
-Route::get('/login', [LoginController::class,'index'])->name('login_page');
-Route::get('/reg', [RegisterController::class,'index'])->name('reg_page');
+Route::get('/', [IndexController::class,'index'])->name('index__page');
+Route::get('/login', [LoginController::class,'index'])->name('login__page');
+Route::get('/reg', [RegisterController::class,'index'])->name('reg__page');
 
 // определние ip пользователя и его страны
 Route::get('/ip', function () {

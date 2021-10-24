@@ -1,0 +1,46 @@
+.payment_methods_block{
+    .bank_cards{
+        margin: 50px 0;
+        h2{
+            text-align: center;
+        }
+        .bank_card__image_block{
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        .payment_methods__warning_list{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            .warning_list__row{
+                display: flex;
+                justify-content: space-between;
+                &:last-child{
+                    margin-top: 30px;
+                }
+                .row__content{
+                    display: flex;
+                    align-items: center;
+                    font-size: $fz_last;
+                    width: 49%;
+                    
+                    .row_content__img_block{
+                        background: pink;
+                        border-radius: 50%;
+                        padding: 20px;
+                        width: 80px;
+                        display: flex;
+                        justify-content: center;
+                        .row_content__img{
+                            width: 40px;
+                        }
+                    }
+                    p{
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

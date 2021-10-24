@@ -218,7 +218,7 @@ input[type=button] {
   padding: 30px 0;
   z-index: 1000;
   background: #FDFDFD;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   position: relative;
 }
 #header .additional_sub_menu {
@@ -240,18 +240,17 @@ input[type=button] {
   display: flex;
   flex-direction: column;
 }
-#header .additional_sub_menu .container .add_sub_menu_list .sub_menu__link {
+#header .additional_sub_menu .container .add_sub_menu_list .sub_menu__item:not(:first-child) {
+  margin-top: 20px;
+}
+#header .additional_sub_menu .container .add_sub_menu_list .sub_menu__item .sub_menu__link {
+  width: 210px;
+  display: block;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
 }
-#header .additional_sub_menu .container .add_sub_menu_list .sub_menu__link:not(:first-child) {
-  margin-top: 20px;
-}
-#header .additional_sub_menu .container .add_sub_menu_list .sub_menu__link:hover {
+#header .additional_sub_menu .container .add_sub_menu_list .sub_menu__item .sub_menu__link:hover {
   border-color: #52C9B9;
-}
-#header .additional_sub_menu .container .add_sub_menu_list .sub_menu__link .sub_menu__item {
-  width: 210px;
 }
 #header .additional_sub_menu__view {
   transform: scaleY(1);
@@ -657,18 +656,17 @@ input[type=button] {
   display: flex;
   flex-direction: column;
 }
-.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__link {
+.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__item:not(:first-child) {
+  margin-top: 20px;
+}
+.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__item .sub_menu__link {
+  width: 210px;
+  display: block;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
 }
-.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__link:not(:first-child) {
-  margin-top: 20px;
-}
-.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__link:hover {
+.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__item .sub_menu__link:hover {
   border-color: #52C9B9;
-}
-.footer_section .footer_info:first-child .add_sub_menu_list .sub_menu__link .sub_menu__item {
-  width: 210px;
 }
 .footer_section .footer_info:last-child {
   align-items: center;
