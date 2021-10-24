@@ -190,6 +190,28 @@ input[type=button] {
   max-width: 100%;
 }
 
+.top_header_page {
+  height: 100%;
+}
+
+.df_flc_h100 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header_flex {
+  flex: 0 0 auto;
+}
+
+.content_flex {
+  flex: 1 0 auto;
+}
+
+.footer_flex {
+  flex: 0 1 auto;
+}
+
 #header {
   transition: 0.5s;
   border-bottom: 1px solid #E5E5E5;
@@ -712,7 +734,7 @@ input[type=button] {
 }
 .baggage_block__cards .baggage_block__card_item .baggage_card__img {
   width: 300px;
-  height: auto;
+  height: 100%;
 }
 .baggage_block__cards .baggage_block__card_item .baggage_card__text_block {
   padding: 20px;
@@ -742,6 +764,10 @@ input[type=button] {
 
 .non_view {
   display: none;
+}
+
+.footer_bottom {
+  flex: 0 0 auto;
 }
 
 #footer {

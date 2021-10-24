@@ -15,7 +15,7 @@
             <!-- /.baggage_block__start_info -->
             <div class="baggage_block__cards">
                 <div class="baggage_block__card_item" id="carriage_of_animals">
-                    <img src="/assets/images/services/dog.jpg" alt="" class="baggage_card__img">
+                    <img src="/assets/images/services/transportation_of_animals.jpg" alt="" class="baggage_card__img">
                     <div class="baggage_card__text_block">
                         <h2 class="baggage_card__title">Провоз животных</h2> 
                         <!-- /.baggage_card__title -->
@@ -69,7 +69,7 @@
                 </div>
                 <!-- /.baggage_block__card_item -->
                 <div class="baggage_block__card_item" id="baggage_tracing">
-                    <img src="/assets/images/services/dog.jpg" alt="" class="baggage_card__img">
+                    <img src="/assets/images/services/backpack.jpg" alt="" class="baggage_card__img">
                     <div class="baggage_card__text_block">
                         <h2 class="baggage_card__title">Розыск багажа</h2> 
                         <!-- /.baggage_card__title -->
@@ -82,7 +82,7 @@
                 </div>
                 <!-- /.baggage_block__card_item -->
                 <div class="baggage_block__card_item" id="sport_equipment">
-                    <img src="/assets/images/services/dog.jpg" alt="" class="baggage_card__img">
+                    <img src="/assets/images/services/sport_equipment.jpg" alt="" class="baggage_card__img">
                     <div class="baggage_card__text_block">
                         <h2 class="baggage_card__title">Спортивный инвентарь</h2> 
                         <!-- /.baggage_card__title -->

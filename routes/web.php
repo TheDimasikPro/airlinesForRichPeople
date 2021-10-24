@@ -44,7 +44,7 @@ Route::get('/ip', function () {
 
 Route::get('/about',[MainController::class,'returnViewAbout'])->name('about_page');
 Route::get('/order_management',[OrderController::class,'returnViewOrderManagment'])->name('order_management__page');
-Route::get('/baggage_info',[BaggageController::class,'index'])->name('baggage_info__page');
-Route::get('/baggage_info/#carriage_of_animals',[BaggageController::class,'index'])->name('baggage_info__page__carriage_of_animals');
-Route::get('/baggage_info/#baggage_tracing',[BaggageController::class,'index'])->name('baggage_info__page__baggage_tracing');
-// Route::get('/baggage_info/#sport_equipment',[BaggageController::class,'index'])->name('baggage_info__page__sport_equipment');
+Route::get('/baggage_info',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page');
+Route::get('/baggage_info/#carriage_of_animals',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page__carriage_of_animals');
+Route::get('/baggage_info/#baggage_tracing',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page__baggage_tracing');
+Route::get('/payment_methods',[MainController::class,'returnViewPaymentsMethod'])->name('payment_methods__page');

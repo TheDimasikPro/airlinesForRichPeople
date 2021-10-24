@@ -7,14 +7,14 @@
 <ul class="add_sub_menu_list">
     <a href="{{ route('order_management__page') }}" class="sub_menu__link"><li class="sub_menu__item">Управление заказом</li></a>
     <a href="" class="sub_menu__link"><li class="sub_menu__item">Статус рейса</li></a>
-    <a href="" class="sub_menu__link"><li class="sub_menu__item">Регистрация на рейс</li></a>
-    <a href="" class="sub_menu__link"><li class="sub_menu__item">Каталог аэропортов</li></a>
+    {{-- <a href="" class="sub_menu__link"><li class="sub_menu__item">Регистрация на рейс</li></a> --}}
+    {{-- <a href="" class="sub_menu__link"><li class="sub_menu__item">Каталог аэропортов</li></a> --}}
 </ul>
 <ul class="add_sub_menu_list">
-    <a href="" class="sub_menu__link"><li class="sub_menu__item">Новости</li></a>
+    {{-- <a href="" class="sub_menu__link"><li class="sub_menu__item">Новости</li></a> --}}
     <a href="" class="sub_menu__link"><li class="sub_menu__item">Контакты</li></a>
-    <a href="" class="sub_menu__link"><li class="sub_menu__item">Руководство авиакомпании</li></a>
-    <a href="" class="sub_menu__link"><li class="sub_menu__item">Вакансии</li></a>
+    {{-- <a href="" class="sub_menu__link"><li class="sub_menu__item">Руководство авиакомпании</li></a> --}}
+    {{-- <a href="" class="sub_menu__link"><li class="sub_menu__item">Вакансии</li></a> --}}
 </ul>
 <ul class="add_sub_menu_list">
     <a href="{{ route('baggage_info__page__baggage_tracing') }}" class="sub_menu__link"><li class="sub_menu__item">Розыск багажа</li></a>

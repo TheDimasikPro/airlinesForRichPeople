@@ -1,10 +1,10 @@
-@extends('layouts.app_layout')
-@section('title_page','О нас')
+@extends('layouts.layout_with_footer_bottom')
+@section('title_page','Управление заказом')
 @section('styles_link')
     <link rel="stylesheet" href="/assets/css/style.min.css">
 @endsection
 @section('content')
-    <div class="container df_jcc_aic">
+    <div class="container df_jcc_aic content_flex">
         <div class="order_managment_block">
             <h1>Управление заказом</h1>
             <form action="" class="order_managment__form">

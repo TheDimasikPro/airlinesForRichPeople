@@ -11,4 +11,12 @@ class MainController extends Controller
     {
         return view('about');
     }
+    public function returnViewBaggageInfo()
+    {
+        return view('baggage_info');
+    }
+    public function returnViewPaymentsMethod()
+    {
+        return view('payment_methods');
+    }
 }

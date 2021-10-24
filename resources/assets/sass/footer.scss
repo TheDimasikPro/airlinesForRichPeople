@@ -1,7 +1,9 @@
 .non_view{
     display: none;
 }
-
+.footer_bottom{
+    flex: 0 0 auto;
+}
 #footer{
     background: $white;
     padding: 50px 0;
