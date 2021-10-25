@@ -25,4 +25,8 @@ class MainController extends Controller
             "check_in" => true
         ]);
     }
+    public function returnViewIndexContacts()
+    {
+        return view('contacts');
+    }
 }

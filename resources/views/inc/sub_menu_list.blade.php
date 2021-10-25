@@ -49,7 +49,7 @@
     </li>
     <!-- /.sub_menu__item -->
     <li class="sub_menu__item">
-        <a href="" class="sub_menu__link">Контакты</a> 
+        <a href="{{ route('contacts__page') }}" class="sub_menu__link">Контакты</a> 
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->

@@ -1,0 +1,25 @@
+.support_list{
+    .support_list__item{
+        display: flex;
+        align-items: center;
+        strong{
+            margin-right: 20px;
+            margin-left: 10px;
+        }
+        &:before{
+            background-image: url('/assets/images/icons/check-square-regular.svg');
+            content: "";
+            background-size: 100% 100%;
+            display: inline-block;
+            height: 20px;
+            width:20px;
+            position:relative;
+            fill: $blue;
+        }
+    }
+}
+.google_maps_card{
+    width: 100%;
+    height: 600px;
+    margin-top: 50px;
+}

@@ -1,8 +1,9 @@
-@import './overall_style.scss';
-@import './header.scss';
+@import './overall_style';
+@import './header';
 @import './pages/index';
 @import './pages/about';
 @import './pages/order_managment';
 @import './pages/baggage_info';
 @import './pages/payment_metods';
-@import './footer.scss';
+@import './pages/contacts';
+@import './footer';
