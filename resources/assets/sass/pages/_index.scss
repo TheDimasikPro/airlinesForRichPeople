@@ -6,7 +6,7 @@
     border-radius: 10px;
     background: $white;
     border: 1px solid $gray_5;
-    margin-top: 40px;
+    margin-top: 50px;
     height: 160px;
     .flights_list{
         font-size: $fz_last;
@@ -235,7 +235,7 @@
             .shortdesk_resort,.shortdesk_add_services{
                 padding: 10px;
                 .title_resort,.title_add_services{
-                    color: $light_green_2;
+                    color: $light_green;
                     max-width: 300px;
                 }
                 .starting_price,.add_services_price{

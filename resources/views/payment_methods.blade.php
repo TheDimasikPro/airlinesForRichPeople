@@ -1,10 +1,12 @@
-@extends('layouts.app_layout')
+@extends('layouts.layout_with_footer_bottom')
 @section('title_page','Способы оплаты')
 @section('styles_link')
     <link rel="stylesheet" href="/assets/css/style.min.css">
 @endsection
 @section('content')
-    <div class="container">
+    {{-- классы (df_jcc_aic и content_flex) нужны для центрирования контента при шаблоне layout_with_footer_bottom
+    если использовать шаблон app_layout, то нужно удалить эти классы --}}
+    <div class="container df_jcc_aic content_flex">
         <div class="payment_methods_block">
             <div class="bank_cards">
                 <h2>Банковская карта</h2>

@@ -1,0 +1,147 @@
+.block_start{
+    max-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    &:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background-color: rgba($color: #000000, $alpha: .7);
+        width: 100%;
+        height: 100%;
+    }
+    .img_food_block{
+        position: relative;
+        padding-bottom: 56.25%;
+        margin-top: -20px;
+        z-index: 1;
+        .food_img_bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .food_container{
+        padding: 0;
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+            color: $white;
+            h1{
+                text-align: center;
+                font-size: 64px;
+            }
+            h2{
+                text-align: center;
+                font-size: 38px;
+            }
+            .btn_scroll_food{
+                margin-top: 50%;
+                bottom: 70px;
+                position: absolute;
+                left: 50%;
+                margin-right: -50%;
+                transition: 0.8s;
+                transform: translate(-50%, -50%);
+            }
+            .down_scroll_btn_food{
+                bottom: 50px;
+            }
+            .up_scroll_btn_food{
+                bottom: 70px;
+            }
+        }
+        
+    }
+}
+
+
+.main_food_block{
+    margin: 50px 0;
+    .food_short_info{
+        font-size: $fz_second;
+    }
+    .second_food_block{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        .where_oder__list,.whene_oder__list{
+            .where_oder__list__item,.whene_oder__list__item{
+                &:not(:first-child){
+                    margin-top: 20px;
+                }
+                // &::before{
+                //     background-image: url('data:image/svg+xml, <?xml version="1.0" encoding="UTF-8" standalone="no"?> <svg <path id="rect2160" style="fill:#000000" d="m0 5.5893v38.688h38.688v-38.688l-38.688 0.0003zm6.3125 5.5627h26.062l0.001 27.594h-26.062l-0.0005-27.594z" /> <path id="path2170" style="stroke:#d40000;stroke-width:9;fill:none" d="m11.789 16.766l5.859 16.84 21.349-29.106"/></g></svg>');
+                //     content: "";
+                //     background-size: 100% 100%;
+                //     display: inline-block;
+                //     height: 20px;
+                //     width:20px;
+                //     position:relative;
+                // }
+                // &:hover::before{
+                //     // color: red;
+                //     background-image: url('data:image/svg+xml;utf8, <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="check-square" class="svg-inline--fa fa-check-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#004369"><  d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"/></svg>');
+                // }
+            }
+        }
+    }
+}
+.menu_food_block{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .menu_cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .menu_cards__item{
+            border: 1px solid $black_gray;
+            max-width: 500px;
+            &:nth-child(n+3){
+                margin-top: 30px;
+            }
+            &:hover{
+                box-shadow: 0px 15px 18px 5px rgba(80, 34, 34, 0.2);
+            }
+            .menu_cards__item_img_block{
+                width: 100%;
+                height: 300px;
+                background: $black_gray;
+            }
+            .menu_cards__item_info_block{
+                padding: 10px;
+                h2{
+                    margin: 0;
+                }
+                p{
+                    margin-top: 20px;
+                    font-size: $fz_second;
+                }
+                .menu_cards__item_price{
+                    padding: 10px 20px;
+                    background: $light_green;
+                    margin-top: 20px;
+                    font-weight: 700;
+                    font-size: $fz_second;
+                }
+            }
+        }
+    }
+}

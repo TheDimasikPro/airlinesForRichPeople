@@ -21,6 +21,7 @@ use Stevebauman\Location\Facades\Location;
 */
 
 Route::get('/', [IndexController::class,'index'])->name('index__page');
+Route::get('/#section__add_services',[IndexController::class,'index'])->name('add_services__block_index');
 Route::get('/login', [LoginController::class,'index'])->name('login__page');
 Route::get('/reg', [RegisterController::class,'index'])->name('reg__page');
 
@@ -52,3 +53,7 @@ Route::prefix('baggage_info')->group(function () {
 
 Route::get('/payment_methods',[MainController::class,'returnViewPaymentsMethod'])->name('payment_methods__page');
 Route::get('/contacts',[MainController::class,'returnViewIndexContacts'])->name('contacts__page');
+Route::get('/404_page',[MainController::class,'returnView404Page'])->name('404__page');
+Route::get('/food_info',[MainController::class,'returnViewFoodInfo'])->name('food_info__page');
+
+// nutrition

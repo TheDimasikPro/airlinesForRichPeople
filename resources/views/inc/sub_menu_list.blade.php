@@ -10,7 +10,7 @@
     </li>
     <!-- /.sub_menu__item -->
     <li class="sub_menu__item">
-        <a href="" class="sub_menu__link">Питание на борту</a> 
+        <a href="{{ route('food_info__page') }}" class="sub_menu__link">Питание на борту</a> 
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->
@@ -27,7 +27,7 @@
     </li>
     <!-- /.sub_menu__item -->
     <li class="sub_menu__item">
-        <a href="" class="sub_menu__link">Статус рейса</a> 
+        <a href="{{ route('404__page') }}" class="sub_menu__link">Статус рейса</a> 
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->
@@ -37,14 +37,14 @@
     </li>
     <!-- /.sub_menu__item -->
     <li class="sub_menu__item">
-        <a href="" class="sub_menu__link">Каталог аэропортов</a> 
+        <a href="{{ route('404__page') }}" class="sub_menu__link">Каталог аэропортов</a> 
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->
 </ul>
 <ul class="add_sub_menu_list">
     <li class="sub_menu__item">
-        <a href="" class="sub_menu__link">Новости</a> 
+        <a href="{{ route('404__page') }}" class="sub_menu__link">Новости</a> 
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->
@@ -54,12 +54,12 @@
     </li>
     <!-- /.sub_menu__item -->
     <li class="sub_menu__item">
-        <a href="" class="sub_menu__link">Руководство авиакомпании</a> 
+        <a href="{{ route('404__page') }}" class="sub_menu__link">Руководство авиакомпании</a> 
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->
     <li class="sub_menu__item">
-        <a href="" class="sub_menu__link">Вакансии</a> 
+        <a href="{{ route('404__page') }}" class="sub_menu__link">Вакансии</a> 
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->
@@ -71,7 +71,7 @@
     </li>
     <!-- /.sub_menu__item -->
     <li class="sub_menu__item">
-        <a href="" class="sub_menu__link">Дополнительные услуги к рейсу</a> 
+        <a href="{{ route('add_services__block_index') }}" class="sub_menu__link">Дополнительные услуги к рейсу</a> 
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->

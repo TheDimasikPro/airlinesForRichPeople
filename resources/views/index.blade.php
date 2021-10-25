@@ -16,7 +16,7 @@
                     <div class="form_search_block_inputs">
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
-                                <input type="text" class="sm_input input_search_flights" name="flights_from" id="id_i_s_f_f" autocomplete="off">
+                                <input type="text" class="sm_input input_search_flights" name="flights_from" id="id_i_s_f_f" autocomplete="off" placeholder="Откуда:">
                                 <button class="dropbtn" type="button" id="dropbtn_from_flights">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -123,7 +123,7 @@
                     <div class="form_search_block_inputs">
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
-                                <input type="text" class="sm_input input_search_flights" name="flights_to" id="id_i_s_f_t" autocomplete="off">
+                                <input type="text" class="sm_input input_search_flights" name="flights_to" id="id_i_s_f_t" autocomplete="off" placeholder="Куда:">
                                 <button class="dropbtn" type="button" id="dropbtn_to_flights">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -396,7 +396,7 @@
     </section>
     <!-- /.container -->
 
-    <section class="container">
+    <section class="container" id="section__add_services">
         <div class="add_services">
             <h2>Дополнительные услуги</h2>
             <div class="add_services_block df_jcspb_aic">

@@ -1,4 +1,4 @@
-* {
+*, *::after, *::before {
   border: none;
   background: none;
   outline: none;
@@ -8,20 +8,21 @@
   text-decoration: none;
   box-sizing: border-box;
   transition: 0.2s;
+  outline-offset: 0px;
   scroll-behavior: smooth;
   font-family: "Roboto-Regular", sans-serif;
 }
-* ::-moz-selection {
+* ::-moz-selection, *::after ::-moz-selection, *::before ::-moz-selection {
   color: white;
   background: #52C9B9;
 }
-* ::selection {
+* ::selection, *::after ::selection, *::before ::selection {
   color: white;
   background: #52C9B9;
 }
 
 *::after, *::before {
-  box-sizing: border-box;
+  font-family: "Font Awesome 5 Free";
 }
 
 html {
@@ -167,7 +168,6 @@ input[type=button] {
   background: #52C9B9;
   height: 35px;
   color: #ffffff;
-  outline-offset: 0px;
 }
 @-webkit-keyframes pulse {
   0% {
@@ -181,6 +181,11 @@ input[type=button] {
 }
 .btn_style_1:hover {
   background: #004369;
+}
+
+.btn_style_2 .fas {
+  font-size: 60px;
+  color: #ffffff;
 }
 
 .logo_image {
@@ -213,12 +218,10 @@ input[type=button] {
 }
 
 #header {
-  transition: 0.5s;
   border-bottom: 1px solid #E5E5E5;
   padding: 30px 0;
   z-index: 1000;
   background: #FDFDFD;
-  margin-bottom: 10px;
   position: relative;
 }
 #header .additional_sub_menu {
@@ -259,7 +262,6 @@ input[type=button] {
   display: none;
 }
 #header .fas {
-  transition: 0.4s;
   font-size: 20px;
   cursor: pointer;
 }
@@ -392,7 +394,7 @@ input[type=button] {
   border-radius: 10px;
   background: #ffffff;
   border: 1px solid #E5E5E5;
-  margin-top: 40px;
+  margin-top: 50px;
   height: 160px;
 }
 .work_with_flights .flights_list {
@@ -619,7 +621,7 @@ input[type=button] {
   padding: 10px;
 }
 .resorts .resort_cards_block .resort_card .shortdesk_resort .title_resort, .resorts .resort_cards_block .resort_card .shortdesk_resort .title_add_services, .resorts .resort_cards_block .resort_card .shortdesk_add_services .title_resort, .resorts .resort_cards_block .resort_card .shortdesk_add_services .title_add_services, .resorts .resort_cards_block .add_services_card .shortdesk_resort .title_resort, .resorts .resort_cards_block .add_services_card .shortdesk_resort .title_add_services, .resorts .resort_cards_block .add_services_card .shortdesk_add_services .title_resort, .resorts .resort_cards_block .add_services_card .shortdesk_add_services .title_add_services, .resorts .add_services_block .resort_card .shortdesk_resort .title_resort, .resorts .add_services_block .resort_card .shortdesk_resort .title_add_services, .resorts .add_services_block .resort_card .shortdesk_add_services .title_resort, .resorts .add_services_block .resort_card .shortdesk_add_services .title_add_services, .resorts .add_services_block .add_services_card .shortdesk_resort .title_resort, .resorts .add_services_block .add_services_card .shortdesk_resort .title_add_services, .resorts .add_services_block .add_services_card .shortdesk_add_services .title_resort, .resorts .add_services_block .add_services_card .shortdesk_add_services .title_add_services, .add_services .resort_cards_block .resort_card .shortdesk_resort .title_resort, .add_services .resort_cards_block .resort_card .shortdesk_resort .title_add_services, .add_services .resort_cards_block .resort_card .shortdesk_add_services .title_resort, .add_services .resort_cards_block .resort_card .shortdesk_add_services .title_add_services, .add_services .resort_cards_block .add_services_card .shortdesk_resort .title_resort, .add_services .resort_cards_block .add_services_card .shortdesk_resort .title_add_services, .add_services .resort_cards_block .add_services_card .shortdesk_add_services .title_resort, .add_services .resort_cards_block .add_services_card .shortdesk_add_services .title_add_services, .add_services .add_services_block .resort_card .shortdesk_resort .title_resort, .add_services .add_services_block .resort_card .shortdesk_resort .title_add_services, .add_services .add_services_block .resort_card .shortdesk_add_services .title_resort, .add_services .add_services_block .resort_card .shortdesk_add_services .title_add_services, .add_services .add_services_block .add_services_card .shortdesk_resort .title_resort, .add_services .add_services_block .add_services_card .shortdesk_resort .title_add_services, .add_services .add_services_block .add_services_card .shortdesk_add_services .title_resort, .add_services .add_services_block .add_services_card .shortdesk_add_services .title_add_services {
-  color: #84C2AD;
+  color: #52C9B9;
   max-width: 300px;
 }
 .resorts .resort_cards_block .resort_card .shortdesk_resort .starting_price, .resorts .resort_cards_block .resort_card .shortdesk_resort .add_services_price, .resorts .resort_cards_block .resort_card .shortdesk_add_services .starting_price, .resorts .resort_cards_block .resort_card .shortdesk_add_services .add_services_price, .resorts .resort_cards_block .add_services_card .shortdesk_resort .starting_price, .resorts .resort_cards_block .add_services_card .shortdesk_resort .add_services_price, .resorts .resort_cards_block .add_services_card .shortdesk_add_services .starting_price, .resorts .resort_cards_block .add_services_card .shortdesk_add_services .add_services_price, .resorts .add_services_block .resort_card .shortdesk_resort .starting_price, .resorts .add_services_block .resort_card .shortdesk_resort .add_services_price, .resorts .add_services_block .resort_card .shortdesk_add_services .starting_price, .resorts .add_services_block .resort_card .shortdesk_add_services .add_services_price, .resorts .add_services_block .add_services_card .shortdesk_resort .starting_price, .resorts .add_services_block .add_services_card .shortdesk_resort .add_services_price, .resorts .add_services_block .add_services_card .shortdesk_add_services .starting_price, .resorts .add_services_block .add_services_card .shortdesk_add_services .add_services_price, .add_services .resort_cards_block .resort_card .shortdesk_resort .starting_price, .add_services .resort_cards_block .resort_card .shortdesk_resort .add_services_price, .add_services .resort_cards_block .resort_card .shortdesk_add_services .starting_price, .add_services .resort_cards_block .resort_card .shortdesk_add_services .add_services_price, .add_services .resort_cards_block .add_services_card .shortdesk_resort .starting_price, .add_services .resort_cards_block .add_services_card .shortdesk_resort .add_services_price, .add_services .resort_cards_block .add_services_card .shortdesk_add_services .starting_price, .add_services .resort_cards_block .add_services_card .shortdesk_add_services .add_services_price, .add_services .add_services_block .resort_card .shortdesk_resort .starting_price, .add_services .add_services_block .resort_card .shortdesk_resort .add_services_price, .add_services .add_services_block .resort_card .shortdesk_add_services .starting_price, .add_services .add_services_block .resort_card .shortdesk_add_services .add_services_price, .add_services .add_services_block .add_services_card .shortdesk_resort .starting_price, .add_services .add_services_block .add_services_card .shortdesk_resort .add_services_price, .add_services .add_services_block .add_services_card .shortdesk_add_services .starting_price, .add_services .add_services_block .add_services_card .shortdesk_add_services .add_services_price {
@@ -714,6 +716,7 @@ input[type=button] {
 .baggage_block {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 
 .baggage_block__cards {
@@ -762,6 +765,9 @@ input[type=button] {
   margin-top: 20px;
 }
 
+.payment_methods_block {
+  margin-top: 20px;
+}
 .payment_methods_block .bank_cards {
   margin: 50px 0;
 }
@@ -792,7 +798,7 @@ input[type=button] {
   width: 49%;
 }
 .payment_methods_block .bank_cards .payment_methods__warning_list .warning_list__row .row__content .row_content__img_block {
-  background: pink;
+  background: #52C9B9;
   border-radius: 50%;
   padding: 20px;
   width: 80px;
@@ -806,29 +812,161 @@ input[type=button] {
   margin-left: 20px;
 }
 
-.support_list .support_list__item {
+.contact_block {
+  margin-top: 30px;
+  font-size: 16px;
+}
+.contact_block .contact_block__info {
+  display: flex;
+  justify-content: space-between;
+}
+.contact_block .contact_block__info .contact_block__info__column {
+  width: 550px;
+}
+.contact_block .support_list .support_list__item {
   display: flex;
   align-items: center;
 }
-.support_list .support_list__item strong {
-  margin-right: 20px;
-  margin-left: 10px;
+.contact_block .support_list .support_list__item span {
+  margin-top: 10px;
+  display: block;
 }
-.support_list .support_list__item:before {
-  background-image: url("/assets/images/icons/check-square-regular.svg");
-  content: "";
-  background-size: 100% 100%;
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  position: relative;
-  fill: #004369;
+.contact_block .support_list .support_list__item:not(:first-child) {
+  margin-top: 20px;
 }
-
 .google_maps_card {
   width: 100%;
-  height: 600px;
+  height: 800px;
   margin-top: 50px;
+}
+
+.block_start {
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.block_start:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+}
+.block_start .img_food_block {
+  position: relative;
+  padding-bottom: 56.25%;
+  margin-top: -20px;
+  z-index: 1;
+}
+.block_start .img_food_block .food_img_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.block_start .food_container {
+  padding: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.block_start .food_container .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  color: #ffffff;
+}
+.block_start .food_container .container h1 {
+  text-align: center;
+  font-size: 64px;
+}
+.block_start .food_container .container h2 {
+  text-align: center;
+  font-size: 38px;
+}
+.block_start .food_container .container .btn_scroll_food {
+  margin-top: 50%;
+  bottom: 70px;
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transition: 0.8s;
+  transform: translate(-50%, -50%);
+}
+.block_start .food_container .container .down_scroll_btn_food {
+  bottom: 50px;
+}
+.block_start .food_container .container .up_scroll_btn_food {
+  bottom: 70px;
+}
+
+.main_food_block {
+  margin: 50px 0;
+}
+.main_food_block .food_short_info {
+  font-size: 16px;
+}
+.main_food_block .second_food_block {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.main_food_block .second_food_block .where_oder__list .where_oder__list__item:not(:first-child), .main_food_block .second_food_block .where_oder__list .whene_oder__list__item:not(:first-child), .main_food_block .second_food_block .whene_oder__list .where_oder__list__item:not(:first-child), .main_food_block .second_food_block .whene_oder__list .whene_oder__list__item:not(:first-child) {
+  margin-top: 20px;
+}
+
+.menu_food_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.menu_food_block .menu_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.menu_food_block .menu_cards .menu_cards__item {
+  border: 1px solid #BEBEBE;
+  max-width: 500px;
+}
+.menu_food_block .menu_cards .menu_cards__item:nth-child(n+3) {
+  margin-top: 30px;
+}
+.menu_food_block .menu_cards .menu_cards__item:hover {
+  box-shadow: 0px 15px 18px 5px rgba(80, 34, 34, 0.2);
+}
+.menu_food_block .menu_cards .menu_cards__item .menu_cards__item_img_block {
+  width: 100%;
+  height: 300px;
+  background: #BEBEBE;
+}
+.menu_food_block .menu_cards .menu_cards__item .menu_cards__item_info_block {
+  padding: 10px;
+}
+.menu_food_block .menu_cards .menu_cards__item .menu_cards__item_info_block h2 {
+  margin: 0;
+}
+.menu_food_block .menu_cards .menu_cards__item .menu_cards__item_info_block p {
+  margin-top: 20px;
+  font-size: 16px;
+}
+.menu_food_block .menu_cards .menu_cards__item .menu_cards__item_info_block .menu_cards__item_price {
+  padding: 10px 20px;
+  background: #52C9B9;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .non_view {

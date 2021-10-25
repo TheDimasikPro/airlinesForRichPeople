@@ -29,4 +29,12 @@ class MainController extends Controller
     {
         return view('contacts');
     }
+    public function returnView404Page()
+    {
+        return view('errors.404');
+    }
+    public function returnViewFoodInfo()
+    {
+        return view('food_info');
+    }
 }

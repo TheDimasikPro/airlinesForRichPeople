@@ -5,37 +5,60 @@
 @endsection
 @section('content')
     <div class="container">
-        <h1>Контакты</h1>
-        <h2>Офис в Екатеринбурге</h2>
-        <p>
-            ОАО Авиакомпания "Richairlines" 620025, Россия, г. Екатеринбург, проспект. Ленина 50д 3 этаж
-        </p>
-        <h2>Круглосуточная служба поддержка</h2>
-        <ul class="support_list">
-            <li class="support_list__item">
-                <strong>Звонки по РФ (бесплатно):</strong>89827999203
-            </li>
-            <!-- /.support_list__item -->
-            <li class="support_list__item">
-                <strong>Для жителей Екатеринбурга и Свердловской области:</strong>89827111203
-            </li>
-            <!-- /.support_list__item -->
-            <li class="support_list__item">
-                <strong>Для жителей Москвы и Московской области:</strong>89823239203
-            </li>
-            <!-- /.support_list__item -->
-            <li class="support_list__item">
-                <strong>Для иностранных граждан</strong>89827995392
-            </li>
-            <!-- /.support_list__item -->
-        </ul>
-        <!-- /.support_list -->
-        <h2>Размещение рекламы в бортовых журналах и на бортах воздушных судов Авиакомпании</h2>
-        <p>
-            +7 (343) 376-26-00, reklama_richairlines@gmail.com
-        </p>
-        <h2>Трудоустройство</h2>
-        <p> +7 (343) 777-32-32, vacancy_richairlines@gmail.com</p>
+        <div class="contact_block">
+            <h1>Контакты</h1>
+            <div class="contact_block__info">
+                <div class="contact_block__info__column">
+                    <h2>Офис в Екатеринбурге</h2>
+                    <p>
+                        ОАО Авиакомпания "Richairlines" 620025, Россия, г. Екатеринбург, проспект. Ленина 50д 3 этаж
+                    </p>
+                    <h2>Круглосуточная служба поддержка</h2>
+                    <ul class="support_list">
+                        <li class="support_list__item">
+                            <p>
+                                Звонки по РФ (бесплатно): <br> <span>89827999203</span> 
+                            </p>
+                        </li>
+                        <!-- /.support_list__item -->
+                        <li class="support_list__item">
+                            <p>
+                                Для жителей Екатеринбурга и Свердловской области: <br> <span>89827111203</span>
+                            </p>
+                        </li>
+                        <!-- /.support_list__item -->
+                        <li class="support_list__item">
+                            <p>
+                                Для жителей Москвы и Московской области: <br> <span>89823239203</span> 
+                            </p>
+                        </li>
+                        <!-- /.support_list__item -->
+                        <li class="support_list__item">
+                            <p>
+                                Для иностранных граждан: <br> <span>89827995392</span> 
+                            </p>
+                        </li>
+                        <!-- /.support_list__item -->
+                    </ul>
+                    <!-- /.support_list -->
+                </div>
+                <!-- /.contact_block__info__column -->
+                <div class="contact_block__info__column">
+                    <h2>Размещение рекламы в бортовых журналах и на бортах воздушных судов Авиакомпании</h2>
+                    <p>
+                        +7 (343) 376-26-00, reklama_richairlines@gmail.com
+                    </p>
+                    <h2>Трудоустройство</h2>
+                    <p> +7 (343) 777-32-32, vacancy_richairlines@gmail.com</p>
+                </div>
+                <!-- /.contact_block__info__column -->
+            </div>
+            <!-- /.contact_block__info -->
+            
+            
+        </div>
+        <!-- /.conatct_block -->
+        
 
 
         

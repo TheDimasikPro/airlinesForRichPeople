@@ -1,4 +1,5 @@
 .payment_methods_block{
+    margin-top: 20px;
     .bank_cards{
         margin: 50px 0;
         h2{
@@ -26,7 +27,7 @@
                     width: 49%;
                     
                     .row_content__img_block{
-                        background: pink;
+                        background: $light_green;
                         border-radius: 50%;
                         padding: 20px;
                         width: 80px;

@@ -97,7 +97,7 @@ $prefixes: ("-moz-", "");
         }
     }
 }
-*{
+*,*::after,*::before{
     border:none;
     background: none;
     outline: none;
@@ -107,12 +107,13 @@ $prefixes: ("-moz-", "");
     text-decoration: none;
     box-sizing: border-box;
     transition: 0.2s;
+    outline-offset: 0px;
     @include selection(white, $light_green);
     scroll-behavior: smooth;
     font-family: 'Roboto-Regular',sans-serif;
 }
 *::after,*::before{
-    box-sizing: border-box;
+    font-family: "Font Awesome 5 Free";
 }
 html{
     scroll-behavior: smooth;
@@ -221,7 +222,6 @@ input[type="button"]{
     background: $light_green;
     height: 35px;
     color: $white;
-    outline-offset: 0px;
     @keyframes pulse {
         0% { 
             box-shadow: 0 0 0 0 $light_green;
@@ -235,6 +235,12 @@ input[type="button"]{
     //     box-shadow: 0 0 0 2em rgba($white,0);
     //     color: $black;
     // }
+}
+.btn_style_2{
+    .fas{
+        font-size: 60px;
+        color: $white;
+    }
 }
 
 .logo_image{
