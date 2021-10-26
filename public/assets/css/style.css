@@ -188,6 +188,15 @@ input[type=button] {
   color: #ffffff;
 }
 
+.btn_style_3 {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #BEBEBE;
+}
+.btn_style_3:hover {
+  background: #E5E5E5;
+}
+
 .logo_image {
   width: 150px;
 }

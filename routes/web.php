@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BaggageController;
+use App\Http\Controllers\Cabinet\ProfileController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
@@ -61,5 +62,9 @@ Route::get('/food_info',[MainController::class,'returnViewFoodInfo'])->name('foo
 
 Route::prefix('search_tickets')->group(function () {
     Route::get('/',[TicketController::class,'search'])->name('search_tickets__page');
+});
+
+Route::prefix('profile')->group(function () {
+    Route::get('/',[ProfileController::class,'index'])->name('my_profile__page');
 });
 // nutrition

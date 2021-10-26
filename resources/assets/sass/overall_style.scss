@@ -242,7 +242,14 @@ input[type="button"]{
         color: $white;
     }
 }
-
+.btn_style_3{
+    font-size: $fz_second;
+    padding: 10px 20px;
+    border-bottom: 1px solid $black_gray;
+    &:hover{
+        background: $gray_5;
+    }
+}
 .logo_image{
     width: 150px;
     .link_header{

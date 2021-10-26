@@ -80,4 +80,9 @@
         <!-- /.sub_menu__link -->
     </li>
     <!-- /.sub_menu__item -->
+    <li class="sub_menu__item">
+        <a href="{{ route('my_profile__page') }}" class="sub_menu__link">Кабинет</a> 
+        <!-- /.sub_menu__link -->
+    </li>
+    <!-- /.sub_menu__item -->
 </ul>

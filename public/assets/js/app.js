@@ -866,6 +866,19 @@ __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
+/***/ }),
+
+/***/ "./resources/assets/sass/cabinet/my_profile.scss":
+/*!*******************************************************!*\
+  !*** ./resources/assets/sass/cabinet/my_profile.scss ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
 /***/ })
 
 /******/ 	});
@@ -955,6 +968,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/assets/js/app": 0,
+/******/ 			"assets/css/my_pofile": 0,
 /******/ 			"assets/css/auth": 0,
 /******/ 			"assets/css/style": 0
 /******/ 		};
@@ -1006,9 +1020,10 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["assets/css/auth","assets/css/style"], () => (__webpack_require__("./resources/assets/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["assets/css/auth","assets/css/style"], () => (__webpack_require__("./resources/assets/sass/style.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/css/auth","assets/css/style"], () => (__webpack_require__("./resources/assets/sass/auth/auth.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/css/my_pofile","assets/css/auth","assets/css/style"], () => (__webpack_require__("./resources/assets/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["assets/css/my_pofile","assets/css/auth","assets/css/style"], () => (__webpack_require__("./resources/assets/sass/style.scss")))
+/******/ 	__webpack_require__.O(undefined, ["assets/css/my_pofile","assets/css/auth","assets/css/style"], () => (__webpack_require__("./resources/assets/sass/auth/auth.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/css/my_pofile","assets/css/auth","assets/css/style"], () => (__webpack_require__("./resources/assets/sass/cabinet/my_profile.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

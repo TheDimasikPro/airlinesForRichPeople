@@ -1,0 +1,33 @@
+@import '../overall_style.scss';
+@import '../header.scss';
+.my_profile_block{
+    margin-top: 50px;
+    align-items: flex-start;
+    .aside_user,.personal_data_block{
+        border: 1px solid $black_gray;
+    }
+    .aside_user{
+        width: 30%;
+        margin-right: 20px;
+        .aside_user__item{
+            &:last-child{
+                .aside_user__item_btn{
+                    border-bottom: none;
+                }
+            }
+            .aside_user__item_btn{
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+    .personal_data_block{
+        width: 70%;
+        padding: 10px;
+        margin-left: 20px;
+        h2{
+            margin: 0
+        }
+    }
+}
+@import '../footer.scss';
