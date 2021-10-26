@@ -292,13 +292,16 @@ $(document).ready(function(){
                 if (!$('.fa-times').hasClass('non_view')) {
                     $('.fa-bars').removeClass('non_view');
                     $('.fa-times').addClass('non_view');
-                    $('.additional_sub_menu').removeClass('additional_sub_menu__view');
+                   
                     $('.nav_menu .geo_posistion_people').removeAttr('style');
                     $('.geo_posistion_people').removeClass('geo_posistion_people__active');
                     $('.language_currency').removeClass('language_currency_active');
                 }
                 if (target.closest('.geo_posistion_people')) {
                     $('.geo_posistion_people').click();
+                }
+                if (!target.closest('.additional_sub_menu__view .container')) {
+                    $('.additional_sub_menu').removeClass('additional_sub_menu__view');
                 }
             }
             if (!target.closest('#dropbtn_prefix_phone')) {

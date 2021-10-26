@@ -5,11 +5,11 @@
 @endsection
 @section('content')
     <div class="container df_jcc_aic content_flex">
-        <div class="order_managment_block">
+        <div class="error_block">
             <h1>404...</h1>
             
         </div>
-        <!-- /.order_managment_block -->
+        <!-- /"error_block -->
     </div>
     <!-- /.container -->
 @endsection

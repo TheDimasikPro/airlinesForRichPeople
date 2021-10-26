@@ -15,7 +15,7 @@
             <!-- /.baggage_block__start_info -->
             <div class="baggage_block__cards">
                 <div class="baggage_block__card_item" id="carriage_of_animals">
-                    <img src="/assets/images/services/transportation_of_animals.jpg" alt="" class="baggage_card__img">
+                    <img src="/assets/images/services/imgonline-com-ua-Resize-IvOmzlu9XmE.jpg" alt="" class="baggage_card__img">
                     <div class="baggage_card__text_block">
                         <h2 class="baggage_card__title">Провоз животных</h2> 
                         <!-- /.baggage_card__title -->
@@ -44,7 +44,7 @@
                                         <strong>Для перелета за границу:</strong>
                                     </p>
                                     <ul>
-                                        <li>ветеринарный паспорт международного образца;</li>
+                                        <li>Ветеринарный паспорт международного образца;</li>
                                         <li>справка о состоянии здоровья животного по форме №4 для Москвы и по форме №1 для 
                                             остальных регионов. Эта справка выдаётся в государственной ветеринарной станции — 
                                             погуглите адреса и контакты этой станции в вашем городе, позвоните туда заранее и узнайте, 

@@ -6,6 +6,7 @@ use App\Http\Controllers\BaggageController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
 
@@ -56,4 +57,7 @@ Route::get('/contacts',[MainController::class,'returnViewIndexContacts'])->name(
 Route::get('/404_page',[MainController::class,'returnView404Page'])->name('404__page');
 Route::get('/food_info',[MainController::class,'returnViewFoodInfo'])->name('food_info__page');
 
+Route::prefix('search_tickets')->group(function () {
+    Route::get('/',[TicketController::class,'search'])->name('search_tickets__page');
+});
 // nutrition

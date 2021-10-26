@@ -12,7 +12,7 @@
             </ul>
             <!-- /.flights_list -->
             <div class="search_tickets_block">
-                <form action="" class="form form_search_tickets">
+                <form action="{{ route('search_tickets__page') }}" class="form form_search_tickets">
                     <div class="form_search_block_inputs">
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">

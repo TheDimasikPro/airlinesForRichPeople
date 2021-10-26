@@ -226,11 +226,12 @@ input[type=button] {
 }
 #header .additional_sub_menu {
   position: absolute;
-  top: 108px;
+  top: 105px;
   left: 0;
   right: 0;
   background: #ffffff;
   border-bottom: 1px solid #E5E5E5;
+  border-top: 1px solid #E5E5E5;
   box-shadow: 0 10px 5px -1px rgba(190, 190, 190, 0.7);
   transform-origin: 0 0;
   transform: scaleY(0);

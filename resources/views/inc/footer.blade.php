@@ -39,5 +39,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="/assets/js/app.js"></script>
 <script src="/assets/js/maskedinput.min.js"></script>
+@yield('slider_script')
 </body>
 </html>

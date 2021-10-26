@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::after, *::before {
   border: none;
   background: none;
@@ -226,11 +227,12 @@ input[type=button] {
 }
 #header .additional_sub_menu {
   position: absolute;
-  top: 108px;
+  top: 105px;
   left: 0;
   right: 0;
   background: #ffffff;
   border-bottom: 1px solid #E5E5E5;
+  border-top: 1px solid #E5E5E5;
   box-shadow: 0 10px 5px -1px rgba(190, 190, 190, 0.7);
   transform-origin: 0 0;
   transform: scaleY(0);
@@ -723,6 +725,7 @@ input[type=button] {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+  font-size: 16px;
 }
 .baggage_block__cards .baggage_block__card_item {
   display: flex;
@@ -737,7 +740,6 @@ input[type=button] {
 }
 .baggage_block__cards .baggage_block__card_item .baggage_card__img {
   width: 300px;
-  height: 100%;
 }
 .baggage_block__cards .baggage_block__card_item .baggage_card__text_block {
   padding: 20px;
@@ -751,11 +753,11 @@ input[type=button] {
 .baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text ul {
   margin-top: 10px;
 }
-.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text ul li {
-  list-style: square inside;
+.baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text ul li:not(:first-child) {
+  margin-top: 20px;
 }
 .baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text a {
-  color: #52C9B9;
+  color: red;
   border-bottom: 1px solid transparent;
 }
 .baggage_block__cards .baggage_block__card_item .baggage_card__text_block .baggage_card__text a:hover {
@@ -896,7 +898,7 @@ input[type=button] {
 }
 .block_start .food_container .container .btn_scroll_food {
   margin-top: 50%;
-  bottom: 70px;
+  bottom: 140px;
   position: absolute;
   left: 50%;
   margin-right: -50%;
@@ -904,10 +906,10 @@ input[type=button] {
   transform: translate(-50%, -50%);
 }
 .block_start .food_container .container .down_scroll_btn_food {
-  bottom: 50px;
+  bottom: 110px;
 }
 .block_start .food_container .container .up_scroll_btn_food {
-  bottom: 70px;
+  bottom: 140px;
 }
 
 .main_food_block {
@@ -969,6 +971,28 @@ input[type=button] {
   font-size: 16px;
 }
 
+.search_tickets__block {
+  margin-top: 50px;
+  /* на средних экранах (ширина больше 768px) – 2 слайда */
+  /* на больших экранах (ширина больше 1200px) – 3 слайда */
+}
+.search_tickets__block .slider__item {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+@media (min-width: 768px) {
+  .search_tickets__block .slider__item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .search_tickets__block .slider__item {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+}
+
 .non_view {
   display: none;
 }
@@ -1020,4 +1044,8 @@ input[type=button] {
 }
 .footer_section .footer_info:last-child .link_header svg:hover circle {
   stroke: #004369;
+}
+
+.error_block {
+  margin-top: 40px;
 }
