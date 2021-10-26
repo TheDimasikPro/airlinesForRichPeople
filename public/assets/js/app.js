@@ -166,8 +166,7 @@ $(document).ready(function () {
 
       if (!$('.back_data').hasClass('non_click_input')) {
         $('#id_i_d_t').click();
-        $('.back_data').addClass('non_click_input');
-        console.log("есть клик");
+        $('.back_data').addClass('non_click_input'); // console.log("есть клик");
       }
     } else if (!$(this).hasClass('there_data') && !$(this).hasClass('btn_search_block')) {
       $(this).addClass('block_inputs_active');
@@ -555,8 +554,7 @@ $(document).ready(function () {
     }
   });
   $("#phone").mask("(999)999-999-9", {
-    completed: function completed() {
-      console.log("харош");
+    completed: function completed() {// console.log("харош");
     }
   });
   $('.prefix_phone_list__item').click(function () {
@@ -583,8 +581,7 @@ $(document).ready(function () {
     }
 
     $("#phone").mask(str_mask, {
-      completed: function completed() {
-        console.log("харош");
+      completed: function completed() {// console.log("харош");
       }
     });
   });
@@ -621,8 +618,7 @@ $(document).ready(function () {
     $(this).addClass('select_list__item');
   });
   $("#series_document_number").mask("99 99 999999", {
-    completed: function completed() {
-      console.log("харош");
+    completed: function completed() {// console.log("харош");
     }
   });
   dropbtn_country_of_issue.click(function (e) {
@@ -804,8 +800,7 @@ $(document).ready(function () {
   setInterval(function () {
     if (!$('.btn_scroll_food').hasClass('down_scroll_btn_food')) {
       $('.btn_scroll_food').removeClass('up_scroll_btn_food');
-      $('.btn_scroll_food').addClass('down_scroll_btn_food');
-      console.log('cdcd');
+      $('.btn_scroll_food').addClass('down_scroll_btn_food'); // console.log('cdcd');
     } else {
       $('.btn_scroll_food').removeClass('down_scroll_btn_food');
       $('.btn_scroll_food').addClass('up_scroll_btn_food');

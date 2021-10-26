@@ -162,7 +162,7 @@ $(document).ready(function(){
             if (!$('.back_data').hasClass('non_click_input')) {
                 $('#id_i_d_t').click();
                 $('.back_data').addClass('non_click_input');
-                console.log("есть клик");
+                // console.log("есть клик");
             }
             
         }
@@ -557,7 +557,7 @@ $(document).ready(function(){
     $("#phone").mask("(999)999-999-9",
     {
         completed:function () {
-            console.log("харош");
+            // console.log("харош");
         }
     });
     $('.prefix_phone_list__item').click(function () {
@@ -582,7 +582,7 @@ $(document).ready(function(){
         $("#phone").mask(str_mask,
         {
             completed:function () {
-                console.log("харош");
+                // console.log("харош");
             }
         });
 
@@ -624,7 +624,7 @@ $(document).ready(function(){
     $("#series_document_number").mask("99 99 999999",
     {
         completed:function () {
-            console.log("харош");
+            // console.log("харош");
         }
     });
     
@@ -805,7 +805,7 @@ $(document).ready(function(){
         if (!$('.btn_scroll_food').hasClass('down_scroll_btn_food')) {
             $('.btn_scroll_food').removeClass('up_scroll_btn_food');
             $('.btn_scroll_food').addClass('down_scroll_btn_food');
-            console.log('cdcd');
+            // console.log('cdcd');
         }
         else{
             $('.btn_scroll_food').removeClass('down_scroll_btn_food');
