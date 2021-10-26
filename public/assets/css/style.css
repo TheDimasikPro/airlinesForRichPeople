@@ -151,6 +151,15 @@ button {
   font-weight: 400;
 }
 
+.input_style_pofile {
+  height: 40px;
+  font-weight: 400;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #BEBEBE;
+  margin-top: 10px;
+}
+
 input[type=button] {
   cursor: pointer;
   text-align: left;

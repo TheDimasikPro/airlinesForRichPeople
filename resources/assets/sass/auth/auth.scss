@@ -17,6 +17,9 @@
         min-height: auto;
         .form_auth_block:last-child{
             margin-bottom: 20px;
+            .link_auth:first-child{
+                width: auto;
+            }
         }
     }
     &#form_login{
@@ -142,7 +145,7 @@
                     position: absolute;
                     z-index: 1000;
                     top: 66px;
-                    @include custom_scroll_bar_body;
+                    @include custom_scroll_bar;
                     .prefix_phone_list__item,.gender_code_list__item,.type_document_list__item,.country_of_issue_list__item{
                         padding: 10px;
                         border:1px solid $gray_3;

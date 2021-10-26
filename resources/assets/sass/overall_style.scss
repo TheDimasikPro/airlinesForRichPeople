@@ -205,6 +205,13 @@ button{
     border: 1px solid $black_gray;
     @include input_overall_style;
 }
+.input_style_pofile{
+    @include input_overall_style;
+    width: 100%;
+    font-size: $fz_second;
+    border: 1px solid $black_gray;
+    margin-top: 10px;
+}
 input[type="button"]{
     cursor: pointer;
     text-align: left;

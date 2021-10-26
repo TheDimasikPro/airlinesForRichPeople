@@ -1,5 +1,5 @@
 @extends('layouts.layout_with_footer_bottom')
-@section('title_page','Восстановить пароль')
+@section('title_page','Регистрация')
 @section('styles_link')
     <link rel="stylesheet" href="/assets/css/auth.min.css">
 @endsection
@@ -183,6 +183,11 @@
                                 <ul class="country_of_issue_list">
                                     <li class="country_of_issue_list__item">Мужской</li>
                                     <li class="country_of_issue_list__item">Женский</li>
+                                    <li class="country_of_issue_list__item">Женcdscsdский</li>
+                                    <li class="country_of_issue_list__item">Женс43434кий</li>
+                                    <li class="country_of_issue_list__item">Жен34243ский</li>
+                                    <li class="country_of_issue_list__item">Женcsdcsdский</li>
+                                    <li class="country_of_issue_list__item">Женс23232кий</li>
 
                                 </ul>
                             </div>

@@ -3,30 +3,181 @@
 .my_profile_block{
     margin-top: 50px;
     align-items: flex-start;
-    .aside_user,.personal_data_block{
-        border: 1px solid $black_gray;
+    font-size: $fz_second;
+    .exit_profile_link{
+        padding: 0;
+        width: 100%;
+        text-align: left;
+        margin-top: 20px;
+        padding-bottom: 3px;
+        border-bottom: 2px solid transparent;
+        &:hover{
+            border-bottom: 2px solid $green;
+        }
     }
-    .aside_user{
-        width: 30%;
+    
+    .aside_bar_user{
+        width: 25%;
         margin-right: 20px;
-        .aside_user__item{
-            &:last-child{
-                .aside_user__item_btn{
-                    border-bottom: none;
+        .aside_user__list{
+            .aside_user__list__item{
+                border: 1px solid $gray_5;
+                border-top: 0;
+                border-left: 0;
+                &:first-child{
+                    padding: 20px;
+                    .aside_user__list__item__short_name__exit_block{
+                        .aside_user__list__item__short_name__exit_block__text{
+                            color: $black;
+                            max-width: 150px;
+                        }
+                    }
                 }
-            }
-            .aside_user__item_btn{
-                width: 100%;
-                text-align: left;
+                .aside_user__list__item__short_name__exit_block,.aside_user__list__item__btn{
+                    font-size: $fz_second;
+                    color: $black_gray;
+                    &:hover{
+                        color: $black;
+                    }
+                }
+                .aside_user__list__item__btn{
+                    width: 100%;
+                    text-align: left;
+                    padding: 20px;
+                }
+                .aside_user__list__item__img_block{
+                    max-width: 70px;
+                    .aside_user__list__item__img_block__img{
+                        width: 100%;
+                        border-radius: 50%;
+                    }
+                }
+                &.aside_user__list__item_active{
+                    .aside_user__list__item__btn{
+                        color: $black;
+                    }
+                    border-right: 0;
+                }
             }
         }
     }
-    .personal_data_block{
-        width: 70%;
-        padding: 10px;
+    .profile_data_cards{
+        width: 75%;
+        padding: 20px;
+        padding-right: 0;
         margin-left: 20px;
-        h2{
-            margin: 0
+        .control_panel_block{
+            line-height: 25px;
+            .control_panel_block__full_name_user{
+                font-weight: bold;
+            }
+            .exit_profile_link{
+                width: auto;
+                margin-top: 0;
+                color: red;
+                padding-bottom: 2px;
+            }
+            p:last-child{
+                margin-top: 35px;
+            }
+        }
+        .personal_data_block{
+            h2{
+                margin: 0;
+            }
+            .personal_data_block__update_form{
+                margin-top: 40px;
+                .personal_data_block__update_form__input_block{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    &:not(:first-child){
+                        margin-top: 20px;
+                    }
+                    label{
+                        position: relative;
+                    }
+                    .btn_show,.btn_hide,.personal_data_block__update_form__dropbtn{
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                    }
+                    .personal_data_block__update_form__dropbtn{
+                        font-size: $fz_second;
+                    }
+                    &:nth-last-child(-n+3){
+                        .personal_data_block__update_form__input_block__input{
+                            padding-right: 40px;
+                        }
+                    }
+                    #type_document_user,#gender_user{
+                        cursor: pointer;
+                    }
+                    #date_birthday_user::-webkit-calendar-picker-indicator {
+                        background: transparent;
+                        bottom: 0;
+                        color: transparent;
+                        cursor: pointer;
+                        height: auto;
+                        left: 0;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: auto;
+                    }
+                    .personal_data_block__update_form__gender_list,.personal_data_block__update_form__type_document_list,.personal_data_block__update_form__country_of_issue_list{
+                        transform-origin: 0 0;
+                        transform: scaleY(0);
+                        background: $white;
+                        display: flex;
+                        flex-direction: column;
+                        height: 0;
+                        max-height: 200px;
+                        overflow-y: auto;
+                        border-top: 0;
+                        border-bottom: 1px solid $gray_3;
+                        position: relative;
+                        width: 100%;
+                        z-index: 1000;
+                        @include custom_scroll_bar;
+                        .personal_data_block__update_form__gender_list__item,.personal_data_block__update_form__type_document_list__item,.personal_data_block__update_form__country_of_issue_list__item{
+                            padding: 10px;
+                            border:1px solid $gray_3;
+                            background: $white;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            color: $black;
+                            &:hover{
+                                cursor: pointer;
+                                background: $gray_4;
+                            }
+                            &:last-child{
+                                border-bottom: none;
+                            }
+                            &:not(:first-child){
+                                border-top: none;
+                            }
+                        }
+                        .select_list__item{
+                            background: $light_green_2;
+                        color: $white;
+                        &:hover{
+                            color: $black;
+                            background: $light_green_2;
+                        }
+                        }
+                    }
+                    .show_drop_content{
+                        transform: scaleY(1);
+                        height: 100%;
+                        // position: relative;
+                    }
+                    #btn_submit_update_personal_data{
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
 }

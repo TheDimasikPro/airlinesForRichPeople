@@ -151,6 +151,15 @@ button {
   font-weight: 400;
 }
 
+.input_style_pofile {
+  height: 40px;
+  font-weight: 400;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #BEBEBE;
+  margin-top: 10px;
+}
+
 input[type=button] {
   cursor: pointer;
   text-align: left;
@@ -399,28 +408,185 @@ input[type=button] {
 .my_profile_block {
   margin-top: 50px;
   align-items: flex-start;
+  font-size: 16px;
 }
-.my_profile_block .aside_user, .my_profile_block .personal_data_block {
-  border: 1px solid #BEBEBE;
-}
-.my_profile_block .aside_user {
-  width: 30%;
-  margin-right: 20px;
-}
-.my_profile_block .aside_user .aside_user__item:last-child .aside_user__item_btn {
-  border-bottom: none;
-}
-.my_profile_block .aside_user .aside_user__item .aside_user__item_btn {
+.my_profile_block .exit_profile_link {
+  padding: 0;
   width: 100%;
   text-align: left;
+  margin-top: 20px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
 }
-.my_profile_block .personal_data_block {
-  width: 70%;
-  padding: 10px;
+.my_profile_block .exit_profile_link:hover {
+  border-bottom: 2px solid #8CDE4E;
+}
+.my_profile_block .aside_bar_user {
+  width: 25%;
+  margin-right: 20px;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item {
+  border: 1px solid #E5E5E5;
+  border-top: 0;
+  border-left: 0;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:first-child {
+  padding: 20px;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:first-child .aside_user__list__item__short_name__exit_block .aside_user__list__item__short_name__exit_block__text {
+  color: #222222;
+  max-width: 150px;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__short_name__exit_block, .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
+  font-size: 16px;
+  color: #BEBEBE;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__short_name__exit_block:hover, .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn:hover {
+  color: #222222;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__img_block {
+  max-width: 70px;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__img_block .aside_user__list__item__img_block__img {
+  width: 100%;
+  border-radius: 50%;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item.aside_user__list__item_active {
+  border-right: 0;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item.aside_user__list__item_active .aside_user__list__item__btn {
+  color: #222222;
+}
+.my_profile_block .profile_data_cards {
+  width: 75%;
+  padding: 20px;
+  padding-right: 0;
   margin-left: 20px;
 }
-.my_profile_block .personal_data_block h2 {
+.my_profile_block .profile_data_cards .control_panel_block {
+  line-height: 25px;
+}
+.my_profile_block .profile_data_cards .control_panel_block .control_panel_block__full_name_user {
+  font-weight: bold;
+}
+.my_profile_block .profile_data_cards .control_panel_block .exit_profile_link {
+  width: auto;
+  margin-top: 0;
+  color: red;
+  padding-bottom: 2px;
+}
+.my_profile_block .profile_data_cards .control_panel_block p:last-child {
+  margin-top: 35px;
+}
+.my_profile_block .profile_data_cards .personal_data_block h2 {
   margin: 0;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form {
+  margin-top: 40px;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block:not(:first-child) {
+  margin-top: 20px;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block label {
+  position: relative;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .btn_show, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .btn_hide, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__dropbtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__dropbtn {
+  font-size: 16px;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block:nth-last-child(-n+3) .personal_data_block__update_form__input_block__input {
+  padding-right: 40px;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block #type_document_user, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block #gender_user {
+  cursor: pointer;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block #date_birthday_user::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list {
+  transform-origin: 0 0;
+  transform: scaleY(0);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border-top: 0;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list::-webkit-scrollbar, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list::-webkit-scrollbar, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list::-webkit-scrollbar {
+  width: 7px;
+  background-color: #f9f9fd;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list::-webkit-scrollbar-thumb, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list::-webkit-scrollbar-thumb, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #004369;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list::-webkit-scrollbar-track, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list::-webkit-scrollbar-track, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9fd;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__gender_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__type_document_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__country_of_issue_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__gender_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__type_document_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__country_of_issue_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__gender_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__type_document_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__country_of_issue_list__item {
+  padding: 10px;
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #222222;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__gender_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__type_document_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__country_of_issue_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__gender_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__type_document_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__country_of_issue_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__gender_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__type_document_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__country_of_issue_list__item:hover {
+  cursor: pointer;
+  background: #F7F7F7;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__gender_list__item:last-child, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__type_document_list__item:last-child, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__country_of_issue_list__item:last-child, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__gender_list__item:last-child, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__type_document_list__item:last-child, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__country_of_issue_list__item:last-child, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__gender_list__item:last-child, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__type_document_list__item:last-child, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__country_of_issue_list__item:last-child {
+  border-bottom: none;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__gender_list__item:not(:first-child), .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__type_document_list__item:not(:first-child), .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .personal_data_block__update_form__country_of_issue_list__item:not(:first-child), .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__gender_list__item:not(:first-child), .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__type_document_list__item:not(:first-child), .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .personal_data_block__update_form__country_of_issue_list__item:not(:first-child), .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__gender_list__item:not(:first-child), .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__type_document_list__item:not(:first-child), .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__country_of_issue_list__item:not(:first-child) {
+  border-top: none;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .select_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .select_list__item, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .select_list__item {
+  background: #84C2AD;
+  color: #ffffff;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__gender_list .select_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__type_document_list .select_list__item:hover, .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .personal_data_block__update_form__country_of_issue_list .select_list__item:hover {
+  color: #222222;
+  background: #84C2AD;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block .show_drop_content {
+  transform: scaleY(1);
+  height: 100%;
+}
+.my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block #btn_submit_update_personal_data {
+  width: 100%;
 }
 
 .non_view {
