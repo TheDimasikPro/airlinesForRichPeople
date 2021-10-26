@@ -1,5 +1,8 @@
 @import '../overall_style.scss';
 @import '../header.scss';
+#main_form_auth #auth_block_btn{
+    margin-bottom: 20px;
+}
 .form_auth{
     display: flex;
     flex-direction: column;
@@ -10,6 +13,18 @@
     margin-bottom: 20px;
     min-height: 420px;
     justify-content: flex-start;
+    &#form_forgot_password{
+        min-height: auto;
+        .form_auth_block:last-child{
+            margin-bottom: 20px;
+        }
+    }
+    &#form_login{
+        min-height: auto;
+        .form_auth_block:last-child{
+            margin-bottom: 20px;
+        }
+    }
     h1{
         margin-bottom: 5px;
     }
@@ -35,12 +50,16 @@
             // &:hover{
             //     border-color: $blue;
             // }
-            &:last-child{
-                border-bottom: 2px solid $light_green;
-                &:hover{
-                    border-color: $blue;
-                }
+            border-bottom: 2px solid $light_green;
+            &:hover{
+                border-color: $blue;
             }
+            // &:last-child{
+            //     border-bottom: 2px solid $light_green;
+            //     &:hover{
+            //         border-color: $blue;
+            //     }
+            // }
         }
         .link_login_page{
             width: 110px;

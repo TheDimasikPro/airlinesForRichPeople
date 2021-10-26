@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BaggageController;
@@ -25,6 +26,7 @@ Route::get('/', [IndexController::class,'index'])->name('index__page');
 Route::get('/#section__add_services',[IndexController::class,'index'])->name('add_services__block_index');
 Route::get('/login', [LoginController::class,'index'])->name('login__page');
 Route::get('/reg', [RegisterController::class,'index'])->name('reg__page');
+Route::get('/forgot_password', [ForgotPasswordController::class,'index'])->name('forgot_password__page');
 
 // определние ip пользователя и его страны
 Route::get('/ip', function () {

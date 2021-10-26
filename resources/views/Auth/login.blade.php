@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     <div class="container df_jcc_aic">
-        <form action="" class="form form_auth">
+        <form action="" class="form form_auth" id="form_login">
             <h1>Авторизация</h1>
             <div class="form_auth_block">
                 <label for="login">Login</label>
@@ -23,7 +23,7 @@
             </div>
             <!-- /.form_auth_block -->
             <div class="form_auth_block df_jcspb_aic">
-                <a href="" class="link_auth">Забыли свой пароль?</a>
+                <a href="{{ route('forgot_password__page') }}" class="link_auth">Забыли свой пароль?</a>
                 <a href="{{ route('reg__page') }}" class="link_auth">Зарегистрироваться</a>
             </div>
             <!-- /.form_auth_block -->

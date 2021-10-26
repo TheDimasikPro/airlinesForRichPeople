@@ -1,10 +1,10 @@
-@extends('layouts.app_layout')
-@section('title_page','Регистрация')
+@extends('layouts.layout_with_footer_bottom')
+@section('title_page','Восстановить пароль')
 @section('styles_link')
     <link rel="stylesheet" href="/assets/css/auth.min.css">
 @endsection
 @section('content')
-    <div class="container df_jcc_aic">
+    <div class="container df_jcc_aic content_flex">
         <div class="form form_auth" id="main_form_auth">
             <h1>Регистрация</h1>
             <p class="warning_text">
@@ -228,27 +228,27 @@
                                 <span>Если все данные верны, то нажмите кнопку "Зарегистрироваться", иначе нажмите на кнопку <br> "Начать сначала"</span>
                             </div>
                             <!-- /.title_text_finish -->
-                           <div class="all_info_user_registered">
-                               <ul class="user_info_list">
+                        <div class="all_info_user_registered">
+                            <ul class="user_info_list">
                                     <li class="user_info_list__item">
-                                       <p class="title_item">Полное имя:</p>
-                                       <!-- /.title_item -->
-                                       <span class="title_text_item">ccccccccccccccccccccc</span>
-                                       <!-- /.title_text_item -->
+                                    <p class="title_item">Полное имя:</p>
+                                    <!-- /.title_item -->
+                                    <span class="title_text_item">ccccccccccccccccccccc</span>
+                                    <!-- /.title_text_item -->
                                     </li>
                                     <!-- /.user_info_list__item -->
                                     <li class="user_info_list__item">
-                                       <p class="title_item">Почта:</p>
-                                       <!-- /.title_item -->
-                                       <span class="title_text_item">ccccccccccccccccccccc</span>
-                                       <!-- /.title_text_item -->
+                                    <p class="title_item">Почта:</p>
+                                    <!-- /.title_item -->
+                                    <span class="title_text_item">ccccccccccccccccccccc</span>
+                                    <!-- /.title_text_item -->
                                     </li>
                                     <!-- /.user_info_list__item -->
                                     <li class="user_info_list__item">
-                                       <p class="title_item">Телефон:</p>
-                                       <!-- /.title_item -->
-                                       <span class="title_text_item">ccccccccccccccccccccc</span>
-                                       <!-- /.title_text_item -->
+                                    <p class="title_item">Телефон:</p>
+                                    <!-- /.title_item -->
+                                    <span class="title_text_item">ccccccccccccccccccccc</span>
+                                    <!-- /.title_text_item -->
                                     </li>
                                     <li class="user_info_list__item">
                                         <p class="title_item">Город проживания:</p>
@@ -271,9 +271,9 @@
                                         <!-- /.title_text_item -->
                                     </li>
                                     <!-- /.user_info_list__item -->
-                               </ul>
-                               <!-- /.user_info_list -->
-                               <ul class="user_info_list df_jcspb_aic">
+                            </ul>
+                            <!-- /.user_info_list -->
+                            <ul class="user_info_list df_jcspb_aic">
                                     <div class="user_info_list__item_row">
                                         <li class="user_info_list__item">
                                             <p class="title_item">Дата рождения:</p>
@@ -308,10 +308,10 @@
                                         <!-- /.user_info_list__item -->
                                     </div>
                                     <!-- /.user_info_list__item_row -->
-                               </ul>
-                               <!-- /.user_info_list -->
-                           </div>
-                           <!-- /.all_info_user_registered -->
+                            </ul>
+                            <!-- /.user_info_list -->
+                        </div>
+                        <!-- /.all_info_user_registered -->
                         </div>
                         <div class="form_auth_block_second">
                             <button class="btn btn_style_1 upper" type="button" id="btn_registered" aria-label="btn_registered">Зарегистрироваться</button> 
@@ -336,3 +336,4 @@
     </div>
     <!-- /.container -->
 @endsection
+
