@@ -1036,6 +1036,90 @@ input[type=button] {
 .search_tickets__block {
   margin-top: 50px;
 }
+.search_tickets__block .aside__block {
+  width: 25%;
+}
+.search_tickets__block .flight_block__info {
+  width: 75%;
+}
+.search_tickets__block .flight_block__info h2 {
+  margin: 0px;
+  text-align: center;
+}
+.search_tickets__block .slide-one, .search_tickets__block .slide-two {
+  border: 1px solid rgba(190, 190, 190, 0.3);
+  background: #ffffff;
+}
+.search_tickets__block .slide-one .carousel__item, .search_tickets__block .slide-two .carousel__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  padding: 50px 20px;
+  border: 2px solid transparent;
+}
+.search_tickets__block .slide-one .carousel__item .carousel__item__date, .search_tickets__block .slide-two .carousel__item .carousel__item__date {
+  margin: 20px 0;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search_tickets__block .slide-one .carousel__item:hover, .search_tickets__block .slide-two .carousel__item:hover {
+  background: #F7F7F7;
+}
+.search_tickets__block .slide-one .carousel__item__active, .search_tickets__block .slide-two .carousel__item__active {
+  border: 2px solid #52C9B9;
+}
+.search_tickets__block .slide-one {
+  margin-top: 50px;
+}
+.search_tickets__block .result_price__flight_to {
+  margin: 50px 0;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards {
+  margin-top: 30px;
+  box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+  font-size: 16px;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item {
+  padding: 30px;
+  box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item:hover {
+  cursor: pointer;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__card .result_price__flight_to__cards__item__short_info__card__city {
+  align-items: flex-start;
+  height: 100%;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__card .result_price__flight_to__cards__item__short_info__card__city .result_price__flight_to__cards__item__short_info__card__city__from_short_info .result_price__flight_to__cards__item__short_info__card__city__from_short_info__time {
+  margin: 10px 0;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__card .result_price__flight_to__cards__item__short_info__card__city .result_price__flight_to__cards__item__short_info__card__city__flight_time_short_info {
+  margin: 0 40px;
+  margin-top: 6%;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__card .result_price__flight_to__cards__item__short_info__card__city .result_price__flight_to__cards__item__short_info__card__city__to_short_info .result_price__flight_to__cards__item__short_info__card__city__to_short_info__time {
+  margin-top: 10px;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price .result_price__flight_to__cards__item__short_info__price__text {
+  text-align: center;
+  font-weight: bold;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price .result_price__flight_to__cards__item__short_info__price__in_basket {
+  margin-top: 20px;
+}
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .not_select_result_price__flight_to__cards__item {
+  background: rgba(190, 190, 190, 0.3);
+  box-shadow: none;
+  border-top: none;
+}
 
 .non_view {
   display: none;

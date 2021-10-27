@@ -1,3 +1,101 @@
 .search_tickets__block{
     margin-top: 50px;
+    .aside__block{
+        width: 25%;
+    }
+    .flight_block__info{
+        width: 75%;
+        h2{
+            margin: 0px;
+            text-align: center;
+        }
+    }
+    .slide-one,.slide-two{
+        border: 1px solid rgba($color: $black_gray, $alpha: 0.3);
+        background: $white;
+        // box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+        .carousel__item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: $fz_second;
+            padding: 50px 20px;
+            border: 2px solid transparent;
+            .carousel__item__date{
+                margin: 20px 0;
+                font-size: 24px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            &:hover{
+                background: $gray_4;
+            }
+        }
+        .carousel__item__active{
+            border: 2px solid $light_green;
+        }
+    }
+    .slide-one{
+        margin-top: 50px;
+    }
+    .result_price__flight_to{
+        margin: 50px 0;
+        
+        .result_price__flight_to__cards{
+            margin-top: 30px;
+            box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+            font-size: $fz_second;
+            .result_price__flight_to__cards__item{
+                padding: 30px;
+                box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+                &:not(:first-child){
+                    // border-top: 1px solid rgba(34, 60, 80, 0.2);
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+                .result_price__flight_to__cards__item__short_info{
+                    .result_price__flight_to__cards__item__short_info__card{
+                        .result_price__flight_to__cards__item__short_info__card__city{
+                            align-items: flex-start;
+                            height: 100%;
+                            .result_price__flight_to__cards__item__short_info__card__city__from_short_info{
+                                .result_price__flight_to__cards__item__short_info__card__city__from_short_info__time{
+                                    margin: 10px 0;
+                                }
+                            }
+                            .result_price__flight_to__cards__item__short_info__card__city__flight_time_short_info{
+                                margin: 0 40px;
+                                margin-top: 6%;
+                            }
+                            .result_price__flight_to__cards__item__short_info__card__city__to_short_info{
+                                .result_price__flight_to__cards__item__short_info__card__city__to_short_info__time{
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+                    }
+                    .result_price__flight_to__cards__item__short_info__price{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        .result_price__flight_to__cards__item__short_info__price__text{
+                            text-align: center;
+                            font-weight: bold;
+                        }
+                        .result_price__flight_to__cards__item__short_info__price__in_basket{
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+            .not_select_result_price__flight_to__cards__item{
+                background: rgba($color: $black_gray, $alpha: 0.3);
+                box-shadow: none;
+                border-top: none;
+            }
+        }
+    }
 }
