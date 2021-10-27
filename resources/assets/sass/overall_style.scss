@@ -243,6 +243,25 @@ input[type="button"]{
     //     color: $black;
     // }
 }
+@keyframes slidein {
+    0% {
+        margin-top: -25px;
+    }
+    100%{
+        margin-top: 0px;
+    }
+}
+@keyframes slidein_personal_data {
+    0% {
+        margin-top: 0px;
+    }
+    50%{
+        margin-top: -25px;
+    }
+    100%{
+        margin-top: 0px;
+    }
+}
 .btn_style_2{
     .fas{
         font-size: 60px;
@@ -256,6 +275,11 @@ input[type="button"]{
     &:hover{
         background: $gray_5;
     }
+}
+.btn_style_red{
+    background: #A90000;
+    color: $white;
+    border-radius: 5px;
 }
 .logo_image{
     width: 150px;

@@ -11,19 +11,19 @@
             {{-- @include('inc.aside_bar_profile',"array") передача массива в шаблон --}}
 
             <div class="profile_data_cards">
-                <div class="control_panel_block non_view">
+                <div class="control_panel_block active_profile_data non_active_style">
                     <p>Добро пожаловать <span class="control_panel_block__full_name_user">Трошков Дмитрий Александрович</span> 
                         (если вы не <span class="control_panel_block__full_name_user">Трошков Дмитрий Александрович</span>) 
                         , то нажмите <a href="" class="exit_profile_link">Выйти</a> 
                         <!-- /.exit_profile_link -->
                     </p>
                     <p>
-                        Из панели управления вы можете, просмотреть свои личные данные и историю поездок за последний год, Если вам нужна полная история, то выберите пункт "Полная история поездок" в меню.
+                        Из панели управления вы можете, просмотреть свои личные данные и историю поездок за последний год, если вам нужна полная история, то выберите пункт "Полная история поездок" в меню.
                     </p>
                 </div>
                 <!-- /.control_panel_block -->
-                <div class="personal_data_block">
-                    <h2>Изменить данные аккаунта</h2>
+                <div class="personal_data_block profile_data_cards_non_view">
+                    <h2>Здесь вы можете просмотреть и изменить данные аккаунта</h2>
                     <form action="" class="personal_data_block__update_form">
                         <div class="personal_data_block__update_form__input_block">
                             <label for="full_name_user">Полное имя</label>
@@ -148,14 +148,170 @@
                     <!-- /.personal_data_block__update_form -->
                 </div>
                 <!-- /.personal_data_block -->
-                <div class="my_travel_block">
-
-                </div>
-                <!-- /.my_travel_block -->
-                <div class="full_history_travel_block">
+                <div class="my_travel_block profile_data_cards_non_view">
+                    <h2>Мои поездки за последний год</h2>
+                    <div class="my_travel_block__cards">
+                        <div class="my_travel_block__cards__item">
+                            <div class="short_details_order df_jcspb_aic">
+                                <div class="name_order">U234FD</div>
+                                <!-- /.name_order -->
+                                <div class="short_flight_scheme df_jcspb_aic">
+                                    <div class="short_flight_scheme__city_from">
+                                        <p>Екатеринбург</p>
+                                        <div class="details_city df_jcspb_aic">
+                                            <p class="aiport_name">(SVX)</p>
+                                            <!-- /.aiport_name -->
+                                            <div class="time_flight">18:40</div>
+                                            <!-- /.time_flight -->
+                                            <div class="date_flight">21/10/2021</div>
+                                            <!-- /.date_flight -->
+                                        </div>
+                                        <!-- /.details_city -->
+                                    </div>
+                                    <!-- /.short_flight_scheme__city_from -->
+                                    <div class="sing_flight">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <!-- /.sing_flight -->
+                                    <div class="short_flight_scheme__city_to">
+                                        <p>Москва</p>
+                                        <div class="details_city df_jcspb_aic">
+                                            <p class="aiport_name">(DME)</p>
+                                            <!-- /.aiport_name -->
+                                            <div class="time_flight">19:15</div>
+                                            <!-- /.time_flight -->
+                                            <div class="date_flight">21/10/2021</div>
+                                            <!-- /.date_flight -->
+                                        </div>
+                                        <!-- /.details_city -->
+                                    </div>
+                                    <!-- /.short_flight_scheme__city_to -->
+                                </div>
+                                <!-- /.short_flight_scheme -->
+                                <div class="status_order df_jcspb_aic">
+                                    <div class="status_order__name">
+                                        Прошедший
+                                    </div>
+                                    <!-- /.status_order__name -->
+                                    {{-- <button class="btn_cancel_order btn_style_red" aria-label="btn_cancel_order" id="btn_cancel_order">
+                                        Отмена
+                                    </button> --}}
+                                </div>
+                                
+                                <!-- /.cancel_order -->
+                                <!-- /.status_order -->
+                                <div class="price_order">6200 <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
+                                <!-- /.price_order -->
+                            </div>
+                            <!-- /.short_details_order -->
+                            <div class="full_fetails_order">
+                                <div class="my_travel_block__cards__item__where_from_fly">
+                                    
+                                    {{-- <p class="city_name">Екатеринбург</p>
+                                    <!-- /.city_name -->
+                                    <p class="departure_date">21/10/2021</p>
+                                    <!-- /.departure_date -->
+                                    <p class="departure_time">9:30</p>
+                                    <!-- /.departure_time --> --}}
+                                </div>
+                                <!-- /.my_travel_block__cards__item__where_from_fly -->
+                                <div class="my_travel_block__cards__item__flight_scheme">
+    
+                                </div>
+                                <!-- /.my_travel_block__cards__item__flight_scheme -->
+                                <div class="my_travel_block__cards__item__where_to_fly">
+    
+                                </div>
+                                <!-- /.my_travel_block__cards__item__where_to_fly -->
+                            </div>
+                            <!-- /.full_fetails_order -->
+                            
+                        </div>
+                        <!-- /.my_travel_block__cards__item -->
+                        <div class="my_travel_block__cards__item">
+                            <div class="short_details_order df_jcspb_aic">
+                                <div class="name_order">U234FD</div>
+                                <!-- /.name_order -->
+                                <div class="short_flight_scheme df_jcspb_aic">
+                                    <div class="short_flight_scheme__city_from">
+                                        <p>Екатеринбург</p>
+                                        <div class="details_city df_jcspb_aic">
+                                            <p class="aiport_name">(SVX)</p>
+                                            <!-- /.aiport_name -->
+                                            <div class="time_flight">18:40</div>
+                                            <!-- /.time_flight -->
+                                            <div class="date_flight">21/10/2021</div>
+                                            <!-- /.date_flight -->
+                                        </div>
+                                        <!-- /.details_city -->
+                                    </div>
+                                    <!-- /.short_flight_scheme__city_from -->
+                                    <div class="sing_flight">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <!-- /.sing_flight -->
+                                    <div class="short_flight_scheme__city_to">
+                                        <p>Москва</p>
+                                        <div class="details_city df_jcspb_aic">
+                                            <p class="aiport_name">(DME)</p>
+                                            <!-- /.aiport_name -->
+                                            <div class="time_flight">19:15</div>
+                                            <!-- /.time_flight -->
+                                            <div class="date_flight">21/10/2021</div>
+                                            <!-- /.date_flight -->
+                                        </div>
+                                        <!-- /.details_city -->
+                                    </div>
+                                    <!-- /.short_flight_scheme__city_to -->
+                                </div>
+                                <!-- /.short_flight_scheme -->
+                                <div class="status_order df_jcspb_aic">
+                                    <div class="status_order__name">
+                                        Прошедший
+                                    </div>
+                                    <!-- /.status_order__name -->
+                                    {{-- <button class="btn_cancel_order btn_style_red" aria-label="btn_cancel_order" id="btn_cancel_order">
+                                        Отмена
+                                    </button> --}}
+                                </div>
+                                
+                                <!-- /.cancel_order -->
+                                <!-- /.status_order -->
+                                <div class="price_order">6200 <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
+                                <!-- /.price_order -->
+                            </div>
+                            <!-- /.short_details_order -->
+                            <div class="full_fetails_order">
+                                <div class="my_travel_block__cards__item__where_from_fly">
+                                    
+                                    {{-- <p class="city_name">Екатеринбург</p>
+                                    <!-- /.city_name -->
+                                    <p class="departure_date">21/10/2021</p>
+                                    <!-- /.departure_date -->
+                                    <p class="departure_time">9:30</p>
+                                    <!-- /.departure_time --> --}}
+                                </div>
+                                <!-- /.my_travel_block__cards__item__where_from_fly -->
+                                <div class="my_travel_block__cards__item__flight_scheme">
+    
+                                </div>
+                                <!-- /.my_travel_block__cards__item__flight_scheme -->
+                                <div class="my_travel_block__cards__item__where_to_fly">
+    
+                                </div>
+                                <!-- /.my_travel_block__cards__item__where_to_fly -->
+                            </div>
+                            <!-- /.full_fetails_order -->
+                            
+                        </div>
+                        <!-- /.my_travel_block__cards__item -->
+                        <button class="btn_style_1 more_travel_block__card" id="more_travel_block__card" aria-label="more_travel_block__card" data-last-id-order="2">Показать еще</button> 
+                        <!-- /.btn_style_1 more_travel_block__card -->
+                    </div>
+                    <!-- /.my_travel_block__cards -->
                     
                 </div>
-                <!-- /.full_history_travel_block -->
+                <!-- /.my_travel_block -->
             </div>
             <!-- /.profile_data_cards -->
             

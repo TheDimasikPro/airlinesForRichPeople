@@ -192,6 +192,45 @@ input[type=button] {
   background: #004369;
 }
 
+@-webkit-keyframes slidein {
+  0% {
+    margin-top: -25px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    margin-top: -25px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+@-webkit-keyframes slidein_personal_data {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -25px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+@keyframes slidein_personal_data {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -25px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
 .btn_style_2 .fas {
   font-size: 60px;
   color: #ffffff;
@@ -204,6 +243,12 @@ input[type=button] {
 }
 .btn_style_3:hover {
   background: #E5E5E5;
+}
+
+.btn_style_red {
+  background: #A90000;
+  color: #ffffff;
+  border-radius: 5px;
 }
 
 .logo_image {
@@ -464,9 +509,17 @@ input[type=button] {
 }
 .my_profile_block .profile_data_cards {
   width: 75%;
-  padding: 20px;
+  position: relative;
   padding-right: 0;
   margin-left: 20px;
+}
+.my_profile_block .profile_data_cards h2, .my_profile_block .profile_data_cards h3 {
+  margin: 0;
+}
+.my_profile_block .profile_data_cards .control_panel_block, .my_profile_block .profile_data_cards .personal_data_block, .my_profile_block .profile_data_cards .my_travel_block {
+  background: #ffffff;
+  box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
+  padding: 20px;
 }
 .my_profile_block .profile_data_cards .control_panel_block {
   line-height: 25px;
@@ -482,9 +535,6 @@ input[type=button] {
 }
 .my_profile_block .profile_data_cards .control_panel_block p:last-child {
   margin-top: 35px;
-}
-.my_profile_block .profile_data_cards .personal_data_block h2 {
-  margin: 0;
 }
 .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form {
   margin-top: 40px;
@@ -587,6 +637,60 @@ input[type=button] {
 }
 .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block #btn_submit_update_personal_data {
   width: 100%;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards {
+  margin-top: 30px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item {
+  background-color: #ffffff;
+  border: 1px solid rgba(190, 190, 190, 0.5);
+  padding: 10px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item:not(:first-child) {
+  margin-top: 20px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order {
+  font-size: 14px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .name_order {
+  font-weight: bold;
+  font-size: 16px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .sing_flight {
+  margin: 0 15px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .details_city {
+  margin-top: 5px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .details_city .time_flight {
+  margin: 0 10px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .status_order .status_order__name {
+  margin-right: 20px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .price_order {
+  font-size: 16px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .more_travel_block__card {
+  width: 100%;
+  margin-top: 20px;
+}
+.my_profile_block .profile_data_cards .profile_data_cards_non_view {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  margin-top: -5000px;
+}
+
+.profile_data_cards__anim {
+  position: absolute;
+  -webkit-animation: slidein_personal_data 0.6s ease-in-out;
+          animation: slidein_personal_data 0.6s ease-in-out;
+  width: 100%;
+}
+
+.profile_data_cards__complete_anim {
+  display: none;
 }
 
 .non_view {
