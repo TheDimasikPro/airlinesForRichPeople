@@ -147,5 +147,4 @@
 @endsection
 @section('slider_script')
 <script src="/assets/js/owl.carousel.min.js"></script>
-{{-- <script src="/assets/js/app.js"></script> --}}
 @endsection

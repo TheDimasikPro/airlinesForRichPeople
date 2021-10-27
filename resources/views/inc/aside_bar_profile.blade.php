@@ -24,6 +24,10 @@
             <button class="aside_user__list__item__btn upper" id="profile_btn_my_travel" aria-label="profile_btn_my_travel">Мои поездки</button> 
             <!-- /.aside_user__list__item__btn -->
         </li>
+        {{-- <li class="aside_user__list__item">
+            <button class="aside_user__list__item__btn upper" id="profile_btn_update_password" aria-label="profile_btn_update_password">Обновить пароль</button> 
+            <!-- /.aside_user__list__item__btn -->
+        </li> --}}
         <li class="aside_user__list__item">
             <button class="aside_user__list__item__btn upper" id="profile_btn_full_history_travel" aria-label="profile_btn_full_history_travel">Полная история поездок</button> 
             <!-- /.aside_user__list__item__btn -->

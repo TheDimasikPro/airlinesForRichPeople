@@ -758,7 +758,7 @@ $(document).ready(function(){
         $('#auth_block_btn').css('margin-top','auto');
         setTimeout(() => {
             $('#main_form_auth').animate({
-                minHeight: "675px"
+                minHeight: "704px"
             },500);
             setTimeout(() => {
                 $('.form_auth_profile_data').css('display',"block");
@@ -795,7 +795,7 @@ $(document).ready(function(){
         $('#auth_block_btn').css('margin-top','auto');
         setTimeout(() => {
             $('#main_form_auth').animate({
-                minHeight: "335px"
+                minHeight: "360px"
             },500);
             setTimeout(() => {
                 $('.form_auth_password_data').css('display',"block");
@@ -831,9 +831,8 @@ $(document).ready(function(){
         $('#auth_block_btn').addClass('form_auth_block__anim');
         $('#auth_block_btn').css('margin-top','auto');
         setTimeout(() => {
-            
             $('#main_form_auth').animate({
-                minHeight: "660px"
+                minHeight: "714px"
             },500);
             setTimeout(() => {
                 $('.form_auth_finish_data').css('display',"block");
@@ -841,7 +840,7 @@ $(document).ready(function(){
             $('.form_auth_finish_data').animate({
                 marginLeft: "0px",
                 opacity: "1",
-            },1200);
+            },1000);
             $('.form_auth_password_data').animate({
                 marginLeft: "-1500px"
             },700);
@@ -850,7 +849,7 @@ $(document).ready(function(){
                 $('.stages_list__item').removeClass('stages_list__item_active');
                 $('.stages_list__item:nth-child(4)').addClass('stages_list__item_active');
                 $('#auth_block_btn').removeClass('form_auth_block__anim');
-            }, 1380);
+            }, 1400);
             setTimeout(() => {
                 $('.form_auth_password_data').addClass('form_auth_card__complete_anim');
                 $('.form_auth_password_data').removeAttr('style');
@@ -858,7 +857,7 @@ $(document).ready(function(){
         }, 500);
         setTimeout(() => {
             $('#auth_block_btn').removeAttr('style');
-        }, 1800);
+        }, 2200);
         
     });
     $('#show_passwod').click(function (e) {
@@ -1015,41 +1014,41 @@ $(document).ready(function(){
     });
 
 
-    $('#complete_password_data').click(function (e) {
-        e.preventDefault();
-        $('.form_auth_password_data').removeAttr('style');
-        $('.form_auth_password_data').addClass('form_auth_card__anim');
-        $('#auth_block_btn').addClass('form_auth_block__anim');
-        $('#auth_block_btn').css('margin-top','auto');
-        setTimeout(() => {
-            $('#main_form_auth').animate({
-                minHeight: "660px"
-            },500);
-            setTimeout(() => {
-                $('.form_auth_finish_data').css('display',"block");
-            }, 650);
-            $('.form_auth_finish_data').animate({
-                marginLeft: "0px",
-                opacity: "1",
-            },1200);
-            $('.form_auth_password_data').animate({
-                marginLeft: "-1500px"
-            },700);
-            setTimeout(() => {
-                $('.form_auth_finish_data').removeClass('form_auth_non_view');
-                $('.stages_list__item').removeClass('stages_list__item_active');
-                $('.stages_list__item:nth-child(4)').addClass('stages_list__item_active');
-                $('#auth_block_btn').removeClass('form_auth_block__anim');
-            }, 1380);
-            setTimeout(() => {
-                $('.form_auth_password_data').addClass('form_auth_card__complete_anim');
-                $('.form_auth_password_data').removeAttr('style');
-            }, 700);
-        }, 500);
-        setTimeout(() => {
-            $('#auth_block_btn').removeAttr('style');
-        }, 1800);
-    });
+    // $('#complete_password_data').click(function (e) {
+    //     e.preventDefault();
+    //     $('.form_auth_password_data').removeAttr('style');
+    //     $('.form_auth_password_data').addClass('form_auth_card__anim');
+    //     $('#auth_block_btn').addClass('form_auth_block__anim');
+    //     $('#auth_block_btn').css('margin-top','auto');
+    //     setTimeout(() => {
+    //         $('#main_form_auth').animate({
+    //             minHeight: "660px"
+    //         },500);
+    //         setTimeout(() => {
+    //             $('.form_auth_finish_data').css('display',"block");
+    //         }, 650);
+    //         $('.form_auth_finish_data').animate({
+    //             marginLeft: "0px",
+    //             opacity: "1",
+    //         },1200);
+    //         $('.form_auth_password_data').animate({
+    //             marginLeft: "-1500px"
+    //         },700);
+    //         setTimeout(() => {
+    //             $('.form_auth_finish_data').removeClass('form_auth_non_view');
+    //             $('.stages_list__item').removeClass('stages_list__item_active');
+    //             $('.stages_list__item:nth-child(4)').addClass('stages_list__item_active');
+    //             $('#auth_block_btn').removeClass('form_auth_block__anim');
+    //         }, 1380);
+    //         setTimeout(() => {
+    //             $('.form_auth_password_data').addClass('form_auth_card__complete_anim');
+    //             $('.form_auth_password_data').removeAttr('style');
+    //         }, 700);
+    //     }, 500);
+    //     setTimeout(() => {
+    //         $('#auth_block_btn').removeAttr('style');
+    //     }, 1800);
+    // });
 
     function animatePanel() {
         $('.profile_data_cards .active_profile_data').addClass('profile_data_cards__anim');
@@ -1065,97 +1064,102 @@ $(document).ready(function(){
     }
     $('.aside_user__list__item__btn').click(function (e) {
         e.preventDefault();
-        
-        if ($(this).attr('id') != "profile_btn_full_history_travel"){
-            $('.aside_user__list__item').removeClass('aside_user__list__item_active');
-            $(this).parent('.aside_user__list__item').addClass('aside_user__list__item_active');
-            if ($(this).attr('id') == "profile_btn_control_panel") {
-                if (!$('.control_panel_block').hasClass('non_active_style')){
-                    $('.control_panel_block').addClass('non_active_style');
-                    
-                    animatePanel();
-                    $('.control_panel_block').animate({
-                        marginTop: "0px"
-                    },800);
-                    $('.control_panel_block').animate({
-                        opacity: 1
-                    },1000);
-                    setTimeout(() => {
-                        $('.profile_data_cards div').removeClass('active_profile_data');
-                        $('.control_panel_block').removeClass('profile_data_cards_non_view');
-                        $('.control_panel_block').removeClass('profile_data_cards__anim');
-                        $('.control_panel_block').addClass('active_profile_data');
-                    }, 1200);
+        if (!$(this).hasClass('aside_user__list__item_non_click')) {
+            $('.aside_user__list__item__btn').addClass('aside_user__list__item_non_click');
+            if ($(this).attr('id') != "profile_btn_full_history_travel"){
+                $('.aside_user__list__item').removeClass('aside_user__list__item_active');
+                $(this).parent('.aside_user__list__item').addClass('aside_user__list__item_active');
+                if ($(this).attr('id') == "profile_btn_control_panel") {
+                    if (!$('.control_panel_block').hasClass('non_active_style')){
+                        $('.control_panel_block').addClass('non_active_style');
+                        
+                        animatePanel();
+                        $('.control_panel_block').animate({
+                            marginTop: "0px"
+                        },800);
+                        $('.control_panel_block').animate({
+                            opacity: 1
+                        },1000);
+                        setTimeout(() => {
+                            $('.profile_data_cards div').removeClass('active_profile_data');
+                            $('.control_panel_block').removeClass('profile_data_cards_non_view');
+                            $('.control_panel_block').removeClass('profile_data_cards__anim');
+                            $('.control_panel_block').addClass('active_profile_data');
+                            $('.aside_user__list__item__btn').removeClass('aside_user__list__item_non_click');
+                        }, 1200);
+                    }
                 }
-            }
-            if ($(this).attr('id') == "profile_btn_personal_data") {
-                if (!$('.personal_data_block').hasClass('non_active_style')){
-                    $('.personal_data_block').addClass('non_active_style');
-                    animatePanel();
-                    $('.personal_data_block').animate({
-                        marginTop: "0px"
-                    },800);
-                    $('.personal_data_block').animate({
-                        opacity: 1
-                    },1000);
-                    setTimeout(() => {
-                        $('.profile_data_cards div').removeClass('active_profile_data');
-                        $('.personal_data_block').removeClass('profile_data_cards_non_view');
-                        $('.personal_data_block').removeClass('profile_data_cards__anim');
-                        $('.personal_data_block').addClass('active_profile_data');
-                    }, 1200);
+                if ($(this).attr('id') == "profile_btn_personal_data") {
+                    if (!$('.personal_data_block').hasClass('non_active_style')){
+                        $('.personal_data_block').addClass('non_active_style');
+                        animatePanel();
+                        $('.personal_data_block').animate({
+                            marginTop: "0px"
+                        },800);
+                        $('.personal_data_block').animate({
+                            opacity: 1
+                        },1000);
+                        setTimeout(() => {
+                            $('.profile_data_cards div').removeClass('active_profile_data');
+                            $('.personal_data_block').removeClass('profile_data_cards_non_view');
+                            $('.personal_data_block').removeClass('profile_data_cards__anim');
+                            $('.personal_data_block').addClass('active_profile_data');
+                            $('.aside_user__list__item__btn').removeClass('aside_user__list__item_non_click');
+                        }, 1200);
+                    }
                 }
-            }
-            if ($(this).attr('id') == "profile_btn_my_travel") {
-                if (!$('.my_travel_block').hasClass('non_active_style')){
-                    $(this).addClass('non_active_style');
-                    animatePanel();
-                    $('.my_travel_block').addClass('non_active_style');
-                    animatePanel();
-                    $('.my_travel_block').animate({
-                        marginTop: "0px"
-                    },800);
-                    $('.my_travel_block').animate({
-                        opacity: 1
-                    },1000);
-                    setTimeout(() => {
-                        $('.profile_data_cards div').removeClass('active_profile_data');
-                        $('.my_travel_block').removeClass('profile_data_cards_non_view');
-                        $('.my_travel_block').removeClass('profile_data_cards__anim');
-                        $('.my_travel_block').addClass('active_profile_data');
-                    }, 1200);
+                if ($(this).attr('id') == "profile_btn_my_travel") {
+                    if (!$('.my_travel_block').hasClass('non_active_style')){
+                        $(this).addClass('non_active_style');
+                        animatePanel();
+                        $('.my_travel_block').addClass('non_active_style');
+                        // animatePanel();
+                        $('.my_travel_block').animate({
+                            marginTop: "0px"
+                        },800);
+                        $('.my_travel_block').animate({
+                            opacity: 1
+                        },1000);
+                        setTimeout(() => {
+                            $('.profile_data_cards div').removeClass('active_profile_data');
+                            $('.my_travel_block').removeClass('profile_data_cards_non_view');
+                            $('.my_travel_block').removeClass('profile_data_cards__anim');
+                            $('.my_travel_block').addClass('active_profile_data');
+                            $('.aside_user__list__item__btn').removeClass('aside_user__list__item_non_click');
+                        }, 1200);
+                    }
                 }
-            }
-            
+                
+            } 
         }
+        
     });
 
     // слайдер на странице с результатми поиска билетов
 
 
-    $(".slide-one").owlCarousel({
-        center: true,
-        items:5,
-        loop:true,
-        margin:10,
-        responsive:{
-            600:{
-                items:6
-            }
-        }
-    });
-    $(".slide-two").owlCarousel({
-        center: true,
-        items:5,
-        loop:true,
-        margin:10,
-        responsive:{
-            600:{
-                items:6
-            }
-        }
-    });
-
+    // $(".slide-one").owlCarousel({
+    //     center: true,
+    //     items:5,
+    //     loop:true,
+    //     margin:10,
+    //     responsive:{
+    //         600:{
+    //             items:6
+    //         }
+    //     }
+    // });
+    // $(".slide-two").owlCarousel({
+    //     center: true,
+    //     items:5,
+    //     loop:true,
+    //     margin:10,
+    //     responsive:{
+    //         600:{
+    //             items:6
+    //         }
+    //     }
+    // });
     
     $('.slide-one .carousel__item').click(function (e) {
         e.preventDefault();
@@ -1180,129 +1184,4 @@ $(document).ready(function(){
             $('#result_flight_to_in_basket[data-id-item="'+ this_id +'"]').removeClass('non_view');
         }
     });
-
-
-    
-    // $('.aside_user__list__item__btn').click(function (e) {
-    //     e.preventDefault();
-    //     if ($(this).attr('id') == "profile_btn_full_history_travel"){
-
-    //     }
-    //     else{
-    //         $('.aside_user__list__item').removeClass('aside_user__list__item_active');
-            
-    //         $(this).parent('.aside_user__list__item').addClass('aside_user__list__item_active');
-    
-    //         $('.profile_data_cards .active_profile_data').removeAttr('style');
-    //         $('.profile_data_cards .active_profile_data').addClass('profile_data_cards__anim');
-            
-    //         // if ($('.profile_data_cards .active_profile_data').hasClass('non_active_style')) {
-    //             setTimeout(() => {
-    //                 $('.profile_data_cards .active_profile_data').animate({
-    //                     marginTop: "5000px"
-    //                 },1800);
-    //             }, 700);
-    //         // }
-            
-    //         setTimeout(() => {
-    //             $('.profile_data_cards .active_profile_data').addClass('profile_data_cards__complete_anim');
-    //         }, 1200);
-    //         // setTimeout(() => {
-    //         //     $('.profile_data_cards .active_profile_data').removeAttr('style');
-    //         // }, 2600);
-    //         setTimeout(() => {
-    //             // $('.personal_data_block').removeAttr('style');
-    //             $('.profile_data_cards div').removeClass('active_profile_data');
-    //             if ($(this).attr('id') == "profile_btn_control_panel") {
-    //                 if (!$('.control_panel_block').hasClass('active_profile_data')) {
-    //                     $('.control_panel_block').addClass('active_profile_data');
-    //                     setTimeout(() => {
-    //                         $('.control_panel_block').css('display',"block");
-    //                         $('.control_panel_block').removeClass('profile_data_cards_non_view');
-    //                         $('.control_panel_block').removeClass('profile_data_cards__complete_anim');
-    //                         $('.control_panel_block').removeClass('non_active_style');
-    //                         // $('.control_panel_block').removeAttr('style');
-    //                     }, 250);
-    //                     $('.control_panel_block').animate({
-    //                         marginTop: "0px",
-    //                         opacity: "1",
-    //                     },800);
-    //                     setTimeout(() => {
-    //                         $('.control_panel_block').removeClass('profile_data_cards__anim');
-    //                     }, 1300);
-    //                     // $('.control_panel_block').removeClass('.profile_data_cards_non_view.profile_data_cards__complete_anim');
-                        
-    //                 }
-    //             }
-    //             if ($(this).attr('id') == "profile_btn_personal_data") {
-    //                 if (!$('.personal_data_block').hasClass('active_profile_data')) {
-    //                     $('.personal_data_block').addClass('active_profile_data');
-    //                     setTimeout(() => {
-    //                         $('.personal_data_block').css('display',"block");
-    //                         $('.personal_data_block').removeClass('profile_data_cards_non_view');
-    //                         $('.personal_data_block').removeClass('non_active_style');
-    //                         $('.personal_data_block').removeClass('profile_data_cards__anim');
-    //                         $('.personal_data_block').removeClass('profile_data_cards__complete_anim');
-    //                         // $('.personal_data_block').removeAttr('style');
-    //                     }, 250);
-    //                     $('.personal_data_block').animate({
-    //                         marginTop: "0px",
-    //                         opacity: "1",
-    //                     },800);
-    //                     setTimeout(() => {
-    //                         $('.personal_data_block').removeClass('profile_data_cards__anim');
-    //                     }, 1300);
-    //                 }
-    //             }
-    //             if ($(this).attr('id') == "profile_btn_my_travel") {
-    //                 if (!$('.my_travel_block').hasClass('active_profile_data')) {
-    //                     $('.my_travel_block').addClass('active_profile_data');
-    //                     $('.my_travel_block').addClass('active_profile_data');
-    //                     setTimeout(() => {
-    //                         $('.my_travel_block').css('display',"block");
-    //                         $('.my_travel_block').removeClass('profile_data_cards_non_view');
-    //                         $('.my_travel_block').removeClass('profile_data_cards__complete_anim');
-    //                         $('.my_travel_block').removeClass('non_active_style');
-                            
-    //                         // $('.my_travel_block').removeAttr('style');
-    //                     }, 250);
-    //                     $('.my_travel_block').animate({
-    //                         marginTop: "0px",
-    //                         opacity: "1",
-    //                     },800);
-    //                     setTimeout(() => {
-    //                         $('.my_travel_block').removeClass('profile_data_cards__anim');
-    //                     }, 1300);
-    //                 }
-    //             }
-    //         }, 1200);
-    //     }
-        
-    // });
-    // $(window).resize(function() { 
-    //     var screenCssPixelRatio = (window.outerWidth - 8) / window.innerWidth;
-    //     if (screenCssPixelRatio >= .46 && screenCssPixelRatio <= .54) {
-    //     zoomLevel = "-4";
-    //     } else if (screenCssPixelRatio <= .64) {
-    //     zoomLevel = "-3";
-    //     } else if (screenCssPixelRatio <= .76) {
-    //     zoomLevel = "-2";
-    //     } else if (screenCssPixelRatio <= .92) {
-    //     zoomLevel = "-1";
-    //     } else if (screenCssPixelRatio <= 1.10) {
-    //     zoomLevel = "0";
-    //     } else if (screenCssPixelRatio <= 1.32) {
-    //     zoomLevel = "1";
-    //     } else if (screenCssPixelRatio <= 1.58) {
-    //     zoomLevel = "2";
-    //     } else if (screenCssPixelRatio <= 1.90) {
-    //     zoomLevel = "3";
-    //     } else if (screenCssPixelRatio <= 2.28) {
-    //     zoomLevel = "4";
-    //     } else if (screenCssPixelRatio <= 2.70) {
-    //     zoomLevel = "5";
-    //     } else {
-    //     zoomLevel = "unknown";
-    //     }
-    // });
 });
