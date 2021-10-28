@@ -16,7 +16,9 @@
 <header id="header">
     <div class="container">
         <!-- мобильное меню -->
-        <div class="m_menu"></div>
+        <div class="m_menu">
+            
+        </div>
         <!-- /.m_menu -->
         <!-- десктопное меню -->
         <div class="d_menu df_jcspb_aic">

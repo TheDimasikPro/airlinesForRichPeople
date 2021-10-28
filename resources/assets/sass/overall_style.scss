@@ -75,25 +75,25 @@ $prefixes: ("-moz-", "");
 }
 
 @mixin sub_menu_list_footer_and_header {
-    .add_sub_menu_list{
-        display: flex;
-        flex-direction: column;
-        .sub_menu__item{
-            &:not(:first-child){
-                margin-top: 20px;
-            }
-            .sub_menu__link{
-                width: 210px;
-                display: block;
-                padding-bottom: 3px;
-                border-bottom: 2px solid transparent;
+    // .add_sub_menu_list{
+    //     display: flex;
+    //     flex-direction: column;
+    //     .sub_menu__item{
+    //         &:not(:first-child){
+    //             margin-top: 20px;
+    //         }
+    //         .sub_menu__link{
+    //             width: 210px;
+    //             display: block;
+    //             padding-bottom: 3px;
+    //             border-bottom: 2px solid transparent;
                 
-                &:hover{
-                    border-color: $light_green;
-                }
-            }
-        }
-    }
+    //             &:hover{
+    //                 border-color: $light_green;
+    //             }
+    //         }
+    //     }
+    // }
 }
 *,*::after,*::before{
     border:none;
