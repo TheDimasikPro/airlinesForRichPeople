@@ -469,32 +469,38 @@ $(document).ready(function () {
     $('.language_currency').removeClass('language_currency_active');
 
     if (!$('#id_i_d_t_block').hasClass('calendar_active')) {
-      $('#id_i_d_t_block').addClass('calendar_active');
-      $('.back_data').addClass('non_click_input');
+      $('#id_i_d_t_block').addClass('calendar_active'); // $('.back_data').addClass('non_click_input');
     }
-  });
-  $('#id_i_d_t').daterangepicker({
-    autoUpdateInput: false,
-    locale: {
-      cancelLabel: 'Clear'
-    }
-  });
-  $('#id_i_d_t').on('apply.daterangepicker', function (ev, picker) {
-    $(this).val(picker.startDate.format('MM/DD/YYYY'));
-    $('#id_i_d_b').val(picker.endDate.format('MM/DD/YYYY'));
-    $('#id_i_d_t_block').removeClass('block_inputs_active');
-    $('#id_i_d_b_block').removeClass('block_inputs_active');
-  });
-  $('#id_i_d_t').on('cancel.daterangepicker', function (ev, picker) {
-    $(this).val('Туда:');
-    $('#id_i_d_b').val('Обратно:');
-    $('#id_i_d_t_block').removeClass('block_inputs_active');
-    $('#id_i_d_b_block').removeClass('block_inputs_active');
-  });
-  $('#id_i_d_b').click(function (e) {
-    e.preventDefault();
-    $('#id_i_d_t').click();
-  }); // счетчик кол-ва пассажиров на форме поиска билетов
+  }); // $('#id_i_d_t').daterangepicker({
+  //     autoUpdateInput: false,
+  //     singleDatePicker: true,
+  //     showDropdowns: true,
+  //     minYear: 2021,
+  //     maxYear: parseInt(moment().format('YYYY'),10),
+  //     locale: {
+  //         cancelLabel: 'Clear'
+  //     }
+  // }, function(start, end, label) {
+  //     var years = moment().diff(start, 'years');
+  //     // alert("You are " + years + " years old!");
+  //   });
+  // $('#id_i_d_t').on('apply.daterangepicker', function(ev, picker) {
+  //     $(this).val(picker.startDate.format('MM/DD/YYYY'));
+  //     $('#id_i_d_b').val(picker.endDate.format('MM/DD/YYYY'));
+  //     $('#id_i_d_t_block').removeClass('block_inputs_active');
+  //     $('#id_i_d_b_block').removeClass('block_inputs_active');
+  // });
+  // $('#id_i_d_t').on('cancel.daterangepicker', function(ev, picker) {
+  //     $(this).val('Туда:');
+  //     $('#id_i_d_b').val('Обратно:');
+  //     $('#id_i_d_t_block').removeClass('block_inputs_active');
+  //     $('#id_i_d_b_block').removeClass('block_inputs_active');
+  // });
+  // $('#id_i_d_b').click(function (e) {
+  //     e.preventDefault();
+  //     // $('#id_i_d_t').click();
+  // })
+  // счетчик кол-ва пассажиров на форме поиска билетов
 
   var btn_minus_old = $('#btn_minus_old');
   var btn_plus_old = $('#btn_plus_old');
@@ -1130,29 +1136,29 @@ $(document).ready(function () {
       }
     }
   }); // слайдер на странице с результатми поиска билетов
-  // $(".slide-one").owlCarousel({
-  //     center: true,
-  //     items:5,
-  //     loop:true,
-  //     margin:10,
-  //     responsive:{
-  //         600:{
-  //             items:6
-  //         }
-  //     }
-  // });
-  // $(".slide-two").owlCarousel({
-  //     center: true,
-  //     items:5,
-  //     loop:true,
-  //     margin:10,
-  //     responsive:{
-  //         600:{
-  //             items:6
-  //         }
-  //     }
-  // });
 
+  $(".slide-one").owlCarousel({
+    center: true,
+    items: 5,
+    loop: true,
+    margin: 10,
+    responsive: {
+      600: {
+        items: 6
+      }
+    }
+  });
+  $(".slide-two").owlCarousel({
+    center: true,
+    items: 5,
+    loop: true,
+    margin: 10,
+    responsive: {
+      600: {
+        items: 6
+      }
+    }
+  });
   $('.slide-one .carousel__item').click(function (e) {
     e.preventDefault();
     $('.slide-one .carousel__item').removeClass('carousel__item__active');
@@ -1165,7 +1171,6 @@ $(document).ready(function () {
   });
   $('.result_price__flight_to__cards__item').click(function (e) {
     e.preventDefault();
-    console.log($(this).attr('id'));
     var this_id = $(this).attr('id');
 
     if ($('#result_flight_to_in_basket[data-id-item="' + this_id + '"]').hasClass('non_view')) {
@@ -1173,6 +1178,17 @@ $(document).ready(function () {
       $('.result_price__flight_to__cards__item').addClass('not_select_result_price__flight_to__cards__item');
       $(this).removeClass('not_select_result_price__flight_to__cards__item');
       $('#result_flight_to_in_basket[data-id-item="' + this_id + '"]').removeClass('non_view');
+    }
+  });
+  $('.result_price__flight_from__cards__item').click(function (e) {
+    e.preventDefault();
+    var this_id = $(this).attr('id');
+
+    if ($('#result_flight_from_in_basket[data-id-item="' + this_id + '"]').hasClass('non_view')) {
+      $('.result_price__flight_from__cards__item__short_info__price__in_basket').addClass('non_view');
+      $('.result_price__flight_from__cards__item').addClass('not_select_result_price__flight_from__cards__item');
+      $(this).removeClass('not_select_result_price__flight_from__cards__item');
+      $('#result_flight_from_in_basket[data-id-item="' + this_id + '"]').removeClass('non_view');
     }
   });
 });

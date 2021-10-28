@@ -1,18 +1,54 @@
 .search_tickets__block{
     margin-top: 50px;
+    align-items: flex-start;
+    h2,h3{
+        margin: 0px;
+        text-align: center;
+    }
     .aside__block{
         width: 25%;
+        .aside__block__info{
+            margin-top: 50px;
+            border: 1px solid rgba($color: $black_gray, $alpha: 0.3);
+            background: $white;
+            margin-right: 20px;
+            padding: 10px;
+            .aside__block__info__ticket{
+                &:not(:first-child){
+                    border-top: 1px solid rgba($color: $black_gray, $alpha: 0.3);
+                    margin-top: 20px;
+                    padding: 10px 0;
+                }
+                h3{
+                    text-align: left;
+                }
+                .aside__block__info__ticket__info{
+                    div{
+                        display: flex;
+                        justify-content: space-between;
+                        &:not(:first-child){
+                            margin-top: 10px;
+                        }
+                        &:first-child{
+                            margin-top: 20px;
+                        }
+                    }
+                    
+                }
+            }
+            .aside__block__info__btn{
+                width: 100%;
+            }
+        }
     }
     .flight_block__info{
         width: 75%;
-        h2{
-            margin: 0px;
-            text-align: center;
-        }
+        
     }
     .slide-one,.slide-two{
         border: 1px solid rgba($color: $black_gray, $alpha: 0.3);
         background: $white;
+        margin-top: 50px;
         // box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
         .carousel__item{
             display: flex;
@@ -37,9 +73,11 @@
             border: 2px solid $light_green;
         }
     }
-    .slide-one{
-        margin-top: 50px;
-    }
+    // .flight_block__info{
+    //     .flight_from_block,.result_price__flight_to{
+
+    //     }
+    // }
     .result_price__flight_to{
         margin: 50px 0;
         
@@ -47,7 +85,7 @@
             margin-top: 30px;
             box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
             font-size: $fz_second;
-            .result_price__flight_to__cards__item{
+            .result_price__flight_to__cards__item,.result_price__flight_from__cards__item{
                 padding: 30px;
                 box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
                 &:not(:first-child){
@@ -91,7 +129,7 @@
                     }
                 }
             }
-            .not_select_result_price__flight_to__cards__item{
+            .not_select_result_price__flight_to__cards__item,.not_select_result_price__flight_from__cards__item{
                 background: rgba($color: $black_gray, $alpha: 0.17);
                 box-shadow: none;
                 border-top: none;

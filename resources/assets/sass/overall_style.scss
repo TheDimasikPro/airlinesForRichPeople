@@ -172,7 +172,7 @@ button{
     width: 150px;
     @include input_overall_style;
     border: 1px solid $black_gray;
-    padding-right: 35px;
+    // padding-right: 35px;
 }
 .sm_input{
     width: 250px;
