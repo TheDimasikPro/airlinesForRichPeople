@@ -1,5 +1,5 @@
 @extends('layouts.app_layout')
-@section('title_page','Все о багаже')
+@section('title_page','Рузльтаты поиска билетов')
 @section('styles_link')
     <link rel="stylesheet" href="/assets/css/style.min.css">
     <link rel="stylesheet" href="/assets/css/chief-slider.min.css">

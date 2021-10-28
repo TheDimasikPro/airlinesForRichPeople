@@ -5,45 +5,8 @@
         margin: 0px;
         text-align: center;
     }
-    .aside__block{
-        width: 25%;
-        .aside__block__info{
-            margin-top: 50px;
-            border: 1px solid rgba($color: $black_gray, $alpha: 0.3);
-            background: $white;
-            margin-right: 20px;
-            padding: 10px;
-            .aside__block__info__ticket{
-                &:not(:first-child){
-                    border-top: 1px solid rgba($color: $black_gray, $alpha: 0.3);
-                    margin-top: 20px;
-                    padding: 10px 0;
-                }
-                h3{
-                    text-align: left;
-                }
-                .aside__block__info__ticket__info{
-                    div{
-                        display: flex;
-                        justify-content: space-between;
-                        &:not(:first-child){
-                            margin-top: 10px;
-                        }
-                        &:first-child{
-                            margin-top: 20px;
-                        }
-                    }
-                    
-                }
-            }
-            .aside__block__info__btn{
-                width: 100%;
-            }
-        }
-    }
     .flight_block__info{
         width: 75%;
-        
     }
     .slide-one,.slide-two{
         border: 1px solid rgba($color: $black_gray, $alpha: 0.3);
@@ -73,11 +36,6 @@
             border: 2px solid $light_green;
         }
     }
-    // .flight_block__info{
-    //     .flight_from_block,.result_price__flight_to{
-
-    //     }
-    // }
     .result_price__flight_to{
         margin: 50px 0;
         
@@ -123,7 +81,7 @@
                             text-align: center;
                             font-weight: bold;
                         }
-                        .result_price__flight_to__cards__item__short_info__price__in_basket{
+                        .result_price__flight_to__cards__item__short_info__price__in_basket,.result_price__flight_from__cards__item__short_info__price__in_basket{
                             margin-top: 20px;
                         }
                     }

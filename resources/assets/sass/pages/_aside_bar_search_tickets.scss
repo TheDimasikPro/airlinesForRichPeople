@@ -1,0 +1,81 @@
+.aside__block{
+    width: 292px;
+    // position: fixed;
+    .aside__block__info{
+        margin-top: 50px;
+        border: 1px solid rgba($color: $black_gray, $alpha: 0.3);
+        background: $white;
+        margin-right: 20px;
+        
+        .aside__block__info__ticket{
+            padding: 10px;
+            &:not(:first-child){
+                border-top: 1px solid rgba($color: $black_gray, $alpha: 0.3);
+                margin-top: 20px;
+                padding: 10px 0;
+            }
+            h3{
+                text-align: left;
+            }
+            .aside__block__info__ticket__info{
+                div{
+                    display: flex;
+                    justify-content: space-between;
+                    &:not(:first-child){
+                        margin-top: 10px;
+                    }
+                    &:first-child{
+                        margin-top: 15px;
+                    }
+                }
+                .aside__block__info__ticket__info__city_info{
+                    display: flex;
+                    flex-direction: column;
+                    .aside__block__info__ticket__info__city_info__from,.aside__block__info__ticket__info__city_info__to{
+                        display: flex;
+                        justify-content: start;
+                        font-size: $fz_second;
+                        .from_airport_name,.to_airport_name{
+                            margin-top: -5px;
+                            margin-left: 10px;
+                        }
+                        .sing_flight{
+                            margin-top: 0;
+                            margin-left: 20px;
+                        }
+                    }
+                    
+                }
+                .aside__block__info__ticket__info__select_ticket_from{
+                    flex-direction: column;
+                }
+                
+            }
+        }
+        .aside__block__info__btn{
+            width: 100%;
+            &:hover{
+                // background: #A90000;
+                color: black;
+                background: $light_green;
+            }
+        }
+        .non_click_continue_aside_ticket_btn{
+            background: $black_gray;
+            &:hover{
+                background: $black_gray;
+            }
+        }
+        .select_ticket_from{
+            background: $blue;
+            color: $white;
+            h3{
+                border-bottom: 1px solid $white;
+            }
+        }
+    }
+    .aside__block__info__all_price{
+        padding: 10px;
+        font-size: $fz_second;
+    }
+}

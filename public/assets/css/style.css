@@ -1032,6 +1032,81 @@ input[type=button] {
   font-size: 16px;
 }
 
+.aside__block {
+  width: 292px;
+}
+.aside__block .aside__block__info {
+  margin-top: 50px;
+  border: 1px solid rgba(190, 190, 190, 0.3);
+  background: #ffffff;
+  margin-right: 20px;
+}
+.aside__block .aside__block__info .aside__block__info__ticket {
+  padding: 10px;
+}
+.aside__block .aside__block__info .aside__block__info__ticket:not(:first-child) {
+  border-top: 1px solid rgba(190, 190, 190, 0.3);
+  margin-top: 20px;
+  padding: 10px 0;
+}
+.aside__block .aside__block__info .aside__block__info__ticket h3 {
+  text-align: left;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div {
+  display: flex;
+  justify-content: space-between;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div:not(:first-child) {
+  margin-top: 10px;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div:first-child {
+  margin-top: 15px;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info {
+  display: flex;
+  flex-direction: column;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__from, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__to {
+  display: flex;
+  justify-content: start;
+  font-size: 16px;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__from .from_airport_name, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__from .to_airport_name, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__to .from_airport_name, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__to .to_airport_name {
+  margin-top: -5px;
+  margin-left: 10px;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__from .sing_flight, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__to .sing_flight {
+  margin-top: 0;
+  margin-left: 20px;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__select_ticket_from {
+  flex-direction: column;
+}
+.aside__block .aside__block__info .aside__block__info__btn {
+  width: 100%;
+}
+.aside__block .aside__block__info .aside__block__info__btn:hover {
+  color: black;
+  background: #52C9B9;
+}
+.aside__block .aside__block__info .non_click_continue_aside_ticket_btn {
+  background: #BEBEBE;
+}
+.aside__block .aside__block__info .non_click_continue_aside_ticket_btn:hover {
+  background: #BEBEBE;
+}
+.aside__block .aside__block__info .select_ticket_from {
+  background: #004369;
+  color: #ffffff;
+}
+.aside__block .aside__block__info .select_ticket_from h3 {
+  border-bottom: 1px solid #ffffff;
+}
+.aside__block .aside__block__info__all_price {
+  padding: 10px;
+  font-size: 16px;
+}
+
 .search_tickets__block {
   margin-top: 50px;
   align-items: flex-start;
@@ -1039,37 +1114,6 @@ input[type=button] {
 .search_tickets__block h2, .search_tickets__block h3 {
   margin: 0px;
   text-align: center;
-}
-.search_tickets__block .aside__block {
-  width: 25%;
-}
-.search_tickets__block .aside__block .aside__block__info {
-  margin-top: 50px;
-  border: 1px solid rgba(190, 190, 190, 0.3);
-  background: #ffffff;
-  margin-right: 20px;
-  padding: 10px;
-}
-.search_tickets__block .aside__block .aside__block__info .aside__block__info__ticket:not(:first-child) {
-  border-top: 1px solid rgba(190, 190, 190, 0.3);
-  margin-top: 20px;
-  padding: 10px 0;
-}
-.search_tickets__block .aside__block .aside__block__info .aside__block__info__ticket h3 {
-  text-align: left;
-}
-.search_tickets__block .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div {
-  display: flex;
-  justify-content: space-between;
-}
-.search_tickets__block .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div:not(:first-child) {
-  margin-top: 10px;
-}
-.search_tickets__block .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div:first-child {
-  margin-top: 20px;
-}
-.search_tickets__block .aside__block .aside__block__info .aside__block__info__btn {
-  width: 100%;
 }
 .search_tickets__block .flight_block__info {
   width: 75%;
@@ -1138,13 +1182,153 @@ input[type=button] {
   text-align: center;
   font-weight: bold;
 }
-.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price .result_price__flight_to__cards__item__short_info__price__in_basket, .search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price .result_price__flight_to__cards__item__short_info__price__in_basket {
+.search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price .result_price__flight_to__cards__item__short_info__price__in_basket, .search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price .result_price__flight_from__cards__item__short_info__price__in_basket, .search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price .result_price__flight_to__cards__item__short_info__price__in_basket, .search_tickets__block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info .result_price__flight_to__cards__item__short_info__price .result_price__flight_from__cards__item__short_info__price__in_basket {
   margin-top: 20px;
 }
 .search_tickets__block .result_price__flight_to .result_price__flight_to__cards .not_select_result_price__flight_to__cards__item, .search_tickets__block .result_price__flight_to .result_price__flight_to__cards .not_select_result_price__flight_from__cards__item {
   background: rgba(190, 190, 190, 0.17);
   box-shadow: none;
   border-top: none;
+}
+
+.passenger_info_block {
+  margin-top: 50px;
+  align-items: flex-start;
+}
+.passenger_info_block h2, .passenger_info_block h3 {
+  margin: 0px;
+  text-align: center;
+}
+.passenger_info_block .passenger_info_block__forms_block {
+  width: 75%;
+}
+.passenger_info_block .passenger_info_block__forms_block input:not(input[type=checkbox]) {
+  border: none;
+  border-bottom: 1px solid #BEBEBE;
+}
+.passenger_info_block .passenger_info_block__forms_block h3 {
+  text-align: left;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_info_block__forms_block__form_feedback {
+  margin-top: 50px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_info_block__forms_block__form_feedback .passenger_info_block__forms_block__form_feedback__input_block {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_info_block__forms_block__form_feedback .passenger_info_block__forms_block__form_feedback__input_block input {
+  font-size: 14px;
+  height: auto;
+  padding: 6px 12px;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_info_block__forms_block__form_feedback .passenger_info_block__forms_block__form_feedback__input_block:last-child {
+  flex-direction: row;
+  align-items: center;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_info_block__forms_block__form_feedback .passenger_info_block__forms_block__form_feedback__input_block:last-child input {
+  margin-bottom: 4px;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_info_block__forms_block__form_feedback .passenger_info_block__forms_block__form_feedback__input_block:last-child span {
+  margin-left: 20px;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_info_block__forms_block__form_feedback .passenger_info_block__forms_block__form_feedback__input_block:last-child span a {
+  color: red;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_info_block__forms_block__form_feedback .passenger_info_block__forms_block__form_feedback__input_block:last-child span a:hover {
+  border-color: #52C9B9;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block {
+  margin-top: 50px;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item {
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block {
+  position: relative;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) {
+  display: flex;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) .btn_gender_form_passenger {
+  background: #52C9B9;
+  color: #ffffff;
+  margin: 0;
+  width: 125px;
+  font-size: 16px;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) .btn_gender_form_passenger:last-child {
+  border-left: 2px solid #ffffff;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) .btn_gender_form_passenger:hover {
+  background: #004369;
+  color: #ffffff;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) .select_btn_gender_form_passenger {
+  background: #004369;
+  color: #ffffff;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .date_bithday_input_form_passenger::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(n+1) {
+  margin-top: 20px;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:not(:nth-child(3n+1)) {
+  margin-left: 57px;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item:not(:first-child) {
+  margin-top: 30px;
+}
+
+.payment_tickets_block {
+  margin-top: 50px;
+  align-items: flex-start;
+  margin-top: 50px;
+  background: #ffffff;
+  box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+  padding: 20px;
+}
+.payment_tickets_block h1 {
+  margin: 0;
+}
+.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from {
+  margin-top: 30px;
+  font-size: 16px;
+}
+.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .payment_tickets_block__info__from__inputs_block:not(:first-child) {
+  margin-top: 20px;
+}
+.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .payment_tickets_block__info__from__inputs_block:last-child #btn_payment_ticket {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 20px;
+  height: auto;
+}
+.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .payment_tickets_block__info__from__inputs_block:last-child #btn_payment_ticket span {
+  margin-left: 30px;
 }
 
 .non_view {

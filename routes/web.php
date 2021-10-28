@@ -29,6 +29,32 @@ Route::get('/login', [LoginController::class,'index'])->name('login__page');
 Route::get('/reg', [RegisterController::class,'index'])->name('reg__page');
 Route::get('/forgot_password', [ForgotPasswordController::class,'index'])->name('forgot_password__page');
 
+
+Route::get('/about',[MainController::class,'returnViewAbout'])->name('about_page');
+Route::get('/order_management',[OrderController::class,'returnViewOrderManagment'])->name('order_management__page');
+Route::prefix('baggage_info')->group(function () {
+    Route::get('/',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page');
+    Route::get('/#carriage_of_animals',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page__carriage_of_animals');
+    Route::get('/#baggage_tracing',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page__baggage_tracing');
+});
+
+Route::get('/payment_methods',[MainController::class,'returnViewPaymentsMethod'])->name('payment_methods__page');
+Route::get('/contacts',[MainController::class,'returnViewIndexContacts'])->name('contacts__page');
+Route::get('/404_page',[MainController::class,'returnView404Page'])->name('404__page');
+Route::get('/food_info',[MainController::class,'returnViewFoodInfo'])->name('food_info__page');
+
+Route::prefix('search_tickets')->group(function () {
+    Route::get('/',[TicketController::class,'returnViewSearchTickets'])->name('search_tickets__page');
+    Route::get('/passenger_info',[TicketController::class,'returnViewPassengerInfo'])->name('passenger_info__page');
+    Route::get('/payment_tickets',[TicketController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
+});
+
+Route::prefix('profile')->group(function () {
+    Route::get('/',[ProfileController::class,'index'])->name('my_profile__page');
+});
+
+
+
 // определние ip пользователя и его страны
 Route::get('/ip', function () {
     if ($position = Location::get()) {
@@ -46,25 +72,3 @@ Route::get('/ip', function () {
     // $data = \Location::get($ip);
     // dd($data);
 });
-
-Route::get('/about',[MainController::class,'returnViewAbout'])->name('about_page');
-Route::get('/order_management',[OrderController::class,'returnViewOrderManagment'])->name('order_management__page');
-Route::prefix('baggage_info')->group(function () {
-    Route::get('/',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page');
-    Route::get('/#carriage_of_animals',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page__carriage_of_animals');
-    Route::get('/#baggage_tracing',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page__baggage_tracing');
-});
-
-Route::get('/payment_methods',[MainController::class,'returnViewPaymentsMethod'])->name('payment_methods__page');
-Route::get('/contacts',[MainController::class,'returnViewIndexContacts'])->name('contacts__page');
-Route::get('/404_page',[MainController::class,'returnView404Page'])->name('404__page');
-Route::get('/food_info',[MainController::class,'returnViewFoodInfo'])->name('food_info__page');
-
-Route::prefix('search_tickets')->group(function () {
-    Route::get('/',[TicketController::class,'search'])->name('search_tickets__page');
-});
-
-Route::prefix('profile')->group(function () {
-    Route::get('/',[ProfileController::class,'index'])->name('my_profile__page');
-});
-// nutrition
