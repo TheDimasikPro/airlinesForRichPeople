@@ -40,6 +40,7 @@
             width: 100%;
             .form_search_block_inputs{
                 height: 40px;
+                position: relative;
                 .dropdown{
                     display: flex;
                     flex-direction: column;
@@ -192,6 +193,31 @@
                 .min_input{
                     cursor: pointer;
                 }
+            }
+            .there_data,.back_data{
+                input::-webkit-calendar-picker-indicator {
+                    background: transparent;
+                    bottom: 0;
+                    color: transparent;
+                    cursor: pointer;
+                    height: auto;
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: auto;
+                }
+                input[type="date"]{
+                    text-align: right;
+                }
+                input:before {
+                    color: #757575;
+                    content: attr(placeholder) !important;
+                    margin-right: 0.5em;
+                  }
+                  input:focus:before {
+                    content: '' !important;
+                  }
             }
             .block_inputs_active{
                 border-top: 2px solid $green;

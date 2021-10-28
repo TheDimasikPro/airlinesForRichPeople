@@ -228,11 +228,11 @@
                     </div>
                     <!-- /.form_search_block_inputs -->
                     <div class="form_search_block_inputs there_data" id="id_i_d_t_block">
-                        <input type="date"  autocomplete="off" class="min_input" id="id_i_d_t">
+                        <input type="date"  autocomplete="off" class="min_input" id="id_i_d_t" placeholder="Туда:">
                     </div>
                     <!-- /.form_date_there_block -->
                     <div class="form_search_block_inputs back_data" id="id_i_d_b_block">
-                        <input type="date"  autocomplete="off" class="min_input" id="id_i_d_b">
+                        <input type="date"  autocomplete="off" class="min_input" id="id_i_d_b" placeholder="Обратно:">
                     </div>
                     <!-- /.form_date_back_block -->
                     <div class="form_search_block_inputs">

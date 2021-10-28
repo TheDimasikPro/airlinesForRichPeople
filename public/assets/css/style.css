@@ -11,6 +11,8 @@
   outline-offset: 0px;
   scroll-behavior: smooth;
   font-family: "Roboto-Regular", sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 * ::-moz-selection, *::after ::-moz-selection, *::before ::-moz-selection {
   color: white;
@@ -494,6 +496,7 @@ input[type=button] {
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs {
   height: 40px;
+  position: relative;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown {
   display: flex;
@@ -647,6 +650,29 @@ input[type=button] {
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .min_input {
   cursor: pointer;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .there_data input::-webkit-calendar-picker-indicator, .work_with_flights .search_tickets_block .form_search_tickets .back_data input::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .there_data input[type=date], .work_with_flights .search_tickets_block .form_search_tickets .back_data input[type=date] {
+  text-align: right;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .there_data input:before, .work_with_flights .search_tickets_block .form_search_tickets .back_data input:before {
+  color: #757575;
+  content: attr(placeholder) !important;
+  margin-right: 0.5em;
+}
+.work_with_flights .search_tickets_block .form_search_tickets .there_data input:focus:before, .work_with_flights .search_tickets_block .form_search_tickets .back_data input:focus:before {
+  content: "" !important;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .block_inputs_active {
   border-top: 2px solid #8CDE4E;
