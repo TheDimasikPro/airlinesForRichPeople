@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer id="footer" class="desktop_section">
     <section class="footer_section container">
         <div class="footer_info">
             @include('inc.sub_menu_list')

@@ -1,4 +1,4 @@
-<footer id="footer" class="footer_flex">
+<footer id="footer" class="footer_flex desktop_section">
     <section class="footer_section container">
         <div class="footer_info">
             @include('inc.sub_menu_list')
@@ -39,5 +39,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <script src="/assets/js/app.js"></script>
 <script src="/assets/js/maskedinput.min.js"></script>
+@yield('slider_script')
 </body>
 </html>

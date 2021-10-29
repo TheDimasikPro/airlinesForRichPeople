@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/assets/css/auth.min.css">
 @endsection
 @section('content')
-    <div class="container df_jcc_aic content_flex">
+    <div class="container df_jcc_aic desktop_section content_flex">
         <div class="form form_auth" id="main_form_auth">
             <h1>Регистрация</h1>
             <p class="warning_text">
@@ -197,14 +197,6 @@
                             <!-- /.btn btn_style_1 upper-->
                         </div>
                         <!-- /.form_auth_block_second -->
-                        <!-- /.form_auth__row -->
-                        {{-- <div class="form_auth_block">
-                            <label for="date_birthday">Date birthday</label>
-                            <input type="date" autocomplete class="sm_input_2 form_auth_input" id="date_birthday" name="date_birthday" placeholder="Дата рождения">
-                            <div class="form_auth__slider_input"></div>
-                            <!-- /.form_auth__slider_input -->
-                        </div>
-                        <!-- /.form_auth_block --> --}}
                     </form>
                     <!-- /.form_auth_profile_data -->
                     <form class="form_auth_password_data form_auth_non_view">

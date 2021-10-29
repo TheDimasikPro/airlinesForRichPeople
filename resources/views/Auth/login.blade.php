@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/assets/css/auth.min.css">
 @endsection
 @section('content')
-    <div class="container df_jcc_aic">
+    <div class="container df_jcc_aic desktop_section">
         <form action="" class="form form_auth" id="form_login">
             <h1>Авторизация</h1>
             <div class="form_auth_block">

@@ -15,7 +15,26 @@
         display: flex;
         justify-content: space-between;
         &:first-child{
-            @include sub_menu_list_footer_and_header;
+            // @include sub_menu_list_footer_and_header;
+            .add_sub_menu_list{
+                display: flex;
+                flex-direction: column;
+                .sub_menu__item{
+                    &:not(:first-child){
+                        margin-top: 20px;
+                    }
+                    .sub_menu__link{
+                        width: 210px;
+                        display: block;
+                        padding-bottom: 3px;
+                        border-bottom: 2px solid transparent;
+                        
+                        &:hover{
+                            border-color: $light_green;
+                        }
+                    }
+                }
+            }
         }
         &:last-child{
             align-items: center;
@@ -39,4 +58,59 @@
         
     }
     
+}
+@media (max-width: 870px) {
+    .footer_section{
+        .footer_info{
+            &:first-child{
+                flex-wrap: wrap;
+                .add_sub_menu_list{
+                    width: 40%;
+                    .sub_menu__item{
+                        &:nth-child(n){
+                            margin-top: 0;
+                        }
+                        .sub_menu__link{
+                            width: 100%;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+            &:last-child{
+                align-items: center;
+                // justify-content: flex-start;
+                margin-top: 50px;
+                .logo_image{
+                    width: 150px;
+                    // margin-right: 30px;
+                }
+                .link_header{
+                    svg{
+                        width: 30px;
+                        height: 30px;
+                        &:hover{
+                            fill: $blue;
+                            circle{
+                                stroke: $blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 550px) {
+    .footer_section{
+        .footer_info{
+            &:first-child{
+                display: flex;
+                flex-direction: column;
+                .add_sub_menu_list{
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

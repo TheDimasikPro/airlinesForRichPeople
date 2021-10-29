@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     <div class="container">
-        <div class="contact_block">
+        <div class="contact_block desktop_section">
             <h1>Контакты</h1>
             <div class="contact_block__info">
                 <div class="contact_block__info__column">
@@ -64,5 +64,5 @@
         
     </div>
     <!-- /.container -->
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2182.3574875764916!2d60.6193244161842!3d56.839811680858055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c16e85cbb83351%3A0xa07e892ac459bb72!2z0L_RgNC-0YHQvy4g0JvQtdC90LjQvdCwLCA1MNCULCDQldC60LDRgtC10YDQuNC90LHRg9GA0LMsINCh0LLQtdGA0LTQu9C-0LLRgdC60LDRjyDQvtCx0LsuLCA2MjAwNzU!5e0!3m2!1sru!2sru!4v1635138537093!5m2!1sru!2sru" class="google_maps_card" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2182.3574875764916!2d60.6193244161842!3d56.839811680858055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c16e85cbb83351%3A0xa07e892ac459bb72!2z0L_RgNC-0YHQvy4g0JvQtdC90LjQvdCwLCA1MNCULCDQldC60LDRgtC10YDQuNC90LHRg9GA0LMsINCh0LLQtdGA0LTQu9C-0LLRgdC60LDRjyDQvtCx0LsuLCA2MjAwNzU!5e0!3m2!1sru!2sru!4v1635138537093!5m2!1sru!2sru" class="google_maps_card desktop_section" allowfullscreen="" loading="lazy"></iframe>
 @endsection

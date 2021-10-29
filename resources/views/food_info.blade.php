@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/assets/css/style.min.css">
 @endsection
 @section('content')
-    <div class="block_start">
+    <div class="block_start desktop_section">
         <div class="img_food_block">
             <img src="/assets/images/services/food_bg.jpg" alt="" class="food_img_bg">
             
@@ -24,9 +24,7 @@
         <!-- /.food_container -->
     </div>
     <!-- /.block_start -->
-    
-    
-    <div class="container">
+    <div class="container desktop_section">
         <div class="main_food_block" id="main_food_block">
             <h2>Питание на борту</h2>
             <p class="food_short_info">
@@ -176,6 +174,4 @@
         <!-- /.main_food_block -->
     </div>
     <!-- /.container -->
-
-   
 @endsection
