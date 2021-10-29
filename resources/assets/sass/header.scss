@@ -247,11 +247,13 @@
             z-index: 1000;
             @include custom_scroll_bar;
             box-shadow: none;
+            border-bottom: none;
             .container{
                 display: flex;
                 flex-direction: column;
                 width: 100%;
                 padding: 30px 0;
+                border-bottom: none;
                 .add_sub_menu_list{
                     width: 100%;
                     .sub_menu__item{

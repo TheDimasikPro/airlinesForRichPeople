@@ -1136,29 +1136,29 @@ $(document).ready(function () {
       }
     }
   }); // слайдер на странице с результатми поиска билетов
+  // $(".slide-one").owlCarousel({
+  //     center: true,
+  //     items:5,
+  //     loop:true,
+  //     margin:10,
+  //     responsive:{
+  //         600:{
+  //             items:6
+  //         }
+  //     }
+  // });
+  // $(".slide-two").owlCarousel({
+  //     center: true,
+  //     items:5,
+  //     loop:true,
+  //     margin:10,
+  //     responsive:{
+  //         600:{
+  //             items:6
+  //         }
+  //     }
+  // });
 
-  $(".slide-one").owlCarousel({
-    center: true,
-    items: 5,
-    loop: true,
-    margin: 10,
-    responsive: {
-      600: {
-        items: 6
-      }
-    }
-  });
-  $(".slide-two").owlCarousel({
-    center: true,
-    items: 5,
-    loop: true,
-    margin: 10,
-    responsive: {
-      600: {
-        items: 6
-      }
-    }
-  });
   $('.slide-one .carousel__item').click(function (e) {
     e.preventDefault();
     $('.slide-one .carousel__item').removeClass('carousel__item__active');
