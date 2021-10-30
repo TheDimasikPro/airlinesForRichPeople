@@ -840,6 +840,27 @@ input[type=button] {
   margin-left: 20px;
 }
 
+@media (max-width: 780px) {
+  .our_history .airbus_images_block {
+    display: flex;
+    flex-direction: column;
+  }
+  .our_history .airbus_images_block .image_block:last-child {
+    display: none;
+  }
+  .our_history .our_history__text {
+    display: flex;
+    flex-direction: column;
+  }
+  .our_history .our_history__text p {
+    width: 100%;
+    text-align: justify;
+  }
+  .our_history .our_history__text p:last-child {
+    margin: 0;
+    margin-top: 30px;
+  }
+}
 .order_managment_block {
   display: flex;
   justify-content: center;
