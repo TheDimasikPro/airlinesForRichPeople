@@ -45,3 +45,47 @@
         }
     }
 }
+
+@media (max-width: 780px) {
+    .payment_methods_block{
+        .bank_cards{
+            .bank_card__image_block{
+                margin: 20px 0;
+                img{
+                    width: 90px;
+                }
+            }
+            .payment_methods__warning_list{
+                .warning_list__row{
+                    flex-direction: column;
+                    &:last-child{
+                        margin-top: 0px;
+                    }
+                    .row__content{
+                        width: 100%;
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .payment_methods_block{
+        .bank_cards{
+            .payment_methods__warning_list{
+                .warning_list__row{
+                    .row__content{
+                        font-size: $fz_base;
+                        .row_content__img_block{
+                            .row_content__img{
+                                width: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
