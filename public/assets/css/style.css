@@ -892,6 +892,11 @@ input[type=button] {
   border-bottom: 1px solid #BEBEBE;
 }
 
+@media (max-width: 520px) {
+  .order_managment_block .order_managment__form .order_m_block__input button {
+    width: 100%;
+  }
+}
 .baggage_block {
   display: flex;
   flex-direction: column;
