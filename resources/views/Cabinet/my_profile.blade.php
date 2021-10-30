@@ -85,7 +85,7 @@
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="country_of_issue_user">
-                                Страна выдачи
+                                Страна выдачи документа
                                 <input type="text" id="country_of_issue_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите страну выдачи документа">
                                 <button class="personal_data_block__update_form__dropbtn" type="button" id="dropbtn_country_of_issue_user" aria-label="dropbtn_country_of_issue_user">
                                     <i class="fas fa-arrow-down"></i>
@@ -101,7 +101,7 @@
                             </ul>
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
-                        <div class="personal_data_block__update_form__input_block">
+                        {{-- <div class="personal_data_block__update_form__input_block">
                             <label for="old_password_user">Старый пароль</label>
                             <input type="password" id="old_password_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Это ваш старый пароль">
                             <button type="button" class="btn_show" id="btn_show_old_password" aria-label="btn_show_old_password">
@@ -139,7 +139,7 @@
                             </button> 
                             <!-- /.hide_confirm_new_password -->
                         </div>
-                        <!-- /.personal_data_block__update_form__input_block -->
+                        <!-- /.personal_data_block__update_form__input_block --> --}}
                         <div class="personal_data_block__update_form__input_block">
                             <button class="btn_style_1" type="button" id="btn_submit_update_personal_data" aria-label="btn_submit_update_personal_data">Обновить</button>
                         </div>
@@ -151,123 +151,53 @@
                 <div class="my_travel_block profile_data_cards_non_view">
                     <h2>Мои поездки за последний год</h2>
                     <div class="my_travel_block__cards">
-                        <div class="my_travel_block__cards__item">
-                            <div class="short_details_order df_jcspb_aic">
-                                <div class="name_order">U234FD</div>
-                                <!-- /.name_order -->
-                                <div class="short_flight_scheme df_jcspb_aic">
-                                    <div class="short_flight_scheme__city_from">
-                                        <p>Екатеринбург</p>
-                                        <div class="details_city df_jcspb_aic">
-                                            <p class="aiport_name">(SVX)</p>
-                                            <!-- /.aiport_name -->
-                                            <div class="time_flight">18:40</div>
-                                            <!-- /.time_flight -->
-                                            <div class="date_flight">21/10/2021</div>
-                                            <!-- /.date_flight -->
-                                        </div>
-                                        <!-- /.details_city -->
-                                    </div>
-                                    <!-- /.short_flight_scheme__city_from -->
-                                    <div class="sing_flight">
-                                        <i class="fas fa-arrow-right"></i>
-                                    </div>
-                                    <!-- /.sing_flight -->
-                                    <div class="short_flight_scheme__city_to">
-                                        <p>Москва</p>
-                                        <div class="details_city df_jcspb_aic">
-                                            <p class="aiport_name">(DME)</p>
-                                            <!-- /.aiport_name -->
-                                            <div class="time_flight">19:15</div>
-                                            <!-- /.time_flight -->
-                                            <div class="date_flight">21/10/2021</div>
-                                            <!-- /.date_flight -->
-                                        </div>
-                                        <!-- /.details_city -->
-                                    </div>
-                                    <!-- /.short_flight_scheme__city_to -->
-                                </div>
-                                <!-- /.short_flight_scheme -->
-                                <div class="status_order df_jcspb_aic">
-                                    <div class="status_order__name">
-                                        Прошедший
-                                    </div>
-                                    <!-- /.status_order__name -->
-                                    {{-- <button class="btn_cancel_order btn_style_red" aria-label="btn_cancel_order" id="btn_cancel_order">
-                                        Отмена
-                                    </button> --}}
-                                </div>
-                                
-                                <!-- /.cancel_order -->
-                                <!-- /.status_order -->
-                                <div class="price_order">6200 <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
-                                <!-- /.price_order -->
-                            </div>
-                            <!-- /.short_details_order -->
-                            <div class="full_fetails_order">
-                                <div class="my_travel_block__cards__item__where_from_fly">
-                                    
-                                    {{-- <p class="city_name">Екатеринбург</p>
-                                    <!-- /.city_name -->
-                                    <p class="departure_date">21/10/2021</p>
-                                    <!-- /.departure_date -->
-                                    <p class="departure_time">9:30</p>
-                                    <!-- /.departure_time --> --}}
-                                </div>
-                                <!-- /.my_travel_block__cards__item__where_from_fly -->
-                                <div class="my_travel_block__cards__item__flight_scheme">
-    
-                                </div>
-                                <!-- /.my_travel_block__cards__item__flight_scheme -->
-                                <div class="my_travel_block__cards__item__where_to_fly">
-    
-                                </div>
-                                <!-- /.my_travel_block__cards__item__where_to_fly -->
-                            </div>
-                            <!-- /.full_fetails_order -->
-                            
-                        </div>
                         <!-- /.my_travel_block__cards__item -->
                         <div class="my_travel_block__cards__item">
                             <div class="short_details_order df_jcspb_aic">
-                                <div class="name_order">U234FD</div>
+                                <div class="name_order"><span class="non_view__text_mobile">Номер рейса: </span> U234FD</div>
                                 <!-- /.name_order -->
+                                
                                 <div class="short_flight_scheme df_jcspb_aic">
-                                    <div class="short_flight_scheme__city_from">
-                                        <p>Екатеринбург</p>
-                                        <div class="details_city df_jcspb_aic">
-                                            <p class="aiport_name">(SVX)</p>
-                                            <!-- /.aiport_name -->
-                                            <div class="time_flight">18:40</div>
-                                            <!-- /.time_flight -->
-                                            <div class="date_flight">21/10/2021</div>
-                                            <!-- /.date_flight -->
+                                    <span class="non_view__text_mobile">План полета: </span>
+                                    <div class="short_flight_scheme__block">
+                                        <div class="short_flight_scheme__city_from">
+                                            <p>Екатеринбург</p>
+                                            <div class="details_city df_jcspb_aic">
+                                                <p class="aiport_name">(SVX)</p>
+                                                <!-- /.aiport_name -->
+                                                <div class="time_flight">18:40</div>
+                                                <!-- /.time_flight -->
+                                                <div class="date_flight">21/10/2021</div>
+                                                <!-- /.date_flight -->
+                                            </div>
+                                            <!-- /.details_city -->
                                         </div>
-                                        <!-- /.details_city -->
-                                    </div>
-                                    <!-- /.short_flight_scheme__city_from -->
-                                    <div class="sing_flight">
-                                        <i class="fas fa-arrow-right"></i>
-                                    </div>
-                                    <!-- /.sing_flight -->
-                                    <div class="short_flight_scheme__city_to">
-                                        <p>Москва</p>
-                                        <div class="details_city df_jcspb_aic">
-                                            <p class="aiport_name">(DME)</p>
-                                            <!-- /.aiport_name -->
-                                            <div class="time_flight">19:15</div>
-                                            <!-- /.time_flight -->
-                                            <div class="date_flight">21/10/2021</div>
-                                            <!-- /.date_flight -->
+                                        <!-- /.short_flight_scheme__city_from -->
+                                        <div class="sing_flight">
+                                            <i class="fas fa-arrow-right"></i>
                                         </div>
-                                        <!-- /.details_city -->
+                                        <!-- /.sing_flight -->
+                                        <div class="short_flight_scheme__city_to">
+                                            <p>Москва</p>
+                                            <div class="details_city df_jcspb_aic">
+                                                <p class="aiport_name">(DME)</p>
+                                                <!-- /.aiport_name -->
+                                                <div class="time_flight">19:15</div>
+                                                <!-- /.time_flight -->
+                                                <div class="date_flight">21/10/2021</div>
+                                                <!-- /.date_flight -->
+                                            </div>
+                                            <!-- /.details_city -->
+                                        </div>
+                                        <!-- /.short_flight_scheme__city_to -->
                                     </div>
-                                    <!-- /.short_flight_scheme__city_to -->
+                                    <!-- /.short_flight_scheme__block -->
+                                    
                                 </div>
                                 <!-- /.short_flight_scheme -->
                                 <div class="status_order df_jcspb_aic">
                                     <div class="status_order__name">
-                                        Прошедший
+                                        <span class="non_view__text_mobile">Статус рейса: </span> Прошедший
                                     </div>
                                     <!-- /.status_order__name -->
                                     {{-- <button class="btn_cancel_order btn_style_red" aria-label="btn_cancel_order" id="btn_cancel_order">
@@ -277,7 +207,7 @@
                                 
                                 <!-- /.cancel_order -->
                                 <!-- /.status_order -->
-                                <div class="price_order">6200 <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
+                                <div class="price_order"><span class="non_view__text_mobile">Цена: </span> 6200 <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
                                 <!-- /.price_order -->
                             </div>
                             <!-- /.short_details_order -->
@@ -312,6 +242,54 @@
                     
                 </div>
                 <!-- /.my_travel_block -->
+                <div class="update_password_block profile_data_cards_non_view">
+                    <h2>Здесь вы можете просмотреть старый пароль, а также поставить новый</h2>
+                    <form action="" class="update_password_block__update_form">
+                        <div class="update_password_block__update_form__input_block">
+                            <label for="old_password_user">Старый пароль</label>
+                            <input type="password" id="old_password_user" class="input_style_pofile update_password_block__update_form__input_block__input" placeholder="Старый пароль">
+                            <button type="button" class="btn_show" id="btn_show_old_password" aria-label="btn_show_old_password">
+                                <i class="far fa-eye-slash"></i>
+                            </button> 
+                            <!-- /.show_old_password -->
+                            <button type="button" class="btn_hide non_view" id="btn_hide_old_password" aria-label="btn_hide_old_password">
+                                <i class="far fa-eye"></i>
+                            </button> 
+                            <!-- /.hide_old_password -->
+                        </div>
+                        <!-- /.update_password_block__update_form__input_block -->
+                        <div class="update_password_block__update_form__input_block">
+                            <label for="new_password_user">Новый пароль</label>
+                            <input type="password" id="new_password_user" class="input_style_pofile update_password_block__update_form__input_block__input" placeholder="Введите новый пароль">
+                            <button type="button" class="btn_show" id="btn_show_new_password" aria-label="btn_show_new_password">
+                                <i class="far fa-eye-slash"></i>
+                            </button> 
+                            <!-- /.show_new_password -->
+                            <button type="button" class="btn_hide non_view" id="btn_hide_new_password" aria-label="btn_hide_new_password">
+                                <i class="far fa-eye"></i>
+                            </button> 
+                            <!-- /.hide_new_password -->
+                        </div>
+                        <!-- /.update_password_block__update_form__input_block -->
+                        <div class="update_password_block__update_form__input_block">
+                            <label for="confirm_new_password_user">Подтвердите новый пароль</label>
+                            <input type="password" id="confirm_new_password_user" class="input_style_pofile update_password_block__update_form__input_block__input" placeholder="Подтвердите новый пароль">
+                            <button type="button" class="btn_show" id="btn_show_confirm_new_password" aria-label="btn_show_confirm_new_password">
+                                <i class="far fa-eye-slash"></i>
+                            </button> 
+                            <!-- /.show_confirm_new_password -->
+                            <button type="button" class="btn_hide non_view" id="btn_hide_confirm_new_password" aria-label="btn_hide_confirm_new_password">
+                                <i class="far fa-eye"></i>
+                            </button> 
+                            <!-- /.hide_confirm_new_password -->
+                        </div>
+                        <!-- /.update_password_block__update_form__input_block -->
+                        <button class="btn_style_1 update_password_block__btn_update" id="update_password_block__btn_update" aria-label="update_password_block__btn_update">Сохранить</button> 
+                        <!-- /.btn_style_1 update_password_block__btn_update -->
+                    </form>
+                    <!-- /.update_password_block__update_form -->
+                </div>
+                <!-- /.update_password_block profile_data_cards_non_view -->
             </div>
             <!-- /.profile_data_cards -->
             

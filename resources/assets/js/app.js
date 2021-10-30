@@ -457,6 +457,18 @@ $(document).ready(function(){
         }
     });
 
+    $('#btn_close_dc_count_pass').click(function (e) {
+        e.preventDefault();
+        // setTimeout(() => {
+        //     $('.form_search_block_inputs').removeClass('block_inputs_active');
+        // }, 300);
+        
+        $('.drop_count_pass').removeClass('show_drop_content');
+        $('#dropbtn_count_pass').removeClass('rotate_180');
+        
+        console.log('vvv');
+    });
+
     
     // календари
     $('#id_i_d_t').click(function () {
@@ -1123,8 +1135,10 @@ $(document).ready(function(){
     $('.aside_user__list__item__btn').click(function (e) {
         e.preventDefault();
         if (!$(this).hasClass('aside_user__list__item_non_click')) {
-            $('.aside_user__list__item__btn').addClass('aside_user__list__item_non_click');
+            var height_profile_data_cards = $('.profile_data_cards').height();
+            $('.profile_data_cards').height(height_profile_data_cards);
             if ($(this).attr('id') != "profile_btn_full_history_travel"){
+                $('.aside_user__list__item__btn').addClass('aside_user__list__item_non_click');
                 $('.aside_user__list__item').removeClass('aside_user__list__item_active');
                 $(this).parent('.aside_user__list__item').addClass('aside_user__list__item_active');
                 if ($(this).attr('id') == "profile_btn_control_panel") {
@@ -1144,6 +1158,7 @@ $(document).ready(function(){
                             $('.control_panel_block').removeClass('profile_data_cards__anim');
                             $('.control_panel_block').addClass('active_profile_data');
                             $('.aside_user__list__item__btn').removeClass('aside_user__list__item_non_click');
+                            $('.profile_data_cards').height('auto');
                         }, 1200);
                     }
                 }
@@ -1162,7 +1177,9 @@ $(document).ready(function(){
                             $('.personal_data_block').removeClass('profile_data_cards_non_view');
                             $('.personal_data_block').removeClass('profile_data_cards__anim');
                             $('.personal_data_block').addClass('active_profile_data');
+                            // $('#footer').css('margin-top','50px');
                             $('.aside_user__list__item__btn').removeClass('aside_user__list__item_non_click');
+                            $('.profile_data_cards').height('auto');
                         }, 1200);
                     }
                 }
@@ -1183,11 +1200,34 @@ $(document).ready(function(){
                             $('.my_travel_block').removeClass('profile_data_cards_non_view');
                             $('.my_travel_block').removeClass('profile_data_cards__anim');
                             $('.my_travel_block').addClass('active_profile_data');
+                            $('.profile_data_cards').height('auto');
                             $('.aside_user__list__item__btn').removeClass('aside_user__list__item_non_click');
                         }, 1200);
                     }
                 }
-                
+                if ($(this).attr('id') == "profile_btn_update_password") {
+                    if (!$('.update_password_block').hasClass('non_active_style')){
+                        $(this).addClass('non_active_style');
+                        animatePanel();
+                        $('.update_password_block').addClass('non_active_style');
+                        // animatePanel();
+                        $('.update_password_block').animate({
+                            marginTop: "0px"
+                        },800);
+                        $('.update_password_block').animate({
+                            opacity: 1
+                        },1000);
+                        setTimeout(() => {
+                            $('.profile_data_cards div').removeClass('active_profile_data');
+                            $('.update_password_block').removeClass('profile_data_cards_non_view');
+                            $('.update_password_block').removeClass('profile_data_cards__anim');
+                            $('.update_password_block').addClass('active_profile_data');
+                            $('.profile_data_cards').height('auto');
+                            console.log($('.update_password_block').height());
+                            $('.aside_user__list__item__btn').removeClass('aside_user__list__item_non_click');
+                        }, 1200);
+                    }
+                }
             } 
         }
         

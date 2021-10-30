@@ -525,6 +525,9 @@ input[type=button] {
   align-items: flex-start;
   font-size: 16px;
 }
+.my_profile_block .non_view__text_mobile {
+  display: none;
+}
 .my_profile_block .exit_profile_link {
   padding: 0;
   width: 100%;
@@ -586,7 +589,7 @@ input[type=button] {
 .my_profile_block .profile_data_cards h2, .my_profile_block .profile_data_cards h3 {
   margin: 0;
 }
-.my_profile_block .profile_data_cards .control_panel_block, .my_profile_block .profile_data_cards .personal_data_block, .my_profile_block .profile_data_cards .my_travel_block {
+.my_profile_block .profile_data_cards .control_panel_block, .my_profile_block .profile_data_cards .personal_data_block, .my_profile_block .profile_data_cards .my_travel_block, .my_profile_block .profile_data_cards .update_password_block {
   background: #ffffff;
   box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
   padding: 20px;
@@ -719,6 +722,9 @@ input[type=button] {
 .my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item:not(:first-child) {
   margin-top: 20px;
 }
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_flight_scheme__block {
+  display: flex;
+}
 .my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order {
   font-size: 14px;
 }
@@ -745,6 +751,29 @@ input[type=button] {
   width: 100%;
   margin-top: 20px;
 }
+.my_profile_block .profile_data_cards .update_password_block .update_password_block__update_form {
+  margin-top: 40px;
+}
+.my_profile_block .profile_data_cards .update_password_block .update_password_block__update_form .update_password_block__update_form__input_block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.my_profile_block .profile_data_cards .update_password_block .update_password_block__update_form .update_password_block__update_form__input_block:not(:first-child) {
+  margin-top: 20px;
+}
+.my_profile_block .profile_data_cards .update_password_block .update_password_block__update_form .update_password_block__update_form__input_block label {
+  position: relative;
+}
+.my_profile_block .profile_data_cards .update_password_block .update_password_block__update_form .update_password_block__update_form__input_block .btn_show, .my_profile_block .profile_data_cards .update_password_block .update_password_block__update_form .update_password_block__update_form__input_block .btn_hide {
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.my_profile_block .profile_data_cards .update_password_block .update_password_block__update_form .update_password_block__btn_update {
+  width: 100%;
+  margin-top: 20px;
+}
 .my_profile_block .profile_data_cards .profile_data_cards_non_view {
   display: none;
   opacity: 0;
@@ -763,6 +792,135 @@ input[type=button] {
   display: none;
 }
 
+@media (max-width: 1000px) {
+  .my_profile_block .non_view__text_mobile {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__short_name__exit_block, .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
+    font-size: 14px;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__img_block {
+    max-width: 50px;
+  }
+  .my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_flight_scheme {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_flight_scheme .short_flight_scheme__block {
+    flex-direction: column;
+  }
+  .my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 870px) {
+  .my_profile_block .aside_bar_user {
+    width: 220px;
+    margin-right: 0;
+  }
+}
+@media (max-width: 830px) {
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_flight_scheme {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_flight_scheme .short_flight_scheme__block {
+    flex-direction: column;
+  }
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+  }
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme {
+    margin: 20px 0;
+    margin-top: 10px;
+  }
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .price_order {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 670px) {
+  .my_profile_block {
+    flex-direction: column;
+  }
+  .my_profile_block .aside_bar_user {
+    width: 100%;
+  }
+  .my_profile_block .aside_bar_user .aside_bar_user__mobile_short_info {
+    display: flex;
+  }
+  .my_profile_block .aside_bar_user .aside_bar_user__mobile_short_info .aside_bar_user__mobile_short_info__img {
+    width: 70px;
+    border-radius: 50%;
+  }
+  .my_profile_block .aside_bar_user .aside_bar_user__mobile_short_info .aside_bar_user__mobile_short_info__username {
+    margin-left: 30px;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list {
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E5E5E5;
+    border-left: 0;
+    width: 25%;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:first-child {
+    display: none;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:nth-child(2) {
+    border-left: 1px solid #E5E5E5;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
+    padding: 10px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item.aside_user__list__item_active {
+    border-right: 1px solid #E5E5E5;
+  }
+  .my_profile_block .profile_data_cards {
+    margin: 0;
+    margin-top: 50px;
+    width: 100%;
+  }
+}
+@media (max-width: 540px) {
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item {
+    padding: 5px;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+  }
+}
+@media (max-width: 450px) {
+  .my_profile_block .aside_bar_user .aside_user__list {
+    flex-direction: column;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item {
+    width: 100%;
+    border: 1px solid #E5E5E5;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:not(:last-child) {
+    border-bottom: 0;
+  }
+  .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
+    padding: 0;
+  }
+}
 .non_view {
   display: none;
 }

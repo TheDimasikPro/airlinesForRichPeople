@@ -312,6 +312,10 @@
                                     </div>
                                     <!-- /.btn_group_count_pass -->
                                 </li>
+                                <li class="dropdown_content__item dc_count_pass">
+                                    <button type="button" class="btn_style_1" id="btn_close_dc_count_pass" aria-label="btn_close_dc_count_pass">Закрыть</button> 
+                                    <!-- /.btn_style_1 -->
+                                </li>
                             </ul>
                         </div>
                         <!-- /.dropdown -->
