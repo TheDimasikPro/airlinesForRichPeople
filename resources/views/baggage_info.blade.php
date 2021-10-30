@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/assets/css/style.min.css">
 @endsection
 @section('content')
-    <div class="container">
+    <div class="container desktop_section">
         <div class="baggage_block">
             <h1>Всё о багаже</h1>
             <div class="baggage_block__start_info">
