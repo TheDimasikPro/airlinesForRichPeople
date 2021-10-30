@@ -1088,7 +1088,7 @@ input[type=button] {
 }
 .block_start .food_container .container .btn_scroll_food {
   margin-top: 50%;
-  bottom: 140px;
+  bottom: 0;
   position: absolute;
   left: 50%;
   margin-right: -50%;
@@ -1096,10 +1096,10 @@ input[type=button] {
   transform: translate(-50%, -50%);
 }
 .block_start .food_container .container .down_scroll_btn_food {
-  bottom: 110px;
+  bottom: 40px;
 }
 .block_start .food_container .container .up_scroll_btn_food {
-  bottom: 140px;
+  bottom: 0;
 }
 
 .main_food_block {
@@ -1164,19 +1164,52 @@ input[type=button] {
   font-size: 16px;
 }
 
-@media (max-width: 870px) {
+@media (max-width: 1130px) {
+  .block_start .food_container .container h1 {
+    font-size: 40px;
+  }
+  .block_start .food_container .container h2 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 1050px) {
+  .block_start .food_container .container h1 {
+    font-size: 40px;
+  }
+  .block_start .food_container .container h2 {
+    font-size: 25px;
+  }
+  .block_start .food_container .container .btn_scroll_food {
+    display: none;
+  }
+
   .main_food_block .second_food_block .whene_to_place_an_order {
     width: 350px;
   }
 
   .menu_food_block .menu_cards .menu_cards__item {
-    max-width: 350px;
+    max-width: 100%;
   }
   .menu_food_block .menu_cards .menu_cards__item:not(:first-child) {
     margin-top: 30px;
   }
 }
+@media (max-width: 840px) {
+  .block_start .food_container .container h1 {
+    font-size: 40px;
+  }
+  .block_start .food_container .container h2 {
+    font-size: 20px;
+  }
+}
 @media (max-width: 780px) {
+  .block_start .food_container .container h1 {
+    font-size: 30px;
+  }
+  .block_start .food_container .container h2 {
+    font-size: 18px;
+  }
+
   .main_food_block .second_food_block {
     display: flex;
     flex-direction: column;
@@ -1184,9 +1217,21 @@ input[type=button] {
   .main_food_block .second_food_block .whene_to_place_an_order {
     width: 100%;
   }
-
-  .menu_food_block .menu_cards .menu_cards__item {
-    max-width: 100%;
+}
+@media (max-width: 450px) {
+  .block_start .food_container .container h1 {
+    font-size: 25px;
+  }
+  .block_start .food_container .container h2 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 380px) {
+  .block_start .food_container .container h1 {
+    font-size: 18px;
+  }
+  .block_start .food_container .container h2 {
+    font-size: 12px;
   }
 }
 .aside__block {

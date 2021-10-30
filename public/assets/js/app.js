@@ -943,12 +943,14 @@ $(document).ready(function () {
     location.reload();
   });
   setInterval(function () {
-    if (!$('.btn_scroll_food').hasClass('down_scroll_btn_food')) {
-      $('.btn_scroll_food').removeClass('up_scroll_btn_food');
-      $('.btn_scroll_food').addClass('down_scroll_btn_food'); // console.log('cdcd');
-    } else {
-      $('.btn_scroll_food').removeClass('down_scroll_btn_food');
-      $('.btn_scroll_food').addClass('up_scroll_btn_food');
+    if ($('.btn_scroll_food').css('display') != 'none') {
+      if (!$('.btn_scroll_food').hasClass('down_scroll_btn_food')) {
+        $('.btn_scroll_food').removeClass('up_scroll_btn_food');
+        $('.btn_scroll_food').addClass('down_scroll_btn_food'); // console.log('cdcd');
+      } else {
+        $('.btn_scroll_food').removeClass('down_scroll_btn_food');
+        $('.btn_scroll_food').addClass('up_scroll_btn_food');
+      }
     }
   }, 800);
   $('#id_btn_scroll_food').click(function (e) {
