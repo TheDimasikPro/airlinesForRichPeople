@@ -210,13 +210,19 @@
             // .left_col{
 
             // }
-            // .search{
-
-            // }
+            .search{
+                .form_search {
+                    .span_big_input{
+                        .search_input{
+                            width: 400px;
+                        }
+                    }
+                }
+            }
             .nav_menu{
                 .geo_posistion_people{
                     .fa-globe,.geo_info{
-                        display: none;
+                        // display: none;
                     }
                 }
             }
@@ -227,7 +233,13 @@
     #header{
         .d_menu{
             .search{
-                display: none;
+                .form_search {
+                    .span_big_input{
+                        .search_input{
+                            width: 300px;
+                        }
+                    }
+                }
             }
         }
         .additional_sub_menu{
@@ -246,6 +258,18 @@
 @media (max-width: 780px){
     #header{
         position: block;
+        .d_menu{
+            .search{
+                display: none;
+            }
+            .nav_menu{
+                .geo_posistion_people{
+                    .fa-globe,.geo_info{
+                        display: none;
+                    }
+                }
+            }
+        }
         .additional_sub_menu{
             @include custom_scroll_bar;
             box-shadow: none;
