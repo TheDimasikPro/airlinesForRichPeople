@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/assets/css/style.min.css">
 @endsection
 @section('content')
-    <section class="container">
+    <section class="container desktop_section">
         <div class="work_with_flights">
             <ul class="flights_list df_aic">
                 <li class="buy_ticket df_jcc_aic flights_list_item active_flights_list_item">Купить билет</li>
@@ -340,7 +340,7 @@
         <!-- /.work_with_flights -->
     </section>
 
-    <section class="container">
+    <section class="container desktop_section">
         <div class="resorts df">
             <h2>Наши лучшие предложения</h2>
             <div class="resort_cards_block df_jcspb_aic">
@@ -396,7 +396,7 @@
     </section>
     <!-- /.container -->
 
-    <section class="container" id="section__add_services">
+    <section class="container desktop_section" id="section__add_services">
         <div class="add_services">
             <h2>Дополнительные услуги</h2>
             <div class="add_services_block df_jcspb_aic">

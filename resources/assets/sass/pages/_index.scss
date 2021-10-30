@@ -7,7 +7,6 @@
     background: $white;
     border: 1px solid $gray_5;
     margin-top: 50px;
-    height: 160px;
     .flights_list{
         font-size: $fz_last;
         li{
@@ -249,14 +248,14 @@
         margin-top: 50px;
         align-items: flex-start;
         a{
-            display: block;
+            display: inline-block;
         }
         .resort_card,.add_services_card{
             display: flex;
             flex-direction: column;
             .resotr_img,.add_services_img{
                 width: 350px;
-                height: 300px;
+                height: 350px;
             }
             .shortdesk_resort,.shortdesk_add_services{
                 padding: 10px;
@@ -274,6 +273,225 @@
                 margin-bottom: 30px;
                 box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
             }
+        }
+    }
+}
+
+@media (max-width: 1160px) {
+    .work_with_flights{
+        .search_tickets_block{
+            .form_search_tickets{
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                .form_search_block_inputs{
+                    &:not(:last-child){
+                        margin-right: 20px;
+                    }
+                    &:last-child{
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+        .check_in_block{
+            .form_check_in{
+                flex-direction: column;
+                .md_input,.search_reserve{
+                    width: 100%;
+                }
+                .md_input:last-of-type{
+                    margin-top: 20px;
+                }
+                .search_reserve{
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+    .resorts,.add_services{
+        .resort_cards_block,.add_services_block{
+            .resort_card,.add_services_card{
+                a{
+                    .resotr_img,.add_services_img{
+                        width: 320px;
+                        height: 320px;
+                    }
+                    .shortdesk_resort,.shortdesk_add_services{
+                        width: 320px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1130px) {
+    .work_with_flights{
+        .search_tickets_block{
+            .form_search_tickets{
+                .form_search_block_inputs{
+                    &:nth-last-child(-n+2){
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1000px) {
+    .resorts,.add_services{
+        .resort_cards_block,.add_services_block{
+            .resort_card,.add_services_card{
+                a{
+                    .resotr_img,.add_services_img{
+                        width: 270px;
+                        height: 270px;
+                    }
+                    .shortdesk_resort,.shortdesk_add_services{
+                        width: 270px;
+                        .title_add_services,.title_resort{
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 950px) {
+    .work_with_flights{
+        .search_tickets_block{
+            .form_search_tickets{
+                .form_search_block_inputs{
+                    &:nth-last-child(-n+3){
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 850px) {
+    .resorts,.add_services{
+        .resort_cards_block,.add_services_block{
+            .resort_card,.add_services_card{
+                a{
+                    .resotr_img,.add_services_img{
+                        width: 230px;
+                        height: 230px;
+                    }
+                    .shortdesk_resort,.shortdesk_add_services{
+                        width: 270px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 790px) {
+    .work_with_flights{
+        .search_tickets_block{
+            .form_search_tickets{
+                .form_search_block_inputs{
+                    &:nth-last-child(-n+4){
+                        margin-top: 20px;
+                        margin-right: 34px;
+                    }
+                }
+            }
+        }
+    }
+    .resorts,.add_services{
+        .resort_cards_block,.add_services_block{
+            .resort_card,.add_services_card{
+                a{
+                    .resotr_img,.add_services_img{
+                        width: 200px;
+                        height: 200px;
+                    }
+                    .shortdesk_resort,.shortdesk_add_services{
+                        width: 200px;
+                        .title_add_services,.title_resort{
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 640px) {
+    .resorts,.add_services{
+        .resort_cards_block,.add_services_block{
+            flex-direction: column;
+            .resort_card,.add_services_card{
+                &:not(:first-child){
+                    margin-top: 50px;
+                }
+                width: 100%;
+                a{
+                    .resotr_img,.add_services_img{
+                        width: 100%;
+                        height: auto;
+                    }
+                    .shortdesk_resort,.shortdesk_add_services{
+                        width: 100%;
+                        .title_add_services,.title_resort{
+                            font-size: 22px;
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 620px) {
+    .work_with_flights{
+        .search_tickets_block{
+            .form_search_tickets{
+                flex-direction: column;
+                .form_search_block_inputs{
+                    width: 100%;
+                    &:not(:last-child){
+                        margin-right: 0;
+                    }
+                    &:not(:first-child){
+                        margin-top: 20px;
+                    }
+                    .dropdown{
+                        width: 100%;
+                        &.dd_count_pass{
+                            width: 100%;
+                        }
+                        .input_count_pass_block{
+                            width: 100%;
+                        }
+                        .input_search_flights{
+                            width: 100%;
+                        }
+                        .dropdown_content{
+                            width: 100%;
+                        }
+                    }
+                    .min_input{
+                        width: 100%;
+                    }
+                    #btn_search{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 400px) {
+    .work_with_flights{
+        .flights_list{
+            li{
+                font-size: $fz_base;
+                text-align: center;
+            }
+            
         }
     }
 }

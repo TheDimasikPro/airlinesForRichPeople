@@ -611,7 +611,7 @@ $(document).ready(function(){
         e.preventDefault();
         var baby_count_pass_value = Number(baby_count_pass.text());
         if (Number(baby_count_pass_value) == 0) {
-            kids_count_pass.text("0");
+            baby_count_pass.text("0");
         }
         else{
             var new_value = baby_count_pass_value - 1;
