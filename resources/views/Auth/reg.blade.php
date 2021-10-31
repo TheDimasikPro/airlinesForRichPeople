@@ -333,4 +333,6 @@
     </div>
     <!-- /.container -->
 @endsection
-
+@section('slider_script')
+    <script src="/assets/js/auth.js"></script>
+@endsection

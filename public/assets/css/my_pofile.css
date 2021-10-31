@@ -459,6 +459,54 @@ input[type=button] {
 #header .d_menu .nav_menu .geo_posistion_people .language_currency_active {
   transform: scaleY(1);
 }
+#header #mobile_search_geo {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+#header #mobile_search_geo .search_mobile {
+  width: 100%;
+}
+#header #mobile_search_geo .search_mobile .form_search_mobile {
+  width: 100%;
+}
+#header #mobile_search_geo .search_mobile .form_search_mobile .span_big_input {
+  position: relative;
+  width: 100%;
+}
+#header #mobile_search_geo .search_mobile .form_search_mobile .span_big_input .search_mobile_input {
+  width: 100%;
+  border-bottom: 1px solid #BEBEBE;
+  transition: 0.8s;
+}
+#header #mobile_search_geo .search_mobile .form_search_mobile .span_big_input .search_mobile_input:focus {
+  border-bottom: 1px solid #222222;
+}
+#header #mobile_search_geo .search_mobile .form_search_mobile .span_big_input .bottom_slider_big_input {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 39px;
+  margin: 0 auto;
+  height: 1px;
+  background-color: #222222;
+  width: 0%;
+  transition: width 1s;
+}
+#header #mobile_search_geo .search_mobile .form_search_mobile .span_big_input:hover .bottom_slider_big_input {
+  width: 100%;
+}
+#header #mobile_search_geo .geo_posistion_people_mobile {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30px;
+  width: 135px;
+}
+#header #mobile_search_geo .geo_posistion_people_mobile .geo_info {
+  margin-left: 0px;
+  width: auto;
+}
 
 @media (max-width: 940px) {
   #header .d_menu .search .form_search .span_big_input .search_input {
@@ -481,6 +529,15 @@ input[type=button] {
     display: none;
   }
   #header .d_menu .nav_menu .geo_posistion_people .fa-globe, #header .d_menu .nav_menu .geo_posistion_people .geo_info {
+    display: none;
+  }
+  #header #mobile_search_geo {
+    display: flex;
+  }
+  #header #mobile_search_geo .geo_posistion_people_mobile {
+    align-items: center;
+  }
+  #header #mobile_search_geo .geo_posistion_people_mobile .fa-globe {
     display: none;
   }
   #header .additional_sub_menu {
@@ -524,6 +581,21 @@ input[type=button] {
   }
   #header .additional_sub_menu__view {
     z-index: 2000;
+  }
+}
+@media (max-width: 640px) {
+  #header {
+    padding: 15px 0;
+  }
+  #header #mobile_search_geo {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+  #header #mobile_search_geo .geo_posistion_people_mobile {
+    width: auto;
+    align-items: center;
+    margin-left: 0;
+    margin-top: 15px;
   }
 }
 .my_profile_block {

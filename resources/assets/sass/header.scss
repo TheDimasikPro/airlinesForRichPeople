@@ -202,6 +202,56 @@
             // }
         }
     }
+    #mobile_search_geo{
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        .search_mobile{
+            width: 100%;
+            .form_search_mobile{
+                width: 100%;
+                .span_big_input{
+                    position: relative;
+                    width: 100%;
+                    .search_mobile_input{
+                        width: 100%;
+                        border-bottom: 1px solid $black_gray;
+                        transition: 0.8s;
+                        &:focus{
+                            border-bottom: 1px solid $black;
+                        }
+                    }
+                    .bottom_slider_big_input{
+                        position: absolute;
+                        display:block;
+                        left: 0;
+                        top: 39px;
+                        margin:0 auto;
+                        height: 1px;
+                        background-color: $black;
+                        width: 0%;
+                        transition: width 1s;
+                    }
+                    &:hover .bottom_slider_big_input{
+                        width: 100%;
+                    }
+                }
+                
+            }
+        }
+        .geo_posistion_people_mobile{
+            display: flex;
+            justify-content: space-between;
+            margin-left: 30px;
+            width: 135px;
+            .geo_info{
+                margin-left: 0px;
+                width: auto;
+            }
+        }
+    }
+    
 }
 
 @media (max-width: 940px) {
@@ -270,6 +320,16 @@
                 }
             }
         }
+        #mobile_search_geo{
+            display: flex;
+            
+            .geo_posistion_people_mobile{
+                align-items: center;
+                .fa-globe{
+                    display: none;
+                }
+            }
+        }
         .additional_sub_menu{
             @include custom_scroll_bar;
             box-shadow: none;
@@ -305,3 +365,29 @@
         }
     }
 }
+@media (max-width: 640px) {
+    #header{
+        padding: 15px 0;
+        #mobile_search_geo{
+            flex-direction: column;
+            margin-top: 15px;
+            .geo_posistion_people_mobile{
+                width: auto;
+                align-items: center;
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+    }
+}
+// @media (max-width: 500px) {
+//     #header{
+//         padding: 15px 0;
+//         #mobile_search_geo{
+//             margin-top: 15px;
+//             .geo_posistion_people_mobile{
+//                 margin-top: 15px;
+//             }
+//         }
+//     }
+// }

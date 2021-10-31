@@ -32,7 +32,7 @@
               <!-- /.carousel__item -->
             </div>
             <div class="result_price__flight_to">
-              <h2>Варианты вылета в этот день</h2>
+              <h2>Варианты вылета в этот день(в день который выбрал пользователь)</h2>
               <div class="result_price__flight_to__cards">
                 <div class="result_price__flight_to__cards__item" id="result_price__flight_to__cards__item__1">
                   <div class="result_price__flight_to__cards__item__short_info df_jcspb_aic">
@@ -136,7 +136,7 @@
               <!-- /.carousel__item -->
             </div>
             <div class="result_price__flight_to">
-              <h2>Варианты вылета в этот день</h2>
+              <h2>Варианты вылета в этот день (в день который выбрал пользователь)</h2>
               <div class="result_price__flight_to__cards">
                 <div class="result_price__flight_from__cards__item" id="result_price__flight_from__cards__item__1">
                   <div class="result_price__flight_to__cards__item__short_info df_jcspb_aic">
@@ -231,4 +231,5 @@
 @endsection
 @section('slider_script')
 <script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/search_ticket_page.js"></script>
 @endsection

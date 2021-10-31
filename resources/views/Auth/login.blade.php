@@ -1,10 +1,10 @@
-@extends('layouts.app_layout')
+@extends('layouts.layout_with_footer_bottom')
 @section('title_page','Авторизация')
 @section('styles_link')
     <link rel="stylesheet" href="/assets/css/auth.min.css">
 @endsection
 @section('content')
-    <div class="container df_jcc_aic desktop_section">
+    <div class="container df_jcc_aic desktop_section content_flex">
         <form action="" class="form form_auth" id="form_login">
             <h1>Авторизация</h1>
             <div class="form_auth_block">

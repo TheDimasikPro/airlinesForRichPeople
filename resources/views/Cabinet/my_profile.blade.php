@@ -298,3 +298,7 @@
     </div>
     <!-- /.container -->
 @endsection
+
+@section('slider_script')
+    <script src="/assets/js/update_data_user.js"></script>
+@endsection

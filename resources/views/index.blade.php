@@ -456,3 +456,7 @@
     </section>
     <!-- /.container -->
 @endsection
+
+@section('slider_script')
+    <script src="/assets/js/index_page.js"></script>
+@endsection

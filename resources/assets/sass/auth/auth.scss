@@ -443,6 +443,12 @@
             max-width: 300px;
         }
         .form_auth_block{
+            input,.btn{
+                width: 350px;
+            }
+            .link_auth{
+                font-size: 12px;
+            }
             .form_auth__row{
                 .form_auth_block_second{
                     width: 300px;
@@ -483,6 +489,9 @@
             max-width: 250px;
         }
         .form_auth_block{
+            input,.btn{
+                width: 300px;
+            }
             .form_auth__row{
                 .form_auth_block_second{
                     width: 250px;
@@ -509,9 +518,6 @@
         .form_auth_block{
             input,.btn{
                 width: 260px;
-            }
-            .link_auth{
-                font-size: 12px;
             }
         }
     }
