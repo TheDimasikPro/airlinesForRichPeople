@@ -523,7 +523,7 @@ input[type=button] {
 }
 @media (max-width: 780px) {
   #header {
-    position: block;
+    padding: 15px 0;
   }
   #header .d_menu .search {
     display: none;
@@ -533,9 +533,15 @@ input[type=button] {
   }
   #header #mobile_search_geo {
     display: flex;
+    flex-direction: column;
+    margin-top: 15px;
   }
   #header #mobile_search_geo .geo_posistion_people_mobile {
     align-items: center;
+    width: auto;
+    align-items: center;
+    margin-left: 0;
+    margin-top: 15px;
   }
   #header #mobile_search_geo .geo_posistion_people_mobile .fa-globe {
     display: none;
@@ -581,21 +587,6 @@ input[type=button] {
   }
   #header .additional_sub_menu__view {
     z-index: 2000;
-  }
-}
-@media (max-width: 640px) {
-  #header {
-    padding: 15px 0;
-  }
-  #header #mobile_search_geo {
-    flex-direction: column;
-    margin-top: 15px;
-  }
-  #header #mobile_search_geo .geo_posistion_people_mobile {
-    width: auto;
-    align-items: center;
-    margin-left: 0;
-    margin-top: 15px;
   }
 }
 #main_form_auth #auth_block_btn {

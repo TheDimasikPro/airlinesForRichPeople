@@ -4,27 +4,88 @@ var __webpack_exports__ = {};
   !*** ./resources/assets/js/search_ticket_page.js ***!
   \***************************************************/
 $(document).ready(function (e) {
-  $(".slide-one").owlCarousel({
-    center: true,
-    items: 5,
-    loop: true,
-    margin: 10,
-    responsive: {
-      600: {
-        items: 6
+  var screenWidth = window.screen.width;
+  var screenHeight = window.screen.height;
+
+  window.onresize = function (event) {
+    screenWidth = window.screen.width;
+  };
+
+  if (screenWidth > 780) {
+    $(".slide-one").owlCarousel({
+      center: true,
+      items: 5,
+      loop: true,
+      margin: 10,
+      responsive: {
+        600: {
+          items: 6
+        }
       }
-    }
-  });
-  $(".slide-two").owlCarousel({
-    center: true,
-    items: 5,
-    loop: true,
-    margin: 10,
-    responsive: {
-      600: {
-        items: 6
+    });
+    $(".slide-two").owlCarousel({
+      center: true,
+      items: 5,
+      loop: true,
+      margin: 10,
+      responsive: {
+        600: {
+          items: 6
+        }
       }
-    }
+    });
+  }
+
+  if (screenWidth < 780) {
+    $(".slide-one").owlCarousel({
+      center: true,
+      items: 4,
+      loop: true,
+      margin: 10,
+      responsive: {
+        500: {
+          items: 4
+        },
+        550: {
+          items: 4
+        },
+        600: {
+          items: 6
+        }
+      }
+    });
+    $(".slide-two").owlCarousel({
+      center: true,
+      items: 4,
+      loop: true,
+      margin: 10,
+      responsive: {
+        500: {
+          items: 4
+        },
+        550: {
+          items: 4
+        },
+        600: {
+          items: 6
+        }
+      }
+    });
+  } // октрытие модального окна
+
+
+  $('#btn_open__popup').click(function (e) {
+    e.preventDefault();
+    $('body').addClass('body_popup__open');
+    $('.popup_fade').removeClass('non_view');
+    $('.popup_modal').removeClass('non_view');
+  }); // закрытие модального окна
+
+  $('#btn_popup_close').click(function (e) {
+    e.preventDefault();
+    $('body').removeClass('body_popup__open');
+    $('.popup_fade').addClass('non_view');
+    $('.popup_modal').addClass('non_view');
   });
   $('.slide-one .carousel__item').click(function (e) {
     e.preventDefault();

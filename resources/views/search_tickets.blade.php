@@ -6,9 +6,90 @@
     <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
 @endsection
 @section('content')
-    <div class="container">
+  <div class="popup_fade non_view desktop_section"></div>
+    <div class="popup_modal non_view desktop_section">
+      <div class="popup">
+        <button class="btn_popup_close" id="btn_popup_close" aria-label="btn_popup_close">Закрыть</button>
+        <div class="popup_order_block">
+          <h2>Ваш заказ</h2>
+          <div class="popup_order_block__info">
+            
+            <div class="popup_order_block__info__from">
+              <h3>Вылет туда:</h3>
+              <div class="popup_order_block__info__from__city df_jcspb_aic">
+                <div class="popup_order_block__info__city__from">
+                  Екатеринбург <span class="airport_name__from">(SVX)</span> 
+                  <!-- /.airport_name__from -->
+                </div>
+                <i class="fas fa-arrow-right"></i>
+                <!-- /.popup_order_block__info__city__from -->
+                <div class="popup_order_block__info__city__to">
+                  Москва <span class="airport_name__to">(DME)</span> 
+                  <!-- /.airport_name__to -->
+                </div>
+                <!-- /.popup_order_block__info__city__to -->
+              </div>
+              <!-- /.popup_order_block__info__from__city -->
+              <div class="popup_order_block__info__from__date_time">
+                30 октября пт <span class="details_time">06:30</span> 
+                <!-- /.details_time -->
+              </div>
+              <!-- /.popup_order_block__info__from__date_time -->
+              <div class="popup_order_block__info__from__details_air df_jcspb_aic">
+                <div class="popup_order_block__info__from__details_air__number_flight">U6-264</div>
+                <!-- /.popup_order_block__info__from__details_air__number_flight -->
+                <div class="popup_order_block__info__from__details_air__name_modal_air">Airbus A320</div>
+                <!-- /.popup_order_block__info__from__details_air__name_modal_air -->
+              </div>
+              <!-- /.popup_order_block__info__from__details_air -->
+            </div>
+            <!-- /.popup_order_block__info__from -->
+            <div class="popup_order_block__info__from">
+              <h3>Вылет обратно:</h3>
+              <div class="popup_order_block__info__from__city df_jcspb_aic">
+                <div class="popup_order_block__info__city__from">
+                  Екатеринбург <span class="airport_name__from">(SVX)</span> 
+                  <!-- /.airport_name__from -->
+                </div>
+                <i class="fas fa-arrow-right"></i>
+                <!-- /.popup_order_block__info__city__from -->
+                <div class="popup_order_block__info__city__to">
+                  Москва <span class="airport_name__to">(DME)</span> 
+                  <!-- /.airport_name__to -->
+                </div>
+                <!-- /.popup_order_block__info__city__to -->
+              </div>
+              <!-- /.popup_order_block__info__from__city -->
+              <div class="popup_order_block__info__from__date_time">
+                30 октября пт <span class="details_time">06:30</span> 
+                <!-- /.details_time -->
+              </div>
+              <!-- /.popup_order_block__info__from__date_time -->
+              <div class="popup_order_block__info__from__details_air df_jcspb_aic">
+                <div class="popup_order_block__info__from__details_air__number_flight">U6-264</div>
+                <!-- /.popup_order_block__info__from__details_air__number_flight -->
+                <div class="popup_order_block__info__from__details_air__name_modal_air">Airbus A320</div>
+                <!-- /.popup_order_block__info__from__details_air__name_modal_air -->
+              </div>
+              <!-- /.popup_order_block__info__from__details_air -->
+            </div>
+            <!-- /.popup_order_block__info__from -->
+          </div>
+          <!-- /.popup_order_block__info -->
+        </div>
+        <!-- /.popup_order_block -->
+      </div>		
+    </div>
+    <div class="my_order__block_mobile desktop_section">
+      <button class="btn_open__popup" id="btn_open__popup" aria-label="btn_open__popup">
+        Просмотреть заказ можно здесь <i class="fas fa-arrow-right"></i> <i class="fas fa-shopping-basket"></i>
+      </button> 
+      <!-- /.btn_open__popup -->
+    </div>
+    <!-- /.my_order__block_mobile -->
+    <div class="container desktop_section">
       <div class="search_tickets__block df_jcspb_aic">
-        @include('inc.aside_bar_search_tickets');
+        @include('inc.aside_bar_search_tickets')
         <!-- /.aside__block -->
         <div class="flight_block__info">
           <div class="flight_from_block">

@@ -60,6 +60,7 @@
                             .result_price__flight_to__cards__item__short_info__card__city__from_short_info{
                                 .result_price__flight_to__cards__item__short_info__card__city__from_short_info__time{
                                     margin: 10px 0;
+                                    font-size: 20px;
                                 }
                             }
                             .result_price__flight_to__cards__item__short_info__card__city__flight_time_short_info{
@@ -69,6 +70,7 @@
                             .result_price__flight_to__cards__item__short_info__card__city__to_short_info{
                                 .result_price__flight_to__cards__item__short_info__card__city__to_short_info__time{
                                     margin-top: 10px;
+                                    font-size: 20px;
                                 }
                             }
                         }
@@ -91,6 +93,177 @@
                 background: rgba($color: $black_gray, $alpha: 0.17);
                 box-shadow: none;
                 border-top: none;
+            }
+        }
+    }
+}
+.my_order__block_mobile{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid $gray_5;
+    padding: 10px 0;
+    display: none;
+    .btn_open__popup{
+        .fa-shopping-basket{
+            font-size: 20px;
+        }
+    }
+}
+
+.body_popup__open{
+    overflow: hidden;
+}
+.popup_fade{
+    content: '';
+	background: #000;
+	position: fixed; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	opacity: 0.7;
+	z-index: 9999;
+}
+.popup_modal{
+    .popup {
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        padding: 20px;
+        width: 360px;
+        margin-left: -200px;	
+        background: #fff;
+        border: 1px solid orange;
+        border-radius: 4px; 
+        z-index: 99999;
+        opacity: 1;
+        .btn_popup_close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .popup_order_block{
+            margin: 30px 0;
+            .popup_order_block__info{
+                .popup_order_block__info__from{
+                    .popup_order_block__info__from__city{
+                    }
+                    .popup_order_block__info__from__date_time{
+                        margin-top: 15px;
+                    }
+                    .popup_order_block__info__from__details_air{
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 1020px) {
+    .search_tickets__block {
+        .aside__block{
+            display: none;
+        }
+        .flight_block__info{
+            width: 100%;
+        }
+    }
+    .my_order__block_mobile{
+        display: flex;
+    }
+}
+@media (max-width: 780px) {
+    .search_tickets__block {
+        .flight_block__info{
+            .flight_from_block,.flight_from_to{
+                .result_price__flight_to,.result_price__flight_from{
+                    .result_price__flight_to__cards,.result_price__flight_to__cards{
+                        .result_price__flight_to__cards__item,.result_price__flight_from__cards__item{
+                            .result_price__flight_to__cards__item__short_info,.result_price__flight_from__cards__item__short_info{
+                                flex-direction: column;
+                                .result_price__flight_to__cards__item__short_info__card__city{
+                                    .result_price__flight_to__cards__item__short_info__card__city__from_short_info,.result_price__flight_to__cards__item__short_info__card__city__to_short_info{
+                                        .result_price__flight_to__cards__item__short_info__card__city__from_short_info__time,.result_price__flight_to__cards__item__short_info__card__city__to_short_info__time{
+                                            font-size: 40px;
+                                        }
+                                    }
+                                    .result_price__flight_to__cards__item__short_info__card__city__flight_time_short_info{
+                                        margin: 0 30px;
+                                    }
+                                }
+                            }
+                            .result_price__flight_to__cards__item__short_info__price,.result_price__flight_from__cards__item__short_info__price{
+                                margin-top: 30px;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// @media (max-width: 600px) {
+    
+// }
+@media (max-width: 450px) {
+    .search_tickets__block {
+        .flight_block__info{
+            .flight_from_block,.flight_from_to{
+                .result_price__flight_to,.result_price__flight_from{
+                    .result_price__flight_to__cards,.result_price__flight_to__cards{
+                        .result_price__flight_to__cards__item,.result_price__flight_from__cards__item{
+                            .result_price__flight_to__cards__item__short_info,.result_price__flight_from__cards__item__short_info{
+                                font-size: 12px;
+                                .result_price__flight_to__cards__item__short_info__card__city{
+                                    .result_price__flight_to__cards__item__short_info__card__city__from_short_info,.result_price__flight_to__cards__item__short_info__card__city__to_short_info{
+                                        .result_price__flight_to__cards__item__short_info__card__city__from_short_info__time,.result_price__flight_to__cards__item__short_info__card__city__to_short_info__time{
+                                            font-size: 20px;
+                                            
+                                        }
+                                    }
+                                    .result_price__flight_to__cards__item__short_info__card__city__flight_time_short_info{
+                                        margin: 0 30px;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                            .result_price__flight_to__cards__item__short_info__price,.result_price__flight_from__cards__item__short_info__price{
+                                margin-top: 30px;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .slide-one,.slide-two{
+            .carousel__item{
+                .carousel__item__date{
+                    font-size: 20px;
+                }
+                .carousel__item__min_price{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 350px) {
+    .search_tickets__block{
+        .slide-one,.slide-two{
+            .carousel__item{
+                .carousel__item__date{
+                    font-size: 18px;
+                }
+                .carousel__item__min_price{
+                    text-align: center;
+                }
             }
         }
     }

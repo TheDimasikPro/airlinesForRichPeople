@@ -288,6 +288,8 @@ $(document).ready(function () {
 
       if (screenWidth <= 780) {
         $('.desktop_section').removeClass('non_view');
+        $('.popup_fade').addClass('non_view');
+        $('.popup_modal').addClass('non_view');
       }
     }
   });
