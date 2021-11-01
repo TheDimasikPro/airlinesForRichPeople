@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
 @endsection
 @section('content')
-  <div class="popup_fade non_view desktop_section"></div>
+    <div class="popup_fade non_view desktop_section"></div>
     <div class="popup_modal non_view desktop_section">
       <div class="popup">
         <button class="btn_popup_close" id="btn_popup_close" aria-label="btn_popup_close">Закрыть</button>
@@ -30,12 +30,14 @@
                 <!-- /.popup_order_block__info__city__to -->
               </div>
               <!-- /.popup_order_block__info__from__city -->
-              <div class="popup_order_block__info__from__date_time">
-                30 октября пт <span class="details_time">06:30</span> 
-                <!-- /.details_time -->
+              <div class="popup_order_block__info__from__date_time df_jcspb_aic">
+                <span class="details_time_from">30 октября пт 06:30</span> 
+                <!-- /.details_time_from -->
+                <span class="details_time_to">30 октября пт 07:30</span> 
+                <!-- /.details_time_to -->
               </div>
               <!-- /.popup_order_block__info__from__date_time -->
-              <div class="popup_order_block__info__from__details_air df_jcspb_aic">
+              <div class="popup_order_block__info__from__details_air">
                 <div class="popup_order_block__info__from__details_air__number_flight">U6-264</div>
                 <!-- /.popup_order_block__info__from__details_air__number_flight -->
                 <div class="popup_order_block__info__from__details_air__name_modal_air">Airbus A320</div>
@@ -60,12 +62,14 @@
                 <!-- /.popup_order_block__info__city__to -->
               </div>
               <!-- /.popup_order_block__info__from__city -->
-              <div class="popup_order_block__info__from__date_time">
-                30 октября пт <span class="details_time">06:30</span> 
-                <!-- /.details_time -->
+              <div class="popup_order_block__info__from__date_time df_jcspb_aic">
+                <span class="details_time_from">30 октября пт 06:30</span> 
+                <!-- /.details_time_from -->
+                <span class="details_time_to">30 октября пт 07:30</span> 
+                <!-- /.details_time_to -->
               </div>
               <!-- /.popup_order_block__info__from__date_time -->
-              <div class="popup_order_block__info__from__details_air df_jcspb_aic">
+              <div class="popup_order_block__info__from__details_air">
                 <div class="popup_order_block__info__from__details_air__number_flight">U6-264</div>
                 <!-- /.popup_order_block__info__from__details_air__number_flight -->
                 <div class="popup_order_block__info__from__details_air__name_modal_air">Airbus A320</div>
@@ -78,6 +82,7 @@
           <!-- /.popup_order_block__info -->
         </div>
         <!-- /.popup_order_block -->
+        <button type="button" id="btn_continune_order" aria-label="btn_continune_order" class="continune_order btn_style_1">Продолжить</button> <!-- /.continune_order -->
       </div>		
     </div>
     <div class="my_order__block_mobile desktop_section">

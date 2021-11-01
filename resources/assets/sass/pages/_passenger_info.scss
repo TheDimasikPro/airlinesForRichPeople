@@ -113,3 +113,125 @@
         }
     }
 }
+@media (max-width: 1210px) {
+    .passenger_info_block{
+        .passenger_info_block__forms_block{
+            .passenger_full_info__forms_block{
+                .passenger_full_info__forms_block__item{
+                    .passenger_full_info__forms_block__form_passenger{
+                        .passenger_full_info__forms_block__form_passenger__input_block{
+                            &:nth-child(4){
+                                .btn_gender_form_passenger{
+                                    width: 110px;
+                                }
+                            }
+                            .sm_input{
+                                width: 220px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1110px) {
+    .passenger_info_block{
+        .passenger_info_block__forms_block{
+            .passenger_full_info__forms_block{
+                .passenger_full_info__forms_block__item{
+                    .passenger_full_info__forms_block__form_passenger{
+                        .passenger_full_info__forms_block__form_passenger__input_block{
+                            &:nth-child(4){
+                                .btn_gender_form_passenger{
+                                    width: 100px;
+                                }
+                            }
+                            .sm_input{
+                                width: 200px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1060px) {
+    .my_order__block_mobile{
+        display: flex;
+    }
+    .passenger_info_block {
+        .aside__block{
+            display: none;
+        }
+        .passenger_info_block__forms_block{
+            width: 100%;
+            .passenger_full_info__forms_block{
+                .passenger_full_info__forms_block__item{
+                    .passenger_full_info__forms_block__form_passenger{
+                        .passenger_full_info__forms_block__form_passenger__input_block{
+                            margin-left: 57px;
+                            &:nth-child(4){
+                                margin-left: 57px;
+                                .btn_gender_form_passenger{
+                                    width: 100px;
+                                }
+                            }
+                            
+                            &:nth-last-child(n-2){
+                                margin-left: 57px;
+                            }
+                            &:first-child{
+                                margin-left: 0;
+                            }
+                            &:nth-child(5){
+                                margin-left: 0;
+                            }
+                            .sm_input{
+                                width: 200px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1020px) {
+    .passenger_info_block {
+        .passenger_info_block__forms_block{
+            .passenger_full_info__forms_block{
+                .passenger_full_info__forms_block__item{
+                    .passenger_full_info__forms_block__form_passenger{
+                        flex-direction: column;
+                        .passenger_full_info__forms_block__form_passenger__input_block{
+                            margin-left: 0;
+                            width: 100%;
+                            &:nth-child(4){
+                                margin-left: 0;
+                                .btn_gender_form_passenger{
+                                    width: 100px;
+                                }
+                            }
+                            
+                            &:nth-last-child(n-2){
+                                margin-left: 0;
+                            }
+                            &:first-child{
+                                margin-left: 0;
+                            }
+                            &:nth-child(5){
+                                margin-left: 0;
+                            }
+                            .sm_input{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

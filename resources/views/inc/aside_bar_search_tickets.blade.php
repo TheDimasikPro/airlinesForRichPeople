@@ -28,7 +28,7 @@
                     <div class="row_select_ticket_from">
                         <p class="select_ticket_from__date">30 октября пт</p>
                         <!-- /.select_ticket_from__date -->
-                        <p class="select_ticket_from__time">06:30</p>
+                        <p class="select_ticket_from__time">06:30 <i class="fas fa-arrow-right" aria-hidden="true"></i> 07:00</p>
                         <!-- /.select_ticket_from__time -->
                     </div>
                     <!-- /.row_select_ticket_from -->
@@ -42,26 +42,6 @@
                 </div>
                 <!-- /.aside__block__info__ticket__info__select_ticket_from -->
                 <!-- /.aside__block__info__ticket__info__city_info -->
-                {{-- <div class="aside__block__info__ticket__info__number_flight">
-                    <p>Number flight:</p>
-                    <span>U6-264</span> 
-                </div>
-                <!-- /.aside__block__info__ticket__info__number_flight -->
-                <div class="aside__block__info__ticket__info__date">
-                    <p>Date flight:</p>
-                   <span>30/10/21</span> 
-                </div>
-                <!-- /.aside__block__info__ticket__info__date -->
-                <div class="aside__block__info__ticket__info__time">
-                    <p>Time flight:</p>
-                   <span>06:30</span> 
-                </div>
-                <!-- /.aside__block__info__ticket__info__time -->
-                <div class="aside__block__info__ticket__info__price">
-                    <p>Price flight:</p>
-                   <span>5000р</span> 
-                </div>
-                <!-- /.aside__block__info__ticket__info__price --> --}}
             </div>
             <!-- /.aside__block__info__ticket__info -->
         </div>
@@ -78,9 +58,9 @@
         <!-- /.btn_style_1 aside__block__info__btn --> --}}
 
 
-        {{-- <a href="{{ route('passenger_info__page') }}" class="btn_style_1 aside__block__info__btn" id="aside__block__info__btn" aria-label="aside__block__info__btn">Продолжить</a> 
-        <!-- /.btn_style_1 aside__block__info__btn --> --}}
-        <a href="{{ route('payment_tickets__page') }}" class="btn_style_1 aside__block__info__btn" id="aside__block__info__btn" aria-label="aside__block__info__btn">Продолжить</a> 
+        <a href="{{ route('passenger_info__page') }}" class="btn_style_1 aside__block__info__btn" id="aside__block__info__btn" aria-label="aside__block__info__btn">Пассажиры</a> 
+        <!-- /.btn_style_1 aside__block__info__btn -->
+        {{-- <a href="{{ route('payment_tickets__page') }}" class="btn_style_1 aside__block__info__btn" id="aside__block__info__btn" aria-label="aside__block__info__btn">Продолжить</a>  --}}
         <!-- /.btn_style_1 aside__block__info__btn -->
     </div>
     <!-- /.aside__block__info -->

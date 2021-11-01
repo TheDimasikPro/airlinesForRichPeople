@@ -130,21 +130,7 @@ $(document).ready(function () {
     $('.nav_menu .geo_posistion_people').removeAttr('style');
     $('.geo_posistion_people').removeClass('geo_posistion_people__active');
     $('.language_currency').removeClass('language_currency_active');
-
-    if ($(this).hasClass('back_data')) {
-      $('#id_i_d_t_block').addClass('block_inputs_active');
-      $('#id_i_d_b_block').addClass('block_inputs_active');
-
-      if (!$('.back_data').hasClass('non_click_input')) {
-        $('#id_i_d_t').click();
-        $('.back_data').addClass('non_click_input'); // console.log("есть клик");
-      }
-    } else if (!$(this).hasClass('there_data') && !$(this).hasClass('btn_search_block')) {
-      $(this).addClass('block_inputs_active');
-    } else if ($(this).hasClass('there_data')) {
-      $('#id_i_d_t_block').addClass('block_inputs_active');
-      $('#id_i_d_b_block').addClass('block_inputs_active');
-    }
+    $(this).addClass('block_inputs_active');
   });
   $('.drop_from_flights .dropdown_content__item').click(function (e) {
     var city_name = $.trim($(this).children('.info_country').children('.city_name').text());
@@ -216,15 +202,13 @@ $(document).ready(function () {
     console.log('vvv');
   }); // календари
 
-  $('#id_i_d_t').click(function () {
-    $('.drop_from_flights').removeClass('show_drop_content');
-    $('.drop_to_flights').removeClass('show_drop_content');
-    $('.drop_count_pass').removeClass('show_drop_content');
-    $('.language_currency').removeClass('language_currency_active');
-
-    if (!$('#id_i_d_t_block').hasClass('calendar_active')) {
-      $('#id_i_d_t_block').addClass('calendar_active'); // $('.back_data').addClass('non_click_input');
-    }
+  $('#id_i_d_t').change(function () {
+    $(this).blur();
+    $('#id_i_d_t_block').removeClass('block_inputs_active');
+  });
+  $('#id_i_d_b').change(function () {
+    $(this).blur();
+    $('#id_i_d_b_block').removeClass('block_inputs_active');
   }); // $('#id_i_d_t').daterangepicker({
   //     autoUpdateInput: false,
   //     singleDatePicker: true,

@@ -83,6 +83,7 @@
                 <!-- /.baggage_block__card_item -->
                 <div class="baggage_block__card_item" id="sport_equipment">
                     <img src="/assets/images/services/sport_equipment.jpg" alt="" class="baggage_card__img">
+                    <img src="/assets/images/services/sport_equipment_100.jpg" alt="" class="baggage_card__img__100">
                     <div class="baggage_card__text_block">
                         <h2 class="baggage_card__title">Спортивный инвентарь</h2> 
                         <!-- /.baggage_card__title -->

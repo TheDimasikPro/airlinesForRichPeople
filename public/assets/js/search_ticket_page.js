@@ -71,22 +71,8 @@ $(document).ready(function (e) {
         }
       }
     });
-  } // октрытие модального окна
+  }
 
-
-  $('#btn_open__popup').click(function (e) {
-    e.preventDefault();
-    $('body').addClass('body_popup__open');
-    $('.popup_fade').removeClass('non_view');
-    $('.popup_modal').removeClass('non_view');
-  }); // закрытие модального окна
-
-  $('#btn_popup_close').click(function (e) {
-    e.preventDefault();
-    $('body').removeClass('body_popup__open');
-    $('.popup_fade').addClass('non_view');
-    $('.popup_modal').addClass('non_view');
-  });
   $('.slide-one .carousel__item').click(function (e) {
     e.preventDefault();
     $('.slide-one .carousel__item').removeClass('carousel__item__active');
@@ -118,6 +104,9 @@ $(document).ready(function (e) {
       $(this).removeClass('not_select_result_price__flight_from__cards__item');
       $('#result_flight_from_in_basket[data-id-item="' + this_id + '"]').removeClass('non_view');
     }
+  });
+  $('#btn_continune_order').click(function () {
+    location.href = "http://richairlines/search_tickets/passenger_info";
   });
 });
 /******/ })()

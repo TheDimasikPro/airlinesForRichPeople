@@ -318,6 +318,20 @@ $(document).ready(function () {
   $('input[name="radio_lang"]').change(function () {// изменения языка сайта
   });
   $('input[name="radio_currency"]').change(function () {// изменение валюты на сайте
+  }); // октрытие модального окна на странице поиска билетов и информации о пассажирах
+
+  $('#btn_open__popup').click(function (e) {
+    e.preventDefault();
+    $('body').addClass('body_popup__open');
+    $('.popup_fade').removeClass('non_view');
+    $('.popup_modal').removeClass('non_view');
+  }); // закрытие модального окна
+
+  $('#btn_popup_close').click(function (e) {
+    e.preventDefault();
+    $('body').removeClass('body_popup__open');
+    $('.popup_fade').addClass('non_view');
+    $('.popup_modal').addClass('non_view');
   });
 });
 /******/ })()

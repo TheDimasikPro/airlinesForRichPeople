@@ -23,6 +23,9 @@
             width: 300px;
             // height: 100%;
         }
+        .baggage_card__img__100{
+            display: none;
+        }
        
         .baggage_card__text_block{
             padding: 20px;
@@ -89,7 +92,13 @@
                 .baggage_card__img{
                     width: 100%;
                     height: 300px;
-                    content: url('/assets/images/services/sport_equipment_100%.jpg');
+                    display: none;
+                    // content: url('/assets/images/services/sport_equipment_100%.jpg');
+                }
+                .baggage_card__img__100{
+                    width: 100%;
+                    height: 300px;
+                    display: block;
                 }
             }
         }
@@ -104,16 +113,6 @@
                     height: auto;
                 }
             }
-            &:not(:first-child){
-                .baggage_card__img{
-                }
-            }
-        }
-    }
-}
-@media (max-width: 350px) {
-    .baggage_block__cards{
-        .baggage_block__card_item{
         }
     }
 }

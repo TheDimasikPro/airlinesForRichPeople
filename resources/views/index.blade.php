@@ -453,6 +453,73 @@
             <!-- /.add_services_block -->
         </div>
         <!-- /.add_services -->
+        <div class="reviews_block">
+            <h1>Отзывы</h1>
+            <div class="reviews_block__cards">
+                <div class="reviews_block__cards__item">
+                    <div class="reviews_block__cards__item__name_user">
+                        Галина
+                    </div>
+                    <!-- /.reviews_block__cards__item__name_user -->
+                    <div class="reviews_block__cards__item__date">
+                        10/10/2021
+                    </div>
+                    <!-- /.reviews_block__cards__item__date -->
+                    <div class="reviews_block__cards__item__text_review">
+                        Все было супер, мне все понравилось, буду еще раз летать у всех, как птица, а жарить как пчеал лол, кек, слоупок
+                    </div>
+                    <!-- /.reviews_block__cards__item__text_review -->
+                </div>
+                <!-- /.reviews_block__cards__item -->
+                <div class="reviews_block__cards__item">
+                    <div class="reviews_block__cards__item__name_user">
+                        Галина
+                    </div>
+                    <!-- /.reviews_block__cards__item__name_user -->
+                    <div class="reviews_block__cards__item__date">
+                        10/10/2021
+                    </div>
+                    <!-- /.reviews_block__cards__item__date -->
+                    <div class="reviews_block__cards__item__text_review">
+                        Все было супер, мне все понравилось, буду еще раз летать у всех, как птица, а жарить как пчеал лол, кек, слоупок
+                    </div>
+                    <!-- /.reviews_block__cards__item__text_review -->
+                </div>
+                <!-- /.reviews_block__cards__item -->
+                <div class="reviews_block__cards__item">
+                    <div class="reviews_block__cards__item__name_user">
+                        Галина
+                    </div>
+                    <!-- /.reviews_block__cards__item__name_user -->
+                    <div class="reviews_block__cards__item__date">
+                        10/10/2021
+                    </div>
+                    <!-- /.reviews_block__cards__item__date -->
+                    <div class="reviews_block__cards__item__text_review">
+                        Все было супер, мне все понравилось, буду еще раз летать у всех, как птица, а жарить как пчеал лол, кек, слоупок
+                    </div>
+                    <!-- /.reviews_block__cards__item__text_review -->
+                </div>
+                <!-- /.reviews_block__cards__item -->
+                <div class="reviews_block__cards__item">
+                    <div class="reviews_block__cards__item__name_user">
+                        Галина
+                    </div>
+                    <!-- /.reviews_block__cards__item__name_user -->
+                    <div class="reviews_block__cards__item__date">
+                        10/10/2021
+                    </div>
+                    <!-- /.reviews_block__cards__item__date -->
+                    <div class="reviews_block__cards__item__text_review">
+                        Все было супер, мне все понравилось, буду еще раз летать у всех, как птица, а жарить как пчеал лол, кек, слоупок
+                    </div>
+                    <!-- /.reviews_block__cards__item__text_review -->
+                </div>
+                <!-- /.reviews_block__cards__item -->
+            </div>
+            <!-- /.reviews_block__cards -->
+        </div>
+        <!-- /.reviews_block -->
     </section>
     <!-- /.container -->
 @endsection
