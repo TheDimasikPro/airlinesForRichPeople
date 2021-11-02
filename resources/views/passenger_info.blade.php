@@ -83,7 +83,7 @@
             <!-- /.popup_order_block__info -->
             </div>
             <!-- /.popup_order_block -->
-            <button type="button" id="btn_continune_order" aria-label="btn_continune_order" class="continune_order btn_style_1">Продолжить</button> <!-- /.continune_order -->
+            <a href="{{ route('payment_tickets__page') }}" id="btn_continune_order" aria-label="btn_continune_order" class="continune_order btn_style_1">Продолжить</a> <!-- /.continune_order -->
         </div>		
         </div>
         <div class="my_order__block_mobile desktop_section">
@@ -165,6 +165,7 @@
                     <!-- /.passenger_full_info__forms_block__item -->
                 </div>
                 <!-- /.passenger_full_info__forms_block -->
+                <a href="{{ route('payment_tickets__page')  }}">Оплатить</a>
             </div>
             <!-- /.passenger_info_block__forms_block -->
         </div>

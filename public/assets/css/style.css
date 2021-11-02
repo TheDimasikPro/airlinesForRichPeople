@@ -298,7 +298,7 @@ input[type=button] {
 }
 #header .additional_sub_menu {
   position: absolute;
-  top: 161px;
+  top: 105px;
   left: 0;
   right: 0;
   background: #ffffff;
@@ -549,6 +549,7 @@ input[type=button] {
   #header .additional_sub_menu {
     box-shadow: none;
     border-bottom: none;
+    top: 161px;
   }
   #header .additional_sub_menu::-webkit-scrollbar {
     width: 7px;
@@ -938,6 +939,19 @@ input[type=button] {
   .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs:nth-last-child(-n+2) {
     margin-top: 20px;
   }
+
+  .check_in_block .form_check_in {
+    flex-direction: column;
+  }
+  .check_in_block .form_check_in input, .check_in_block .form_check_in button {
+    width: 100%;
+  }
+  .check_in_block .form_check_in #input_info_ticket_reserv {
+    margin-top: 20px;
+  }
+  .check_in_block .form_check_in button {
+    margin-top: 20px;
+  }
 }
 @media (max-width: 1000px) {
   .resorts .resort_cards_block .resort_card a .resotr_img, .resorts .resort_cards_block .resort_card a .add_services_img, .resorts .resort_cards_block .add_services_card a .resotr_img, .resorts .resort_cards_block .add_services_card a .add_services_img, .resorts .add_services_block .resort_card a .resotr_img, .resorts .add_services_block .resort_card a .add_services_img, .resorts .add_services_block .add_services_card a .resotr_img, .resorts .add_services_block .add_services_card a .add_services_img, .add_services .resort_cards_block .resort_card a .resotr_img, .add_services .resort_cards_block .resort_card a .add_services_img, .add_services .resort_cards_block .add_services_card a .resotr_img, .add_services .resort_cards_block .add_services_card a .add_services_img, .add_services .add_services_block .resort_card a .resotr_img, .add_services .add_services_block .resort_card a .add_services_img, .add_services .add_services_block .add_services_card a .resotr_img, .add_services .add_services_block .add_services_card a .add_services_img {
@@ -970,6 +984,13 @@ input[type=button] {
   }
   .resorts .resort_cards_block .resort_card a .shortdesk_resort .title_add_services, .resorts .resort_cards_block .resort_card a .shortdesk_resort .title_resort, .resorts .resort_cards_block .resort_card a .shortdesk_add_services .title_add_services, .resorts .resort_cards_block .resort_card a .shortdesk_add_services .title_resort, .resorts .resort_cards_block .add_services_card a .shortdesk_resort .title_add_services, .resorts .resort_cards_block .add_services_card a .shortdesk_resort .title_resort, .resorts .resort_cards_block .add_services_card a .shortdesk_add_services .title_add_services, .resorts .resort_cards_block .add_services_card a .shortdesk_add_services .title_resort, .resorts .add_services_block .resort_card a .shortdesk_resort .title_add_services, .resorts .add_services_block .resort_card a .shortdesk_resort .title_resort, .resorts .add_services_block .resort_card a .shortdesk_add_services .title_add_services, .resorts .add_services_block .resort_card a .shortdesk_add_services .title_resort, .resorts .add_services_block .add_services_card a .shortdesk_resort .title_add_services, .resorts .add_services_block .add_services_card a .shortdesk_resort .title_resort, .resorts .add_services_block .add_services_card a .shortdesk_add_services .title_add_services, .resorts .add_services_block .add_services_card a .shortdesk_add_services .title_resort, .add_services .resort_cards_block .resort_card a .shortdesk_resort .title_add_services, .add_services .resort_cards_block .resort_card a .shortdesk_resort .title_resort, .add_services .resort_cards_block .resort_card a .shortdesk_add_services .title_add_services, .add_services .resort_cards_block .resort_card a .shortdesk_add_services .title_resort, .add_services .resort_cards_block .add_services_card a .shortdesk_resort .title_add_services, .add_services .resort_cards_block .add_services_card a .shortdesk_resort .title_resort, .add_services .resort_cards_block .add_services_card a .shortdesk_add_services .title_add_services, .add_services .resort_cards_block .add_services_card a .shortdesk_add_services .title_resort, .add_services .add_services_block .resort_card a .shortdesk_resort .title_add_services, .add_services .add_services_block .resort_card a .shortdesk_resort .title_resort, .add_services .add_services_block .resort_card a .shortdesk_add_services .title_add_services, .add_services .add_services_block .resort_card a .shortdesk_add_services .title_resort, .add_services .add_services_block .add_services_card a .shortdesk_resort .title_add_services, .add_services .add_services_block .add_services_card a .shortdesk_resort .title_resort, .add_services .add_services_block .add_services_card a .shortdesk_add_services .title_add_services, .add_services .add_services_block .add_services_card a .shortdesk_add_services .title_resort {
     font-size: 22px;
+  }
+
+  .reviews_block .reviews_block__cards {
+    flex-direction: column;
+  }
+  .reviews_block .reviews_block__cards .reviews_block__cards__item {
+    width: 100%;
   }
 }
 @media (max-width: 640px) {

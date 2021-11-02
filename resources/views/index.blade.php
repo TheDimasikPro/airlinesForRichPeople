@@ -13,7 +13,7 @@
             <!-- /.flights_list -->
             <div class="search_tickets_block">
                 <form action="{{ route('search_tickets__page') }}" class="form form_search_tickets">
-                    <div class="form_search_block_inputs">
+                    <div class="form_search_block_inputs" id="from_flight_block_input">
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
                                 <input type="text" class="sm_input input_search_flights" name="flights_from" id="id_i_s_f_f" autocomplete="off" placeholder="Откуда:">
@@ -120,7 +120,7 @@
                         <!-- /.dropdown -->
                     </div>
                     <!-- /.form_search_block_inputs -->
-                    <div class="form_search_block_inputs">
+                    <div class="form_search_block_inputs" id="to_flight_block_input">
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
                                 <input type="text" class="sm_input input_search_flights" name="flights_to" id="id_i_s_f_t" autocomplete="off" placeholder="Куда:">
@@ -235,7 +235,7 @@
                         <input type="date"  autocomplete="off" class="min_input" id="id_i_d_b" placeholder="Обратно:">
                     </div>
                     <!-- /.form_date_back_block -->
-                    <div class="form_search_block_inputs">
+                    <div class="form_search_block_inputs" id="count_pass_block_input">
                         <div class="dropdown dd_count_pass">
                             <div class="input_count_pass_block df_jcc_aic">
                                 <input type="text" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="0 пассажиров">

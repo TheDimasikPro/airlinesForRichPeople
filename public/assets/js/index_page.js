@@ -130,7 +130,10 @@ $(document).ready(function () {
     $('.nav_menu .geo_posistion_people').removeAttr('style');
     $('.geo_posistion_people').removeClass('geo_posistion_people__active');
     $('.language_currency').removeClass('language_currency_active');
-    $(this).addClass('block_inputs_active');
+
+    if (!$(this).hasClass('block_inputs_active')) {
+      $(this).addClass('block_inputs_active');
+    }
   });
   $('.drop_from_flights .dropdown_content__item').click(function (e) {
     var city_name = $.trim($(this).children('.info_country').children('.city_name').text());
@@ -140,7 +143,12 @@ $(document).ready(function () {
     $('.drop_from_flights').removeClass('show_drop_content');
     $(dropbtn_from_flights).removeClass('rotate_180');
     $('.drop_from_flights .dropdown_content__item').removeClass('select_elem_airport');
+    $('#from_flight_block_input').blur();
+    setTimeout(function () {
+      $('#from_flight_block_input').removeClass('block_inputs_active');
+    }, 100);
     $(this).addClass("select_elem_airport");
+    console.log('cd');
   });
   $('.drop_to_flights .dropdown_content__item').click(function (e) {
     var city_name = $.trim($(this).children('.info_country').children('.city_name').text());
@@ -150,6 +158,10 @@ $(document).ready(function () {
     $('.drop_to_flights').removeClass('show_drop_content');
     $(dropbtn_to_flights).removeClass('rotate_180');
     $('.drop_to_flights .dropdown_content__item').removeClass('select_elem_airport');
+    $('#to_flight_block_input').blur();
+    setTimeout(function () {
+      $('#to_flight_block_input').removeClass('block_inputs_active');
+    }, 100);
     $(this).addClass("select_elem_airport");
   });
   input_search_from_flights.keyup(function () {
@@ -193,10 +205,10 @@ $(document).ready(function () {
     }
   });
   $('#btn_close_dc_count_pass').click(function (e) {
-    e.preventDefault(); // setTimeout(() => {
-    //     $('.form_search_block_inputs').removeClass('block_inputs_active');
-    // }, 300);
-
+    e.preventDefault();
+    setTimeout(function () {
+      $('#count_pass_block_input').removeClass('block_inputs_active');
+    }, 100);
     $('.drop_count_pass').removeClass('show_drop_content');
     $('#dropbtn_count_pass').removeClass('rotate_180');
     console.log('vvv');

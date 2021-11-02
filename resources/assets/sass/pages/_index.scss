@@ -382,6 +382,20 @@
             }
         }
     }
+    .check_in_block{
+        .form_check_in{
+            flex-direction: column;
+            input,button{
+                width: 100%;
+            }
+            #input_info_ticket_reserv{
+                margin-top: 20px;
+            }
+            button{
+                margin-top: 20px;
+            }
+        }
+    }
 }
 @media (max-width: 1000px) {
     .resorts,.add_services{
@@ -436,6 +450,14 @@
                         }
                     }
                 }
+            }
+        }
+    }
+    .reviews_block{
+        .reviews_block__cards{
+            flex-direction: column;
+            .reviews_block__cards__item{
+                width: 100%;
             }
         }
     }

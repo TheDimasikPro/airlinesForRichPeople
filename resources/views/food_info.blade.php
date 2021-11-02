@@ -175,3 +175,26 @@
     </div>
     <!-- /.container -->
 @endsection
+
+@section('slider_script')
+<script type="text/javascript">
+    setInterval(() => {
+        if ($('.btn_scroll_food').css('display') != 'none') {
+            if (!$('.btn_scroll_food').hasClass('down_scroll_btn_food')) {
+                $('.btn_scroll_food').removeClass('up_scroll_btn_food');
+                $('.btn_scroll_food').addClass('down_scroll_btn_food');
+                // console.log('cdcd');
+            }
+            else{
+                $('.btn_scroll_food').removeClass('down_scroll_btn_food');
+                $('.btn_scroll_food').addClass('up_scroll_btn_food');
+            }
+        }
+    }, 800);
+    $('#id_btn_scroll_food').click(function (e) {
+        e.preventDefault();
+        var destination =  $('#main_food_block').offset().top;
+        $('body,html').animate({scrollTop: destination}, 100);
+    });
+</script>
+@endsection

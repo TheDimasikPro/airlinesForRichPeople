@@ -9,6 +9,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TicketController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
 
@@ -25,7 +26,12 @@ use Stevebauman\Location\Facades\Location;
 
 Route::get('/', [IndexController::class,'index'])->name('index__page');
 Route::get('/#section__add_services',[IndexController::class,'index'])->name('add_services__block_index');
+
+// if(Auth::check()){
+//     return redirect(route('my_profile__page'));
+// }
 Route::get('/login', [LoginController::class,'index'])->name('login__page');
+
 Route::get('/reg', [RegisterController::class,'index'])->name('reg__page');
 Route::get('/forgot_password', [ForgotPasswordController::class,'index'])->name('forgot_password__page');
 

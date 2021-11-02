@@ -27,7 +27,7 @@
     position: relative;
     .additional_sub_menu{
         position: absolute;
-        top: 161px;
+        top: 105px;
         left: 0;
         right: 0;
         background: $white;
@@ -339,6 +339,7 @@
             @include custom_scroll_bar;
             box-shadow: none;
             border-bottom: none;
+            top: 161px;
             .container{
                 display: flex;
                 flex-direction: column;

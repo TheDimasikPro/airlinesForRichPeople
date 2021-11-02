@@ -298,7 +298,7 @@ input[type=button] {
 }
 #header .additional_sub_menu {
   position: absolute;
-  top: 161px;
+  top: 105px;
   left: 0;
   right: 0;
   background: #ffffff;
@@ -549,6 +549,7 @@ input[type=button] {
   #header .additional_sub_menu {
     box-shadow: none;
     border-bottom: none;
+    top: 161px;
   }
   #header .additional_sub_menu::-webkit-scrollbar {
     width: 7px;

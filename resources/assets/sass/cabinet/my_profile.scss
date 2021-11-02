@@ -309,15 +309,7 @@
                         .short_details_order{
                             // flex-direction: column;
                             align-items: flex-start;
-                            // justify-content: start;
-
-                            .short_flight_scheme{
-                                // margin: 20px 0;
-                            }
                         }
-                        // .status_order{
-                        //     margin-bottom: 20px;
-                        // }
                     }
                 }
             }
@@ -337,26 +329,30 @@
         .my_travel_block{
             .my_travel_block__cards{
                 .my_travel_block__cards__item{
-                    .short_flight_scheme{
-                        flex-direction: column;
-                        align-items: flex-start;
-                        .short_flight_scheme__block{
-                            flex-direction: column;
-                        }
-                    }
                     .short_details_order{
-                        flex-direction: column;
+                        // flex-direction: column;
                         align-items: flex-start;
+                        flex-wrap: wrap;
                         justify-content: start;
-
+                        .name_order{
+                            width: 130px
+                        }
                         .short_flight_scheme{
-                            margin: 20px 0;
-                            margin-top: 10px;
+                            min-width: 250px;
+                            .short_flight_scheme__block{
+                                flex-direction: row;
+                            }
+                        }
+                        .status_order{
+                            width: 250px;
+                            margin-top: 20px;
+                        }
+                        .price_order{
+                            width:250px;
+                            margin-top: 20px;
                         }
                     }
-                    .price_order{
-                        margin-top: 20px;
-                    }
+                    
                 }
             }
         }
@@ -446,6 +442,24 @@
                     .aside_user__list__item__btn{
                         padding: 0;
                     }
+                }
+            }
+        }
+    }
+    .profile_data_cards{
+        .my_travel_block{
+            .my_travel_block__cards{
+                .my_travel_block__cards__item{
+                    .short_details_order{
+                        .short_flight_scheme{
+                            // min-width: 250px;
+                            margin-top: 20px;
+                            .short_flight_scheme__block{
+                                flex-direction: column;
+                            }
+                        }
+                    }
+                    
                 }
             }
         }

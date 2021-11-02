@@ -298,7 +298,7 @@ input[type=button] {
 }
 #header .additional_sub_menu {
   position: absolute;
-  top: 161px;
+  top: 105px;
   left: 0;
   right: 0;
   background: #ffffff;
@@ -549,6 +549,7 @@ input[type=button] {
   #header .additional_sub_menu {
     box-shadow: none;
     border-bottom: none;
+    top: 161px;
   }
   #header .additional_sub_menu::-webkit-scrollbar {
     width: 7px;
@@ -892,23 +893,26 @@ input[type=button] {
   }
 }
 @media (max-width: 830px) {
-  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_flight_scheme {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_flight_scheme .short_flight_scheme__block {
-    flex-direction: column;
-  }
   .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order {
-    flex-direction: column;
     align-items: flex-start;
+    flex-wrap: wrap;
     justify-content: start;
   }
-  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme {
-    margin: 20px 0;
-    margin-top: 10px;
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .name_order {
+    width: 130px;
   }
-  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .price_order {
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme {
+    min-width: 250px;
+  }
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme .short_flight_scheme__block {
+    flex-direction: row;
+  }
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .status_order {
+    width: 250px;
+    margin-top: 20px;
+  }
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .price_order {
+    width: 250px;
     margin-top: 20px;
   }
 }
@@ -988,6 +992,13 @@ input[type=button] {
   }
   .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
     padding: 0;
+  }
+
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme {
+    margin-top: 20px;
+  }
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme .short_flight_scheme__block {
+    flex-direction: column;
   }
 }
 .non_view {
