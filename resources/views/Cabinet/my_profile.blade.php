@@ -14,7 +14,7 @@
                 <div class="control_panel_block active_profile_data non_active_style">
                     <p>Добро пожаловать <span class="control_panel_block__full_name_user">Трошков Дмитрий Александрович</span> 
                         (если вы не <span class="control_panel_block__full_name_user">Трошков Дмитрий Александрович</span>) 
-                        , то нажмите <a href="" class="exit_profile_link">Выйти</a> 
+                        , то нажмите <a href="{{ route('logout') }}" class="exit_profile_link">Выйти</a> 
                         <!-- /.exit_profile_link -->
                     </p>
                     <p>

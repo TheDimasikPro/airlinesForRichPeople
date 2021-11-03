@@ -17,7 +17,7 @@
             <!-- /.aside_user__list__item__img_block -->
             <div class="aside_user__list__item__short_name__exit_block">
                 <p class="aside_user__list__item__short_name__exit_block__text upper">Трошков Д.А.</p>
-                <a href="" class="exit_profile_link upper">выйти</a> 
+                <a href="{{ route('logout') }}" class="exit_profile_link upper">выйти</a> 
                 <!-- /.aside_user__list__item__short_name__exit_block__link_exit -->
             </div>
             <!-- /.aside_user__list__item__short_name_exit_block -->

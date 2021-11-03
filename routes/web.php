@@ -27,12 +27,8 @@ use Stevebauman\Location\Facades\Location;
 Route::get('/', [IndexController::class,'index'])->name('index__page');
 Route::get('/#section__add_services',[IndexController::class,'index'])->name('add_services__block_index');
 
-// if(Auth::check()){
-//     return redirect(route('my_profile__page'));
-// }
-Route::get('/login', [LoginController::class,'index'])->name('login__page');
 
-Route::get('/reg', [RegisterController::class,'index'])->name('reg__page');
+
 Route::get('/forgot_password', [ForgotPasswordController::class,'index'])->name('forgot_password__page');
 
 
@@ -55,10 +51,44 @@ Route::prefix('search_tickets')->group(function () {
     Route::get('/payment_tickets',[TicketController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
 });
 
+
 Route::prefix('profile')->group(function () {
-    Route::get('/',[ProfileController::class,'index'])->name('my_profile__page');
+    Route::get('/',[ProfileController::class,'index'])->middleware('auth')->name('my_profile__page');
+
+    Route::get('/login', function () {
+        if(Auth::check()){
+            return redirect(route('my_profile__page'));
+        }
+        return view('Auth.login');
+    })->name('login');
+
+    Route::get('/logoout',function(){
+        Auth::logout();
+        return redirect(route('index__page'));
+    })->name('logout');
+
+    Route::get('/registration', function () {
+        if(Auth::check()){
+            return redirect(route('my_profile__page'));
+        }
+        return view('Auth.reg');
+    })->name('registration');
+
+    Route::post('/registration', [RegisterController::class,'save'])->name('registration__save');
+    Route::post('/check_email_phone__reg', [RegisterController::class,'checkContactDataRegister'])->name('registration__check_email_phone');
+    Route::post('/check_personal_data__reg', [RegisterController::class,'checkPersonalDataRegister'])->name('registration__check_personal_data');
+    Route::post('/check_password_data__reg', [RegisterController::class,'checkPasswordDataRegister'])->name('registration__check_password_data');
 });
 
+
+
+// Route::post('/login', [LoginController::class,'index'])->name('login__page');
+
+
+
+// Route::get('/registration', [RegisterController::class,'index'])->name('reg__page');
+
+// Route::get('/logout', []);
 
 
 // определние ip пользователя и его страны

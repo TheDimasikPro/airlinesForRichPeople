@@ -6,6 +6,7 @@
 @section('content')
     <div class="container df_jcc_aic desktop_section content_flex">
         <form action="" class="form form_auth" id="form_login">
+            @csrf
             <h1>Авторизация</h1>
             <div class="form_auth_block">
                 <label for="login">Login</label>
@@ -24,7 +25,7 @@
             <!-- /.form_auth_block -->
             <div class="form_auth_block df_jcspb_aic">
                 <a href="{{ route('forgot_password__page') }}" class="link_auth">Забыли свой пароль?</a>
-                <a href="{{ route('reg__page') }}" class="link_auth">Зарегистрироваться</a>
+                <a href="{{ route('registration') }}" class="link_auth">Зарегистрироваться</a>
             </div>
             <!-- /.form_auth_block -->
         </form>

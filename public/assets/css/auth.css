@@ -590,10 +590,6 @@ input[type=button] {
     z-index: 2000;
   }
 }
-#main_form_auth #auth_block_btn {
-  margin-bottom: 20px;
-}
-
 .form_auth {
   display: flex;
   flex-direction: column;
@@ -627,10 +623,13 @@ input[type=button] {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .form_auth .form_auth_block:last-child {
   flex-direction: row;
+}
+.form_auth .form_auth_block .form_auth_contact_data, .form_auth .form_auth_block .form_auth_profile_data, .form_auth .form_auth_block .form_auth_password_data, .form_auth .form_auth_block .form_auth_finish_data {
+  margin-bottom: -10px;
 }
 .form_auth .form_auth_block .form_auth_input {
   margin-top: 10px;
@@ -807,6 +806,181 @@ input[type=button] {
 .form_auth .form_auth_block .form_auth__row .form_auth_block_second .all_info_user_registered .user_info_list:last-child .user_info_list__item_row .user_info_list__item {
   width: 330px;
 }
+.form_auth .form_auth_block .form_auth__row .overlay_form_active {
+  position: absolute;
+  width: 100%;
+  height: 96.5%;
+  z-index: 999999;
+  background: #ffffff;
+  opacity: 0.7;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG {
+  position: relative;
+  width: 192px;
+  height: 23px;
+  margin: auto;
+  margin-top: 20%;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active .fountainG {
+  position: absolute;
+  top: 0;
+  background-color: black;
+  width: 23px;
+  height: 23px;
+  animation-name: bounce_fountainG;
+  -o-animation-name: bounce_fountainG;
+  -ms-animation-name: bounce_fountainG;
+  -webkit-animation-name: bounce_fountainG;
+  -moz-animation-name: bounce_fountainG;
+  animation-duration: 0.845s;
+  -o-animation-duration: 0.845s;
+  -ms-animation-duration: 0.845s;
+  -webkit-animation-duration: 0.845s;
+  -moz-animation-duration: 0.845s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  transform: scale(0.3);
+  -o-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG_1 {
+  left: 0;
+  animation-delay: 0.336s;
+  -o-animation-delay: 0.336s;
+  -ms-animation-delay: 0.336s;
+  -webkit-animation-delay: 0.336s;
+  -moz-animation-delay: 0.336s;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG_2 {
+  left: 24px;
+  animation-delay: 0.4225s;
+  -o-animation-delay: 0.4225s;
+  -ms-animation-delay: 0.4225s;
+  -webkit-animation-delay: 0.4225s;
+  -moz-animation-delay: 0.4225s;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG_3 {
+  left: 48px;
+  animation-delay: 0.509s;
+  -o-animation-delay: 0.509s;
+  -ms-animation-delay: 0.509s;
+  -webkit-animation-delay: 0.509s;
+  -moz-animation-delay: 0.509s;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG_4 {
+  left: 72px;
+  animation-delay: 0.5955s;
+  -o-animation-delay: 0.5955s;
+  -ms-animation-delay: 0.5955s;
+  -webkit-animation-delay: 0.5955s;
+  -moz-animation-delay: 0.5955s;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG_5 {
+  left: 96px;
+  animation-delay: 0.672s;
+  -o-animation-delay: 0.672s;
+  -ms-animation-delay: 0.672s;
+  -webkit-animation-delay: 0.672s;
+  -moz-animation-delay: 0.672s;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG_6 {
+  left: 120px;
+  animation-delay: 0.7585s;
+  -o-animation-delay: 0.7585s;
+  -ms-animation-delay: 0.7585s;
+  -webkit-animation-delay: 0.7585s;
+  -moz-animation-delay: 0.7585s;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG_7 {
+  left: 144px;
+  animation-delay: 0.845s;
+  -o-animation-delay: 0.845s;
+  -ms-animation-delay: 0.845s;
+  -webkit-animation-delay: 0.845s;
+  -moz-animation-delay: 0.845s;
+}
+.form_auth .form_auth_block .form_auth__row .overlay_form_active #fountainG_8 {
+  left: 168px;
+  animation-delay: 0.9315s;
+  -o-animation-delay: 0.9315s;
+  -ms-animation-delay: 0.9315s;
+  -webkit-animation-delay: 0.9315s;
+  -moz-animation-delay: 0.9315s;
+}
+@keyframes bounce_fountainG {
+  0% {
+    transform: scale(1);
+    background-color: black;
+  }
+  100% {
+    transform: scale(0.3);
+    background-color: white;
+  }
+}
+@-webkit-keyframes bounce_fountainG {
+  0% {
+    -webkit-transform: scale(1);
+    background-color: black;
+  }
+  100% {
+    -webkit-transform: scale(0.3);
+    background-color: white;
+  }
+}
+.form_auth .form_auth_block .form_auth__row .error_contact_data, .form_auth .form_auth_block .form_auth__row .error_profile_data, .form_auth .form_auth_block .form_auth__row .error_password_data {
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  margin-top: 0;
+  padding: 10px;
+  background: #A90000;
+  color: #ffffff;
+  max-width: 700px;
+}
+.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list, .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list, .form_auth .form_auth_block .form_auth__row .error_password_data .error_list {
+  display: flex;
+  flex-direction: column;
+}
+.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list .error_list__item, .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list .error_list__item, .form_auth .form_auth_block .form_auth__row .error_password_data .error_list .error_list__item {
+  font-size: 16px;
+  line-height: 20px;
+}
+.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list .error_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list .error_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .error_password_data .error_list .error_list__item:not(:first-child) {
+  margin-top: 10px;
+}
+.form_auth .form_auth_block .form_auth__row .error_contact_data__active, .form_auth .form_auth_block .form_auth__row .error_profile_data__active, .form_auth .form_auth_block .form_auth__row .error_password_data__active, .form_auth .form_auth_block .form_auth__row .error_finish_data__active {
+  transform: scaleY(1);
+  margin-top: 20px;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_password_data .overlay_form_active #fountainG {
+  margin-top: 10px;
+}
+.form_auth .form_auth_block .form_auth__row .form_auth_finish_data .overlay_form_active {
+  height: 98.5%;
+}
+
+#block_non_top {
+  margin-top: -10px;
+}
+
+#main_form_auth #auth_block_btn {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 
 .form_auth_card__complete_anim {
   margin-left: -1500px;
@@ -974,7 +1148,7 @@ input[type=button] {
     width: 350px;
   }
   .form_auth .form_auth_block .link_auth {
-    font-size: 12px;
+    font-size: 14px;
   }
   .form_auth .form_auth_block .form_auth__row .form_auth_block_second {
     width: 300px;
@@ -1007,23 +1181,34 @@ input[type=button] {
   .form_auth .form_auth_block input, .form_auth .form_auth_block .btn {
     width: 300px;
   }
-  .form_auth .form_auth_block .form_auth__row .form_auth_block_second {
-    width: 250px;
-  }
   .form_auth .form_auth_block .form_auth__row .form_auth_block_second .btn {
-    width: 250px;
+    width: 100%;
   }
   .form_auth .form_auth_block .form_auth__row .form_auth_contact_data .form_auth__row {
     flex-direction: column;
     display: flex;
   }
-  .form_auth .form_auth_block .form_auth__row .form_auth_finish_data {
-    max-width: 250px;
+  .form_auth .form_auth_block .form_auth_finish_data .form_auth_block_second .all_info_user_registered .user_info_list:last-child {
+    flex-direction: column;
+    width: 100%;
+  }
+  .form_auth .form_auth_block .form_auth_finish_data .form_auth_block_second .all_info_user_registered .user_info_list:last-child .user_info_list__item_row {
+    width: 100%;
+  }
+  .form_auth .form_auth_block .form_auth_finish_data .form_auth_block_second .all_info_user_registered .user_info_list:last-child .user_info_list__item_row .user_info_list__item {
+    width: 100%;
+    align-items: center;
+  }
+  .form_auth .form_auth_block .form_auth_finish_data .form_auth_block_second .all_info_user_registered .user_info_list:last-child .user_info_list__item_row .user_info_list__item .title_item {
+    width: 130px;
   }
 }
 @media (max-width: 370px) {
   .form_auth .form_auth_block input, .form_auth .form_auth_block .btn {
     width: 260px;
+  }
+  .form_auth .form_auth_block .form_auth__row .error_contact_data, .form_auth .form_auth_block .form_auth__row .error_profile_data, .form_auth .form_auth_block .form_auth__row .error_password_data, .form_auth .form_auth_block .form_auth__row .overlay_finish_form {
+    width: 250px;
   }
 }
 .non_view {
