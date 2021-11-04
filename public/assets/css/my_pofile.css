@@ -610,7 +610,7 @@ input[type=button] {
   border-bottom: 2px solid #8CDE4E;
 }
 .my_profile_block .aside_bar_user {
-  width: 25%;
+  width: 22%;
   margin-right: 20px;
 }
 .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item {
@@ -620,10 +620,16 @@ input[type=button] {
 }
 .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:first-child {
   padding: 20px;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
 }
 .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:first-child .aside_user__list__item__short_name__exit_block .aside_user__list__item__short_name__exit_block__text {
   color: #222222;
-  max-width: 150px;
+  width: 100%;
+}
+.my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:first-child .aside_user__list__item__short_name__exit_block:last-child {
+  margin-top: 20px;
 }
 .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__short_name__exit_block, .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
   font-size: 16px;
@@ -651,7 +657,7 @@ input[type=button] {
   color: #222222;
 }
 .my_profile_block .profile_data_cards {
-  width: 75%;
+  width: 78%;
   position: relative;
   padding-right: 0;
   margin-left: 20px;

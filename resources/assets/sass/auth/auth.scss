@@ -404,7 +404,7 @@
                     }
                 }
             }
-            .error_contact_data,.error_profile_data,.error_password_data{
+            .error_contact_data,.error_profile_data,.error_password_data,.error_finish_data{
                 transform: scaleY(0);
                 transform-origin: 0 0;
                 margin-top: 0;
@@ -438,12 +438,27 @@
             }
             .form_auth_finish_data{
                 .overlay_form_active{
-                    height: 98.5%;
+                    height: 100%;
                 }
             }
+            .error_finish_data__active{
+                margin-top: 0;
+            }
 
-            
-            
+
+            .check_mark_contact_from{
+                height: 0;
+                img{
+                    height: 0;
+                }
+            }
+            .check_mark_image__active{
+                height: 100%;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
         
     }

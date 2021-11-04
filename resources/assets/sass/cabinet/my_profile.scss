@@ -19,7 +19,7 @@
         }
     }
     .aside_bar_user{
-        width: 25%;
+        width: 22%;
         margin-right: 20px;
         .aside_user__list{
             .aside_user__list__item{
@@ -28,10 +28,16 @@
                 border-left: 0;
                 &:first-child{
                     padding: 20px;
+                    flex-direction: column;
+                    display: flex;
+                    align-items: flex-start;
                     .aside_user__list__item__short_name__exit_block{
                         .aside_user__list__item__short_name__exit_block__text{
                             color: $black;
-                            max-width: 150px;
+                            width: 100%;
+                        }
+                        &:last-child{
+                            margin-top: 20px;
                         }
                     }
                 }
@@ -64,7 +70,7 @@
         }
     }
     .profile_data_cards{
-        width: 75%;
+        width: 78%;
         position: relative;
         padding-right: 0;
         margin-left: 20px;

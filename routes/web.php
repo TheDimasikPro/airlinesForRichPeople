@@ -57,19 +57,19 @@ Route::prefix('profile')->group(function () {
 
     Route::get('/login', function () {
         if(Auth::check()){
-            return redirect(route('my_profile__page'));
+            return redirect()->route('my_profile__page');
         }
         return view('Auth.login');
     })->name('login');
 
     Route::get('/logoout',function(){
         Auth::logout();
-        return redirect(route('index__page'));
+        return redirect()->route('index__page');
     })->name('logout');
 
     Route::get('/registration', function () {
         if(Auth::check()){
-            return redirect(route('my_profile__page'));
+            return redirect()->route('my_profile__page');
         }
         return view('Auth.reg');
     })->name('registration');
@@ -78,6 +78,7 @@ Route::prefix('profile')->group(function () {
     Route::post('/check_email_phone__reg', [RegisterController::class,'checkContactDataRegister'])->name('registration__check_email_phone');
     Route::post('/check_personal_data__reg', [RegisterController::class,'checkPersonalDataRegister'])->name('registration__check_personal_data');
     Route::post('/check_password_data__reg', [RegisterController::class,'checkPasswordDataRegister'])->name('registration__check_password_data');
+    Route::get('/fun_redirect_profile', [RegisterController::class,'redirectProfileRegister'])->name('registration__redirect_profile');
 });
 
 

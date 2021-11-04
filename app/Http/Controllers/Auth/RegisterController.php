@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserRole;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,7 @@ class RegisterController extends Controller
                 "date",
                 "date_format:Y-m-d"
             ],
-            "gender_code" => [
+            "id_gender_code" => [
                 "required",
                 "regex:/^[1-9]{1}$/"
             ],
@@ -42,7 +43,7 @@ class RegisterController extends Controller
                 "required",
                 "string"
             ],
-            "type_document" => [
+            "id_type_document" => [
                 "required",
                 "regex:/^[1-9]{1}$/"
             ],
@@ -50,9 +51,9 @@ class RegisterController extends Controller
                 "required",
                 "regex:/^[0-9]{6,12}$/"
             ],
-            "country_of_issue" => [
+            "id_country_of_issue" => [
                 "required",
-                "regex:/^[0-9]*$/"
+                "regex:/^[1-9]*$/"
             ]
         ]);
         if ($validateFileds->fails()) {
@@ -68,11 +69,11 @@ class RegisterController extends Controller
         $phone = $request['phone'];
         $password = $request['password'];
         $date_of_birthday = $request['date_birthday'];
-        $gender_code = $request['gender_code'];
+        $id_gender_code = $request['id_gender_code'];
         $city_of_residence = $request['city_name'];
-        $id_document_type = $request['type_document'];
+        $id_document_type = $request['id_type_document'];
         $series_document_number = $request['series_document_number'];
-        $id_country_of_issue = $request['country_of_issue'];
+        $id_country_of_issue = $request['id_country_of_issue'];
 
         $hashed_password = Hash::make($password);
 
@@ -89,12 +90,16 @@ class RegisterController extends Controller
             return json_encode($response);
         }
         else{
+            $user_roles = UserRole::where([
+                ['role_name','User'],
+            ])->first();
             $user = User::insertGetId([
                 'email' => $email,
+                'id_role' => $user_roles->id,
                 'phone' => $phone,
                 'full_name' => $full_name,
                 'date_of_birthday' => $date_of_birthday,
-                'gender_code' => $gender_code,
+                'id_gender_code' => $id_gender_code,
                 'city_of_residence' => $city_of_residence,
                 'id_document_type' => $id_document_type,
                 'series_and_document_number' => $series_document_number,
@@ -108,10 +113,12 @@ class RegisterController extends Controller
                 $response = [
                     'status' => true,
                     'message' => 'Регистрация произошла успешно',
-                    'url_redirect' => route('my_profile__page')
+                    'url_redirect' => route('registration__redirect_profile')
+                    // 'url_redirect' => route('registration')
                     // 'user_info' => Auth::user()
                 ];
                 return json_encode($response);
+                
             }
             else{
                 $response = [
@@ -208,7 +215,7 @@ class RegisterController extends Controller
                 "date",
                 "date_format:Y-m-d"
             ],
-            "gender_code" => [
+            "id_gender_code" => [
                 "required",
                 "regex:/^[1-9]{1}$/"
             ],
@@ -216,7 +223,7 @@ class RegisterController extends Controller
                 "required",
                 "string"
             ],
-            "type_document" => [
+            "id_type_document" => [
                 "required",
                 "regex:/^[1-9]{1}$/"
             ],
@@ -224,9 +231,9 @@ class RegisterController extends Controller
                 "required",
                 "regex:/^[0-9]{6,12}$/"
             ],
-            "country_of_issue" => [
+            "id_country_of_issue" => [
                 "required",
-                "regex:/^[0-9]*$/"
+                "regex:/^[1-9]*$/"
             ]
         ]);
         if ($validateFileds->fails()) {
@@ -242,26 +249,25 @@ class RegisterController extends Controller
             // $date_of_birthday = $request['date_birthday'];
             // $gender_code = $request['gender_code'];
             // $city_of_residence = $request['city_name'];
-            $id_document_type = $request['type_document'];
+            $id_document_type = $request['id_type_document'];
             $series_document_number = $request['series_document_number'];
             // $id_country_of_issue = $request['country_of_issue'];
 
             $user_check = User::Where([
-                ['id_document_type',$id_document_type],
                 ['series_and_document_number',$series_document_number]
             ])->first();
 
             if ($user_check) {
                 $response = [
                     'status' => false,
-                    'message' => 'Пользователь с такими данными уже существует. Проверьте свои данные'
+                    'error_message' => 'Пользователь с такими данными уже существует. Проверьте свои данные'
                 ];
                 return json_encode($response);
             }
             else{
                 $response = [
                     'status' => true,
-                    'message' => 'Все супер, чики'
+                    'error_message' => 'Все супер, чики'
                 ];
                 return json_encode($response);
             }
@@ -314,6 +320,13 @@ class RegisterController extends Controller
                 "error_message" => "Пароля нет"
             ];
             return json_encode($response); 
+        }
+    }
+
+    public function redirectProfileRegister()
+    {
+        if(Auth::check()){
+            return redirect()->route('login');
         }
     }
 }

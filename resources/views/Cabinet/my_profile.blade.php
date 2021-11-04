@@ -5,15 +5,17 @@
     <link rel="stylesheet" href="/assets/css/my_pofile.css">
 @endsection
 @section('content')
+    
     <div class="container">
+        
         <div class="my_profile_block df_jcspb_aic">
-            @include('inc.aside_bar_profile')
+            @include('inc.aside_bar_profile',$auth_user)
             {{-- @include('inc.aside_bar_profile',"array") передача массива в шаблон --}}
 
             <div class="profile_data_cards">
                 <div class="control_panel_block active_profile_data non_active_style">
-                    <p>Добро пожаловать <span class="control_panel_block__full_name_user">Трошков Дмитрий Александрович</span> 
-                        (если вы не <span class="control_panel_block__full_name_user">Трошков Дмитрий Александрович</span>) 
+                    <p>Добро пожаловать <span class="control_panel_block__full_name_user">{{ $auth_user["full_name"] }}</span> 
+                        (если вы не <span class="control_panel_block__full_name_user">{{ $auth_user["full_name"] }}</span>) 
                         , то нажмите <a href="{{ route('logout') }}" class="exit_profile_link">Выйти</a> 
                         <!-- /.exit_profile_link -->
                     </p>
@@ -27,77 +29,88 @@
                     <form action="" class="personal_data_block__update_form">
                         <div class="personal_data_block__update_form__input_block">
                             <label for="full_name_user">Полное имя</label>
-                            <input type="text" id="full_name_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свое полное имя">
+                            <input type="text" id="full_name_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свое полное имя" value="{{ $auth_user["full_name"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="email_user">Почта</label>
-                            <input type="text" id="email_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свою почту">
+                            <input type="text" id="email_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свою почту" value="{{ $auth_user["email"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="phone_user">Телефон</label>
-                            <input type="text" id="phone_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свой телефон">
+                            <input type="text" id="phone_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свой телефон" value="{{ $auth_user["phone"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="date_birthday_user">Дата рождения</label>
-                            <input type="date" id="date_birthday_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите свою дату рождения">
+                            <input type="date" id="date_birthday_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите свою дату рождения" value="{{ $auth_user["date_of_birthday"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="gender_user">
                                 Пол
-                                <input type="text" readonly id="gender_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите свой пол">
+                                <input type="text" readonly id="gender_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите свой пол" value="{{ $auth_user["user_gender_code_name"] }}">
                                 <button class="personal_data_block__update_form__dropbtn" type="button" id="dropbtn_gender_user" aria-label="dropbtn_gender_user">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
                             </label>
                             <ul class="personal_data_block__update_form__gender_list">
-                                <li class="personal_data_block__update_form__gender_list__item" value="123">Мужской</li>
-                                <li class="personal_data_block__update_form__gender_list__item" value="123">Женский</li>
+                                @foreach ($auth_user["gender_codes_all"] as $gender_code)
+                                @if ($gender_code->id == $auth_user["id_gender_code"])
+                                    <li class="personal_data_block__update_form__gender_list__item select_list__item" value="{{ $gender_code->id }}">{{ $gender_code->gender_name_rus }}</li>
+                                @else
+                                    <li class="personal_data_block__update_form__gender_list__item" value="{{ $gender_code->id }}">{{ $gender_code->gender_name_rus }}</li>
+                                @endif
+                                @endforeach
                             </ul>
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="city_user">Город</label>
-                            <input type="text" id="city_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите название своего города">
+                            <input type="text" id="city_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите название своего города" value="{{ $auth_user["city_of_residence"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="type_document_user">
                                 Тип документа
-                                <input type="text" readonly id="type_document_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите тип документа">
+                                <input type="text" readonly id="type_document_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите тип документа" value="{{ $auth_user["user_document_type"] }}">
                                 <button class="personal_data_block__update_form__dropbtn" type="button" id="dropbtn_type_document_user" aria-label="dropbtn_type_document_user">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
                             </label>
                             <ul class="personal_data_block__update_form__type_document_list">
-                                <li class="personal_data_block__update_form__type_document_list__item" value="123">Мужской</li>
-                                <li class="personal_data_block__update_form__type_document_list__item" value="123">Женский</li>
+                                @foreach ($auth_user["document_types_all"] as $document_type)
+                                @if ($auth_user["id_document_type"] == $document_type->id)
+                                    <li class="personal_data_block__update_form__type_document_list__item select_list__item" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li> 
+                                @else
+                                    <li class="personal_data_block__update_form__type_document_list__item" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
+                                @endif
+                                @endforeach
                             </ul>
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="series_numbers_document_user">Серия и номер документа</label>
-                            <input type="text" id="series_numbers_document_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите серию и номер документа">
+                            <input type="text" id="series_numbers_document_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите серию и номер документа" value="{{ $auth_user["series_and_document_number"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="country_of_issue_user">
                                 Страна выдачи документа
-                                <input type="text" id="country_of_issue_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите страну выдачи документа">
+                                <input type="text" id="country_of_issue_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите страну выдачи документа" value="{{ $auth_user["user_country_of_issue"] }}">
                                 <button class="personal_data_block__update_form__dropbtn" type="button" id="dropbtn_country_of_issue_user" aria-label="dropbtn_country_of_issue_user">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
                             </label>
                             <ul class="personal_data_block__update_form__country_of_issue_list">
-                                <li class="personal_data_block__update_form__country_of_issue_list__item" value="123">Мужской</li>
-                                <li class="personal_data_block__update_form__country_of_issue_list__item" value="123">Женский</li>
-                                <li class="personal_data_block__update_form__country_of_issue_list__item" value="123">Мужской</li>
-                                <li class="personal_data_block__update_form__country_of_issue_list__item" value="123">Женский</li>
-                                <li class="personal_data_block__update_form__country_of_issue_list__item" value="123">Мужской</li>
-                                <li class="personal_data_block__update_form__country_of_issue_list__item" value="123">Женский</li>
+                                @foreach ($auth_user["countries_all"] as $county)
+                                @if ($auth_user["id_country_of_issue"] == $county->id)
+                                    <li class="personal_data_block__update_form__country_of_issue_list__item select_list__item" value="{{ $county->id }}">{{ $county->name_country }}</li>
+                                @else
+                                    <li class="personal_data_block__update_form__country_of_issue_list__item" value="{{ $county->id }}">{{ $county->name_country }}</li>
+                                @endif
+                                @endforeach
                             </ul>
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
@@ -243,9 +256,9 @@
                 </div>
                 <!-- /.my_travel_block -->
                 <div class="update_password_block profile_data_cards_non_view">
-                    <h2>Здесь вы можете просмотреть старый пароль, а также поставить новый</h2>
+                    <h2>Здесь вы можете запросить смену нового пароля</h2>
                     <form action="" class="update_password_block__update_form">
-                        <div class="update_password_block__update_form__input_block">
+                        {{-- <div class="update_password_block__update_form__input_block">
                             <label for="old_password_user">Старый пароль</label>
                             <input type="password" id="old_password_user" class="input_style_pofile update_password_block__update_form__input_block__input" placeholder="Старый пароль">
                             <button type="button" class="btn_show" id="btn_show_old_password" aria-label="btn_show_old_password">
@@ -283,8 +296,8 @@
                             </button> 
                             <!-- /.hide_confirm_new_password -->
                         </div>
-                        <!-- /.update_password_block__update_form__input_block -->
-                        <button class="btn_style_1 update_password_block__btn_update" id="update_password_block__btn_update" aria-label="update_password_block__btn_update">Сохранить</button> 
+                        <!-- /.update_password_block__update_form__input_block --> --}}
+                        <button class="btn_style_1 update_password_block__btn_update" id="update_password_block__btn_update" aria-label="update_password_block__btn_update">Запросить новый пароль</button> 
                         <!-- /.btn_style_1 update_password_block__btn_update -->
                     </form>
                     <!-- /.update_password_block__update_form -->

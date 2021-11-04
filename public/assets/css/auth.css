@@ -942,7 +942,7 @@ input[type=button] {
     background-color: white;
   }
 }
-.form_auth .form_auth_block .form_auth__row .error_contact_data, .form_auth .form_auth_block .form_auth__row .error_profile_data, .form_auth .form_auth_block .form_auth__row .error_password_data {
+.form_auth .form_auth_block .form_auth__row .error_contact_data, .form_auth .form_auth_block .form_auth__row .error_profile_data, .form_auth .form_auth_block .form_auth__row .error_password_data, .form_auth .form_auth_block .form_auth__row .error_finish_data {
   transform: scaleY(0);
   transform-origin: 0 0;
   margin-top: 0;
@@ -951,15 +951,15 @@ input[type=button] {
   color: #ffffff;
   max-width: 700px;
 }
-.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list, .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list, .form_auth .form_auth_block .form_auth__row .error_password_data .error_list {
+.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list, .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list, .form_auth .form_auth_block .form_auth__row .error_password_data .error_list, .form_auth .form_auth_block .form_auth__row .error_finish_data .error_list {
   display: flex;
   flex-direction: column;
 }
-.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list .error_list__item, .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list .error_list__item, .form_auth .form_auth_block .form_auth__row .error_password_data .error_list .error_list__item {
+.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list .error_list__item, .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list .error_list__item, .form_auth .form_auth_block .form_auth__row .error_password_data .error_list .error_list__item, .form_auth .form_auth_block .form_auth__row .error_finish_data .error_list .error_list__item {
   font-size: 16px;
   line-height: 20px;
 }
-.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list .error_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list .error_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .error_password_data .error_list .error_list__item:not(:first-child) {
+.form_auth .form_auth_block .form_auth__row .error_contact_data .error_list .error_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .error_profile_data .error_list .error_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .error_password_data .error_list .error_list__item:not(:first-child), .form_auth .form_auth_block .form_auth__row .error_finish_data .error_list .error_list__item:not(:first-child) {
   margin-top: 10px;
 }
 .form_auth .form_auth_block .form_auth__row .error_contact_data__active, .form_auth .form_auth_block .form_auth__row .error_profile_data__active, .form_auth .form_auth_block .form_auth__row .error_password_data__active, .form_auth .form_auth_block .form_auth__row .error_finish_data__active {
@@ -970,7 +970,23 @@ input[type=button] {
   margin-top: 10px;
 }
 .form_auth .form_auth_block .form_auth__row .form_auth_finish_data .overlay_form_active {
-  height: 98.5%;
+  height: 100%;
+}
+.form_auth .form_auth_block .form_auth__row .error_finish_data__active {
+  margin-top: 0;
+}
+.form_auth .form_auth_block .form_auth__row .check_mark_contact_from {
+  height: 0;
+}
+.form_auth .form_auth_block .form_auth__row .check_mark_contact_from img {
+  height: 0;
+}
+.form_auth .form_auth_block .form_auth__row .check_mark_image__active {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #block_non_top {

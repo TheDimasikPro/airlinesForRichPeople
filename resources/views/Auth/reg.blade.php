@@ -36,6 +36,11 @@
                                 <div id="fountainG_7" class="fountainG"></div>
                                 <div id="fountainG_8" class="fountainG"></div>
                             </div>
+
+                            <div class="check_mark_contact_from">
+                                <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                            </div>
+                            <!-- /.check_mark_contact_from -->
                         </div>
                         @csrf
                         <div class="form_auth_block_second">
@@ -142,6 +147,10 @@
                                 <div id="fountainG_7" class="fountainG"></div>
                                 <div id="fountainG_8" class="fountainG"></div>
                             </div>
+                            <div class="check_mark_contact_from">
+                                <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                            </div>
+                            <!-- /.check_mark_contact_from -->
                         </div>
                         <div class="form_auth_block_second">
                             <label for="full_name">Full name</label>
@@ -254,6 +263,10 @@
                                 <div id="fountainG_7" class="fountainG"></div>
                                 <div id="fountainG_8" class="fountainG"></div>
                             </div>
+                            <div class="check_mark_contact_from">
+                                <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                            </div>
+                            <!-- /.check_mark_contact_from -->
                         </div>
                         <div class="form_auth_block_second">
                             <label for="password">Password</label>
@@ -294,6 +307,10 @@
                                 <div id="fountainG_7" class="fountainG"></div>
                                 <div id="fountainG_8" class="fountainG"></div>
                             </div>
+                            <div class="check_mark_contact_from">
+                                <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                            </div>
+                            <!-- /.check_mark_contact_from -->
                             {{-- <svg id="checkmark__finish_data" class="checkmark non_view" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
                                 <circle id="checkmark__circle__finish_data" class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
                                 <path id="checkmark__check__finish_data" class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
@@ -398,6 +415,15 @@
                             <button class="btn btn_style_1 upper" type="button" id="btn_restart_registered" aria-label="btn_restart_registered">Начать сначала</button> 
                             <!-- /.btn btn_style_1 upper-->
                         </div>
+
+                        <div class="error_finish_data">
+                            <ul class="error_list">
+                                <li class="error_list__item"></li>
+                                <!-- /.error_list__item -->
+                            </ul>
+                            <!-- /.error_list -->
+                        </div>
+                        <!-- /.error_finish_data -->
                     </form>
                     <!-- /.form_auth_finish_data form_auth_non_view -->
                 </div>

@@ -45,41 +45,41 @@ $(document).ready(function () {
             range.select();
         }
     }
-    function searchСountryOfIssue(id_input, filter, elements) {
-        $(elements).each(function(i,elem) { // пробегаем все элементы списка
-            let valueLi = elem.innerHTML; // передаем значение инпута в перменную
+    // function searchСountryOfIssue(id_input, filter, elements) {
+    //     $(elements).each(function(i,elem) { // пробегаем все элементы списка
+    //         let valueLi = elem.innerHTML; // передаем значение инпута в перменную
             
-            if ($('.country_of_issue_list').length) {
-                if (valueLi.toUpperCase().indexOf(filter) > -1) { // если найденный индекс элемента > 1
-                    elements[i].style.display = "";
-                    $(elements[i]).addClass('select_list__item');
-                }
-                else {
-                    elements[i].style.display = "none";
-                    $(elements[i]).removeClass('select_list__item');
-                }
-                if (valueLi.toUpperCase() === $('#input_country_of_issue').val().toUpperCase()) {
-                    $('.country_of_issue_list').removeClass('show_drop_content');
-                    input_country_of_issue.val(valueLi);
-                }
-            }
-            if ($('.personal_data_block__update_form__country_of_issue_list').length) {
-                if (valueLi.toUpperCase().indexOf(filter) > -1) { // если найденный индекс элемента > 1
-                    elements[i].style.display = "";
-                    $(elements[i]).addClass('select_list__item');
-                }
-                else {
-                    elements[i].style.display = "none";
-                    $(elements[i]).removeClass('select_list__item');
-                }
-                if (valueLi.toUpperCase() === $('#country_of_issue_user').val().toUpperCase()) {
-                    $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
-                    $('#country_of_issue_user').val(valueLi);
-                }
-            }
+    //         if ($('.country_of_issue_list').length) {
+    //             if (valueLi.toUpperCase().indexOf(filter) > -1) { // если найденный индекс элемента > 1
+    //                 elements[i].style.display = "";
+    //                 $(elements[i]).addClass('select_list__item');
+    //             }
+    //             else {
+    //                 elements[i].style.display = "none";
+    //                 $(elements[i]).removeClass('select_list__item');
+    //             }
+    //             if (valueLi.toUpperCase() === $('#input_country_of_issue').val().toUpperCase()) {
+    //                 $('.country_of_issue_list').removeClass('show_drop_content');
+    //                 input_country_of_issue.val(valueLi);
+    //             }
+    //         }
+    //         if ($('.personal_data_block__update_form__country_of_issue_list').length) {
+    //             if (valueLi.toUpperCase().indexOf(filter) > -1) { // если найденный индекс элемента > 1
+    //                 elements[i].style.display = "";
+    //                 $(elements[i]).addClass('select_list__item');
+    //             }
+    //             else {
+    //                 elements[i].style.display = "none";
+    //                 $(elements[i]).removeClass('select_list__item');
+    //             }
+    //             if (valueLi.toUpperCase() === $('#country_of_issue_user').val().toUpperCase()) {
+    //                 $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
+    //                 $('#country_of_issue_user').val(valueLi);
+    //             }
+    //         }
             
-        });
-    }
+    //     });
+    // }
     
     window.addEventListener('click', e => { // при клике в любом месте окна браузера
         const target = e.target // находим элемент, на котором был клик

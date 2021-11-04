@@ -225,18 +225,19 @@ $(document).ready(function () {
           $('.overlay_contact_form').addClass('overlay_form_active');
         },
         success: function success(data) {
-          $('.overlay_contact_form .fountainG').css('display', 'none');
+          $('.overlay_contact_form #fountainG').css('display', 'none');
 
           if (data.status) {
             formDataFull.append('email', email_user);
-            formDataFull.append('phone', phone_user); // formDataFull.forEach((value,key) => {
-            //     console.log(key+" "+value)
-            // });
-
+            formDataFull.append('phone', phone_user);
             $('.form_auth_contact_data').addClass('form_auth_card__anim');
             $('.form_auth_contact_data').removeAttr('style');
             $('#auth_block_btn').addClass('form_auth_block__anim');
             $('#auth_block_btn').css('margin-top', 'auto');
+            $('.overlay_contact_form .check_mark_contact_from img').animate({
+              height: "70px"
+            }, 100);
+            $('.overlay_contact_form .check_mark_contact_from').addClass('check_mark_image__active');
             setTimeout(function () {
               $('#main_form_auth').animate({
                 minHeight: "704px"
@@ -264,9 +265,14 @@ $(document).ready(function () {
               }, 500);
             }, 500);
             setTimeout(function () {
-              $('#auth_block_btn').removeAttr('style');
               $('.overlay_contact_form').removeClass('overlay_form_active');
+              $('.overlay_contact_form .check_mark_contact_from').removeAttr('style');
+              $('.overlay_contact_form .check_mark_contact_from').removeClass('check_mark_image__active');
+              $('.overlay_contact_form .check_mark_contact_from img').removeAttr('style');
             }, 1800);
+            setTimeout(function () {
+              $('#auth_block_btn').removeAttr('style');
+            }, 1900);
           } else {
             $('.overlay_contact_form').removeClass('overlay_form_active');
             $('.error_contact_data').addClass('error_contact_data__active');
@@ -283,10 +289,7 @@ $(document).ready(function () {
     e.preventDefault();
     $('.form_auth_contact_data').css('position', 'releative');
     $('.form_auth_profile_data .error_profile_data .error_list__item').remove();
-    $('.form_auth_profile_data .error_profile_data').removeClass('error_contact_data__active'); // $('.form_auth_profile_data .error_profile_data').css('height','0');
-    // $('.form_auth_profile_data .error_profile_data').css('padding','0px');
-    // $('.form_auth_contact_data .error_contact_data').removeClass('error_contact_data__active');
-
+    $('.form_auth_profile_data .error_profile_data').removeClass('error_contact_data__active');
     var valid_form = Validate($('.form_auth_profile_data input'));
 
     if ($('.gender_code_list__item.select_list__item').length == 0) {
@@ -332,20 +335,20 @@ $(document).ready(function () {
     if (valid_form == true && $('.gender_code_list__item.select_list__item') && $('.type_document_list__item.select_list__item') && $('.country_of_issue_list__item.select_list__item')) {
       var full_name_user = $('#full_name').val();
       var date_birthday_user = $('#date_birthday').val();
-      var gender_code_user = $('.gender_code_list__item.select_list__item').val();
+      var id_gender_code_user = $('.gender_code_list__item.select_list__item').val();
       var city_name_user = $('#city_name').val();
-      var type_document_user = $('.type_document_list__item.select_list__item').val();
+      var id_type_document_user = $('.type_document_list__item.select_list__item').val();
       var series_document_number_user = $('#series_document_number').val();
-      var country_of_issue_user = $('.country_of_issue_list__item.select_list__item').val();
+      var id_country_of_issue_user = $('.country_of_issue_list__item.select_list__item').val();
       var series_document_number_user_str = series_document_number_user.replace(/\s+/g, '');
       var formData = new FormData();
       formData.append("full_name", full_name_user);
       formData.append("date_birthday", date_birthday_user);
-      formData.append("gender_code", gender_code_user);
+      formData.append("id_gender_code", id_gender_code_user);
       formData.append("city_name", city_name_user);
-      formData.append("type_document", type_document_user);
+      formData.append("id_type_document", id_type_document_user);
       formData.append("series_document_number", series_document_number_user_str);
-      formData.append("country_of_issue", country_of_issue_user);
+      formData.append("id_country_of_issue", id_country_of_issue_user);
       $.ajax({
         type: "POST",
         headers: {
@@ -358,27 +361,28 @@ $(document).ready(function () {
         contentType: false,
         processData: false,
         beforeSend: function beforeSend() {
-          $('.overlay_profile_data_form').addClass('overlay_form_active');
+          $('.overlay_profile_data_form').addClass('overlay_form_active'); // $('.overlay_profile_data_form #fountainG').css('margin-top','30%');
         },
         success: function success(data) {
-          $('.overlay_profile_data_form .fountainG').css('display', 'none');
+          $('.overlay_profile_data_form #fountainG').css('display', 'none');
 
           if (data.status) {
             $('.form_auth_profile_data .error_profile_data').removeClass('error_profile_data__active');
             formDataFull.append("full_name", full_name_user);
             formDataFull.append("date_birthday", date_birthday_user);
-            formDataFull.append("gender_code", gender_code_user);
+            formDataFull.append("id_gender_code", id_gender_code_user);
             formDataFull.append("city_name", city_name_user);
-            formDataFull.append("type_document", type_document_user);
+            formDataFull.append("id_type_document", id_type_document_user);
             formDataFull.append("series_document_number", series_document_number_user_str);
-            formDataFull.append("country_of_issue", country_of_issue_user); // formDataFull.forEach((value,key) => {
-            //     console.log(key+" "+value)
-            // });
-
+            formDataFull.append("id_country_of_issue", id_country_of_issue_user);
             $('.form_auth_profile_data').removeAttr('style');
             $('.form_auth_profile_data').addClass('form_auth_card__anim');
             $('#auth_block_btn').addClass('form_auth_block__anim');
             $('#auth_block_btn').css('margin-top', 'auto');
+            $('.overlay_profile_data_form .check_mark_contact_from img').animate({
+              height: "70px"
+            }, 100);
+            $('.overlay_profile_data_form .check_mark_contact_from').addClass('check_mark_image__active');
             setTimeout(function () {
               $('#main_form_auth').animate({
                 minHeight: "360px"
@@ -406,20 +410,43 @@ $(document).ready(function () {
               }, 700);
             }, 500);
             setTimeout(function () {
-              $('#auth_block_btn').removeAttr('style');
+              // $('.overlay_profile_data_form').removeClass('overlay_form_active');
+              // $('.overlay_profile_data_form #fountainG').removeAttr('style');
+              // $('.overlay_profile_data_form .check_mark_contact_from').removeAttr('style');
+              // $('.overlay_profile_data_form .check_mark_contact_from').removeClass('check_mark_image__active');
+              // $('.overlay_profile_data_form .check_mark_contact_from img').removeAttr('style');
               $('.overlay_profile_data_form').removeClass('overlay_form_active');
-            }, 2000);
+              $('.overlay_profile_data_form .check_mark_contact_from').removeAttr('style');
+              $('.overlay_profile_data_form .check_mark_contact_from').removeClass('check_mark_image__active');
+              $('.overlay_profile_data_form .check_mark_contact_from img').removeAttr('style');
+              $('.error_password_data .error_list__item').remove();
+            }, 1800);
+            setTimeout(function () {
+              $('#auth_block_btn').removeAttr('style');
+            }, 1900);
           } else {
             $('.overlay_profile_data_form').removeClass('overlay_form_active');
             setTimeout(function () {
               $('.error_profile_data .error_list__item').remove();
               $('.error_profile_data').removeAttr('style');
-              Object.keys(data.errors_fields).forEach(function (value_error) {
-                var error_list_item = document.createElement('li');
-                error_list_item.setAttribute('class', 'error_list__item');
-                error_list_item.append(data.errors_fields[value_error]);
-                $('.error_list').append(error_list_item);
-              });
+
+              if (data.errors_fields != null) {
+                Object.keys(data.errors_fields).forEach(function (value_error) {
+                  var error_list_item = document.createElement('li');
+                  error_list_item.setAttribute('class', 'error_list__item');
+                  error_list_item.append(data.errors_fields[value_error]);
+                  $('.error_list').append(error_list_item);
+                });
+              } else {
+                var _error_list_item3 = document.createElement('li');
+
+                _error_list_item3.setAttribute('class', 'error_list__item');
+
+                _error_list_item3.append(data.error_message);
+
+                $('.error_list').append(_error_list_item3);
+              }
+
               $('.error_profile_data').addClass('error_profile_data__active');
             }, 200);
             $('.error_profile_data .error_list .error_list__item:last-of-type').css('display', 'none');
@@ -444,7 +471,8 @@ $(document).ready(function () {
   $('#complete_password_data').click(function (e) {
     e.preventDefault();
     $('.form_auth_password_data').removeAttr('style');
-    $('.form_auth_password_data .error_password_data').removeClass('error_password_data__active'); // $('.form_auth_password_data .error_password_data').css('height','0');
+    $('.form_auth_password_data .error_password_data').removeClass('error_password_data__active');
+    $('.error_password_data .error_list__item').remove(); // $('.form_auth_password_data .error_password_data').css('height','0');
     // $('.form_auth_password_data .error_password_data').css('padding','0px');
 
     var password_user = $('#input_password').val();
@@ -455,11 +483,21 @@ $(document).ready(function () {
     if (password_user.length < 8) {
       $('.form_auth_password_data .error_password_data').removeAttr('style');
       $('.error_password_data').addClass('error_password_data__active');
-      $('.error_password_data .error_list__item').text("Пароль должен быть не меньше 8 символов");
+      var error_list_item = document.createElement('li');
+      error_list_item.setAttribute('class', 'error_list__item');
+      error_list_item.append("Пароль должен быть не меньше 8 символов");
+      $('.form_auth_password_data .error_password_data .error_list').append(error_list_item); // $('.error_password_data .error_list__item').text("Пароль должен быть не меньше 8 символов");
     } else if (!provEmail) {
       $('.form_auth_password_data .error_password_data').removeAttr('style');
       $('.error_password_data').addClass('error_password_data__active');
-      $('.error_password_data .error_list__item').text("Слабый пароль. Используйте заглавные и прописные латинские буквы, а также цифры и минимум один из следюущий символов: !@#$%^&*");
+
+      var _error_list_item4 = document.createElement('li');
+
+      _error_list_item4.setAttribute('class', 'error_list__item');
+
+      _error_list_item4.append("Слабый пароль. Используйте заглавные и прописные латинские буквы, а также цифры и минимум один из следюущий символов: !@#$%^&*");
+
+      $('.form_auth_password_data .error_password_data .error_list').append(_error_list_item4);
     } else if (valid_form == true) {
       var formData = new FormData();
       formData.append('password', password_user);
@@ -478,18 +516,22 @@ $(document).ready(function () {
           $('.overlay_password_data_form').addClass('overlay_form_active');
         },
         success: function success(data) {
-          $('.overlay_password_data_form .fountainG').css('display', 'none');
-          $('#auth_block_btn').removeAttr('style');
+          $('.overlay_password_data_form #fountainG').css('display', 'none');
+          $('#auth_block_btn').removeAttr('style'); // $('.error_password_data .error_list__item').remove();
 
           if (data.status) {
             $('.form_auth_password_data .error_password_data').removeClass('error_password_data__active');
             $('.form_auth_password_data').addClass('form_auth_card__anim');
             $('#auth_block_btn').addClass('form_auth_block__anim');
             $('#auth_block_btn').css('margin-top', 'auto');
-            formDataFull.append('password', password_user);
-            formDataFull.forEach(function (value, key) {
-              console.log(key + " " + value);
-            });
+            $('.overlay_password_data_form .check_mark_contact_from img').animate({
+              height: "70px"
+            }, 100);
+            $('.overlay_password_data_form .check_mark_contact_from').addClass('check_mark_image__active');
+            formDataFull.append('password', password_user); // formDataFull.forEach((value,key) => {
+            //     console.log(key+" "+value)
+            // });
+
             $('.form_auth_contact_data').addClass('form_auth_card__anim');
             $('.form_auth_contact_data').removeAttr('style');
             $('#auth_block_btn').addClass('form_auth_block__anim');
@@ -517,26 +559,43 @@ $(document).ready(function () {
               setTimeout(function () {
                 $('.form_auth_password_data').addClass('form_auth_card__complete_anim');
                 $('.form_auth_password_data').removeAttr('style');
+                $('.overlay_password_data_form').removeClass('overlay_form_active');
+                $('.overlay_password_data_form .check_mark_contact_from').removeAttr('style');
+                $('.overlay_password_data_form .check_mark_contact_from').removeClass('check_mark_image__active');
+                $('.overlay_password_data_form .check_mark_contact_from img').removeAttr('style');
               }, 1380);
             }, 500);
             setTimeout(function () {
               $('#auth_block_btn').removeClass('form_auth_block__anim');
-              $('.overlay_password_data_form').removeClass('overlay_form_active');
-              $('#auth_block_btn').animate({
-                marginTop: '40px'
-              });
-              $('#auth_block_btn').css('margin-top', '40px');
-            }, 2000);
+              $('.overlay_password_data_form').removeClass('overlay_form_active'); // $('#auth_block_btn').animate({
+              //     marginTop: '40px'
+              // });
+              // $('#auth_block_btn').css('margin-top','40px');
+            }, 1800);
           } else {
             $('.overlay_password_data_form').removeClass('overlay_form_active');
             $('.error_password_data').addClass('error_password_data__active');
-            $('.error_password_data .error_list__item').text(data.error_message);
+
+            var _error_list_item5 = document.createElement('li');
+
+            _error_list_item5.setAttribute('class', 'error_list__item');
+
+            _error_list_item5.append(data.error_message);
+
+            $('.error_password_data .error_list').append(_error_list_item5); // $('.error_password_data .error_list__item').text(data.error_message);
           }
         }
       });
     } else {
-      $('.error_password_data').addClass('error_password_data__active');
-      $('.error_password_data .error_list__item').text("Заполните все поля");
+      $('.form_auth_password_data .error_password_data').addClass('error_password_data__active');
+
+      var _error_list_item6 = document.createElement('li');
+
+      _error_list_item6.setAttribute('class', 'error_list__item');
+
+      _error_list_item6.append("Заполните все поля");
+
+      $('.form_auth_password_data .error_password_data .error_list').append(_error_list_item6);
     }
 
     var email_user = $('#email').val();
@@ -590,7 +649,6 @@ $(document).ready(function () {
       },
       url: '/profile/registration',
       data: formDataFull,
-      // dataType: 'json',
       cache: false,
       contentType: false,
       processData: false,
@@ -601,16 +659,34 @@ $(document).ready(function () {
         var data_JSON = JSON.parse(data);
 
         if (data_JSON.status) {
-          $('.overlay_finish_form .fountainG').css('display', 'none');
-          window.location.href = data_JSON.url_redirect; // console.log("круто");
-          // console.log(data.url_redirect);
-          // console.log(data);
+          $('.overlay_finish_form #fountainG').css('display', 'none');
+          $('.overlay_finish_form .check_mark_contact_from img').animate({
+            height: "70px"
+          }, 100);
+          $('.overlay_finish_form .check_mark_contact_from').addClass('check_mark_image__active');
+          setTimeout(function () {
+            // if (window.history.replaceState) {
+            //     //prevents browser from storing history with each change:
+            //     window.history.replaceState(statedata, title, url);
+            //  }
+            // window.location.href = data_JSON.url_redirect;
+            location.reload();
+          }, 1200);
         } else {
           $('.overlay_finish_form ').removeClass('overlay_form_active');
           $('.overlay_finish_form').addClass('error_finish_data__active');
-          $('.overlay_finish_form .error_list__item').text(data_JSON.error_message); // console.log(data);
-          // console.log("гавно");
+          $('.error_finish_data').addClass('error_contact_data__active');
+          $('.error_finish_data .error_list__item').text(data_JSON.error_message);
         }
+      },
+      error: function error(data) {
+        $('#auth_block_btn').animate({
+          marginTop: '20px'
+        });
+        $('.overlay_finish_form ').removeClass('overlay_form_active');
+        $('.overlay_finish_form').addClass('error_finish_data__active');
+        $('.error_finish_data').addClass('error_contact_data__active');
+        $('.error_finish_data .error_list__item').text("Возникла непредвиденная ошибка, повторите попытку позже");
       }
     });
   });

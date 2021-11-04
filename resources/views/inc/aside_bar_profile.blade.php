@@ -2,7 +2,7 @@
     <div class="aside_bar_user__mobile_short_info non_view">
         <img src="/assets/images/icons/no_user_photo.png" class="aside_bar_user__mobile_short_info__img" alt="user">
         <p class="aside_bar_user__mobile_short_info__username">
-            Трошков Д.А.
+            {{ $auth_user["full_name"] }}
             <a href="" class="exit_profile_link upper">выйти</a> 
                 <!-- /.aside_user__list__item__short_name__exit_block__link_exit -->
         </p>
@@ -16,7 +16,7 @@
             </div>
             <!-- /.aside_user__list__item__img_block -->
             <div class="aside_user__list__item__short_name__exit_block">
-                <p class="aside_user__list__item__short_name__exit_block__text upper">Трошков Д.А.</p>
+                <p class="aside_user__list__item__short_name__exit_block__text upper">{{ $auth_user["full_name"] }}</p>
                 <a href="{{ route('logout') }}" class="exit_profile_link upper">выйти</a> 
                 <!-- /.aside_user__list__item__short_name__exit_block__link_exit -->
             </div>

@@ -110,7 +110,7 @@
                 </li>
                 <!-- /.geo_posistion_people -->
                 <li class="my_cabinet">
-                    <a href="{{ route('my_profile__page') }}" class="link_header">
+                    <a href="{{ route('login') }}" class="link_header">
                         <i class="fas fa-user"></i>
                     </a>
                     <!-- /.link_header -->

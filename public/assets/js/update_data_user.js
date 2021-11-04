@@ -5,6 +5,45 @@ var __webpack_exports__ = {};
   \*************************************************/
 $(document).ready(function () {
   // общее
+  function searchСountryOfIssue(id_input, filter, elements) {
+    $(elements).each(function (i, elem) {
+      // пробегаем все элементы списка
+      var valueLi = elem.innerHTML; // передаем значение инпута в перменную
+
+      if ($('.country_of_issue_list').length) {
+        if (valueLi.toUpperCase().indexOf(filter) > -1) {
+          // если найденный индекс элемента > 1
+          elements[i].style.display = "";
+          $(elements[i]).addClass('select_list__item');
+        } else {
+          elements[i].style.display = "none";
+          $(elements[i]).removeClass('select_list__item');
+        }
+
+        if (valueLi.toUpperCase() === $('#input_country_of_issue').val().toUpperCase()) {
+          $('.country_of_issue_list').removeClass('show_drop_content');
+          input_country_of_issue.val(valueLi);
+        }
+      }
+
+      if ($('.personal_data_block__update_form__country_of_issue_list').length) {
+        if (valueLi.toUpperCase().indexOf(filter) > -1) {
+          // если найденный индекс элемента > 1
+          elements[i].style.display = "";
+          $(elements[i]).addClass('select_list__item');
+        } else {
+          elements[i].style.display = "none";
+          $(elements[i]).removeClass('select_list__item');
+        }
+
+        if (valueLi.toUpperCase() === $('#country_of_issue_user').val().toUpperCase()) {
+          $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
+          $('#country_of_issue_user').val(valueLi);
+        }
+      }
+    });
+  }
+
   $('#dropbtn_gender_user').click(function (e) {
     if (!$('.personal_data_block__update_form__gender_list').hasClass('show_drop_content')) {
       showdropDownListCitiesSearchFlights($('#dropbtn_gender_user'), $('.personal_data_block__update_form__gender_list'));
