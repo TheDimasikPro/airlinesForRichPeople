@@ -18,171 +18,171 @@ $(document).ready(function(){
         screenWidth = window.screen.width;
     };
     // функции
-    window.addEventListener('click', e => { // при клике в любом месте окна браузера
-        const target = e.target // находим элемент, на котором был клик
-        if (!target.closest('.search_tickets_block')) {
-            $('.form_search_block_inputs').removeClass('block_inputs_active');
-            $('.back_data').removeClass('non_click_input');
-            $('#id_i_d_t_block').removeClass('calendar_active');
-            if (!target.closest('.geo_posistion_people')) {
-                $('.nav_menu .geo_posistion_people').removeAttr('style');
-                $('.geo_posistion_people').removeClass('geo_posistion_people__active');
-                $('.language_currency').removeClass('language_currency_active');
-            }
-            if (!target.closest('.input_count_pass_block')) {
-                $('.drop_count_pass').removeClass('show_drop_content');
-                $('#dropbtn_count_pass').removeClass('rotate_180');
-                if (target.closest('.drop_count_pass')) {
-                    $('.drop_count_pass').addClass('show_drop_content');
-                    $('#dropbtn_count_pass').addClass('rotate_180');
-                    $('.nav_menu .geo_posistion_people').removeAttr('style');
-                    $('.geo_posistion_people').removeClass('geo_posistion_people__active');
-                    $('.language_currency').removeClass('language_currency_active');
-                }
-            }
-            if (!target.closest('.fa-bars')) {
-                if (!$('.fa-times').hasClass('non_view')) {
-                    $('.fa-bars').removeClass('non_view');
-                    $('.fa-times').addClass('non_view');
+    // window.addEventListener('click', e => { // при клике в любом месте окна браузера
+    //     const target = e.target // находим элемент, на котором был клик
+    //     if (!target.closest('.search_tickets_block')) {
+    //         $('.form_search_block_inputs').removeClass('block_inputs_active');
+    //         $('.back_data').removeClass('non_click_input');
+    //         $('#id_i_d_t_block').removeClass('calendar_active');
+    //         if (!target.closest('.geo_posistion_people')) {
+    //             $('.nav_menu .geo_posistion_people').removeAttr('style');
+    //             $('.geo_posistion_people').removeClass('geo_posistion_people__active');
+    //             $('.language_currency').removeClass('language_currency_active');
+    //         }
+    //         if (!target.closest('.input_count_pass_block')) {
+    //             $('.drop_count_pass').removeClass('show_drop_content');
+    //             $('#dropbtn_count_pass').removeClass('rotate_180');
+    //             if (target.closest('.drop_count_pass')) {
+    //                 $('.drop_count_pass').addClass('show_drop_content');
+    //                 $('#dropbtn_count_pass').addClass('rotate_180');
+    //                 $('.nav_menu .geo_posistion_people').removeAttr('style');
+    //                 $('.geo_posistion_people').removeClass('geo_posistion_people__active');
+    //                 $('.language_currency').removeClass('language_currency_active');
+    //             }
+    //         }
+    //         if (!target.closest('.fa-bars')) {
+    //             if (!$('.fa-times').hasClass('non_view')) {
+    //                 $('.fa-bars').removeClass('non_view');
+    //                 $('.fa-times').addClass('non_view');
                    
-                    $('.nav_menu .geo_posistion_people').removeAttr('style');
-                    $('.geo_posistion_people').removeClass('geo_posistion_people__active');
-                    $('.language_currency').removeClass('language_currency_active');
-                }
-                if (target.closest('.geo_posistion_people')) {
-                    $('.geo_posistion_people').click();
-                }
-                if (!target.closest('.additional_sub_menu__view .container')) {
-                    $('.additional_sub_menu').removeClass('additional_sub_menu__view');
-                }
-            }
-            if (!target.closest('#dropbtn_prefix_phone')) {
-                var dropbtn_prefix_phone = $('#dropbtn_prefix_phone');
-                if (target.closest('.form_auth_input[id="prefix_phone"]')) {
-                    if (!$('.prefix_phone_list').hasClass('show_drop_content')) {
-                        showdropDownListCitiesSearchFlights(dropbtn_prefix_phone,$('.prefix_phone_list'));
-                    }
-                    else{
-                        $('.prefix_phone_list').removeClass('show_drop_content');
-                        (dropbtn_prefix_phone).removeClass('rotate_180');
-                    }
-                }
-                else{
-                    $('.prefix_phone_list').removeClass('show_drop_content');
-                    $(dropbtn_prefix_phone).removeClass('rotate_180');
-                }
-            }
-            if (!target.closest('#dropbtn_gender_code')) {
-                var dropbtn_gender_code = $('#dropbtn_gender_code');
-                if (target.closest('.form_auth_input[id="gender_code"]')) {
-                    if (!$('.gender_code_list').hasClass('show_drop_content')) {
-                        showdropDownListCitiesSearchFlights(dropbtn_gender_code,$('.gender_code_list'));
-                    }
-                    else{
-                        $('.gender_code_list').removeClass('show_drop_content');
-                        (dropbtn_gender_code).removeClass('rotate_180');
-                    }
-                }
-                else{
-                    $('.gender_code_list').removeClass('show_drop_content');
-                    $(dropbtn_gender_code).removeClass('rotate_180');
-                }
-            }
-            if (!target.closest('#dropbtn_type_document')) {
-                var dropbtn_type_document = $('#dropbtn_type_document');
-                if (target.closest('.form_auth_input[id="type_document"]')) {
-                    if (!$('.type_document_list').hasClass('show_drop_content')) {
-                        showdropDownListCitiesSearchFlights(dropbtn_type_document,$('.type_document_list'));
-                    }
-                    else{
-                        $('.type_document_list').removeClass('show_drop_content');
-                        (dropbtn_type_document).removeClass('rotate_180');
-                    }
-                }
-                else{
-                    $('.type_document_list').removeClass('show_drop_content');
-                    $(dropbtn_type_document).removeClass('rotate_180');
-                }
-            }
-            if (!target.closest('#dropbtn_country_of_issue')) {
-                var dropbtn_country_of_issue = $('#dropbtn_country_of_issue');
-                if (target.closest('.form_auth_input[id="input_country_of_issue"]')) {
-                    $('.form_auth_input[id="input_country_of_issue"]').autocomplete = 'off';;
-                    if (!$('.country_of_issue_list').hasClass('show_drop_content')) {
-                        showdropDownListCitiesSearchFlights(dropbtn_country_of_issue,$('.country_of_issue_list'));
-                    }
-                    else{
-                        $('.country_of_issue_list').removeClass('show_drop_content');
-                        (dropbtn_country_of_issue).removeClass('rotate_180');
-                    }
-                }
-                else{
-                    $('.country_of_issue_list').removeClass('show_drop_content');
-                    $(dropbtn_country_of_issue).removeClass('rotate_180');
-                }
-            }
-            if (!target.closest('#dropbtn_gender_user')) {
-                var dropbtn_country_of_issue = $('#dropbtn_gender_user');
-                if (target.closest('#gender_user')) {
-                    $('#gender_user').autocomplete = 'off';
-                    if (!$('.personal_data_block__update_form__gender_list').hasClass('show_drop_content')) {
-                        showdropDownListCitiesSearchFlights($('#dropbtn_gender_user'),$('.personal_data_block__update_form__gender_list'));
-                        $('.personal_data_block__update_form__gender_list').addClass('show_drop_content');
-                    }
-                    else{
-                        $('.personal_data_block__update_form__gender_list').removeClass('show_drop_content');
-                        $('#dropbtn_gender_user').removeClass('rotate_180');
-                        $('#dropbtn_gender_user').removeAttr('style');
-                    }
-                }
-                else{
-                    $('.personal_data_block__update_form__gender_list').removeClass('show_drop_content');
-                    $('#dropbtn_gender_user').removeClass('rotate_180');
-                    $('#dropbtn_gender_user').removeAttr('style');
-                }
-            }
-            if (!target.closest('#dropbtn_type_document_user')) {
-                var dropbtn_country_of_issue = $('#dropbtn_type_document_user');
-                if (target.closest('#type_document_user')) {
-                    $('#type_document_user').autocomplete = 'off';
-                    if (!$('.personal_data_block__update_form__type_document_list').hasClass('show_drop_content')) {
-                        showdropDownListCitiesSearchFlights($('#dropbtn_type_document_user'),$('.personal_data_block__update_form__type_document_list'));
-                        $('.personal_data_block__update_form__type_document_list').addClass('show_drop_content');
-                    }
-                    else{
-                        $('.personal_data_block__update_form__type_document_list').removeClass('show_drop_content');
-                        $('#dropbtn_type_document_user').removeClass('rotate_180');
-                        $('#dropbtn_type_document_user').removeAttr('style');
-                    }
-                }
-                else{
-                    $('.personal_data_block__update_form__type_document_list').removeClass('show_drop_content');
-                    $('#dropbtn_type_document_user').removeClass('rotate_180');
-                    $('#dropbtn_type_document_user').removeAttr('style');
-                }
-            }
-            if (!target.closest('#dropbtn_country_of_issue_user')) {
-                var dropbtn_country_of_issue = $('#dropbtn_country_of_issue_user');
-                if (target.closest('#country_of_issue_user')) {
-                    $('#country_of_issue_user').autocomplete = 'off';
-                    if (!$('.personal_data_block__update_form__country_of_issue_list').hasClass('show_drop_content')) {
-                        showdropDownListCitiesSearchFlights($('#dropbtn_country_of_issue_user'),$('.personal_data_block__update_form__country_of_issue_list'));
-                        $('.personal_data_block__update_form__country_of_issue_list').addClass('show_drop_content');
-                    }
-                    else{
-                        $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
-                        $('#dropbtn_type_document_user').removeClass('rotate_180');
-                        $('#dropbtn_type_document_user').removeAttr('style');
-                    }
-                }
-                else{
-                    $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
-                    $('#dropbtn_country_of_issue_user').removeClass('rotate_180');
-                    $('#dropbtn_country_of_issue_user').removeAttr('style');
-                }
-            }
-        }
-    });
+    //                 $('.nav_menu .geo_posistion_people').removeAttr('style');
+    //                 $('.geo_posistion_people').removeClass('geo_posistion_people__active');
+    //                 $('.language_currency').removeClass('language_currency_active');
+    //             }
+    //             if (target.closest('.geo_posistion_people')) {
+    //                 $('.geo_posistion_people').click();
+    //             }
+    //             if (!target.closest('.additional_sub_menu__view .container')) {
+    //                 $('.additional_sub_menu').removeClass('additional_sub_menu__view');
+    //             }
+    //         }
+    //         if (!target.closest('#dropbtn_prefix_phone')) {
+    //             var dropbtn_prefix_phone = $('#dropbtn_prefix_phone');
+    //             if (target.closest('.form_auth_input[id="prefix_phone"]')) {
+    //                 if (!$('.prefix_phone_list').hasClass('show_drop_content')) {
+    //                     showdropDownListCitiesSearchFlights(dropbtn_prefix_phone,$('.prefix_phone_list'));
+    //                 }
+    //                 else{
+    //                     $('.prefix_phone_list').removeClass('show_drop_content');
+    //                     (dropbtn_prefix_phone).removeClass('rotate_180');
+    //                 }
+    //             }
+    //             else{
+    //                 $('.prefix_phone_list').removeClass('show_drop_content');
+    //                 $(dropbtn_prefix_phone).removeClass('rotate_180');
+    //             }
+    //         }
+    //         if (!target.closest('#dropbtn_gender_code')) {
+    //             var dropbtn_gender_code = $('#dropbtn_gender_code');
+    //             if (target.closest('.form_auth_input[id="gender_code"]')) {
+    //                 if (!$('.gender_code_list').hasClass('show_drop_content')) {
+    //                     showdropDownListCitiesSearchFlights(dropbtn_gender_code,$('.gender_code_list'));
+    //                 }
+    //                 else{
+    //                     $('.gender_code_list').removeClass('show_drop_content');
+    //                     (dropbtn_gender_code).removeClass('rotate_180');
+    //                 }
+    //             }
+    //             else{
+    //                 $('.gender_code_list').removeClass('show_drop_content');
+    //                 $(dropbtn_gender_code).removeClass('rotate_180');
+    //             }
+    //         }
+    //         if (!target.closest('#dropbtn_type_document')) {
+    //             var dropbtn_type_document = $('#dropbtn_type_document');
+    //             if (target.closest('.form_auth_input[id="type_document"]')) {
+    //                 if (!$('.type_document_list').hasClass('show_drop_content')) {
+    //                     showdropDownListCitiesSearchFlights(dropbtn_type_document,$('.type_document_list'));
+    //                 }
+    //                 else{
+    //                     $('.type_document_list').removeClass('show_drop_content');
+    //                     (dropbtn_type_document).removeClass('rotate_180');
+    //                 }
+    //             }
+    //             else{
+    //                 $('.type_document_list').removeClass('show_drop_content');
+    //                 $(dropbtn_type_document).removeClass('rotate_180');
+    //             }
+    //         }
+    //         if (!target.closest('#dropbtn_country_of_issue')) {
+    //             var dropbtn_country_of_issue = $('#dropbtn_country_of_issue');
+    //             if (target.closest('.form_auth_input[id="input_country_of_issue"]')) {
+    //                 $('.form_auth_input[id="input_country_of_issue"]').autocomplete = 'off';;
+    //                 if (!$('.country_of_issue_list').hasClass('show_drop_content')) {
+    //                     showdropDownListCitiesSearchFlights(dropbtn_country_of_issue,$('.country_of_issue_list'));
+    //                 }
+    //                 else{
+    //                     $('.country_of_issue_list').removeClass('show_drop_content');
+    //                     (dropbtn_country_of_issue).removeClass('rotate_180');
+    //                 }
+    //             }
+    //             else{
+    //                 $('.country_of_issue_list').removeClass('show_drop_content');
+    //                 $(dropbtn_country_of_issue).removeClass('rotate_180');
+    //             }
+    //         }
+    //         if (!target.closest('#dropbtn_gender_user')) {
+    //             var dropbtn_country_of_issue = $('#dropbtn_gender_user');
+    //             if (target.closest('#gender_user')) {
+    //                 $('#gender_user').autocomplete = 'off';
+    //                 if (!$('.personal_data_block__update_form__gender_list').hasClass('show_drop_content')) {
+    //                     showdropDownListCitiesSearchFlights($('#dropbtn_gender_user'),$('.personal_data_block__update_form__gender_list'));
+    //                     $('.personal_data_block__update_form__gender_list').addClass('show_drop_content');
+    //                 }
+    //                 else{
+    //                     $('.personal_data_block__update_form__gender_list').removeClass('show_drop_content');
+    //                     $('#dropbtn_gender_user').removeClass('rotate_180');
+    //                     $('#dropbtn_gender_user').removeAttr('style');
+    //                 }
+    //             }
+    //             else{
+    //                 $('.personal_data_block__update_form__gender_list').removeClass('show_drop_content');
+    //                 $('#dropbtn_gender_user').removeClass('rotate_180');
+    //                 $('#dropbtn_gender_user').removeAttr('style');
+    //             }
+    //         }
+    //         if (!target.closest('#dropbtn_type_document_user')) {
+    //             var dropbtn_country_of_issue = $('#dropbtn_type_document_user');
+    //             if (target.closest('#type_document_user')) {
+    //                 $('#type_document_user').autocomplete = 'off';
+    //                 if (!$('.personal_data_block__update_form__type_document_list').hasClass('show_drop_content')) {
+    //                     showdropDownListCitiesSearchFlights($('#dropbtn_type_document_user'),$('.personal_data_block__update_form__type_document_list'));
+    //                     $('.personal_data_block__update_form__type_document_list').addClass('show_drop_content');
+    //                 }
+    //                 else{
+    //                     $('.personal_data_block__update_form__type_document_list').removeClass('show_drop_content');
+    //                     $('#dropbtn_type_document_user').removeClass('rotate_180');
+    //                     $('#dropbtn_type_document_user').removeAttr('style');
+    //                 }
+    //             }
+    //             else{
+    //                 $('.personal_data_block__update_form__type_document_list').removeClass('show_drop_content');
+    //                 $('#dropbtn_type_document_user').removeClass('rotate_180');
+    //                 $('#dropbtn_type_document_user').removeAttr('style');
+    //             }
+    //         }
+    //         if (!target.closest('#dropbtn_country_of_issue_user')) {
+    //             var dropbtn_country_of_issue = $('#dropbtn_country_of_issue_user');
+    //             if (target.closest('#country_of_issue_user')) {
+    //                 $('#country_of_issue_user').autocomplete = 'off';
+    //                 if (!$('.personal_data_block__update_form__country_of_issue_list').hasClass('show_drop_content')) {
+    //                     showdropDownListCitiesSearchFlights($('#dropbtn_country_of_issue_user'),$('.personal_data_block__update_form__country_of_issue_list'));
+    //                     $('.personal_data_block__update_form__country_of_issue_list').addClass('show_drop_content');
+    //                 }
+    //                 else{
+    //                     $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
+    //                     $('#dropbtn_type_document_user').removeClass('rotate_180');
+    //                     $('#dropbtn_type_document_user').removeAttr('style');
+    //                 }
+    //             }
+    //             else{
+    //                 $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
+    //                 $('#dropbtn_country_of_issue_user').removeClass('rotate_180');
+    //                 $('#dropbtn_country_of_issue_user').removeAttr('style');
+    //             }
+    //         }
+    //     }
+    // });
     $('.btn_additional_menu').click(function () {
         if (!$('.additional_sub_menu').hasClass('additional_sub_menu__view')) {
             $('.additional_sub_menu').addClass('additional_sub_menu__view');

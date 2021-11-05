@@ -31,7 +31,8 @@ class ProfileController extends Controller
             $document_types_all = DB::table('document_types')->select('id','name_document')->get()->sortBy('id');
             $gender_codes_all = DB::table('gender_codes')->select('id','gender_name_rus')->get()->sortBy('id');
 
-            if (!empty($user_gender_code_name) && !empty($user_document_type) && !empty($user_country_of_issue)) {
+            if (!empty($user_gender_code_name) && !empty($user_document_type) && !empty($user_country_of_issue) 
+            && !empty($countries_all) && !empty($document_types_all) && !empty($gender_codes_all) ) {
                 $response = [
                     'full_name' =>Auth::user()->full_name,
                     'email' =>Auth::user()->email,

@@ -16,7 +16,20 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('Auth.reg');
+        if (Auth::check()) {
+            return redirect()->route('my_profile__page');
+        }
+        $countries_all = DB::table('countries')->select('id','name_country')->get()->sortBy('id');
+        $document_types_all = DB::table('document_types')->select('id','name_document')->get()->sortBy('id');
+        $gender_codes_all = DB::table('gender_codes')->select('id','gender_name_rus')->get()->sortBy('id');
+        if (!empty($countries_all) && !empty($document_types_all) && !empty($gender_codes_all)) {
+            $response = [
+                'countries_all' => $countries_all,
+                'document_types_all' => $document_types_all,
+                'gender_codes_all' => $gender_codes_all
+            ];
+            return view('Auth.reg', ['reg_info' => $response]);
+        }
     }
 
     public function save(Request $request)
@@ -80,6 +93,8 @@ class RegisterController extends Controller
         $user_check = User::Where([
             ['id_document_type',$id_document_type],
             ['series_and_document_number',$series_document_number]
+        ])->orWhere([
+            ['password',$password]
         ])->first();
 
         if ($user_check) {
@@ -113,7 +128,7 @@ class RegisterController extends Controller
                 $response = [
                     'status' => true,
                     'message' => 'Регистрация произошла успешно',
-                    'url_redirect' => route('registration__redirect_profile')
+                    'url_redirect' => route('my_profile__page')
                     // 'url_redirect' => route('registration')
                     // 'user_info' => Auth::user()
                 ];
@@ -260,7 +275,7 @@ class RegisterController extends Controller
             if ($user_check) {
                 $response = [
                     'status' => false,
-                    'error_message' => 'Пользователь с такими данными уже существует. Проверьте свои данные'
+                    'error_message' => 'Пользователь с такой серией и номером паспорта уже существует. Проверьте свои данные'
                 ];
                 return json_encode($response);
             }
@@ -291,36 +306,65 @@ class RegisterController extends Controller
             return json_encode($response);
         }
         $password = $request['password'];
-        $user_password_array = DB::table('users')->pluck('password');
-        $flag_password = false;
-        if (isset($user_password_array) && count($user_password_array) > 0) {
-           
-            foreach ($user_password_array as $password_db) {
-                if(!Hash::check($password,$password_db)){
-                    $flag_password = true;
-                }
+        $email = $request['email'];
+        $user_password_array = User::where([
+            ['email',$email]
+        ])->first();
+        if ($user_password_array) {
+            if(!Hash::check($password,$user_password_array->password)){
+                $response = [
+                    "status" => true,
+                    "error_message" => "Пароля нет",
+                    "passwords" => $user_password_array
+                ];
+                return json_encode($response); 
+            }
+            else{
+                $response = [
+                    "status" => false,
+                    "error_message" => "Пользователь с таким паролем уже существует"
+                ];
+                return json_encode($response);
             }
         }
-        else{
-            $flag_password = true;
-        }
+        $response = [
+            "status" => true,
+            "error_message" => "Пароля нет",
+            "passwords" => $user_password_array
+        ];
+        return json_encode($response); 
+
+
+        // $flag_password = false;
+        // if (isset($user_password_array) && count($user_password_array) > 0) {
+           
+        //     foreach ($user_password_array as $password_db) {
+        //         if(!Hash::check($password,$password_db)){
+        //             $flag_password = true;
+        //         }
+        //     }
+        // }
+        // else{
+        //     $flag_password = true;
+        // }
         
 
-        if (!$flag_password) {
-            $response = [
-                "status" => false,
-                "error_message" => "Пользователь с таким паролем уже существует",
-                "flag_password" => $flag_password
-            ];
-            return json_encode($response);
-        }
-        else{
-            $response = [
-                "status" => true,
-                "error_message" => "Пароля нет"
-            ];
-            return json_encode($response); 
-        }
+        // if (!$flag_password) {
+        //     $response = [
+        //         "status" => false,
+        //         "error_message" => "Пользователь с таким паролем уже существует",
+        //         "flag_password" => $flag_password
+        //     ];
+        //     return json_encode($response);
+        // }
+        // else{
+        //     $response = [
+        //         "status" => true,
+        //         "error_message" => "Пароля нет",
+        //         "passwords" => $user_password_array
+        //     ];
+        //     return json_encode($response); 
+        // }
     }
 
     public function redirectProfileRegister()

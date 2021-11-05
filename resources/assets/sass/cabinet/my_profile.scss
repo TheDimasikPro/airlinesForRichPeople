@@ -35,6 +35,7 @@
                         .aside_user__list__item__short_name__exit_block__text{
                             color: $black;
                             width: 100%;
+                            line-height: 25px;
                         }
                         &:last-child{
                             margin-top: 20px;
@@ -345,18 +346,19 @@
                         }
                         .short_flight_scheme{
                             min-width: 250px;
+                            margin-top: 20px;
                             .short_flight_scheme__block{
                                 flex-direction: row;
                             }
                         }
-                        .status_order{
-                            width: 250px;
+                        .status_order,.price_order{
+                            width: 50%;
                             margin-top: 20px;
                         }
-                        .price_order{
-                            width:250px;
-                            margin-top: 20px;
-                        }
+                        // .price_order{
+                        //     width:250px;
+                        //     margin-top: 20px;
+                        // }
                     }
                     
                 }
@@ -414,6 +416,17 @@
             margin: 0;
             margin-top: 50px;
             width: 100%;
+            .my_travel_block{
+                .my_travel_block__cards{
+                    .my_travel_block__cards__item{
+                        .short_details_order{
+                            .short_flight_scheme{
+                                margin-top: 0px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -428,6 +441,22 @@
                         font-size: 12px;
                         line-height: 20px;
                         text-align: center;
+                    }
+                }
+            }
+        }
+        .profile_data_cards{
+            margin: 0;
+            margin-top: 50px;
+            width: 100%;
+            .my_travel_block{
+                .my_travel_block__cards{
+                    .my_travel_block__cards__item{
+                        .short_details_order{
+                            .short_flight_scheme{
+                                margin-top: 20px;
+                            }
+                        }
                     }
                 }
             }

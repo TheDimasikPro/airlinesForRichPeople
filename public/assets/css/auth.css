@@ -616,6 +616,11 @@ input[type=button] {
 .form_auth#form_login .form_auth_block:last-child {
   margin-bottom: 20px;
 }
+.form_auth#form_login .form_auth_block.error_auth {
+  background: #A90000;
+  color: #ffffff;
+  padding: 10px;
+}
 .form_auth h1 {
   margin-bottom: 5px;
 }

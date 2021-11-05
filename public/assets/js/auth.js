@@ -207,9 +207,10 @@ $(document).ready(function () {
     } else if (provEmail && $('#phone').val() != "") {
       var email_user = $('#email').val();
       var phone_user = $('.prefix_phone_list__item.select_list__item').attr('data-value') + $('#phone').val();
+      var phone_user_str = phone_user.replace(/-+/g, '');
       var formData = new FormData();
       formData.append('email', email_user);
-      formData.append('phone', phone_user);
+      formData.append('phone', phone_user_str);
       $.ajax({
         type: "POST",
         headers: {
@@ -229,7 +230,7 @@ $(document).ready(function () {
 
           if (data.status) {
             formDataFull.append('email', email_user);
-            formDataFull.append('phone', phone_user);
+            formDataFull.append('phone', phone_user_str);
             $('.form_auth_contact_data').addClass('form_auth_card__anim');
             $('.form_auth_contact_data').removeAttr('style');
             $('#auth_block_btn').addClass('form_auth_block__anim');
@@ -475,6 +476,7 @@ $(document).ready(function () {
     $('.error_password_data .error_list__item').remove(); // $('.form_auth_password_data .error_password_data').css('height','0');
     // $('.form_auth_password_data .error_password_data').css('padding','0px');
 
+    var email_user = $('#email').val();
     var password_user = $('#input_password').val();
     var regex_password = /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/;
     var provEmail = regex_password.test($.trim($('#input_password').val()));
@@ -501,6 +503,7 @@ $(document).ready(function () {
     } else if (valid_form == true) {
       var formData = new FormData();
       formData.append('password', password_user);
+      formData.append('email', email_user);
       $.ajax({
         type: "POST",
         headers: {
@@ -642,6 +645,7 @@ $(document).ready(function () {
   });
   $('#btn_registered').click(function (e) {
     e.preventDefault();
+    $('.error_finish_data .error_list__item:not(:first-child)').remove();
     $.ajax({
       type: "POST",
       headers: {
@@ -669,8 +673,7 @@ $(document).ready(function () {
             //     //prevents browser from storing history with each change:
             //     window.history.replaceState(statedata, title, url);
             //  }
-            // window.location.href = data_JSON.url_redirect;
-            location.reload();
+            window.location.href = data_JSON.url_redirect; // location.reload();
           }, 1200);
         } else {
           $('.overlay_finish_form ').removeClass('overlay_form_active');

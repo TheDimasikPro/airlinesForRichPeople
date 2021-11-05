@@ -24,97 +24,20 @@
                             </div>
                             <!-- /.input_search_from_block -->
                             <ul class="dropdown_content drop_from_flights">
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name">Moscow</div>
-                                        <!-- /.city_name -->
-                                        <div class="desc_airport_eng">Airport, Moscow, Russia</div>
-                                        <!-- /.desc_airport_eng -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-                                        MOW
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
+                                @foreach ($index_data["airport_data"] as $airport)
+                                    <li class="dropdown_content__item">
+                                        <div class="info_country">
+                                            <div class="airport_name">{{ $airport->name_eng }}</div>
+                                            <!-- /.airport_name -->
+                                            <div class="desc_airport_eng">Airport, {{ $airport->city_eng }}, {{ $airport->country_eng }}</div>
+                                            <!-- /.desc_airport_eng -->
+                                        </div>
+                                        <!-- /.info_country -->
+                                        <div class="iata_code">{{ $airport->iata_code }}</div>
+                                        <!-- /.iata_code -->
                                     </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
-                                    </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
-                                    </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-                                        свсв
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
+                                @endforeach
+                                
                             </ul>
                         </div>
                         <!-- /.dropdown -->
@@ -133,94 +56,16 @@
                             <ul class="dropdown_content drop_to_flights">
                                 <li class="dropdown_content__item">
                                     <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
+                                        <div class="airport_name">Moscow</div>
+                                        <!-- /.airport_name -->
+                                        <div class="desc_airport_eng">Airport, Moscow, Russia</div>
+                                        <!-- /.desc_airport_eng -->
                                     </div>
                                     <!-- /.info_country -->
-                                    <div class="airport_name">
-
+                                    <div class="iata_code">
+                                        MOW
                                     </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-                                        свсв
-                                    </div>
-                                    <!-- /.airport_name -->
-                                </li>
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="city_name"></div>
-                                        <!-- /.city_name -->
-                                        <div class="country_name"></div>
-                                        <!-- /.country_name -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="airport_name">
-
-                                    </div>
-                                    <!-- /.airport_name -->
+                                    <!-- /.iata_code -->
                                 </li>
                             </ul>
                         </div>

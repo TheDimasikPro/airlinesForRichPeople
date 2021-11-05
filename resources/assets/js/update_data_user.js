@@ -84,6 +84,7 @@ $(document).ready(function () {
             $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
             $('#dropbtn_country_of_issue_user').removeClass('rotate_180');
             $('#dropbtn_country_of_issue_user').removeAttr('style');
+            console.log('vv');
         }
     });
     $('.personal_data_block__update_form__country_of_issue_list__item').click(function () {
@@ -97,9 +98,9 @@ $(document).ready(function () {
     });
 
     $('#country_of_issue_user').keyup(function () {
-        if (!$('.personal_data_block__update_form__country_of_issue_list').hasClass('show_drop_content')) {
-            $('.personal_data_block__update_form__country_of_issue_list').addClass('show_drop_content');
-        }
+        // if (!$('.personal_data_block__update_form__country_of_issue_list').hasClass('show_drop_content')) {
+        //     $('.personal_data_block__update_form__country_of_issue_list').addClass('show_drop_content');
+        // }
         var id_input = $(this).attr("id");
         var filter = $(this).val().toUpperCase(); // приводим все к верхнему регистру
         var elements = $('.personal_data_block__update_form__country_of_issue_list .personal_data_block__update_form__country_of_issue_list__item'); // все элементы списка
@@ -107,7 +108,21 @@ $(document).ready(function () {
         if($(this).val() === ""){
             $(elements).removeClass('select_list__item');
         }
+        // if ($('.personal_data_block__update_form__country_of_issue_list').hasClass('show_drop_content')) {
+        //     $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
+        //     $('#dropbtn_country_of_issue_user').removeClass('rotate_180');
+        //     $('#dropbtn_country_of_issue_user').removeAttr('style');
+        // }
     });
+    $('#country_of_issue_user').click(function (e) {
+        e.preventDefault();
+        if ($('.personal_data_block__update_form__country_of_issue_list').hasClass('show_drop_content')) {
+            $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
+            $('#dropbtn_country_of_issue_user').removeClass('rotate_180');
+            $('#dropbtn_country_of_issue_user').removeAttr('style');
+        }
+    })
+
 
     $('#btn_show_old_password').click(function (e) {
         e.preventDefault();

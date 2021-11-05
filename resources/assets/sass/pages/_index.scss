@@ -114,7 +114,7 @@
                             }
 
                             .info_country{
-                                .city_name{
+                                .airport_name{
                                     font-size: $fz_second;
                                 }
                                 .desc_airport_eng{
@@ -173,6 +173,10 @@
                                 .desc_airport_eng{
                                     color: $white
                                 }
+                            }
+                            &:hover{
+                                background: $light_green;
+                                color: black;
                             }
                             
                         }

@@ -5,12 +5,12 @@
 @endsection
 @section('content')
     <div class="container df_jcc_aic desktop_section content_flex">
-        <form action="" class="form form_auth" id="form_login">
+        <form action="{{ route('login_check') }}" method="POST" class="form form_auth" id="form_login">
             @csrf
             <h1>Авторизация</h1>
             <div class="form_auth_block">
-                <label for="login">Login</label>
-                <input type="text" autocomplete="off" class="form_auth_input md_input" id="login" name="login" placeholder="Введите свой логин">
+                <label for="email">Email</label>
+                <input type="text" autocomplete="off" class="form_auth_input md_input" id="email" name="email" placeholder="Введите свой email">
             </div>
             <!-- /.form_auth_block -->
             <div class="form_auth_block">
@@ -23,6 +23,13 @@
                 <!-- /.btn btn_style_1 upper-->
             </div>
             <!-- /.form_auth_block -->
+            @error('error')
+                <div class="form_auth_block error_auth">
+                    <p class="error_auth__message">{{ $message }}</p>
+                    <!-- /.error_auth__message -->
+                </div>
+                <!-- /.form_auth_block error_auth -->
+            @enderror
             <div class="form_auth_block df_jcspb_aic">
                 <a href="{{ route('forgot_password__page') }}" class="link_auth">Забыли свой пароль?</a>
                 <a href="{{ route('registration') }}" class="link_auth">Зарегистрироваться</a>

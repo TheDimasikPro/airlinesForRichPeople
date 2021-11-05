@@ -627,6 +627,7 @@ input[type=button] {
 .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:first-child .aside_user__list__item__short_name__exit_block .aside_user__list__item__short_name__exit_block__text {
   color: #222222;
   width: 100%;
+  line-height: 25px;
 }
 .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item:first-child .aside_user__list__item__short_name__exit_block:last-child {
   margin-top: 20px;
@@ -909,16 +910,13 @@ input[type=button] {
   }
   .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme {
     min-width: 250px;
+    margin-top: 20px;
   }
   .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme .short_flight_scheme__block {
     flex-direction: row;
   }
-  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .status_order {
-    width: 250px;
-    margin-top: 20px;
-  }
-  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .price_order {
-    width: 250px;
+  .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .status_order, .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .price_order {
+    width: 50%;
     margin-top: 20px;
   }
 }
@@ -974,6 +972,9 @@ input[type=button] {
     margin-top: 50px;
     width: 100%;
   }
+  .my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme {
+    margin-top: 0px;
+  }
 }
 @media (max-width: 540px) {
   .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item {
@@ -983,6 +984,14 @@ input[type=button] {
     font-size: 12px;
     line-height: 20px;
     text-align: center;
+  }
+  .my_profile_block .profile_data_cards {
+    margin: 0;
+    margin-top: 50px;
+    width: 100%;
+  }
+  .my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item .short_details_order .short_flight_scheme {
+    margin-top: 20px;
   }
 }
 @media (max-width: 450px) {

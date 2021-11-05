@@ -53,8 +53,7 @@ Route::prefix('search_tickets')->group(function () {
 
 
 Route::prefix('profile')->group(function () {
-    Route::get('/',[ProfileController::class,'index'])->middleware('auth')->name('my_profile__page');
-
+    
     Route::get('/login', function () {
         if(Auth::check()){
             return redirect()->route('my_profile__page');
@@ -71,14 +70,26 @@ Route::prefix('profile')->group(function () {
         if(Auth::check()){
             return redirect()->route('my_profile__page');
         }
-        return view('Auth.reg');
+        return redirect()->route('reg__page');
     })->name('registration');
 
+    Route::get('/',[ProfileController::class,'index'])->middleware('auth')->name('my_profile__page');
+
+    Route::get('/reg_page', function () {
+        if(Auth::check()){
+            return redirect()->route('my_profile__page');
+        }
+        return redirect()->route('registration_page');
+    })->name('reg__page');
+
+    Route::get('/registration_page', [RegisterController::class,'index'])->name('registration_page');
     Route::post('/registration', [RegisterController::class,'save'])->name('registration__save');
     Route::post('/check_email_phone__reg', [RegisterController::class,'checkContactDataRegister'])->name('registration__check_email_phone');
     Route::post('/check_personal_data__reg', [RegisterController::class,'checkPersonalDataRegister'])->name('registration__check_personal_data');
     Route::post('/check_password_data__reg', [RegisterController::class,'checkPasswordDataRegister'])->name('registration__check_password_data');
     Route::get('/fun_redirect_profile', [RegisterController::class,'redirectProfileRegister'])->name('registration__redirect_profile');
+
+    Route::post('/login', [LoginController::class,'login_check'])->name('login_check');
 });
 
 
@@ -87,7 +98,7 @@ Route::prefix('profile')->group(function () {
 
 
 
-// Route::get('/registration', [RegisterController::class,'index'])->name('reg__page');
+
 
 // Route::get('/logout', []);
 

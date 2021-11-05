@@ -136,9 +136,9 @@ $(document).ready(function () {
     }
   });
   $('.drop_from_flights .dropdown_content__item').click(function (e) {
-    var city_name = $.trim($(this).children('.info_country').children('.city_name').text());
-    var airport_name = $.trim($(this).children('.airport_name').text());
-    var new_value_elem = city_name + " (" + airport_name + ")";
+    var airport_name = $.trim($(this).children('.info_country').children('.airport_name').text());
+    var iata_code = $.trim($(this).children('.iata_code').text());
+    var new_value_elem = airport_name + " (" + iata_code + ")";
     $('#id_i_s_f_f').val(new_value_elem);
     $('.drop_from_flights').removeClass('show_drop_content');
     $(dropbtn_from_flights).removeClass('rotate_180');
@@ -148,12 +148,11 @@ $(document).ready(function () {
       $('#from_flight_block_input').removeClass('block_inputs_active');
     }, 100);
     $(this).addClass("select_elem_airport");
-    console.log('cd');
   });
   $('.drop_to_flights .dropdown_content__item').click(function (e) {
-    var city_name = $.trim($(this).children('.info_country').children('.city_name').text());
-    var airport_name = $.trim($(this).children('.airport_name').text());
-    var new_value_elem = city_name + " (" + airport_name + ")";
+    var airport_name = $.trim($(this).children('.info_country').children('.airport_name').text());
+    var iata_code = $.trim($(this).children('.iata_code').text());
+    var new_value_elem = airport_name + " (" + iata_code + ")";
     $('#id_i_s_f_t').val(new_value_elem);
     $('.drop_to_flights').removeClass('show_drop_content');
     $(dropbtn_to_flights).removeClass('rotate_180');

@@ -176,8 +176,9 @@
                                 <div class="form_auth__slider_input"></div>
                                 <!-- /.form_auth__slider_input -->
                                 <ul class="gender_code_list">
-                                    <li class="gender_code_list__item" value-view="Male" value="1">Мужской / Male</li>
-                                    <li class="gender_code_list__item" value-view="Woman" value="2">Женский / Woman</li>
+                                    @foreach ($reg_info["gender_codes_all"] as $gender_code)
+                                        <li class="gender_code_list__item" value-view="Male" value="{{ $gender_code->id }}">{{ $gender_code->gender_name_rus }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -198,14 +199,9 @@
                                 <div class="form_auth__slider_input"></div>
                                 <!-- /.form_auth__slider_input -->
                                 <ul class="type_document_list">
-                                    <li class="type_document_list__item" value="1">Паспорт РФ</li>
-                                    <li class="type_document_list__item" value="2">Женский</li>
-                                    <li class="type_document_list__item" value="3">Мужской</li>
-                                    <li class="type_document_list__item" value="4">Женский</li>
-                                    <li class="type_document_list__item" value="5">Мужской</li>
-                                    <li class="type_document_list__item" value="6">Женский</li>
-                                    <li class="type_document_list__item" value="7">Мужской</li>
-                                    <li class="type_document_list__item" value="8">Женский</li>
+                                    @foreach ($reg_info["document_types_all"] as $document_types)
+                                        <li class="type_document_list__item" value-view="Male" value="{{ $document_types->id }}">{{ $document_types->name_document }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="form_auth_block_second">
@@ -227,11 +223,9 @@
                                 <div class="form_auth__slider_input"></div>
                                 <!-- /.form_auth__slider_input -->
                                 <ul class="country_of_issue_list">
-                                    <li class="country_of_issue_list__item" value="1">Россия</li>
-                                    <li class="country_of_issue_list__item" value="2">Америка</li>
-                                    <li class="country_of_issue_list__item" value="3">Казахстна</li>
-                                    <li class="country_of_issue_list__item" value="4">Великобритания</li>
-                                    <li class="country_of_issue_list__item" value="5">Англия</li>
+                                    @foreach ($reg_info["countries_all"] as $countries)
+                                        <li class="country_of_issue_list__item" value-view="Male" value="{{ $countries->id }}">{{ $countries->name_country }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

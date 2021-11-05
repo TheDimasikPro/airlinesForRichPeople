@@ -22,8 +22,15 @@
     }
     &#form_login{
         min-height: auto;
-        .form_auth_block:last-child{
-            margin-bottom: 20px;
+        .form_auth_block{
+            &:last-child{
+                margin-bottom: 20px;
+            }
+            &.error_auth{
+                background: #A90000;
+                color: $white;
+                padding: 10px;
+            }
         }
     }
     h1{
