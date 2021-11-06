@@ -23,6 +23,8 @@ class FlightsSeeder extends Seeder
                 "id_airport_back" =>  rand(1,10),
                 "time_from" => Carbon::now()->format('H:i:s'),
                 "time_back" => Carbon::now()->format('H:i:s'),
+                "date_from" => Carbon::now(),
+                "date_back" => Carbon::now(),
                 "cost" => '4000',
                 "travel_time_from" => '02:30:00',
                 "travel_time_back" => '02:30:00'

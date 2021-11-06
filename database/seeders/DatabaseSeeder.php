@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(AirlineCompaniesSeeder::class);
         // $this->call(FlightsSeeder::class);
         // $this->call(BookingStatusesSeeder::class);
-        // $this->call(BookingsSeeder::class);
+        $this->call(BookingsSeeder::class);
         // $this->call(PassengersSeeder::class);
     }
 }

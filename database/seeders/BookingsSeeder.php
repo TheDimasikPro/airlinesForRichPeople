@@ -20,8 +20,6 @@ class BookingsSeeder extends Seeder
             DB::table('bookings')->insert([
                 'id_flight_from' => rand(1,10),
                 "id_flight_back" => rand(1,10),
-                "date_from" => Carbon::now(),
-                "date_back" => Carbon::now(),
                 "booking_code" => Str::random(6),
                 "id_booking_status" => rand(1,3),
                 "created_at" => Carbon::now(),

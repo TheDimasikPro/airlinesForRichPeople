@@ -18,8 +18,6 @@ class CreateBookingsTable extends Migration
             // $table->foreignId('id_user')->constrained('users');
             $table->foreignId('id_flight_from')->constrained('flights');
             $table->foreignId('id_flight_back')->constrained('flights');
-            $table->date('date_from');
-            $table->date('date_back');
             $table->string('booking_code',50);
             $table->foreignId('id_booking_status')->constrained('booking_statuses');
             $table->timestamps();

@@ -22,6 +22,8 @@ class CreateFlightsTable extends Migration
             $table->time('time_from');
             $table->time('time_back');
             $table->integer('cost');
+            $table->date('date_from');
+            $table->date('date_back');
             // $table->foreignId('id_airplane')->constrained('airplanes');
             $table->time('travel_time_from');
             $table->time('travel_time_back');
