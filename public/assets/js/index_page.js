@@ -361,6 +361,65 @@ $(document).ready(function () {
       countPassInput();
     }
   }); // свое
+  // $('#btn_search').click(function (e) {
+  //     e.preventDefault();
+  //     var id_flight_from = $('.drop_from_flights .dropdown_content__item.select_elem_airport').attr('data-id');
+  //     var id_flight_back = $('.drop_to_flights .dropdown_content__item.select_elem_airport').attr('data-id');
+  //     var date_from = $.trim($('#id_i_d_t').val());
+  //     var date_back = $.trim($('#id_i_d_b').val());
+  //     var count_pass_str = $.trim($('#id_i_c_pass').val());
+  //     if (id_flight_from == null) {
+  //         console.log("Выберите аэропорт вылета");
+  //     }
+  //     else if (id_flight_from == id_flight_back) {
+  //         console.log("Аэропорт 'Обратно' должен отличаться от аэропорта 'Туда'");
+  //     }
+  //     else if (date_from == "") {
+  //         console.log("Выберите дату вылета");
+  //     }
+  //     else if (id_flight_back != null && date_back == "") {
+  //         console.log("Выберите дату вылета обратно");
+  //     }
+  //     else if (count_pass_str == "0 пассажиров") {
+  //         console.log("Кол-во пассажирова должно быть больше 0");
+  //     }
+  //     else{
+  //         var count_pass = count_pass_str.split(' ')[0];
+  //         var formData = new FormData();
+  //         formData.append("id_flight_from",id_flight_from);
+  //         formData.append("id_flight_back",id_flight_back);
+  //         formData.append("date_from",date_from);
+  //         formData.append("date_back",date_back);
+  //         formData.append("count_pass",count_pass);
+  //         // for(let key of formData){
+  //         //     console.log(key);
+  //         // }
+  //         $.ajax({
+  //             headers: {
+  //                 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  //             },
+  //             url: "/search_tickets",
+  //             type: "POST",
+  //             data: formData,
+  //             processData: false,
+  //             cache: false,
+  //             contentType: false,
+  //             beforeSend: function () {
+  //             },
+  //             success: function (data) {
+  //                 if (data.startsWith("[")) {
+  //                     var data_JSON = JSON.parse(data); // преобразовываем ответ с сервера в json
+  //                     if (data_JSON.status) {
+  //                         console.log('крутотень');
+  //                     }
+  //                     else{
+  //                         console.log(formData);
+  //                     }
+  //                 }
+  //             }
+  //         });
+  //     }
+  // });
 });
 /******/ })()
 ;

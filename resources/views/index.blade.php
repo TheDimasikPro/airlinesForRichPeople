@@ -13,10 +13,12 @@
             <!-- /.flights_list -->
             <div class="search_tickets_block">
                 <form action="{{ route('search_tickets__page') }}" class="form form_search_tickets">
+                {{-- <form action="" class="form form_search_tickets"> --}}
                     <div class="form_search_block_inputs" id="from_flight_block_input">
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
-                                <input type="text" class="sm_input input_search_flights" name="flights_from" id="id_i_s_f_f" autocomplete="off" placeholder="Откуда:">
+                                <label for="id_i_s_f_f"></label>
+                                <input type="text" class="sm_input input_search_flights" name="airport_from" id="id_i_s_f_f" autocomplete="off" placeholder="Откуда:">
                                 <button class="dropbtn" type="button" id="dropbtn_from_flights">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -25,11 +27,11 @@
                             <!-- /.input_search_from_block -->
                             <ul class="dropdown_content drop_from_flights">
                                 @foreach ($index_data["airport_data"] as $airport)
-                                    <li class="dropdown_content__item">
+                                    <li class="dropdown_content__item" data-id="{{ $airport->id }}">
                                         <div class="info_country">
                                             <div class="airport_name">{{ $airport->name_eng }}</div>
                                             <!-- /.airport_name -->
-                                            <div class="desc_airport_eng">Airport, {{ $airport->city_eng }}, {{ $airport->country_eng }}</div>
+                                            <div class="desc_airport_eng">Airport, {{ $airport->desc_airport_eng }}</div>
                                             <!-- /.desc_airport_eng -->
                                         </div>
                                         <!-- /.info_country -->
@@ -46,7 +48,8 @@
                     <div class="form_search_block_inputs" id="to_flight_block_input">
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
-                                <input type="text" class="sm_input input_search_flights" name="flights_to" id="id_i_s_f_t" autocomplete="off" placeholder="Куда:">
+                                <label for="id_i_s_f_t"></label>
+                                <input type="text" class="sm_input input_search_flights" name="airport_back" id="id_i_s_f_t" autocomplete="off" placeholder="Куда:">
                                 <button class="dropbtn" type="button" id="dropbtn_to_flights">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -54,36 +57,39 @@
                             </div>
                             <!-- /.input_search_from_block -->
                             <ul class="dropdown_content drop_to_flights">
-                                <li class="dropdown_content__item">
-                                    <div class="info_country">
-                                        <div class="airport_name">Moscow</div>
-                                        <!-- /.airport_name -->
-                                        <div class="desc_airport_eng">Airport, Moscow, Russia</div>
-                                        <!-- /.desc_airport_eng -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="iata_code">
-                                        MOW
-                                    </div>
-                                    <!-- /.iata_code -->
-                                </li>
+                                @foreach ($index_data["airport_data"] as $airport)
+                                    <li class="dropdown_content__item" data-id="{{ $airport->id }}">
+                                        <div class="info_country">
+                                            <div class="airport_name">{{ $airport->name_eng }}</div>
+                                            <!-- /.airport_name -->
+                                            <div class="desc_airport_eng">Airport, {{ $airport->desc_airport_eng }}</div>
+                                            <!-- /.desc_airport_eng -->
+                                        </div>
+                                        <!-- /.info_country -->
+                                        <div class="iata_code">{{ $airport->iata_code }}</div>
+                                        <!-- /.iata_code -->
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <!-- /.dropdown -->
                     </div>
                     <!-- /.form_search_block_inputs -->
                     <div class="form_search_block_inputs there_data" id="id_i_d_t_block">
-                        <input type="date"  autocomplete="off" class="min_input" id="id_i_d_t" placeholder="Туда:">
+                        <label for="id_i_d_t"></label>
+                        <input type="date" name="date_from" autocomplete="off" class="min_input" id="id_i_d_t" placeholder="Туда:">
                     </div>
                     <!-- /.form_date_there_block -->
                     <div class="form_search_block_inputs back_data" id="id_i_d_b_block">
-                        <input type="date"  autocomplete="off" class="min_input" id="id_i_d_b" placeholder="Обратно:">
+                        <label for="id_i_d_b"></label>
+                        <input type="date" name="date_back" autocomplete="off" class="min_input" id="id_i_d_b" placeholder="Обратно:">
                     </div>
                     <!-- /.form_date_back_block -->
                     <div class="form_search_block_inputs" id="count_pass_block_input">
                         <div class="dropdown dd_count_pass">
                             <div class="input_count_pass_block df_jcc_aic">
-                                <input type="text" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="0 пассажиров">
+                                <label for="id_i_c_pass"></label>
+                                <input type="text" name="count_pass" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="0 пассажиров">
                                 <button class="dropbtn" type="button" id="dropbtn_count_pass">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -167,7 +173,7 @@
                     </div>
                     <!-- /.form_date_back_block -->
                     <div class="form_search_block_inputs btn_search_block">
-                        <button class="btn_style_1 upper" id="btn_search" aria-label="btn_search">найти</button>
+                        <button class="btn_style_1 upper" type="submit" id="btn_search" aria-label="btn_search">найти</button>
                     </div>
                     <!-- /.form_search_block_inputs -->
                 </form>

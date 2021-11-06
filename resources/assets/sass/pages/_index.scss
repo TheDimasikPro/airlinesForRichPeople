@@ -60,7 +60,17 @@
                                 align-items: center;
                                 transition: 0.2s;
                             }
-                            
+                            #id_i_c_pass{
+                                // text-align: right;
+                                // &:before {
+                                //     color: #757575;
+                                //     content: attr(placeholder) !important;
+                                //     margin-right: 0.5em;
+                                // }
+                                // &:focus:before {
+                                //     content: '' !important;
+                                // }
+                            }
                         }
                     }
                     .input_search_block{
@@ -114,6 +124,7 @@
                             }
 
                             .info_country{
+                                width: 70%;
                                 .airport_name{
                                     font-size: $fz_second;
                                 }
@@ -221,10 +232,10 @@
                     color: #757575;
                     content: attr(placeholder) !important;
                     margin-right: 0.5em;
-                  }
+                }
                   input:focus:before {
                     content: '' !important;
-                  }
+                }
             }
             .block_inputs_active{
                 border-top: 2px solid $green;

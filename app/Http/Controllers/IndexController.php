@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $airport_data = DB::table('airports')->select('id','iata_code','name_eng','city_eng','country_eng')->limit(50)->get();
+        $airport_data = DB::table('airports')->select('id','iata_code','name_eng','desc_airport_eng')->limit(50)->get();
 
         $min_select_date = "10.09.2021";
         $max_select_date = "10.12.2021";

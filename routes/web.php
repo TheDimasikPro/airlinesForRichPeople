@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BaggageController;
 use App\Http\Controllers\Cabinet\ProfileController;
+use App\Http\Controllers\FlightController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
@@ -91,6 +92,9 @@ Route::prefix('profile')->group(function () {
 
     Route::post('/login', [LoginController::class,'login_check'])->name('login_check');
 });
+
+
+// Route::post('/search_flight', [FlightController::class,'search'])->name('search_flight');
 
 
 

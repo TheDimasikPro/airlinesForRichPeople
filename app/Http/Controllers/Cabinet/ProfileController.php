@@ -51,9 +51,7 @@ class ProfileController extends Controller
                     'document_types_all' => $document_types_all,
                     'gender_codes_all' => $gender_codes_all
                 ];
-                // return view('Cabinet.my_profile',["auth_user" => json_encode($response)]);
-                // return view('Cabinet.my_profile',["auth_user" => json_encode($response)]);
-                return view('Cabinet.my_profile',['auth_user' => $response]);
+                return view('Cabinet.my_profile',["auth_user" => $response]);
             }
             
         }
