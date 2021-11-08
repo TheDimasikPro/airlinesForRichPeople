@@ -1,5 +1,5 @@
 @extends('layouts.app_layout')
-@section('title_page','Рузльтаты поиска билетов')
+@section('title_page','Результаты поиска билетов')
 @section('styles_link')
     <link rel="stylesheet" href="/assets/css/style.min.css">
     <link rel="stylesheet" href="/assets/css/chief-slider.min.css">
@@ -115,17 +115,18 @@
             
             <div class="owl-carousel slide-one owl-theme owl-loaded">
               @foreach ($flight_list as $flight_list__item)
-                <div class="carousel__item">
+                <div class="carousel__item" data-date-start="{{ $flight_list__item->date_start }}" data-date-end="{{ $flight_list__item->date_end }}">
                   <div class="carousel__item__day_of_week upper">{{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('l') }}</div>
                   <!-- /.carousel__item__day_of_week -->
                   <div class="carousel__item__date">
                     {{-- <div class="carousel__item__date__number">{{ \Carbon\Carbon::create($flight_from__item->date_from)->format('l') }}</div> --}}
                     {{-- <div class="carousel__item__date__number">{{ Date::parse($flight_from__item->date_from)->format('j F Y г.') }}</div> --}}
                     <div class="carousel__item__date__number">
-                      <span class="carousel__item__date__number__day">{{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('j') }}</span> 
+                      {{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('j F') }}
+                      {{-- <span class="carousel__item__date__number__day">{{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('j') }}</span> 
                       <!-- /.carousel__item__date__number__day -->
                       <span class="carousel__item__date__number__month">{{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('F') }}</span> 
-                      <!-- /.carousel__item__date__number__month -->
+                      <!-- /.carousel__item__date__number__month --> --}}
                     </div>
                     <!-- /.carousel__item__date__number -->
                     {{-- <div class="carousel__item__date__text">{{ \Jenssegers\Date\Date::parse($flight_from__item->date_from)->format('F') }}</div> --}}
@@ -156,10 +157,10 @@
                         <div class="result_price__flight_to__cards__item__short_info__card__city df_jcspb_aic">
                           <div class="result_price__flight_to__cards__item__short_info__card__city__from_short_info">
                             @if ($flight_list__item["airport_start"]->name_rus == null)
-                              <div class="result_price__flight_to__cards__item__short_info__card__city__from_short_info__name">{{ $flight_list__item["airport_start"]->name_eng }} ({{ $flight_list__item["airport_start"]->iata_code }})</div>
+                              <div class="result_price__flight_to__cards__item__short_info__card__city__from_short_info__name">{{ $flight_list__item["airport_start"]->city_eng }} ({{ $flight_list__item["airport_start"]->iata_code }})</div>
                               <!-- /.result_price__flight_to__cards__item__short_info__card__city__from_short_info__name -->
                             @else
-                              <div class="result_price__flight_to__cards__item__short_info__card__city__from_short_info__name">{{ $flight_list__item["airport_start"]->name_rus }} ({{ $flight_list__item["airport_start"]->iata_code }})</div>
+                              <div class="result_price__flight_to__cards__item__short_info__card__city__from_short_info__name">{{ $flight_list__item["airport_start"]->city_rus }} ({{ $flight_list__item["airport_start"]->iata_code }})</div>
                               <!-- /.result_price__flight_to__cards__item__short_info__card__city__from_short_info__name -->
                             @endif
                             
@@ -174,10 +175,10 @@
                           
                           <div class="result_price__flight_to__cards__item__short_info__card__city__to_short_info">
                             @if ($flight_list__item["airport_end"]->name_rus == null)
-                              <div class="result_price__flight_to__cards__item__short_info__card__city__to_short_info__name">{{ $flight_list__item["airport_end"]->name_eng }} ({{ $flight_list__item["airport_end"]->iata_code }})</div>
+                              <div class="result_price__flight_to__cards__item__short_info__card__city__to_short_info__name">{{ $flight_list__item["airport_end"]->city_eng }} ({{ $flight_list__item["airport_end"]->iata_code }})</div>
                               <!-- /.result_price__flight_to__cards__item__short_info__card__city__to_short_info__name -->
                               @else
-                              <div class="result_price__flight_to__cards__item__short_info__card__city__to_short_info__name">{{ $flight_list__item["airport_end"]->name_rus }} ({{ $flight_list__item["airport_end"]->iata_code }})</div>
+                              <div class="result_price__flight_to__cards__item__short_info__card__city__to_short_info__name">{{ $flight_list__item["airport_end"]->city_rus }} ({{ $flight_list__item["airport_end"]->iata_code }})</div>
                               <!-- /.result_price__flight_to__cards__item__short_info__card__city__to_short_info__name -->
                               @endif
                             <div class="result_price__flight_to__cards__item__short_info__card__city__to_short_info__time">{{ \Carbon\Carbon::createFromFormat('H:i:s',$flight_list__item->time_end)->format('H:i') }}</div>
@@ -193,10 +194,10 @@
                         <!-- /.result_price__flight_to__cards__item__short_info__price__text -->
                         @if ($key == 0)
                         <button class="result_price__flight_to__cards__item__short_info__price__in_basket btn_style_1" 
-                        id="result_flight_to_in_basket" aria-label="result_flight_to_in_basket" data-id-item="result_price__flight_to__cards__item__{{ $key }}">Выбрать</button> <!-- /#result_flight_from_in_basket.result_price__flight_to__cards__item__short_info__price__in_basket btn_style_1 -->
+                        id="result_flight_to_in_basket__{{ $key }}" aria-label="result_flight_to_in_basket" data-id-item="result_price__flight_to__cards__item__{{ $key }}">Выбрать</button> <!-- /#result_flight_from_in_basket.result_price__flight_to__cards__item__short_info__price__in_basket btn_style_1 -->
                         @else
                         <button class="result_price__flight_to__cards__item__short_info__price__in_basket non_view btn_style_1" 
-                        id="result_flight_to_in_basket" aria-label="result_flight_to_in_basket" data-id-item="result_price__flight_to__cards__item__{{ $key }}">Выбрать</button> <!-- /#result_flight_from_in_basket.result_price__flight_to__cards__item__short_info__price__in_basket btn_style_1 -->
+                        id="result_flight_to_in_basket__{{ $key }}" aria-label="result_flight_to_in_basket" data-id-item="result_price__flight_to__cards__item__{{ $key }}">Выбрать</button> <!-- /#result_flight_from_in_basket.result_price__flight_to__cards__item__short_info__price__in_basket btn_style_1 -->
                         @endif
                         
                       </div>

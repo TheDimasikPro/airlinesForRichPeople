@@ -37,14 +37,20 @@
                     </div>
                     <div class="aside__block__info__ticket__info__select_ticket_from">
                         <div class="row_select_ticket_from non_view__select_ticket_form">
-                            <p class="select_ticket_from__date non_view__select_ticket_form">30 октября пт</p>
+                            <p class="select_ticket_from__date non_view__select_ticket_form">{{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('j F Y') }}</p>
                             <!-- /.select_ticket_from__date -->
-                            <p class="select_ticket_from__time non_view__select_ticket_form">06:30 <i class="fas fa-arrow-right" aria-hidden="true"></i> 07:00</p>
+                            <p class="select_ticket_from__time non_view__select_ticket_form">
+                                <span class="select_ticket_from__time_start"></span> 
+                                <!-- /.select_ticket_from__time_start -->  
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                <span class="select_ticket_from__time_end"></span> 
+                                <!-- /.select_ticket_from__time_end -->
+                            </p>
                             <!-- /.select_ticket_from__time -->
                         </div>
                         <!-- /.row_select_ticket_from -->
                         <div class="row_select_ticket_from non_view__select_ticket_form">
-                            <p class="select_ticket_from__number_flight non_view__select_ticket_form">U6-264</p>
+                            <p class="select_ticket_from__number_flight non_view__select_ticket_form upper"></p>
                             <!-- /.select_ticket_from__number_flight -->
                             <p class="name_model_air non_view__select_ticket_form">Airbus A320</p>
                             <!-- /.name_model_air -->

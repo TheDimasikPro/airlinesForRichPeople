@@ -12,22 +12,6 @@ class FlightController extends Controller
 {
     public function returnViewSearchTickets(Request $request)
     {
-        // Date::setLocale('ru');
-        $trans = array("January" => "Январь",
-               "February" => "Февраль",
-               "March" => "Март",
-               "April" => "Апрель",
-               "May" => "Май",
-               "June" => "Июнь",
-               "July" => "Июль",
-               "August" => "Август",
-               "September" => "Сентябрь",
-               "October" => "Октябрь",
-               "November" => "Ноябрь",
-               "December" => "Декабрь"
-            );
-        // return view('search_tickets');
-        // {flights_from}/{flights_back}/{date_from}/{date_back}/{count_pass}
         $validationFileds = Validator::make($request->all(),[
             "airport_from" => [
                 "required",
