@@ -26,6 +26,12 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                .carousel__item__date__number{
+                    text-align: center;
+                    line-height: 40px;
+                    display: flex;
+                    flex-direction: column;
+                }
             }
             
             &:hover{
@@ -34,6 +40,12 @@
         }
         .carousel__item__active{
             border: 2px solid $light_green;
+        }
+        .owl-stage-outer{
+            .owl-stage{
+                display: flex;
+                align-items: center;
+            }
         }
     }
     .result_price__flight_to{
@@ -132,7 +144,7 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    z-index: 99999;
+    z-index: 9999;
     .popup {
         position: fixed;
         top: 50%;
@@ -144,7 +156,7 @@
         background: #fff;
         border: 1px solid orange;
         border-radius: 4px; 
-        z-index: 99999;
+        z-index: 9999;
         opacity: 1;
         .btn_popup_close {
             position: absolute;
@@ -222,9 +234,17 @@
         }
     }
 }
-// @media (max-width: 600px) {
-    
-// }
+@media (max-width: 680px) {
+    .search_tickets__block{
+        .slide-one,.slide-two{
+            .carousel__item{
+                .carousel__item__day_of_week{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
 @media (max-width: 450px) {
     .search_tickets__block {
         .flight_block__info{
@@ -274,7 +294,7 @@
             background: #fff;
             border: 1px solid orange;
             border-radius: 4px; 
-            z-index: 99999;
+            z-index: 9999;
             opacity: 1;
             .btn_popup_close {
                 position: absolute;
@@ -304,10 +324,24 @@
         }
     }
 }
+@media (max-width: 400px) {
+    .search_tickets__block{
+        .slide-one,.slide-two{
+            .carousel__item{
+                .carousel__item__day_of_week{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
 @media (max-width: 350px) {
     .search_tickets__block{
         .slide-one,.slide-two{
             .carousel__item{
+                .carousel__item__day_of_week{
+                    font-size: 11px;
+                }
                 .carousel__item__date{
                     font-size: 18px;
                 }

@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserRolesSeeder::class);
         // $this->call(AirplanesSeeder::class);
         // $this->call(AirlineCompaniesSeeder::class);
-        // $this->call(FlightsSeeder::class);
+        $this->call(FlightsSeeder::class);
         // $this->call(BookingStatusesSeeder::class);
-        $this->call(BookingsSeeder::class);
+        // $this->call(BookingsSeeder::class);
         // $this->call(PassengersSeeder::class);
     }
 }

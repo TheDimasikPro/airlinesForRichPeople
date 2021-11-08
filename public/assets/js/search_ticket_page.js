@@ -4,6 +4,9 @@ var __webpack_exports__ = {};
   !*** ./resources/assets/js/search_ticket_page.js ***!
   \***************************************************/
 $(document).ready(function (e) {
+  setTimeout(function () {
+    $('.owl-item.active.center .carousel__item').addClass('carousel__item__active');
+  }, 100);
   var screenWidth = window.screen.width;
   var screenHeight = window.screen.height;
 

@@ -105,12 +105,14 @@ $(document).ready(function () {
       $('#id_i_d_t_block').removeClass('calendar_active');
 
       if (!target.closest('.geo_posistion_people')) {
+        $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
         $('.nav_menu .geo_posistion_people').removeAttr('style');
         $('.geo_posistion_people').removeClass('geo_posistion_people__active');
         $('.language_currency').removeClass('language_currency_active');
       }
 
       if (!target.closest('.input_count_pass_block')) {
+        $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
         $('.drop_count_pass').removeClass('show_drop_content');
         $('#dropbtn_count_pass').removeClass('rotate_180');
 
@@ -124,6 +126,7 @@ $(document).ready(function () {
       }
 
       if (!target.closest('#dropbtn_from_flights')) {
+        $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
         $('#dropbtn_from_flights').removeClass('rotate_180');
         $('.drop_from_flights').removeClass('show_drop_content');
 
@@ -149,6 +152,8 @@ $(document).ready(function () {
       }
 
       if (!target.closest('.fa-bars')) {
+        $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
+
         if (!$('.fa-times').hasClass('non_view')) {
           $('.fa-bars').removeClass('non_view');
           $('.fa-times').addClass('non_view');
@@ -167,6 +172,7 @@ $(document).ready(function () {
       }
 
       if (!target.closest('#dropbtn_prefix_phone')) {
+        $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
         var dropbtn_prefix_phone = $('#dropbtn_prefix_phone');
 
         if (target.closest('.form_auth_input[id="prefix_phone"]')) {
@@ -183,6 +189,7 @@ $(document).ready(function () {
       }
 
       if (!target.closest('#dropbtn_gender_code')) {
+        $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
         var dropbtn_gender_code = $('#dropbtn_gender_code');
 
         if (target.closest('.form_auth_input[id="gender_code"]')) {
@@ -199,6 +206,7 @@ $(document).ready(function () {
       }
 
       if (!target.closest('#dropbtn_type_document')) {
+        $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
         var dropbtn_type_document = $('#dropbtn_type_document');
 
         if (target.closest('.form_auth_input[id="type_document"]')) {

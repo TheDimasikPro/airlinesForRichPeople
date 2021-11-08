@@ -47,9 +47,9 @@ Route::get('/404_page',[MainController::class,'returnView404Page'])->name('404__
 Route::get('/food_info',[MainController::class,'returnViewFoodInfo'])->name('food_info__page');
 
 Route::prefix('search_tickets')->group(function () {
-    Route::get('/',[TicketController::class,'returnViewSearchTickets'])->name('search_tickets__page');
-    Route::get('/passenger_info',[TicketController::class,'returnViewPassengerInfo'])->name('passenger_info__page');
-    Route::get('/payment_tickets',[TicketController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
+    Route::get('/',[FlightController::class,'returnViewSearchTickets'])->name('search_tickets__page');
+    Route::get('/passenger_info',[FlightController::class,'returnViewPassengerInfo'])->name('passenger_info__page');
+    Route::get('/payment_tickets',[FlightController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
 });
 
 

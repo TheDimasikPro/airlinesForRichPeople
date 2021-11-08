@@ -38,6 +38,7 @@ $(document).ready(function () {
 
 
   flights_list_item.click(function () {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     $('.nav_menu .geo_posistion_people').removeAttr('style');
     $('.geo_posistion_people').removeClass('geo_posistion_people__active');
     $('.language_currency').removeClass('language_currency_active');
@@ -60,6 +61,7 @@ $(document).ready(function () {
     });
   });
   dropbtn_from_flights.click(function () {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     $('.drop_to_flights').removeClass('show_drop_content');
     $('.drop_count_pass').removeClass('show_drop_content');
     $('.language_currency').removeClass('language_currency_active');
@@ -79,6 +81,7 @@ $(document).ready(function () {
     }
   });
   dropbtn_to_flights.click(function () {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     $('.drop_from_flights').removeClass('show_drop_content');
     $('.drop_count_pass').removeClass('show_drop_content');
     $('.language_currency').removeClass('language_currency_active');
@@ -98,6 +101,7 @@ $(document).ready(function () {
     }
   });
   input_search_from_flights.click(function () {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     $('.drop_to_flights').removeClass('show_drop_content');
     $(dropbtn_to_flights).removeClass('rotate_180');
     $('.drop_count_pass').removeClass('show_drop_content');
@@ -112,6 +116,7 @@ $(document).ready(function () {
     }
   });
   input_search_to_flights.click(function () {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     $('.drop_from_flights').removeClass('show_drop_content');
     $('.drop_count_pass').removeClass('show_drop_content');
     $('.language_currency').removeClass('language_currency_active');
@@ -136,6 +141,7 @@ $(document).ready(function () {
     }
   });
   $('.drop_from_flights .dropdown_content__item').click(function (e) {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     var airport_name = $.trim($(this).children('.info_country').children('.airport_name').text());
     var iata_code = $.trim($(this).children('.iata_code').text());
     var new_value_elem = airport_name + " (" + iata_code + ")";
@@ -150,6 +156,7 @@ $(document).ready(function () {
     $(this).addClass("select_elem_airport");
   });
   $('.drop_to_flights .dropdown_content__item').click(function (e) {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     var airport_name = $.trim($(this).children('.info_country').children('.airport_name').text());
     var iata_code = $.trim($(this).children('.iata_code').text());
     var new_value_elem = airport_name + " (" + iata_code + ")";
@@ -164,6 +171,7 @@ $(document).ready(function () {
     $(this).addClass("select_elem_airport");
   });
   input_search_from_flights.keyup(function () {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     var id_input = $(this).attr("id");
     var filter = $(this).val().toUpperCase(); // приводим все к верхнему регистру
 
@@ -176,6 +184,7 @@ $(document).ready(function () {
     }
   });
   input_search_to_flights.keyup(function () {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     var id_input = $(this).attr("id");
     var filter = $(this).val().toUpperCase(); // приводим все к верхнему регистру
 
@@ -188,6 +197,7 @@ $(document).ready(function () {
     }
   });
   input_count_pass_block.click(function () {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     $('.drop_from_flights').removeClass('show_drop_content');
     $('.drop_to_flights').removeClass('show_drop_content');
     $('.language_currency').removeClass('language_currency_active');
@@ -245,11 +255,23 @@ $(document).ready(function () {
   //     $('#id_i_d_t_block').removeClass('block_inputs_active');
   //     $('#id_i_d_b_block').removeClass('block_inputs_active');
   // });
-  // $('#id_i_d_b').click(function (e) {
-  //     e.preventDefault();
-  //     // $('#id_i_d_t').click();
-  // })
-  // счетчик кол-ва пассажиров на форме поиска билетов
+
+  $('#id_i_d_b').click(function (e) {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
+    $('.form_search_block_inputs').removeClass('block_inputs_active');
+    $('#dropbtn_from_flights').removeClass('rotate_180');
+    $('.drop_from_flights').removeClass('show_drop_content');
+    $('#dropbtn_to_flights').removeClass('rotate_180');
+    $('.drop_to_flights').removeClass('show_drop_content');
+  });
+  $('#id_i_d_t').click(function (e) {
+    $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
+    $('.form_search_block_inputs').removeClass('block_inputs_active');
+    $('#dropbtn_from_flights').removeClass('rotate_180');
+    $('.drop_from_flights').removeClass('show_drop_content');
+    $('#dropbtn_to_flights').removeClass('rotate_180');
+    $('.drop_to_flights').removeClass('show_drop_content');
+  }); // счетчик кол-ва пассажиров на форме поиска билетов
 
   var btn_minus_old = $('#btn_minus_old');
   var btn_plus_old = $('#btn_plus_old');

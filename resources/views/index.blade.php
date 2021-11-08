@@ -18,7 +18,7 @@
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
                                 <label for="id_i_s_f_f"></label>
-                                <input type="text" class="sm_input input_search_flights" name="airport_from" id="id_i_s_f_f" autocomplete="off" placeholder="Откуда:">
+                                <input type="text" required class="sm_input input_search_flights" name="airport_from" id="id_i_s_f_f" autocomplete="off" placeholder="Откуда:">
                                 <button class="dropbtn" type="button" id="dropbtn_from_flights">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -77,7 +77,7 @@
                     <!-- /.form_search_block_inputs -->
                     <div class="form_search_block_inputs there_data" id="id_i_d_t_block">
                         <label for="id_i_d_t"></label>
-                        <input type="date" name="date_from" autocomplete="off" class="min_input" id="id_i_d_t" placeholder="Туда:">
+                        <input type="date" required name="date_from" autocomplete="off" class="min_input" id="id_i_d_t" placeholder="Туда:">
                     </div>
                     <!-- /.form_date_there_block -->
                     <div class="form_search_block_inputs back_data" id="id_i_d_b_block">
@@ -89,7 +89,7 @@
                         <div class="dropdown dd_count_pass">
                             <div class="input_count_pass_block df_jcc_aic">
                                 <label for="id_i_c_pass"></label>
-                                <input type="text" name="count_pass" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="0 пассажиров">
+                                <input type="text" required name="count_pass" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="0 пассажиров">
                                 <button class="dropbtn" type="button" id="dropbtn_count_pass">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -178,7 +178,6 @@
                     <!-- /.form_search_block_inputs -->
                 </form>
                 <!-- /.form form_search_tickets -->
-
             </div>
             <!-- /.search_tickets_block -->
             <div class="check_in_block non_view">
@@ -191,6 +190,12 @@
                 <!-- /.form form_check_in -->
             </div>
             <!-- /.check_in_block -->
+            @error('errors')
+                <div class="errors_search_tickets">
+                    {{ $message }}
+                </div>
+                <!-- /.errors_search_tickets -->
+            @enderror
         </div>
         <!-- /.work_with_flights -->
     </section>

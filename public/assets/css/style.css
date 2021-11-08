@@ -600,6 +600,13 @@ input[type=button] {
   border: 1px solid #E5E5E5;
   margin-top: 50px;
 }
+.work_with_flights .errors_search_tickets {
+  padding: 10px;
+  background: #A90000;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 30px;
+}
 .work_with_flights .flights_list {
   font-size: 20px;
 }
@@ -1563,21 +1570,20 @@ input[type=button] {
 .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div {
   display: flex;
   justify-content: space-between;
-}
-.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div:not(:first-child) {
-  margin-top: 10px;
-}
-.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div:first-child {
   margin-top: 15px;
+}
+.aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info div .non_view__select_ticket_form {
+  display: none;
+  margin: 0;
 }
 .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info {
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__from, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__to {
   display: flex;
   justify-content: start;
-  font-size: 16px;
+  font-size: 14px;
 }
 .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__from .from_airport_name, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__from .to_airport_name, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__to .from_airport_name, .aside__block .aside__block__info .aside__block__info__ticket .aside__block__info__ticket__info .aside__block__info__ticket__info__city_info .aside__block__info__ticket__info__city_info__to .to_airport_name {
   margin-top: -5px;
@@ -1609,6 +1615,13 @@ input[type=button] {
 }
 .aside__block .aside__block__info .select_ticket_from h3 {
   border-bottom: 1px solid #ffffff;
+}
+.aside__block .aside__block__info .select_ticket_end {
+  background: #004369;
+  color: #ffffff;
+}
+.aside__block .aside__block__info .select_ticket_end h3 {
+  border-bottom: 1px solid #A90000;
 }
 .aside__block .aside__block__info__all_price {
   padding: 10px;
@@ -1646,11 +1659,21 @@ input[type=button] {
   flex-direction: column;
   align-items: center;
 }
+.search_tickets__block .slide-one .carousel__item .carousel__item__date .carousel__item__date__number, .search_tickets__block .slide-two .carousel__item .carousel__item__date .carousel__item__date__number {
+  text-align: center;
+  line-height: 40px;
+  display: flex;
+  flex-direction: column;
+}
 .search_tickets__block .slide-one .carousel__item:hover, .search_tickets__block .slide-two .carousel__item:hover {
   background: #F7F7F7;
 }
 .search_tickets__block .slide-one .carousel__item__active, .search_tickets__block .slide-two .carousel__item__active {
   border: 2px solid #52C9B9;
+}
+.search_tickets__block .slide-one .owl-stage-outer .owl-stage, .search_tickets__block .slide-two .owl-stage-outer .owl-stage {
+  display: flex;
+  align-items: center;
 }
 .search_tickets__block .result_price__flight_to {
   margin: 50px 0;
@@ -1736,7 +1759,7 @@ input[type=button] {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  z-index: 99999;
+  z-index: 9999;
 }
 .popup_modal .popup {
   position: fixed;
@@ -1749,7 +1772,7 @@ input[type=button] {
   background: #fff;
   border: 1px solid orange;
   border-radius: 4px;
-  z-index: 99999;
+  z-index: 9999;
   opacity: 1;
 }
 .popup_modal .popup .btn_popup_close {
@@ -1801,6 +1824,11 @@ input[type=button] {
     font-size: 18px;
   }
 }
+@media (max-width: 680px) {
+  .search_tickets__block .slide-one .carousel__item .carousel__item__day_of_week, .search_tickets__block .slide-two .carousel__item .carousel__item__day_of_week {
+    font-size: 14px;
+  }
+}
 @media (max-width: 450px) {
   .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_from .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_from .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_from .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_from .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_from .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_from .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_from .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_block .result_price__flight_from .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_to .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_to .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_from .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_from .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_from .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_from .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_from .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_from .result_price__flight_to__cards .result_price__flight_to__cards__item .result_price__flight_from__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_from .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_to__cards__item__short_info, .search_tickets__block .flight_block__info .flight_from_to .result_price__flight_from .result_price__flight_to__cards .result_price__flight_from__cards__item .result_price__flight_from__cards__item__short_info {
     font-size: 12px;
@@ -1829,7 +1857,7 @@ input[type=button] {
     background: #fff;
     border: 1px solid orange;
     border-radius: 4px;
-    z-index: 99999;
+    z-index: 9999;
     opacity: 1;
   }
   .popup_modal .popup .btn_popup_close {
@@ -1852,7 +1880,15 @@ input[type=button] {
     margin-left: 20px;
   }
 }
+@media (max-width: 400px) {
+  .search_tickets__block .slide-one .carousel__item .carousel__item__day_of_week, .search_tickets__block .slide-two .carousel__item .carousel__item__day_of_week {
+    font-size: 12px;
+  }
+}
 @media (max-width: 350px) {
+  .search_tickets__block .slide-one .carousel__item .carousel__item__day_of_week, .search_tickets__block .slide-two .carousel__item .carousel__item__day_of_week {
+    font-size: 11px;
+  }
   .search_tickets__block .slide-one .carousel__item .carousel__item__date, .search_tickets__block .slide-two .carousel__item .carousel__item__date {
     font-size: 18px;
   }

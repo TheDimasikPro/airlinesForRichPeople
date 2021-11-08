@@ -13,20 +13,21 @@ class CreateFlightsTable extends Migration
      */
     public function up()
     {
+        // поля id_airport_end, time_end и date_end должны быть null
         Schema::create('flights', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('flight_code');
             // $table->foreignId('id_airline_company')->constrained('airline_companies');
-            $table->foreignId('id_airport_from')->constrained('airports');
-            $table->foreignId('id_airport_back')->constrained('airports');
-            $table->time('time_from');
-            $table->time('time_back');
+            $table->foreignId('id_airport_start')->constrained('airports');
+            $table->foreignId('id_airport_end')->constrained('airports');
+            $table->time('time_start');
+            $table->time('time_end')->nullable(true);
             $table->integer('cost');
-            $table->date('date_from');
-            $table->date('date_back');
+            $table->date('date_start');
+            $table->date('date_end')->nullable(true);
             // $table->foreignId('id_airplane')->constrained('airplanes');
-            $table->time('travel_time_from');
-            $table->time('travel_time_back');
+            $table->time('travel_time');
+            // $table->time('travel_time_back');
             $table->timestamps();
         });
     }

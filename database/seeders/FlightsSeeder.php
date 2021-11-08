@@ -19,15 +19,15 @@ class FlightsSeeder extends Seeder
         for ($i=0; $i < 11; $i++) { 
             DB::table('flights')->insert([
                 'flight_code' => Str::random(6),
-                "id_airport_from" => rand(1,10),
-                "id_airport_back" =>  rand(1,10),
-                "time_from" => Carbon::now()->format('H:i:s'),
-                "time_back" => Carbon::now()->format('H:i:s'),
-                "date_from" => Carbon::now(),
-                "date_back" => Carbon::now(),
-                "cost" => '4000',
-                "travel_time_from" => '02:30:00',
-                "travel_time_back" => '02:30:00'
+                "id_airport_start" => rand(1,10),
+                "id_airport_end" =>  rand(1,10),
+                "time_start" => Carbon::now()->format('H:i:s'),
+                "time_end" => Carbon::now()->format('H:i:s'),
+                "date_start" => Carbon::now(),
+                "date_end" => Carbon::now(),
+                "cost" => rand(3000,10000),
+                "travel_time" => '02:30:00',
+                // "travel_time_back" => '02:30:00'
             ]);
         }
         

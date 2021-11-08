@@ -7,6 +7,13 @@
     background: $white;
     border: 1px solid $gray_5;
     margin-top: 50px;
+    .errors_search_tickets{
+        padding: 10px;
+        background: #A90000;
+        color: $white;
+        font-size: $fz_second;
+        margin-top: 30px;
+    }
     .flights_list{
         font-size: $fz_last;
         li{

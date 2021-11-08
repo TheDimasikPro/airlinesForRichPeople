@@ -1,4 +1,9 @@
 $(document).ready(function (e) {
+
+    setTimeout(() => {
+        $('.owl-item.active.center .carousel__item').addClass('carousel__item__active');
+    }, 100);
+    
     var screenWidth = window.screen.width;
     var screenHeight = window.screen.height;
     window.onresize = function(event) {

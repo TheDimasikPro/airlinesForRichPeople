@@ -406,6 +406,15 @@
                 0 => 'v8.64.0',
             ),
         ),
+        'jenssegers/date' => array(
+            'pretty_version' => 'v4.0.0',
+            'version' => '4.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jenssegers/date',
+            'aliases' => array(),
+            'reference' => '506f86096e0b512f9ece6ad0ccae62b03c125771',
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
