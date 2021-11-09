@@ -1562,7 +1562,6 @@ input[type=button] {
 .aside__block .aside__block__info .aside__block__info__ticket:not(:first-child) {
   border-top: 1px solid rgba(190, 190, 190, 0.3);
   margin-top: 20px;
-  padding: 10px 0;
 }
 .aside__block .aside__block__info .aside__block__info__ticket h3 {
   text-align: left;
@@ -1617,11 +1616,16 @@ input[type=button] {
   border-bottom: 1px solid #ffffff;
 }
 .aside__block .aside__block__info .select_ticket_end {
-  background: #004369;
+  background: #A90000;
   color: #ffffff;
 }
 .aside__block .aside__block__info .select_ticket_end h3 {
-  border-bottom: 1px solid #A90000;
+  border-bottom: 1px solid #ffffff;
+}
+.aside__block .aside__block__info .error_aside_tickets {
+  background: #A90000;
+  color: #ffffff;
+  padding: 10px;
 }
 .aside__block .aside__block__info__all_price {
   padding: 10px;
@@ -1741,6 +1745,12 @@ input[type=button] {
   overflow: hidden;
 }
 
+.error_passenger_info {
+  background: #A01010;
+  color: #ffffff;
+  padding: 10px;
+}
+
 .popup_fade {
   content: "";
   background: #000;
@@ -1784,17 +1794,18 @@ input[type=button] {
   margin: 30px 0;
 }
 .popup_modal .popup .popup_order_block .popup_order_block__info .popup_order_block__info__from .popup_order_block__info__from__date_time {
-  margin-top: 15px;
+  margin-top: 10px;
+  line-height: 22px;
 }
 .popup_modal .popup .popup_order_block .popup_order_block__info .popup_order_block__info__from .popup_order_block__info__from__details_air {
   display: flex;
-  margin-top: 15px;
-}
-.popup_modal .popup .popup_order_block .popup_order_block__info .popup_order_block__info__from .popup_order_block__info__from__details_air .popup_order_block__info__from__details_air__name_modal_air {
-  margin-left: 20px;
+  margin-top: 30px;
+  justify-content: space-between;
+  align-items: center;
 }
 .popup_modal .popup #btn_continune_order {
   width: 100%;
+  margin-top: 20px;
 }
 
 @media (max-width: 1020px) {
@@ -1896,6 +1907,15 @@ input[type=button] {
     text-align: center;
   }
 }
+#passenger_order_info {
+  display: flex;
+}
+#passenger_order_info .container {
+  width: 1200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .passenger_info_block {
   margin-top: 50px;
   align-items: flex-start;
@@ -1905,7 +1925,7 @@ input[type=button] {
   text-align: center;
 }
 .passenger_info_block .passenger_info_block__forms_block {
-  width: 75%;
+  width: 100%;
 }
 .passenger_info_block .passenger_info_block__forms_block input:not(input[type=checkbox]) {
   border: none;
@@ -1956,11 +1976,14 @@ input[type=button] {
   background: #ffffff;
   box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
 }
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .warning_text {
+  margin-bottom: 20px;
+}
 .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger {
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block {
   position: relative;
@@ -2001,63 +2024,90 @@ input[type=button] {
 .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(n+1) {
   margin-top: 20px;
 }
-.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:not(:nth-child(3n+1)) {
-  margin-left: 57px;
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger_type_document__dropbtn, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger_citizenship__dropbtn {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list {
+  transform-origin: 0 0;
+  transform: scaleY(0);
+  transition: 0.2s;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border-top: 0;
+  border-bottom: 1px solid #eeeeee;
+  max-width: 250px;
+  z-index: 1000;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list::-webkit-scrollbar, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list::-webkit-scrollbar {
+  width: 7px;
+  background-color: #f9f9fd;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list::-webkit-scrollbar-thumb, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #004369;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list::-webkit-scrollbar-track, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9fd;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__type_document_list__item, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__citizenship_list__item, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__type_document_list__item, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__citizenship_list__item {
+  padding: 10px;
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #222222;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__type_document_list__item:hover, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__citizenship_list__item:hover, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__type_document_list__item:hover, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__citizenship_list__item:hover {
+  cursor: pointer;
+  background: #F7F7F7;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__type_document_list__item:last-child, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__citizenship_list__item:last-child, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__type_document_list__item:last-child, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__citizenship_list__item:last-child {
+  border-bottom: none;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__type_document_list__item:not(:first-child), .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__citizenship_list__item:not(:first-child), .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__type_document_list__item:not(:first-child), .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__citizenship_list__item:not(:first-child) {
+  border-top: none;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .select_list__item, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .select_list__item {
+  background: #84C2AD;
+  color: #ffffff;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .select_list__item:hover, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .select_list__item:hover {
+  color: #222222;
+  background: #84C2AD;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .show_drop_content {
+  transition: 0.2s;
+  transform: scaleY(1);
+  height: auto;
+}
+.passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger_full_info__type_document_input:hover {
+  cursor: auto;
 }
 .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item:not(:first-child) {
   margin-top: 30px;
 }
+.passenger_info_block #payment_ticket_btn {
+  margin-top: 50px;
+  background: #A01010;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 15px 20px;
+}
+.passenger_info_block #payment_ticket_btn:hover {
+  background: #52C9B9;
+  color: #222222;
+}
 
-@media (max-width: 1210px) {
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) .btn_gender_form_passenger {
-    width: 110px;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .sm_input {
-    width: 220px;
-  }
-}
-@media (max-width: 1110px) {
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) .btn_gender_form_passenger {
-    width: 100px;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .sm_input {
-    width: 200px;
-  }
-}
-@media (max-width: 1060px) {
-  .my_order__block_mobile {
-    display: flex;
-  }
-
-  .passenger_info_block .aside__block {
-    display: none;
-  }
-  .passenger_info_block .passenger_info_block__forms_block {
-    width: 100%;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block {
-    margin-left: 57px;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) {
-    margin-left: 57px;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(4) .btn_gender_form_passenger {
-    width: 100px;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-last-child(n-2) {
-    margin-left: 57px;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:first-child {
-    margin-left: 0;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block:nth-child(5) {
-    margin-left: 0;
-  }
-  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .sm_input {
-    width: 200px;
-  }
-}
-@media (max-width: 1020px) {
+@media (max-width: 1080px) {
   .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger {
     flex-direction: column;
   }
@@ -2081,6 +2131,17 @@ input[type=button] {
     margin-left: 0;
   }
   .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .sm_input {
+    width: 100%;
+  }
+  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger_type_document__dropbtn, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger_citizenship__dropbtn {
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list {
+    max-width: 100%;
+  }
+  .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__type_document_list__item, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list .passenger__citizenship_list__item, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__type_document_list__item, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list .passenger__citizenship_list__item {
     width: 100%;
   }
 }

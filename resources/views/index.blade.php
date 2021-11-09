@@ -13,6 +13,9 @@
             <!-- /.flights_list -->
             <div class="search_tickets_block">
                 <form action="{{ route('search_tickets__page') }}" class="form form_search_tickets">
+                    <input type="text" class="non_view" name="old_count_people" value="0">
+                    <input type="text" class="non_view" name="kids_count_people" value="0">
+                    <input type="text" class="non_view" name="baby_count_people" value="0">
                 {{-- <form action="" class="form form_search_tickets"> --}}
                     <div class="form_search_block_inputs" id="from_flight_block_input">
                         <div class="dropdown">

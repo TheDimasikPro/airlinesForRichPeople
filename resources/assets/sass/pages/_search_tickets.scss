@@ -127,6 +127,12 @@
 .body_popup__open{
     overflow: hidden;
 }
+.error_passenger_info{
+    background: #A01010;
+    color: $white;
+    padding: 10px;
+    
+}
 .popup_fade{
     content: '';
 	background: #000;
@@ -170,20 +176,24 @@
                     .popup_order_block__info__from__city{
                     }
                     .popup_order_block__info__from__date_time{
-                        margin-top: 15px;
+                        margin-top: 10px;
+                        line-height: 22px;
                     }
                     .popup_order_block__info__from__details_air{
                         display: flex;
-                        margin-top: 15px;
-                        .popup_order_block__info__from__details_air__name_modal_air{
-                            margin-left: 20px;
-                        }
+                        margin-top: 30px;
+                        justify-content: space-between;
+                        align-items: center;
+                        // .popup_order_block__info__from__details_air__number_flight{
+                        //     margin-left: 20px;
+                        // }
                     }
                 }
             }
         }
         #btn_continune_order{
             width: 100%;
+            margin-top: 20px;
         }
     }
 }
@@ -309,6 +319,7 @@
                         .popup_order_block__info__from__city{
                         }
                         .popup_order_block__info__from__date_time{
+                            
                             margin-top: 15px;
                         }
                         .popup_order_block__info__from__details_air{

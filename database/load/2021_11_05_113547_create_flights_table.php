@@ -28,6 +28,8 @@ class CreateFlightsTable extends Migration
             // $table->foreignId('id_airplane')->constrained('airplanes');
             $table->time('travel_time');
             // $table->time('travel_time_back');
+            $table->integer('number_of_free_seats');
+            $table->integer('number_of_seats');
             $table->timestamps();
         });
     }

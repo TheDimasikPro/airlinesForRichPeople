@@ -27,7 +27,10 @@ class FlightsSeeder extends Seeder
                 "date_end" => Carbon::now(),
                 "cost" => rand(3000,10000),
                 "travel_time" => '02:30:00',
+                "number_of_seats" => rand(100,200),
+                "number_of_free_seats" => rand(20,50),
                 // "travel_time_back" => '02:30:00'
+
             ]);
         }
         

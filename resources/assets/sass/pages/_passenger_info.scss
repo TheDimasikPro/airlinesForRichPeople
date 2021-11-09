@@ -1,3 +1,11 @@
+#passenger_order_info{
+    display: flex;
+    .container{
+        width: 1200px;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
 .passenger_info_block{
     margin-top: 50px;
     align-items: flex-start;
@@ -6,7 +14,7 @@
         text-align: center;
     }
     .passenger_info_block__forms_block{
-        width: 75%;
+        width: 100%;
         input:not(input[type="checkbox"]){
             border: none;
             border-bottom: 1px solid $black_gray;
@@ -56,14 +64,18 @@
                 padding: 10px;
                 background: $white;
                 box-shadow: 0px 10px 15px 5px rgba(34, 60, 80, 0.2);
+                .warning_text{
+                    margin-bottom: 20px;
+                }
                 .passenger_full_info__forms_block__form_passenger{
                     margin-top: 10px;
                     display: flex;
                     flex-wrap: wrap;
-                    justify-content: flex-start;
-                    // align-items: start;
+                    justify-content: space-between;
+                    // align-items: center;
                     .passenger_full_info__forms_block__form_passenger__input_block{
                         position: relative;
+
                         &:nth-child(4){
                             display: flex;
                             .btn_gender_form_passenger{
@@ -100,8 +112,66 @@
                         &:nth-child(n+1){
                             margin-top: 20px;
                         }
-                        &:not(:nth-child(3n+1)){
-                            margin-left: 57px;
+
+                        .passenger_type_document__dropbtn,.passenger_citizenship__dropbtn{
+                            position: absolute;
+                            right: 0;
+                            top: 10px;
+                        }
+                        
+                        .passenger__type_document_list,.passenger__citizenship_list{
+                            transform-origin: 0 0;
+                            transform: scaleY(0);
+                            transition: 0.2s;
+                            background: $white;
+                            display: flex;
+                            flex-direction: column;
+                            height: 0;
+                            max-height: 200px;
+                            overflow-y: auto;
+                            border-top: 0;
+                            border-bottom: 1px solid $gray_3;
+                            // position: relative;
+                            max-width: 250px;
+                            z-index: 1000;
+                            @include custom_scroll_bar;
+                            .passenger__type_document_list__item,.passenger__citizenship_list__item{
+                                padding: 10px;
+                                border:1px solid $gray_3;
+                                background: $white;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                color: $black;
+                                &:hover{
+                                    cursor: pointer;
+                                    background: $gray_4;
+                                }
+                                &:last-child{
+                                    border-bottom: none;
+                                }
+                                &:not(:first-child){
+                                    border-top: none;
+                                }
+                            }
+                            .select_list__item{
+                                background: $light_green_2;
+                                color: $white;
+                                &:hover{
+                                    color: $black;
+                                    background: $light_green_2;
+                                }
+                            }
+                        }
+                        .show_drop_content{
+                            transition: 0.2s;
+                            transform: scaleY(1);
+                            height: auto;
+                        }
+                        .passenger_full_info__type_document_input{
+                            &:hover{
+                                cursor: auto;
+                            }
                         }
                     }
                 }
@@ -112,94 +182,21 @@
             
         }
     }
-}
-@media (max-width: 1210px) {
-    .passenger_info_block{
-        .passenger_info_block__forms_block{
-            .passenger_full_info__forms_block{
-                .passenger_full_info__forms_block__item{
-                    .passenger_full_info__forms_block__form_passenger{
-                        .passenger_full_info__forms_block__form_passenger__input_block{
-                            &:nth-child(4){
-                                .btn_gender_form_passenger{
-                                    width: 110px;
-                                }
-                            }
-                            .sm_input{
-                                width: 220px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@media (max-width: 1110px) {
-    .passenger_info_block{
-        .passenger_info_block__forms_block{
-            .passenger_full_info__forms_block{
-                .passenger_full_info__forms_block__item{
-                    .passenger_full_info__forms_block__form_passenger{
-                        .passenger_full_info__forms_block__form_passenger__input_block{
-                            &:nth-child(4){
-                                .btn_gender_form_passenger{
-                                    width: 100px;
-                                }
-                            }
-                            .sm_input{
-                                width: 200px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@media (max-width: 1060px) {
-    .my_order__block_mobile{
-        display: flex;
-    }
-    .passenger_info_block {
-        .aside__block{
-            display: none;
-        }
-        .passenger_info_block__forms_block{
-            width: 100%;
-            .passenger_full_info__forms_block{
-                .passenger_full_info__forms_block__item{
-                    .passenger_full_info__forms_block__form_passenger{
-                        .passenger_full_info__forms_block__form_passenger__input_block{
-                            margin-left: 57px;
-                            &:nth-child(4){
-                                margin-left: 57px;
-                                .btn_gender_form_passenger{
-                                    width: 100px;
-                                }
-                            }
-                            
-                            &:nth-last-child(n-2){
-                                margin-left: 57px;
-                            }
-                            &:first-child{
-                                margin-left: 0;
-                            }
-                            &:nth-child(5){
-                                margin-left: 0;
-                            }
-                            .sm_input{
-                                width: 200px;
-                            }
-                        }
-                    }
-                }
-            }
+    #payment_ticket_btn{
+        margin-top: 50px;
+        background: #A01010;
+        color: $white;
+        font-size: $fz_last;
+        padding: 15px 20px;
+        &:hover{
+            background: $light_green;
+            color: $black;
         }
     }
 }
 
-@media (max-width: 1020px) {
+
+@media (max-width: 1080px) {
     .passenger_info_block {
         .passenger_info_block__forms_block{
             .passenger_full_info__forms_block{
@@ -227,6 +224,19 @@
                             }
                             .sm_input{
                                 width: 100%;
+                            }
+
+                            .passenger_type_document__dropbtn,.passenger_citizenship__dropbtn{
+                                position: absolute;
+                                right: 0;
+                                top: 10px;
+                            }
+                            
+                            .passenger__type_document_list,.passenger__citizenship_list{
+                                max-width: 100%;
+                                .passenger__type_document_list__item,.passenger__citizenship_list__item{
+                                    width: 100%;
+                                }
                             }
                         }
                     }

@@ -1,3 +1,7 @@
+// const { forEach } = require("lodash");
+
+const { find } = require("lodash");
+
 $(document).ready(function () {
     const dropbtn_from_flights = $('#dropbtn_from_flights');
     const dropbtn_to_flights = $('#dropbtn_to_flights');
@@ -77,7 +81,20 @@ $(document).ready(function () {
                     $('#country_of_issue_user').val(valueLi);
                 }
             }
-            
+            if ($('.passenger__citizenship_list').length) {
+                if (valueLi.toUpperCase().indexOf(filter) > -1) { // если найденный индекс элемента > 1
+                    elements[i].style.display = "";
+                    $(elements[i]).addClass('select_list__item');
+                }
+                else {
+                    elements[i].style.display = "none";
+                    $(elements[i]).removeClass('select_list__item');
+                }
+                if (valueLi.toUpperCase() === $('#'+id_input).val().toUpperCase()) {
+                    $('.passenger__citizenship_list').removeClass('show_drop_content');
+                    $('#'+id_input).val(valueLi);
+                }
+            }
         });
     }
     
@@ -340,5 +357,137 @@ $(document).ready(function () {
         $('body').removeClass('body_popup__open');
         $('.popup_fade').addClass('non_view');
         $('.popup_modal').addClass('non_view');
-    })
+    });
+
+
+    // списки на странице информации о пассажирах
+    $('.passenger_type_document__dropbtn').click(function (e) {
+        e.preventDefault();
+        var this_id = $(this).attr('id');
+        if (!$(this).hasClass('rotate_180')) {
+            $('.passenger__type_document_list[id="'+this_id+'"]').addClass('show_drop_content');
+            $('.passenger_type_document__dropbtn').removeClass('rotate_180');
+            $('.passenger__citizenship_list').removeClass('show_drop_content');
+            $(this).addClass('rotate_180');
+            
+        }
+        else{
+            $('.passenger__type_document_list[id="'+this_id+'"]').removeClass('show_drop_content');
+            $(this).removeClass('rotate_180');
+        }
+    });
+    $('.passenger__type_document_list__item').click(function (e) {
+        e.preventDefault();
+        var id_input = $(this).parent('.passenger__type_document_list').parent('.passenger_full_info__forms_block__form_passenger__input_block').find('.passenger_full_info__type_document_input').attr('id');
+        $('.passenger__type_document_list').removeClass('show_drop_content');
+        $('.passenger_full_info__type_document_input[id="'+id_input+'"]').val($(this).text());
+        $('.passenger__type_document_list__item').removeClass('select_list__item');
+        $('.passenger_type_document__dropbtn').removeClass('rotate_180');
+        $(this).addClass('select_list__item');
+    });
+
+    $('.passenger_citizenship__dropbtn').click(function (e) {
+        e.preventDefault();
+        var this_id = $(this).attr('id');
+        if (!$(this).hasClass('rotate_180')) {
+            $('.passenger__citizenship_list').removeClass('show_drop_content');
+            $('.passenger__type_document_list').removeClass('show_drop_content');
+            $('.passenger__citizenship_list[id="'+this_id+'"]').addClass('show_drop_content');
+            $('.passenger_citizenship__dropbtn').removeClass('rotate_180');
+            
+            $(this).addClass('rotate_180');
+        }
+        else{
+            $('.passenger__citizenship_list[id="'+this_id+'"]').removeClass('show_drop_content');
+            $(this).removeClass('rotate_180');
+        }
+    });
+
+    $('.citizenship_input_form_passenger').keyup(function () {
+        if (!$('.passenger__citizenship_list').hasClass('show_drop_content')) {
+            $('.passenger__citizenship_list').addClass('show_drop_content');
+        }
+        var id_input = $(this).attr("id");
+        var filter = $(this).val().toUpperCase(); // приводим все к верхнему регистру
+        var elements = $('.passenger__citizenship_list .passenger__citizenship_list__item'); // все элементы с классом dropdown-content--item
+        searchСountryOfIssue(id_input,filter,elements);
+        if($(this).val() === ""){
+            $(elements).removeClass('select_list__item');
+        }
+    });
+    $('.passenger__citizenship_list__item').click(function (e) {
+        e.preventDefault();
+        var id_input = $(this).parent('.passenger__citizenship_list').parent('.passenger_full_info__forms_block__form_passenger__input_block').find('.citizenship_input_form_passenger').attr('id');
+        $('.passenger__citizenship_list').removeClass('show_drop_content');
+        $('.citizenship_input_form_passenger[id="'+id_input+'"]').val($(this).text());
+        $('.passenger__citizenship_list__item').removeClass('select_list__item');
+        $('.passenger_citizenship__dropbtn').removeClass('rotate_180');
+        $(this).addClass('select_list__item');
+    });
+
+
+    $('.btn_gender_form_passenger').click(function (e) {
+        $(this).parent('.passenger_full_info__forms_block__form_passenger__input_block').find('button').removeClass('select_btn_gender_form_passenger');
+        $(this).addClass('select_btn_gender_form_passenger');
+    });
+
+    $('#payment_ticket_btn').click(function (e) {
+        e.preventDefault();
+
+        var formDataArray = [];
+        var formsPassenger = $('.passenger_full_info__forms_block__form_passenger');
+        // console.log(formsPassenger);
+        for (let index = 0; index < formsPassenger.length; index++) {
+            var element = formsPassenger[index];
+            const arr = new Map();
+            for (let y = 0; y < element.length; y++) {
+                var Yelement = element[y];
+                // console.log($(Yelement)[0]["name"]);
+                
+                switch ($(Yelement)[0]["name"]) {
+                    case "last-name":
+                        arr.set('last_name',$(Yelement).val());
+                        break;
+                    case "first-name":
+                        arr.set('first_name',$(Yelement).val());
+                        break;
+                    case "first-name":
+                        arr.set('first_name',$(Yelement).val());
+                        break;
+                    case "other-name":
+                        arr.set('other_name',$(Yelement).val());
+                        break;
+                    case "date-bithday":
+                        arr.set('date_bithday',$(Yelement).val());
+                        break;
+                    case "citizenship":
+                        arr.set('citizenship_id_country',$(element).find('.passenger__citizenship_list .passenger__citizenship_list__item.select_list__item').val());
+                        break;
+                    case "type-document":
+                        arr.set('type_document',$(element).find('.passenger__type_document_list .passenger__type_document_list__item.select_list__item').val());
+                        break; 
+                    case "series-numbers-document":
+                        arr.set('series_numbers_document',$(Yelement).val());
+                        break;    
+                    default:
+                        break;
+                }
+                
+                
+            }
+            formDataArray.push(arr);
+            console.log("Форма закончилась");
+        }
+        for (let index = 0; index < formDataArray.length; index++) {
+            var element = formDataArray[index];
+            // console.log(element);
+            for (let pair of element.entries()) {
+                // pair - это массив [key, values]
+                console.log(`Ключ = ${pair[0]}, значение = ${pair[1]}`);
+              }
+        }
+        
+    });
+    // списки на странице информации о пассажирах
+
 });

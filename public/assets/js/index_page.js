@@ -311,6 +311,9 @@ $(document).ready(function () {
   }
 
   ;
+  var count_old_people = 0;
+  var count_kids_people = 0;
+  var count_baby_people = 0;
   btn_plus_old.click(function (e) {
     e.preventDefault();
     var old_count_pass_value = Number(old_count_pass.text());
@@ -318,9 +321,11 @@ $(document).ready(function () {
     if (Number(old_count_pass_value) == 9) {
       old_count_pass.text("9");
     } else {
+      count_old_people += 1;
       var new_value = old_count_pass_value + 1;
       old_count_pass.text(new_value);
       countPassInput();
+      $('input[name="old_count_people"]').val(count_old_people);
     }
   });
   btn_minus_old.click(function (e) {
@@ -332,7 +337,9 @@ $(document).ready(function () {
     } else {
       var new_value = old_count_pass_value - 1;
       old_count_pass.text(new_value);
+      count_old_people -= 1;
       countPassInput();
+      $('input[name="old_count_people"]').val(count_old_people);
     }
   });
   btn_plus_kids.click(function (e) {
@@ -344,7 +351,9 @@ $(document).ready(function () {
     } else {
       var new_value = kids_count_pass_value + 1;
       kids_count_pass.text(new_value);
+      count_kids_people += 1;
       countPassInput();
+      $('input[name="kids_count_people"]').val(count_kids_people);
     }
   });
   btn_minus_kids.click(function (e) {
@@ -355,8 +364,10 @@ $(document).ready(function () {
       kids_count_pass.text("0");
     } else {
       var new_value = kids_count_pass_value - 1;
+      count_kids_people -= 1;
       kids_count_pass.text(new_value);
       countPassInput();
+      $('input[name="kids_count_people"]').val(count_kids_people);
     }
   });
   btn_plus_baby.click(function (e) {
@@ -368,7 +379,9 @@ $(document).ready(function () {
     } else {
       var new_value = baby_count_pass_value + 1;
       baby_count_pass.text(new_value);
+      count_baby_people += 1;
       countPassInput();
+      $('input[name="baby_count_people"]').val(count_baby_people);
     }
   });
   btn_minus_baby.click(function (e) {
@@ -380,7 +393,9 @@ $(document).ready(function () {
     } else {
       var new_value = baby_count_pass_value - 1;
       baby_count_pass.text(new_value);
+      count_baby_people -= 1;
       countPassInput();
+      $('input[name="baby_count_people"]').val(count_baby_people);
     }
   }); // свое
   // $('#btn_search').click(function (e) {

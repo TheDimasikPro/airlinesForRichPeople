@@ -23,10 +23,10 @@ class CreatePassengersTable extends Migration
             $table->date('date_of_birthday',50)->nullable(false);
             $table->foreignId('id_document_type')->constrained('document_types');
             $table->string('series_and_document_number',20)->nullable(false)->unique('series_and_document_number')->nullable(false);
-            $table->integer('row_number_from');
-            $table->integer('row_number_back');
-            $table->integer('place_number_from');
-            $table->integer('place_number_back');
+            $table->integer('row_number');
+            // $table->integer('row_number_back');
+            $table->integer('place_number');
+            // $table->integer('place_number_back');
             $table->foreignId('id_booking')->constrained('bookings');
             $table->timestamps();
         });
