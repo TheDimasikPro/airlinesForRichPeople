@@ -1,6 +1,6 @@
 // const { forEach } = require("lodash");
 
-const { find } = require("lodash");
+// const { find } = require("lodash");
 
 $(document).ready(function () {
     const dropbtn_from_flights = $('#dropbtn_from_flights');
@@ -91,13 +91,25 @@ $(document).ready(function () {
                     $(elements[i]).removeClass('select_list__item');
                 }
                 if (valueLi.toUpperCase() === $('#'+id_input).val().toUpperCase()) {
-                    $('.passenger__citizenship_list').removeClass('show_drop_content');
+                    
+                    var parent_id = $('#'+id_input).parent('.passenger_full_info__forms_block__form_passenger__input_block').find('.passenger__citizenship_list').attr('id');
+                    $('.passenger__citizenship_list[id="'+parent_id+'"]').removeClass('show_drop_content');
                     $('#'+id_input).val(valueLi);
                 }
             }
         });
     }
-    
+    $.fn.setCursorPosition = function(pos) {
+        if ($(this).get(0).setSelectionRange) {
+          $(this).get(0).setSelectionRange(pos, pos);
+        } else if ($(this).get(0).createTextRange) {
+        var range = $(this).get(0).createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', pos);
+        range.moveStart('character', pos);
+        range.select();
+        }
+    };
     window.addEventListener('click', e => { // при клике в любом месте окна браузера
         const target = e.target // находим элемент, на котором был клик
         if (!target.closest('.search_tickets_block')) {
@@ -365,9 +377,11 @@ $(document).ready(function () {
         e.preventDefault();
         var this_id = $(this).attr('id');
         if (!$(this).hasClass('rotate_180')) {
+            $('.passenger__type_document_list').removeClass('show_drop_content');
             $('.passenger__type_document_list[id="'+this_id+'"]').addClass('show_drop_content');
             $('.passenger_type_document__dropbtn').removeClass('rotate_180');
             $('.passenger__citizenship_list').removeClass('show_drop_content');
+            
             $(this).addClass('rotate_180');
             
         }
@@ -378,12 +392,24 @@ $(document).ready(function () {
     });
     $('.passenger__type_document_list__item').click(function (e) {
         e.preventDefault();
+        
         var id_input = $(this).parent('.passenger__type_document_list').parent('.passenger_full_info__forms_block__form_passenger__input_block').find('.passenger_full_info__type_document_input').attr('id');
         $('.passenger__type_document_list').removeClass('show_drop_content');
         $('.passenger_full_info__type_document_input[id="'+id_input+'"]').val($(this).text());
-        $('.passenger__type_document_list__item').removeClass('select_list__item');
+        $(this).parent('.passenger__type_document_list').find('.select_list__item').removeClass('select_list__item');
         $('.passenger_type_document__dropbtn').removeClass('rotate_180');
         $(this).addClass('select_list__item');
+
+        var input_mask = $(this).attr('data-mask-input');
+        // console.log(id_input);
+        if (input_mask.indexOf("^") === -1) {
+            $('input[id="'+id_input+'"]').parent('.passenger_full_info__forms_block__form_passenger__input_block').parent('.passenger_full_info__forms_block__form_passenger').find('.passenger_full_info__forms_block__form_passenger__input_block .series_numbers_input').mask(input_mask,{
+                autoclear: false
+            });
+        }
+        else{
+            $('input[id="'+id_input+'"]').parent('.passenger_full_info__forms_block__form_passenger__input_block').parent('.passenger_full_info__forms_block__form_passenger').find('.passenger_full_info__forms_block__form_passenger__input_block .series_numbers_input').mask('');
+        }
     });
 
     $('.passenger_citizenship__dropbtn').click(function (e) {
@@ -404,12 +430,15 @@ $(document).ready(function () {
     });
 
     $('.citizenship_input_form_passenger').keyup(function () {
-        if (!$('.passenger__citizenship_list').hasClass('show_drop_content')) {
-            $('.passenger__citizenship_list').addClass('show_drop_content');
-        }
+        
         var id_input = $(this).attr("id");
+        var parent_id = $(this).parent('.passenger_full_info__forms_block__form_passenger__input_block').find('.passenger__citizenship_list').attr('id');
+        if (!$('.passenger__citizenship_list[id="'+parent_id+'"]').hasClass('show_drop_content')) {
+            $('.passenger__citizenship_list[id="'+parent_id+'"]').addClass('show_drop_content');
+        }
         var filter = $(this).val().toUpperCase(); // приводим все к верхнему регистру
-        var elements = $('.passenger__citizenship_list .passenger__citizenship_list__item'); // все элементы с классом dropdown-content--item
+        console.log($('.passenger__citizenship_list[id="'+parent_id+'"]'));
+        var elements = $('.passenger__citizenship_list[id="'+parent_id+'"] .passenger__citizenship_list__item'); // все элементы с классом dropdown-content--item
         searchСountryOfIssue(id_input,filter,elements);
         if($(this).val() === ""){
             $(elements).removeClass('select_list__item');
@@ -420,9 +449,10 @@ $(document).ready(function () {
         var id_input = $(this).parent('.passenger__citizenship_list').parent('.passenger_full_info__forms_block__form_passenger__input_block').find('.citizenship_input_form_passenger').attr('id');
         $('.passenger__citizenship_list').removeClass('show_drop_content');
         $('.citizenship_input_form_passenger[id="'+id_input+'"]').val($(this).text());
-        $('.passenger__citizenship_list__item').removeClass('select_list__item');
+        $(this).parent('.passenger__citizenship_list').find('.select_list__item').removeClass('select_list__item');
         $('.passenger_citizenship__dropbtn').removeClass('rotate_180');
         $(this).addClass('select_list__item');
+        
     });
 
 
@@ -434,60 +464,170 @@ $(document).ready(function () {
     $('#payment_ticket_btn').click(function (e) {
         e.preventDefault();
 
-        var formDataArray = [];
-        var formsPassenger = $('.passenger_full_info__forms_block__form_passenger');
-        // console.log(formsPassenger);
-        for (let index = 0; index < formsPassenger.length; index++) {
-            var element = formsPassenger[index];
-            const arr = new Map();
-            for (let y = 0; y < element.length; y++) {
-                var Yelement = element[y];
-                // console.log($(Yelement)[0]["name"]);
-                
-                switch ($(Yelement)[0]["name"]) {
-                    case "last-name":
-                        arr.set('last_name',$(Yelement).val());
-                        break;
-                    case "first-name":
-                        arr.set('first_name',$(Yelement).val());
-                        break;
-                    case "first-name":
-                        arr.set('first_name',$(Yelement).val());
-                        break;
-                    case "other-name":
-                        arr.set('other_name',$(Yelement).val());
-                        break;
-                    case "date-bithday":
-                        arr.set('date_bithday',$(Yelement).val());
-                        break;
-                    case "citizenship":
-                        arr.set('citizenship_id_country',$(element).find('.passenger__citizenship_list .passenger__citizenship_list__item.select_list__item').val());
-                        break;
-                    case "type-document":
-                        arr.set('type_document',$(element).find('.passenger__type_document_list .passenger__type_document_list__item.select_list__item').val());
-                        break; 
-                    case "series-numbers-document":
-                        arr.set('series_numbers_document',$(Yelement).val());
-                        break;    
-                    default:
-                        break;
-                }
-                
-                
-            }
-            formDataArray.push(arr);
-            console.log("Форма закончилась");
-        }
-        for (let index = 0; index < formDataArray.length; index++) {
-            var element = formDataArray[index];
-            // console.log(element);
-            for (let pair of element.entries()) {
-                // pair - это массив [key, values]
-                console.log(`Ключ = ${pair[0]}, значение = ${pair[1]}`);
-              }
-        }
+        if (!$(this).hasClass('non_click')) {
+            $(this).addClass('non_click');
         
+            // var formDataArray = new FormData();
+            var formDataArray = {};
+            var formsPassenger = $('.passenger_full_info__forms_block__form_passenger');
+
+            // console.log(formsPassenger);
+            var flag = false;
+            for (let index = 0; index < formsPassenger.length; index++) {
+                var element = formsPassenger[index];
+                // const arr = new Map();
+                var arr = {};
+                for (let y = 0; y < element.length; y++) {
+                    var Yelement = element[y];
+                    switch ($(Yelement)[0]["name"]) {
+                        case "last-name":
+                            if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                                flag = false;
+                                break;
+                            }
+                            else{
+                                flag = true;
+                                arr.last_name = $(Yelement).val();
+                            }
+                            break;
+                        case "first-name":
+                            if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                                flag = false;
+                                break;
+                            }
+                            else{
+                                flag = true;
+                                arr.first_name = $(Yelement).val();
+                            }
+                            
+                            break;
+                        case "date-bithday":
+                            if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                                flag = false;
+                                break;
+                            }
+                            else{
+                                flag = true;
+                                arr.date_bithday = $(Yelement).val();
+                            }
+                            
+                            break;
+                        case "citizenship":
+                            if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                                flag = false;
+                                break;
+                            }
+                            else{
+                                flag = true;
+                                arr.citizenship_id_country = $(element).find('.passenger__citizenship_list .passenger__citizenship_list__item.select_list__item').val();
+                            }
+                            break;
+                        case "type-document":
+                            if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                                flag = false;
+                                break;
+                            }
+                            else{
+                                flag = true;
+                                arr.type_document = $(element).find('.passenger__type_document_list .passenger__type_document_list__item.select_list__item').val();
+                            }
+                            break; 
+                        case "series-numbers-document":
+                            if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                                flag = false;
+                                break;
+                            }
+                            else{
+                                flag = true;
+                                arr.series_numbers_document = $(Yelement).val().replace(' ','');
+                            }
+                            break;    
+                        default:
+                            break;
+                    }
+                }
+                for (let y = 0; y < element.length; y++) {
+                    var Yelement = element[y];
+                    switch ($(Yelement).prop("tagName")) {
+                        case "BUTTON":
+                            if($(Yelement).hasClass('select_btn_gender_form_passenger')){
+                                arr.gender_code = $(Yelement).attr("data-id");
+                                arr.gender_select_rus = $(Yelement).attr("data-value-rus");
+                                // arr.set('gender_select_id',$(Yelement).attr("data-id"));
+                                // arr.set('gender_select_rus',$(Yelement).attr("data-value-rus"));
+                                flag = true;
+                            }
+                            break;
+                    
+                        default:
+                            break;
+                    }
+                }
+                // console.log(arr);
+                const mapToAoO = m => {
+                    return Array.from(m).map( (k,v) => {return {k:v}} );
+                };
+                // var paramName = index+"_array";
+                formDataArray[randomString(5)] = arr;
+                //    (index+"_array", JSON.stringify(mapToAoO(arr)));
+            }
+
+            console.log(JSON.stringify(formDataArray));
+            
+            $.ajax({
+                url: "/search_tickets/payment_tickets",
+                type: "POST",
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: { formDataArray: JSON.stringify(formDataArray) },
+                // processData: false,
+                // cache: false,
+                // contentType: "json",
+                // dataType:false,
+                beforeSend: function () {
+                    
+                },
+                success: function (data, textStatus, request) {
+                    var contType = request.getResponseHeader("Content-Type");
+                    console.log(contType);
+                    // if(contType == "") { // take it from here... }
+                    $('#payment_ticket_btn').removeClass('non_click');
+                    if(contType == "application/json"){
+                        
+                        var data_JSON = data;
+                        // var data_JSON = JSON.parse(data);
+                        if (!data_JSON.status) {
+                            
+                            $('.passenger_info__errors').removeClass('non_view');
+                            $('.passenger_info__errors .passenger_info__errors__item').remove();
+                            if (data_JSON.errors_fields != null) {
+                                Object.keys(data_JSON.errors_fields).forEach(function(value_error){
+                                    let error_list_item = document.createElement('li');
+                                    error_list_item.setAttribute('class','passenger_info__errors__item');
+                                    error_list_item.append(data_JSON.errors_fields[value_error]);
+                                    $('.passenger_info__errors').append(error_list_item);
+                                });
+                            }
+                        }
+                        
+                    }
+                    else{
+                        window.location.href = "http://richairlines/search_tickets/payment_tickets";
+                    }
+                    
+                }
+            });
+        }
     });
     // списки на странице информации о пассажирах
-
+    function randomString(len, charSet) {
+        charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var randomString = '';
+        for (var i = 0; i < len; i++) {
+            var randomPoz = Math.floor(Math.random() * charSet.length);
+            randomString += charSet.substring(randomPoz,randomPoz+1);
+        }
+        return randomString;
+    }
 });

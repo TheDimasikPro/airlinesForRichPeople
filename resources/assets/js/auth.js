@@ -20,23 +20,17 @@ $(document).ready(function () {
             $(this).removeClass('rotate_180');
         }
     });
+
+    $('#phone').click(function () {
+      $(this).setCursorPosition(1);  
+    });
     $("#phone").mask("(999)999-999-9",
     {
         completed:function () {
             // console.log("харош");
         }
     });
-    $.fn.setCursorPosition = function(pos) {
-        if ($(this).get(0).setSelectionRange) {
-          $(this).get(0).setSelectionRange(pos, pos);
-        } else if ($(this).get(0).createTextRange) {
-        var range = $(this).get(0).createTextRange();
-        range.collapse(true);
-        range.moveEnd('character', pos);
-        range.moveStart('character', pos);
-        range.select();
-        }
-    };
+    
     
 
     $('.prefix_phone_list__item').click(function () {
@@ -100,6 +94,9 @@ $(document).ready(function () {
         $('.type_document_list__item').removeClass('select_list__item');
         $(this).addClass('select_list__item');
     });
+    $('#series_document_number').click(function () {
+        $(this).setCursorPosition(1);  
+      });
     $("#series_document_number").mask("99 99 999999",
     {
         completed:function () {

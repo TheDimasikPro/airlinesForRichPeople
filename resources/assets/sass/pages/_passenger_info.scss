@@ -193,6 +193,18 @@
             color: $black;
         }
     }
+    .passenger_info__errors{
+        margin-top: 30px;
+        background: #A01010;
+        color: $white;
+        font-size: $fz_second;
+        padding: 10px;
+        .passenger_info__errors__item{
+            &:not(:first-child){
+                margin-top: 10px;
+            }
+        }
+    }
 }
 
 

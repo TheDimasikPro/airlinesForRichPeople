@@ -290,7 +290,7 @@ class FlightController extends Controller
 
         if ($old_count_people != null && $kids_count_people != null && $baby_count_people != null && $date_from != null && $id_flight_start != null && $id_flight_end != null) {
             $countries_all = DB::table('countries')->select('id','name_country')->get()->sortBy('id');
-            $document_types_all = DB::table('document_types')->select('id','name_document')->get()->sortBy('id');
+            $document_types_all = DB::table('document_types')->select('id','name_document','mask_input')->get()->sortBy('id');
             $gender_codes_all = DB::table('gender_codes')->select('id','gender_name_rus')->get()->sortBy('id');
             $passenger_array = [
                 "old_count_people" => $old_count_people,
@@ -312,8 +312,94 @@ class FlightController extends Controller
         
         
     }
-    public function returnViewPaymentTickets()
+    function objectToarray($data)
     {
-        return view('payment_tickets');
+        $array = (array)$data;
+        foreach($array as $key => &$field){
+            if(is_object($field))$field = $this->objectToarray($field);
+        }
+        return $array;
+    }
+    public function returnViewPaymentTickets(Request $request)
+    {
+        $data = $request['formDataArray'];
+        $request_array = $this->objectToarray(json_decode($data));
+        // print_r(json_decode($data));
+        // var_dump(json_decode($data));
+        
+        // return $request_array;
+        $flag = false;
+        $count_done = 0;
+        $array_values_req = [];
+        foreach ($request_array as $key => $value) {
+            $validationFileds = Validator::make($value, [
+                "last_name" => [
+                    "required",
+                    "string"
+                ],
+                "first_name" => [
+                    "required",
+                    "string"
+                ],
+                "other_name" => [
+                    "string"
+                ],
+                "date_bithday" => [
+                    "required",
+                    "date"
+                ],
+                "citizenship_id_country" => [
+                    "required",
+                    "integer"
+                ],
+                "type_document" => [
+                    "required",
+                    "integer"
+                ],
+                "series_numbers_document" => [
+                    "required",
+                    "string"
+                ],
+                "gender_code" => [
+                    "required",
+                    "integer"
+                ]
+            ]);
+            if ($validationFileds->fails()) {
+                $response = [
+                    'status' => false,
+                    'errors_fields' => $validationFileds->errors()
+                ];
+                $flag = false;
+                return response()->json($response)->header('Content-Type', 'application/json');
+                // return redirect()->route('passenger_info__page')->withErrors([
+                //     "errors" => "Все данные должны быть на английском языке. Все поля кроме Отчества, обязательны к заполнению"
+                // ]);
+            }
+            array_push($array_values_req,$value);
+            $count_done++;
+            if ($count_done == count($request_array)) {
+                $flag = true;
+            }
+            
+            // return redirect()->guest('payment_tickets');
+            // return json_encode([
+            //     "values_input" => $value
+            // ]);
+        }
+        
+        if ($flag) {
+            // return response()->json([
+            //     "count_done" => $count_done,
+            //     "request_array" => count($request_array),
+            //     "array_values_req" => $array_values_req,
+            // ],200)->header('Content-Type', 'application/json');;
+            // return json_encode([
+            //     "count_done" => $count_done,
+            //     "request_array" => count($request_array),
+            //     "array_values_req" => $array_values_req,
+            // ]);
+            return view('payment_tickets',$array_values_req);
+        }
     }
 }

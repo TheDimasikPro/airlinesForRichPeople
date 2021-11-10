@@ -2106,6 +2106,16 @@ input[type=button] {
   background: #52C9B9;
   color: #222222;
 }
+.passenger_info_block .passenger_info__errors {
+  margin-top: 30px;
+  background: #A01010;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px;
+}
+.passenger_info_block .passenger_info__errors .passenger_info__errors__item:not(:first-child) {
+  margin-top: 10px;
+}
 
 @media (max-width: 1080px) {
   .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger {

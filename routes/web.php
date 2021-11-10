@@ -49,7 +49,7 @@ Route::get('/food_info',[MainController::class,'returnViewFoodInfo'])->name('foo
 Route::prefix('search_tickets')->group(function () {
     Route::get('/',[FlightController::class,'returnViewSearchTickets'])->name('search_tickets__page');
     Route::get('/passenger_info',[FlightController::class,'returnViewPassengerInfo'])->name('passenger_info__page');
-    Route::get('/payment_tickets',[FlightController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
+    Route::post('/payment_tickets',[FlightController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
 });
 
 

@@ -132,7 +132,7 @@
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="first-name-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="first-name-1" name="first-name-{{ $i+1 }}" placeholder="Имя *">
+                                    <input type="text" class="sm_input" id="first-name-1" name="first-name" placeholder="Имя *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
@@ -141,9 +141,9 @@
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
-                                    <button type="button" class="btn_gender_form_passenger" data-value="male" aria-label="male_gender_form_passenger" id="male_gender_form_passenger-{{ $i+1 }}">Мужчина</button> 
+                                    <button type="button" class="btn_gender_form_passenger" data-id="1" data-value-eng="male" data-value-rus="Мужской" aria-label="male_gender_form_passenger" id="male_gender_form_passenger-{{ $i+1 }}">Мужчина</button> 
                                     <!-- /.btn_gender_form_passenger -->
-                                    <button type="button" class="btn_gender_form_passenger" data-value="woman" aria-label="woman_gender_form_passenger" id="woman_gender_form_passenger-{{ $i+1 }}">Женщина</button> 
+                                    <button type="button" class="btn_gender_form_passenger" data-id="2" data-value-eng="woman" data-value-rus="Женский" aria-label="woman_gender_form_passenger" id="woman_gender_form_passenger-{{ $i+1 }}">Женщина</button> 
                                     <!-- /.btn_gender_form_passenger -->
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
@@ -154,7 +154,7 @@
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="citizenship-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input citizenship_input_form_passenger" id="citizenship-{{ $i+1 }}" name="citizenship" placeholder="Гражданство *">
+                                    <input type="text" class="sm_input citizenship_input_form_passenger" id="citizenship-old-{{ $i+1 }}" name="citizenship" placeholder="Гражданство *">
                                     {{-- список стран --}}
                                     <button class="passenger_citizenship__dropbtn" type="button" id="drop_old_citizenship__{{ $i+1 }}" aria-label="dropbtn_citizenship__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>
@@ -168,21 +168,21 @@
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="type-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
+                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-old-{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
                                     {{-- список документов --}}
                                     <button class="passenger_type_document__dropbtn" type="button" id="drop_old_type_document__{{ $i+1 }}" aria-label="dropbtn_type_document__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>
                                     </button>
                                     <ul class="passenger__type_document_list" id="drop_old_type_document__{{ $i+1 }}">
                                         @foreach ($document_types_all as $document_type)
-                                            <li class="passenger__type_document_list__item" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
+                                            <li class="passenger__type_document_list__item" data-mask-input="{{ $document_type->mask_input }}" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="series-numbers-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="series-numbers-document-{{ $i+1 }}" name="series-numbers-document" placeholder="Серия и номер документа *">
+                                    <input type="text" class="sm_input series_numbers_input" id="series-numbers-document-{{ $i+1 }}" name="series-numbers-document" placeholder="Серия и номер документа *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                             </form>
@@ -199,34 +199,34 @@
                             <form action="" class="passenger_full_info__forms_block__form_passenger">
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="last-name-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="last-name-{{ $i+1 }}" name="last-name-{{ $i+1 }}" placeholder="Фамилия *">
+                                    <input type="text" class="sm_input" id="last-name-{{ $i+1 }}" name="last-name" placeholder="Фамилия *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
-                                    <label for="name-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="name-1" name="name-{{ $i+1 }}" placeholder="Имя *">
+                                    <label for="first-name-{{ $i+1 }}"></label>
+                                    <input type="text" class="sm_input" id="first-name-1" name="first-name" placeholder="Имя *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="other-name-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="other-name-{{ $i+1 }}" name="other-name-{{ $i+1 }}" placeholder="Отчество, если есть в паспорте">
+                                    <input type="text" class="sm_input" id="other-name-{{ $i+1 }}" name="other-name" placeholder="Отчество, если есть в паспорте">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
-                                    <button type="button" class="btn_gender_form_passenger" data-value="male" aria-label="male_gender_form_passenger" id="male_gender_form_passenger-{{ $i+1 }}">Мужчина</button> 
+                                    <button type="button" class="btn_gender_form_passenger" data-id="1" data-value-eng="male" data-value-rus="Мужской" aria-label="male_gender_form_passenger" id="male_gender_form_passenger-{{ $i+1 }}">Мужчина</button> 
                                     <!-- /.btn_gender_form_passenger -->
-                                    <button type="button" class="btn_gender_form_passenger" data-value="woman" aria-label="woman_gender_form_passenger" id="woman_gender_form_passenger-{{ $i+1 }}">Женщина</button> 
+                                    <button type="button" class="btn_gender_form_passenger" data-id="2" data-value-eng="woman" data-value-rus="Женский" aria-label="woman_gender_form_passenger" id="woman_gender_form_passenger-{{ $i+1 }}">Женщина</button> 
                                     <!-- /.btn_gender_form_passenger -->
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="date-bithday-{{ $i+1 }}"></label>
-                                    <input type="date" class="sm_input date_bithday_input_form_passenger" id="date-bithday-{{ $i+1 }}" name="date-bithday-{{ $i+1 }}" placeholder="Дата рождения *">
+                                    <input type="date" class="sm_input date_bithday_input_form_passenger" id="date-bithday-{{ $i+1 }}" name="date-bithday" placeholder="Дата рождения *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="citizenship-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input citizenship_input_form_passenger" id="citizenship-{{ $i+1 }}" name="citizenship-{{ $i+1 }}" placeholder="Гражданство *">
+                                    <input type="text" class="sm_input citizenship_input_form_passenger" id="citizenship-kids-{{ $i+1 }}" name="citizenship" placeholder="Гражданство *">
                                     {{-- список стран --}}
                                     <button class="passenger_citizenship__dropbtn" type="button" id="drop_kids_citizenship__{{ $i+1 }}" aria-label="dropbtn_citizenship__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>
@@ -240,21 +240,21 @@
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="type-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-{{ $i+1 }}" name="type-document-{{ $i+1 }}" placeholder="Тип документа *">
+                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-kids-{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
                                     {{-- список документов --}}
                                     <button class="passenger_type_document__dropbtn" type="button" id="drop_kids_type_document__{{ $i+1 }}" aria-label="dropbtn_type_document__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>
                                     </button>
                                     <ul class="passenger__type_document_list" id="drop_kids_type_document__{{ $i+1 }}">
                                         @foreach ($document_types_all as $document_type)
-                                            <li class="passenger__type_document_list__item" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
+                                            <li class="passenger__type_document_list__item" data-mask-input="{{ $document_type->mask_input }}" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="series-numbers-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="series-numbers-document-{{ $i+1 }}" name="series-numbers-document-{{ $i+1 }}" placeholder="Серия и номер документа *">
+                                    <input type="text" class="sm_input series_numbers_input" id="series-numbers-document-{{ $i+1 }}" name="series-numbers-document" placeholder="Серия и номер документа *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                             </form>
@@ -271,34 +271,34 @@
                             <form action="" class="passenger_full_info__forms_block__form_passenger">
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="last-name-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="last-name-{{ $i+1 }}" name="last-name-{{ $i+1 }}" placeholder="Фамилия *">
+                                    <input type="text" class="sm_input" id="last-name-{{ $i+1 }}" name="last-name" placeholder="Фамилия *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
-                                    <label for="name-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="name-1" name="name-{{ $i+1 }}" placeholder="Имя *">
+                                    <label for="first-name-{{ $i+1 }}"></label>
+                                    <input type="text" class="sm_input" id="first-name-1" name="first-name" placeholder="Имя *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="other-name-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="other-name-{{ $i+1 }}" name="other-name-{{ $i+1 }}" placeholder="Отчество, если есть в паспорте">
+                                    <input type="text" class="sm_input" id="other-name-{{ $i+1 }}" name="other-name" placeholder="Отчество, если есть в паспорте">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
-                                    <button type="button" class="btn_gender_form_passenger" data-value="male" aria-label="male_gender_form_passenger" id="male_gender_form_passenger-{{ $i+1 }}">Мужчина</button> 
+                                    <button type="button" class="btn_gender_form_passenger" data-id="1" data-value-eng="male" data-value-rus="Мужской" aria-label="male_gender_form_passenger" id="male_gender_form_passenger-{{ $i+1 }}">Мужчина</button> 
                                     <!-- /.btn_gender_form_passenger -->
-                                    <button type="button" class="btn_gender_form_passenger" data-value="woman" aria-label="woman_gender_form_passenger" id="woman_gender_form_passenger-{{ $i+1 }}">Женщина</button> 
+                                    <button type="button" class="btn_gender_form_passenger" data-id="2" data-value-eng="woman" data-value-rus="Женский" aria-label="woman_gender_form_passenger" id="woman_gender_form_passenger-{{ $i+1 }}">Женщина</button> 
                                     <!-- /.btn_gender_form_passenger -->
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="date-bithday-{{ $i+1 }}"></label>
-                                    <input type="date" class="sm_input date_bithday_input_form_passenger" id="date-bithday-{{ $i+1 }}" name="date-bithday-{{ $i+1 }}" placeholder="Дата рождения *">
+                                    <input type="date" class="sm_input date_bithday_input_form_passenger" id="date-bithday-{{ $i+1 }}" name="date-bithday" placeholder="Дата рождения *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="citizenship-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input citizenship_input_form_passenger" id="citizenship-{{ $i+1 }}" name="citizenship-{{ $i+1 }}" placeholder="Гражданство *">
+                                    <input type="text" class="sm_input citizenship_input_form_passenger" id="citizenship-baby-{{ $i+1 }}" name="citizenship" placeholder="Гражданство *">
                                     {{-- список стран --}}
                                     <button class="passenger_citizenship__dropbtn" type="button" id="drop_baby_citizenship__{{ $i+1 }}" aria-label="dropbtn_citizenship__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>
@@ -312,21 +312,21 @@
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="type-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-{{ $i+1 }}" name="type-document-{{ $i+1 }}" placeholder="Тип документа *">
+                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-baby-{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
                                     {{-- список документов --}}
-                                    <button class="passenger_type_document__dropbtn" type="button" id="drop_tbaby_ype_document__{{ $i+1 }}" aria-label="dropbtn_type_document__{{ $i+1 }}">
+                                    <button class="passenger_type_document__dropbtn" type="button" id="drop_baby_type_document__{{ $i+1 }}" aria-label="dropbtn_type_document__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>
                                     </button>
                                     <ul class="passenger__type_document_list" id="drop_baby_type_document__{{ $i+1 }}">
                                         @foreach ($document_types_all as $document_type)
-                                            <li class="passenger__type_document_list__item" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
+                                            <li class="passenger__type_document_list__item" data-mask-input="{{ $document_type->mask_input }}" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="series-numbers-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input" id="series-numbers-document-{{ $i+1 }}" name="series-numbers-document-{{ $i+1 }}" placeholder="Серия и номер документа *">
+                                    <input type="text" class="sm_input series_numbers_input" id="series-numbers-document-{{ $i+1 }}" name="series-numbers-document" placeholder="Серия и номер документа *">
                                 </div>
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                             </form>
@@ -336,7 +336,10 @@
                     @endfor
                 </div>
                 <!-- /.passenger_full_info__forms_block -->
-                <button id="payment_ticket_btn" class="upper" aria-label="payment_ticket_btn" href="{{ route('payment_tickets__page') }}">Оплатить</button>
+                <button id="payment_ticket_btn" class="upper" aria-label="payment_ticket_btn">Оплатить</button>
+                <ul class="passenger_info__errors non_view">
+                </ul>
+                <!-- /.passenger_info__errors -->
             </div>
             <!-- /.passenger_info_block__forms_block -->
         </div>
