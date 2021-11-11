@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/assets/css/style.min.css">
 @endsection
 @section('content')
-{{ $array_values_req }}
     <div class="container df_jcc_aic content_flex">
         <div class="payment_tickets_block df_jcspb_aic">
             {{-- @include('inc.aside_bar_search_tickets') --}}

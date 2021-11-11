@@ -106,15 +106,19 @@
                     <h3>Контактная информация для обратной связи</h3>
                     <div class="passenger_info_block__forms_block__form_feedback__input_block">
                         <label for="email_feedback_tickets">Email</label>
-                        <input type="email" autocomplete="off" class="input_style_pofile" placeholder="Ваш email" id="email_feedback_tickets" aria-label="email_feedback_tickets">
+                        <input type="email" autocomplete="off" name="email_feedback" class="input_style_pofile" placeholder="Ваш email" id="email_feedback_tickets" aria-label="email_feedback_tickets">
                     </div>
                     <!-- /.passenger_info_block__forms_block__form_feedback__input_block -->
                     <div class="passenger_info_block__forms_block__form_feedback__input_block">
                         <label for="checkbox_passenger_info_accept"></label>
                         <input type="checkbox" id="checkbox_passenger_info_accept" aria-label="checkbox_passenger_info_accept"> 
-                        <span>Я ознакомился с <a href="#"> условиями</a> и согласен получать сообщения рекламно-информационного характера</span> 
+                        <span>Я ознакомился с <a href="#"> условиями</a></span> 
                     </div>
                     <!-- /.passenger_info_block__forms_block__form_feedback__input_block -->
+                    <div class="passenger_info__errors__feedback non_view">
+
+                    </div>
+                    <!-- /.passenger_info__errors__feedback -->
                 </form>
                 <!-- /.passenger_info_block__forms_block__form_feedback -->
                 <div class="passenger_full_info__forms_block">

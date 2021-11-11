@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Passenger extends Model
+class Booking extends Model
 {
     use HasFactory;
 
-    public function bookings()
+    public function passengers()
     {
-        return $this->belongsTo(Booking::class,'id_booking','id');
+        return $this->hasMany(Passenger::class,'id_booking','id');
     }
 }

@@ -5,6 +5,7 @@ var __webpack_exports__ = {};
   \*******************************************/
 $(document).ready(function () {
   // общее
+  $('.errors_search_tickets').text();
   var dropbtn_from_flights = $('#dropbtn_from_flights');
   var dropbtn_to_flights = $('#dropbtn_to_flights');
   var input_search_from_flights = $('#id_i_s_f_f');

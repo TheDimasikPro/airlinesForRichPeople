@@ -398,6 +398,13 @@ $(document).ready(function () {
     $('.popup_modal').addClass('non_view');
   }); // списки на странице информации о пассажирах
 
+  $('.series_numbers_input').click(function () {
+    $(this).setCursorPosition(0);
+  });
+  $(".series_numbers_input").mask("99 99 999999", {
+    completed: function completed() {// console.log("харош");
+    }
+  });
   $('.passenger_type_document__dropbtn').click(function (e) {
     e.preventDefault();
     var this_id = $(this).attr('id');
@@ -482,168 +489,211 @@ $(document).ready(function () {
     e.preventDefault();
 
     if (!$(this).hasClass('non_click')) {
-      $(this).addClass('non_click'); // var formDataArray = new FormData();
+      $(this).addClass('non_click');
+      var regex_email = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+      var provEmail = regex_email.test($.trim($('#email_feedback_tickets').val()));
+      $('.passenger_info__errors__feedback .passenger_info__errors__item').remove();
+      $('.passenger_info__errors__feedback').removeClass('non_view');
 
-      var formDataArray = {};
-      var formsPassenger = $('.passenger_full_info__forms_block__form_passenger'); // console.log(formsPassenger);
+      if ($('#email_feedback_tickets').val() == "" || !$('#checkbox_passenger_info_accept').is(':checked')) {
+        var error_list_item__feedback = document.createElement('li');
+        error_list_item__feedback.setAttribute('class', 'passenger_info__errors__item');
+        error_list_item__feedback.append("Заполните поле Email и ознакомьтесь с условиями.");
+        $('.passenger_info__errors__feedback').append(error_list_item__feedback);
+        $('#payment_ticket_btn').removeClass('non_click');
 
-      var flag = false;
+        if (window.pageYOffset > 500) {
+          var destination = $('.passenger_info_block__forms_block__form_feedback').offset().top;
+          $('body,html').animate({
+            scrollTop: destination
+          }, 100);
+        }
+      } else if (!provEmail) {
+        var _error_list_item__feedback = document.createElement('li');
 
-      for (var index = 0; index < formsPassenger.length; index++) {
-        var element = formsPassenger[index]; // const arr = new Map();
+        _error_list_item__feedback.setAttribute('class', 'passenger_info__errors__item');
 
-        var arr = {};
+        _error_list_item__feedback.append("Заполните поле Email правильно.");
 
-        for (var y = 0; y < element.length; y++) {
-          var Yelement = element[y];
+        $('.passenger_info__errors__feedback').append(_error_list_item__feedback);
+        $('#payment_ticket_btn').removeClass('non_click');
 
-          switch ($(Yelement)[0]["name"]) {
-            case "last-name":
-              if ($(Yelement).val() == "" || $(Yelement).val() == null) {
-                flag = false;
+        if (window.pageYOffset > 500) {
+          var destination = $('.passenger_info_block__forms_block__form_feedback').offset().top;
+          $('body,html').animate({
+            scrollTop: destination
+          }, 100);
+        }
+      } else {
+        $('#payment_ticket_btn').removeClass('non_click');
+        $('.passenger_info__errors__feedback').addClass('non_view'); // var formDataArray = new FormData();
+
+        var formDataArray = {};
+        var formsPassenger = $('.passenger_full_info__forms_block__form_passenger'); // console.log(formsPassenger);
+
+        var flag = false;
+
+        for (var index = 0; index < formsPassenger.length; index++) {
+          var element = formsPassenger[index]; // const arr = new Map();
+
+          var arr = {};
+
+          for (var y = 0; y < element.length; y++) {
+            var Yelement = element[y];
+
+            switch ($(Yelement)[0]["name"]) {
+              case "last-name":
+                if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                  flag = false;
+                  break;
+                } else {
+                  flag = true;
+                  arr.last_name = $(Yelement).val();
+                }
+
                 break;
-              } else {
-                flag = true;
-                arr.last_name = $(Yelement).val();
-              }
 
-              break;
+              case "first-name":
+                if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                  flag = false;
+                  break;
+                } else {
+                  flag = true;
+                  arr.first_name = $(Yelement).val();
+                }
 
-            case "first-name":
-              if ($(Yelement).val() == "" || $(Yelement).val() == null) {
-                flag = false;
                 break;
-              } else {
+
+              case "other-name":
                 flag = true;
-                arr.first_name = $(Yelement).val();
-              }
-
-              break;
-
-            case "date-bithday":
-              if ($(Yelement).val() == "" || $(Yelement).val() == null) {
-                flag = false;
+                arr.other_name = $(Yelement).val();
                 break;
-              } else {
-                flag = true;
-                arr.date_bithday = $(Yelement).val();
-              }
 
-              break;
+              case "date-bithday":
+                if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                  flag = false;
+                  break;
+                } else {
+                  flag = true;
+                  arr.date_bithday = $(Yelement).val();
+                }
 
-            case "citizenship":
-              if ($(Yelement).val() == "" || $(Yelement).val() == null) {
-                flag = false;
                 break;
-              } else {
-                flag = true;
-                arr.citizenship_id_country = $(element).find('.passenger__citizenship_list .passenger__citizenship_list__item.select_list__item').val();
-              }
 
-              break;
+              case "citizenship":
+                if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                  flag = false;
+                  break;
+                } else {
+                  flag = true;
+                  arr.citizenship = $(element).find('.passenger__citizenship_list .passenger__citizenship_list__item.select_list__item').val();
+                }
 
-            case "type-document":
-              if ($(Yelement).val() == "" || $(Yelement).val() == null) {
-                flag = false;
                 break;
-              } else {
-                flag = true;
-                arr.type_document = $(element).find('.passenger__type_document_list .passenger__type_document_list__item.select_list__item').val();
-              }
 
-              break;
+              case "type-document":
+                if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                  flag = false;
+                  break;
+                } else {
+                  flag = true;
+                  arr.type_document = $(element).find('.passenger__type_document_list .passenger__type_document_list__item.select_list__item').val();
+                }
 
-            case "series-numbers-document":
-              if ($(Yelement).val() == "" || $(Yelement).val() == null) {
-                flag = false;
                 break;
-              } else {
-                flag = true;
-                arr.series_numbers_document = $(Yelement).val().replace(' ', '');
-              }
 
-              break;
+              case "series-numbers-document":
+                if ($(Yelement).val() == "" || $(Yelement).val() == null) {
+                  flag = false;
+                  break;
+                } else {
+                  flag = true;
+                  arr.series_numbers_document = $(Yelement).val().replace(' ', '');
+                }
 
-            default:
-              break;
+                break;
+
+              default:
+                break;
+            }
           }
+
+          for (var _y = 0; _y < element.length; _y++) {
+            var Yelement = element[_y];
+
+            switch ($(Yelement).prop("tagName")) {
+              case "BUTTON":
+                if ($(Yelement).hasClass('select_btn_gender_form_passenger')) {
+                  arr.gender_code = $(Yelement).attr("data-id");
+                  arr.gender_select_rus = $(Yelement).attr("data-value-rus"); // arr.set('gender_select_id',$(Yelement).attr("data-id"));
+                  // arr.set('gender_select_rus',$(Yelement).attr("data-value-rus"));
+
+                  flag = true;
+                }
+
+                break;
+
+              default:
+                break;
+            }
+          } // console.log(arr);
+
+
+          var mapToAoO = function mapToAoO(m) {
+            return Array.from(m).map(function (k, v) {
+              return {
+                k: v
+              };
+            });
+          }; // var paramName = index+"_array";
+
+
+          formDataArray[randomString(5)] = arr; //    (index+"_array", JSON.stringify(mapToAoO(arr)));
         }
 
-        for (var _y = 0; _y < element.length; _y++) {
-          var Yelement = element[_y];
+        console.log(JSON.stringify(formDataArray));
+        $.ajax({
+          url: "/search_tickets/payment_tickets_redirect",
+          type: "POST",
+          headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+          },
+          data: {
+            formDataArray: JSON.stringify(formDataArray),
+            emal_feedback: $('#email_feedback_tickets').val()
+          },
+          // processData: false,
+          // cache: false,
+          // contentType: "json",
+          // dataType:false,
+          beforeSend: function beforeSend() {},
+          success: function success(data, textStatus, request) {
+            var contType = request.getResponseHeader("Content-Type");
+            console.log(contType); // if(contType == "") { // take it from here... }
 
-          switch ($(Yelement).prop("tagName")) {
-            case "BUTTON":
-              if ($(Yelement).hasClass('select_btn_gender_form_passenger')) {
-                arr.gender_code = $(Yelement).attr("data-id");
-                arr.gender_select_rus = $(Yelement).attr("data-value-rus"); // arr.set('gender_select_id',$(Yelement).attr("data-id"));
-                // arr.set('gender_select_rus',$(Yelement).attr("data-value-rus"));
+            $('#payment_ticket_btn').removeClass('non_click');
 
-                flag = true;
-              }
+            if (contType == "application/json") {
+              var data_JSON = data; // var data_JSON = JSON.parse(data);
 
-              break;
+              if (!data_JSON.status) {
+                $('.passenger_info__errors').removeClass('non_view');
+                $('.passenger_info__errors .passenger_info__errors__item').remove();
 
-            default:
-              break;
-          }
-        } // console.log(arr);
-
-
-        var mapToAoO = function mapToAoO(m) {
-          return Array.from(m).map(function (k, v) {
-            return {
-              k: v
-            };
-          });
-        }; // var paramName = index+"_array";
-
-
-        formDataArray[randomString(5)] = arr; //    (index+"_array", JSON.stringify(mapToAoO(arr)));
-      }
-
-      console.log(JSON.stringify(formDataArray));
-      $.ajax({
-        url: "/search_tickets/payment_tickets",
-        type: "POST",
-        headers: {
-          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-          formDataArray: JSON.stringify(formDataArray)
-        },
-        // processData: false,
-        // cache: false,
-        // contentType: "json",
-        // dataType:false,
-        beforeSend: function beforeSend() {},
-        success: function success(data, textStatus, request) {
-          var contType = request.getResponseHeader("Content-Type");
-          console.log(contType); // if(contType == "") { // take it from here... }
-
-          $('#payment_ticket_btn').removeClass('non_click');
-
-          if (contType == "application/json") {
-            var data_JSON = data; // var data_JSON = JSON.parse(data);
-
-            if (!data_JSON.status) {
-              $('.passenger_info__errors').removeClass('non_view');
-              $('.passenger_info__errors .passenger_info__errors__item').remove();
-
-              if (data_JSON.errors_fields != null) {
-                Object.keys(data_JSON.errors_fields).forEach(function (value_error) {
-                  var error_list_item = document.createElement('li');
-                  error_list_item.setAttribute('class', 'passenger_info__errors__item');
-                  error_list_item.append(data_JSON.errors_fields[value_error]);
-                  $('.passenger_info__errors').append(error_list_item);
-                });
+                if (data_JSON.errors_fields != null) {
+                  Object.keys(data_JSON.errors_fields).forEach(function (value_error) {
+                    var error_list_item = document.createElement('li');
+                    error_list_item.setAttribute('class', 'passenger_info__errors__item');
+                    error_list_item.append(data_JSON.errors_fields[value_error]);
+                    $('.passenger_info__errors').append(error_list_item);
+                  });
+                }
+              } else {// location.href = data_JSON.route;
               }
             }
-          } else {
-            window.location.href = "http://richairlines/search_tickets/payment_tickets";
           }
-        }
-      });
+        });
+      }
     }
   }); // списки на странице информации о пассажирах
 

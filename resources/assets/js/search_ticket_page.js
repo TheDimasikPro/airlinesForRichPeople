@@ -129,6 +129,7 @@ $(document).ready(function (e) {
     var id_flight_end = 0;
     var price_tikets__one_way = 0;
     $('.result_price__flight_to__cards__item__short_info__price__in_basket').click(function (e) {
+        console.log("enter");
         e.preventDefault();
         $('.row_select_ticket_from').removeClass('non_view__select_ticket_form');
         $('.select_ticket_from__date').removeClass('non_view__select_ticket_form');

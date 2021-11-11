@@ -94,7 +94,7 @@ $(document).ready(function () {
     $(this).addClass('select_list__item');
   });
   $('#series_document_number').click(function () {
-    $(this).setCursorPosition(1);
+    $(this).setCursorPosition(0);
   });
   $("#series_document_number").mask("99 99 999999", {
     completed: function completed() {// console.log("харош");

@@ -30,14 +30,12 @@
             
             .passenger_info_block__forms_block__form_feedback__input_block{
                 margin-top: 20px;
-                display: flex;
-                flex-direction: column;
                 input{
                     font-size: $fz_base;
                     height: auto;
                     padding: 6px 12px;
                 }
-                &:last-child{
+                &:not(:first-child){
                     flex-direction: row;
                     align-items: center;
                     input{
@@ -193,7 +191,7 @@
             color: $black;
         }
     }
-    .passenger_info__errors{
+    .passenger_info__errors,.passenger_info__errors__feedback{
         margin-top: 30px;
         background: #A01010;
         color: $white;

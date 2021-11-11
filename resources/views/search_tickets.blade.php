@@ -64,7 +64,7 @@
               </div>
               <!-- /.popup_order_block__info__from__date_time -->
               <div class="popup_order_block__info__from__details_air">
-                <div class="popup_order_block__info__from__details_air__number_flight" id="deatils_start_number_flight"></div>
+                <div class="popup_order_block__info__from__details_air__number_flight upper" id="deatils_start_number_flight"></div>
                 <!-- /.popup_order_block__info__from__details_air__number_flight -->
                 <div class="popup_order_block__info__from__details_air__name_modal_air">Airbus A320</div>
                 <!-- /.popup_order_block__info__from__details_air__name_modal_air -->
@@ -115,7 +115,7 @@
               </div>
               <!-- /.popup_order_block__info__from__date_time -->
               <div class="popup_order_block__info__from__details_air">
-                <div class="popup_order_block__info__from__details_air__number_flight" id="deatils_both_sides_back_number_flight"></div>
+                <div class="popup_order_block__info__from__details_air__number_flight upper" id="deatils_both_sides_back_number_flight"></div>
                 <!-- /.popup_order_block__info__from__details_air__number_flight -->
                 <div class="popup_order_block__info__from__details_air__name_modal_air">Airbus A320</div>
                 <!-- /.popup_order_block__info__from__details_air__name_modal_air -->
@@ -151,22 +151,23 @@
             </div>
             <!-- /.popup_order_block__info__from__city -->
             <div class="popup_order_block__info__from__date_time df_jcspb_aic">
-              <span class="details_time_from">
+              <span class="details_time_from" id="deatils_start_from">
                 {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('l') }} <br>
                 {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('j F Y') }} <br>
                 {{-- 30 октября пт 06:30 --}}
-              
+                <span class="deatils_start_from__time"></span>
               </span> 
               <!-- /.details_time_from -->
-              <span class="details_time_to">
+              <span class="details_time_to" id="deatils_start_to">
                 {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_end"])->format('l') }} <br>
                 {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_end"])->format('j F Y') }} <br>
+                <span class="deatils_start_to__time"></span>
               </span> 
               <!-- /.details_time_to -->
             </div>
             <!-- /.popup_order_block__info__from__date_time -->
             <div class="popup_order_block__info__from__details_air">
-              <div class="popup_order_block__info__from__details_air__number_flight"></div>
+              <div class="popup_order_block__info__from__details_air__number_flight upper" id="deatils_start_number_flight"></div>
               <!-- /.popup_order_block__info__from__details_air__number_flight -->
               <div class="popup_order_block__info__from__details_air__name_modal_air">Airbus A320</div>
               <!-- /.popup_order_block__info__from__details_air__name_modal_air -->
@@ -213,41 +214,41 @@
         {{-- @if ($fligth_status == "one_way") --}}
           <div class="flight_from_block">
             <!-- Разметка первой карусели -->
-            @if ($flight_list[0]["airport_start"]["city_rus"] == null)
+            {{-- @if ($flight_list[0]["airport_start"]["city_rus"] == null)
               <h2>Вылет из г. {{ $flight_list[0]["airport_start"]["city_eng"] }}</h2>
             @else
               <h2>Вылет из г. {{ $flight_list[0]["airport_start"]["city_rus"] }}</h2>
-            @endif
-            
-            <div class="owl-carousel slide-one owl-theme owl-loaded">
-              @foreach ($flight_list as $flight_list__item)
-                <div class="carousel__item" data-date-start="{{ $flight_list__item->date_start }}" data-date-end="{{ $flight_list__item->date_end }}">
-                  <div class="carousel__item__day_of_week upper">{{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('l') }}</div>
+            @endif --}}
+            {{-- <div class="owl-carousel slide-one owl-theme owl-loaded"> --}}
+              {{-- @foreach ($flight_list as $flight_list__item) --}}
+                {{-- <div class="carousel__item" data-date-start="{{ $flight_list__item->date_start }}" data-date-end="{{ $flight_list__item->date_end }}"> --}}
+                  {{-- <div class="carousel__item__day_of_week upper">{{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('l') }}</div> --}}
                   <!-- /.carousel__item__day_of_week -->
-                  <div class="carousel__item__date">
+                  {{-- <div class="carousel__item__date"> --}}
                     {{-- <div class="carousel__item__date__number">{{ \Carbon\Carbon::create($flight_from__item->date_from)->format('l') }}</div> --}}
                     {{-- <div class="carousel__item__date__number">{{ Date::parse($flight_from__item->date_from)->format('j F Y г.') }}</div> --}}
-                    <div class="carousel__item__date__number">
-                      {{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('j F') }}
+                    {{-- <div class="carousel__item__date__number"> --}}
+                      {{-- {{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('j F') }} --}}
                       {{-- <span class="carousel__item__date__number__day">{{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('j') }}</span> 
                       <!-- /.carousel__item__date__number__day -->
                       <span class="carousel__item__date__number__month">{{ \Jenssegers\Date\Date::parse($flight_list__item->date_start)->format('F') }}</span> 
                       <!-- /.carousel__item__date__number__month --> --}}
-                    </div>
+                    {{-- </div> --}}
                     <!-- /.carousel__item__date__number -->
                     {{-- <div class="carousel__item__date__text">{{ \Jenssegers\Date\Date::parse($flight_from__item->date_from)->format('F') }}</div> --}}
                     <!-- /.carousel__item__date__text -->
-                  </div>
+                  {{-- </div> --}}
                   <!-- /.carousel__item__date -->
                   
                   {{-- <div class="carousel__item__min_price">{{ $flight_from__item->cost }}</div> --}}
-                  <div class="carousel__item__min_price">{{ $flight_list__item->cost }} <i class="fas fa-ruble-sign"></i></div>
+                  {{-- <div class="carousel__item__min_price">{{ $flight_list__item->cost }} <i class="fas fa-ruble-sign"></i></div> --}}
                   <!-- /.carousel__item__min_price -->
-                </div>
+                {{-- </div> --}}
                 <!-- /.carousel__item -->
-              @endforeach
+              {{-- @endforeach --}}
               
-            </div>
+            {{-- </div> --}}
+            
             <div class="result_price__flight_to">
               <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('j F Y') }}</h2>
               <div class="result_price__flight_to__cards">
@@ -324,31 +325,31 @@
 
         @if ($fligth_status == "both_sides")
           <div class="flight_from_to">
-            @if ($flight_back[0]["airport_start"]["city_rus"] == null)
+            {{-- @if ($flight_back[0]["airport_start"]["city_rus"] == null)
               <h2>Вылет из г. {{ $flight_back[0]["airport_start"]["city_eng"] }}</h2>
             @else
               <h2>Вылет из г. {{ $flight_back[0]["airport_start"]["city_rus"] }}</h2>
-            @endif
-            <div class="owl-carousel slide-two owl-theme owl-loaded">
+            @endif --}}
+            {{-- <div class="owl-carousel slide-two owl-theme owl-loaded"> --}}
               {{-- @foreach ($flight_list as $flight_list__item) --}}
-              @foreach ($flight_back as $flight_back__list)
-                <div class="carousel__item" data-date-start="{{ $flight_back__list->date_start }}" data-date-end="{{ $flight_back__list->date_end }}">
-                  <div class="carousel__item__day_of_week upper">{{ \Jenssegers\Date\Date::parse($flight_back__list->date_start)->format('l') }}</div>
+              {{-- @foreach ($flight_back as $flight_back__list) --}}
+                {{-- <div class="carousel__item" data-date-start="{{ $flight_back__list->date_start }}" data-date-end="{{ $flight_back__list->date_end }}"> --}}
+                  {{-- <div class="carousel__item__day_of_week upper">{{ \Jenssegers\Date\Date::parse($flight_back__list->date_start)->format('l') }}</div> --}}
                   <!-- /.carousel__item__day_of_week -->
-                  <div class="carousel__item__date">
-                    <div class="carousel__item__date__number">{{ \Jenssegers\Date\Date::parse($flight_back__list->date_start)->format('j F') }}</div>
+                  {{-- <div class="carousel__item__date"> --}}
+                    {{-- <div class="carousel__item__date__number">{{ \Jenssegers\Date\Date::parse($flight_back__list->date_start)->format('j F') }}</div> --}}
                     <!-- /.carousel__item__date__number -->
                     {{-- <div class="carousel__item__date__text">октября</div> --}}
                     <!-- /.carousel__item__date__text -->
-                  </div>
+                  {{-- </div> --}}
                   <!-- /.carousel__item__date -->
-                  <div class="carousel__item__min_price">{{ $flight_back__list->cost }} <i class="fas fa-ruble-sign"></i></div>
+                  {{-- <div class="carousel__item__min_price">{{ $flight_back__list->cost }} <i class="fas fa-ruble-sign"></i></div> --}}
                   <!-- /.carousel__item__min_price -->
-                </div>
+                {{-- </div> --}}
                 <!-- /.carousel__item -->
-              @endforeach
+              {{-- @endforeach --}}
               
-            </div>
+            {{-- </div> --}}
             <div class="result_price__flight_to">
               <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_back[0]["date_start"])->format('j F Y') }}</h2>
               <div class="result_price__flight_to__cards">

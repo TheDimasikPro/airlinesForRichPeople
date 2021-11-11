@@ -1,5 +1,6 @@
 $(document).ready(function () {
     // общее
+    $('.errors_search_tickets').text();
     const dropbtn_from_flights = $('#dropbtn_from_flights');
     const dropbtn_to_flights = $('#dropbtn_to_flights');
     const input_search_from_flights = $('#id_i_s_f_f');
