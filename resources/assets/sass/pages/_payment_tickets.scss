@@ -16,15 +16,25 @@
                 &:not(:first-child){
                     margin-top: 20px;
                 }
-                &:last-child{
-                    #btn_payment_ticket{
-                        width: 100%;
-                        font-size: 20px;
-                        padding: 10px 20px;
-                        height: auto;
-                        span{
-                            margin-left: 30px;
-                        }
+                #btn_payment_ticket{
+                    width: 100%;
+                    font-size: 20px;
+                    padding: 10px 20px;
+                    height: auto;
+                    span{
+                        margin-left: 30px;
+                    }
+                }
+            }
+            .error_payment_ticket_list{
+                margin-top: 20px;
+                background: #A01010;
+                color: $white;
+                font-size: $fz_second;
+                padding: 10px;
+                .error_payment_ticket_list_item{
+                    &:not(:first-child){
+                        margin-top: 10px;
                     }
                 }
             }

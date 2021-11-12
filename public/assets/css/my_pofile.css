@@ -788,8 +788,21 @@ input[type=button] {
 .my_profile_block .profile_data_cards .personal_data_block .personal_data_block__update_form .personal_data_block__update_form__input_block #btn_submit_update_personal_data {
   width: 100%;
 }
-.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards {
+.my_profile_block .profile_data_cards .my_travel_block .warning_text {
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 10px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block_title_block #full_travel_list {
+  width: auto;
+  height: auto;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block_title_list {
   margin-top: 30px;
+  padding: 10px;
+}
+.my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards {
+  margin-top: 20px;
 }
 .my_profile_block .profile_data_cards .my_travel_block .my_travel_block__cards .my_travel_block__cards__item {
   background-color: #ffffff;
@@ -870,12 +883,6 @@ input[type=button] {
 }
 
 @media (max-width: 1000px) {
-  .my_profile_block .non_view__text_mobile {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 16px;
-  }
   .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__short_name__exit_block, .my_profile_block .aside_bar_user .aside_user__list .aside_user__list__item .aside_user__list__item__btn {
     font-size: 14px;
   }
@@ -995,6 +1002,21 @@ input[type=button] {
   }
 }
 @media (max-width: 450px) {
+  .my_profile_block .non_view__text_mobile {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .my_profile_block .my_travel_block_title_block {
+    flex-direction: column;
+  }
+  .my_profile_block .my_travel_block_title_block #full_travel_list {
+    margin-top: 10px;
+  }
+  .my_profile_block .my_travel_block_title_list {
+    display: none;
+  }
   .my_profile_block .aside_bar_user .aside_user__list {
     flex-direction: column;
   }

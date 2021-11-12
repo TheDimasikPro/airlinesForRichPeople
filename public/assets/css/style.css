@@ -2171,14 +2171,24 @@ input[type=button] {
 .payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .payment_tickets_block__info__from__inputs_block:not(:first-child) {
   margin-top: 20px;
 }
-.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .payment_tickets_block__info__from__inputs_block:last-child #btn_payment_ticket {
+.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .payment_tickets_block__info__from__inputs_block #btn_payment_ticket {
   width: 100%;
   font-size: 20px;
   padding: 10px 20px;
   height: auto;
 }
-.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .payment_tickets_block__info__from__inputs_block:last-child #btn_payment_ticket span {
+.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .payment_tickets_block__info__from__inputs_block #btn_payment_ticket span {
   margin-left: 30px;
+}
+.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .error_payment_ticket_list {
+  margin-top: 20px;
+  background: #A01010;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px;
+}
+.payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from .error_payment_ticket_list .error_payment_ticket_list_item:not(:first-child) {
+  margin-top: 10px;
 }
 
 .non_view {

@@ -688,7 +688,8 @@ $(document).ready(function () {
                     $('.passenger_info__errors').append(error_list_item);
                   });
                 }
-              } else {// location.href = data_JSON.route;
+              } else {
+                location.href = data_JSON.route;
               }
             }
           }
@@ -708,6 +709,71 @@ $(document).ready(function () {
 
     return randomString;
   }
+
+  $('#card_number').click(function () {
+    $(this).setCursorPosition(0);
+  });
+  $("#card_number").mask("9999 9999 9999 9999");
+  $('#expity_date_card').click(function () {
+    $(this).setCursorPosition(0);
+  });
+  $("#expity_date_card").mask("99/99");
+  $('#security_code_card').click(function () {
+    $(this).setCursorPosition(0);
+  });
+  $("#security_code_card").mask("999");
+  $('#btn_payment_ticket').click(function (e) {
+    e.preventDefault();
+    var name_on_card = $.trim($('#name_on_card').val());
+    var card_number = $.trim($('#card_number').val());
+    var expity_date_card = $.trim($('#expity_date_card').val());
+    var security_code_card = $.trim($('#security_code_card').val());
+    $('.error_payment_ticket_list').removeClass('non_view');
+    $('.error_payment_ticket_list .error_payment_ticket_list_item').remove();
+
+    if (name_on_card == "") {
+      var error_payment_ticket_list_item = document.createElement('li');
+      error_payment_ticket_list_item.setAttribute('class', 'error_payment_ticket_list_item');
+      error_payment_ticket_list_item.append("Заполните поле с именем указанным на карте");
+      $('.error_payment_ticket_list').append(error_payment_ticket_list_item);
+    }
+
+    if (card_number == "") {
+      var _error_payment_ticket_list_item = document.createElement('li');
+
+      _error_payment_ticket_list_item.setAttribute('class', 'error_payment_ticket_list_item');
+
+      _error_payment_ticket_list_item.append("Заполните поле с номером карты");
+
+      $('.error_payment_ticket_list').append(_error_payment_ticket_list_item);
+    }
+
+    if (expity_date_card == "") {
+      var _error_payment_ticket_list_item2 = document.createElement('li');
+
+      _error_payment_ticket_list_item2.setAttribute('class', 'error_payment_ticket_list_item');
+
+      _error_payment_ticket_list_item2.append("Заполните поле с истечением срока");
+
+      $('.error_payment_ticket_list').append(_error_payment_ticket_list_item2);
+    }
+
+    if (security_code_card == "") {
+      var _error_payment_ticket_list_item3 = document.createElement('li');
+
+      _error_payment_ticket_list_item3.setAttribute('class', 'error_payment_ticket_list_item');
+
+      _error_payment_ticket_list_item3.append("Заполните поле 'секретный код'");
+
+      $('.error_payment_ticket_list').append(_error_payment_ticket_list_item3);
+    }
+
+    if (name_on_card != "" && card_number != "" && expity_date_card != "" && security_code_card != "") {
+      $('.error_payment_ticket_list').addClass('non_view'); // ajax запрос на оплату + изменение в базе, статуса бронирования на "Подтвержден" при регситрации, статус меняется на "Зарегистрирован"
+
+      location.href = "http://richairlines/";
+    }
+  });
 });
 /******/ })()
 ;

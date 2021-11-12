@@ -6,6 +6,9 @@
     font-size: $fz_second;
     .non_view__text_mobile{
         display: none;
+        // margin-bottom: 5px;
+        // font-weight: bold;
+        // font-size: $fz_second;
     }
     .exit_profile_link{
         padding: 0;
@@ -82,8 +85,8 @@
             background: $white;
             box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
             padding: 20px;
-            
         }
+        
         .control_panel_block{
             line-height: 25px;
             .control_panel_block__full_name_user{
@@ -195,8 +198,23 @@
             }
         }
         .my_travel_block{
-            .my_travel_block__cards{
+            .warning_text{
+                font-size: $fz_base;
+                line-height: 22px;
+                margin-top: 10px;
+            }
+            .my_travel_block_title_block{
+                #full_travel_list{
+                    width: auto;
+                    height: auto;
+                }
+            }
+            .my_travel_block_title_list{
                 margin-top: 30px;
+                padding: 10px;
+            }
+            .my_travel_block__cards{
+                margin-top: 20px;
                 .my_travel_block__cards__item{
                     background-color: $white;
                     border: 1px solid rgba($color: $black_gray, $alpha: .5);
@@ -284,12 +302,7 @@
 
 @media (max-width: 1000px) {
     .my_profile_block{
-        .non_view__text_mobile{
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            font-size: $fz_second;
-        }
+        
         .aside_bar_user{
             .aside_user__list{
                 .aside_user__list__item{
@@ -465,6 +478,21 @@
 }
 @media (max-width: 450px) {
     .my_profile_block {
+        .non_view__text_mobile{
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: $fz_second;
+        }
+        .my_travel_block_title_block{
+            flex-direction: column;
+            #full_travel_list{
+                margin-top: 10px;
+            }
+        }
+        .my_travel_block_title_list{
+            display: none;
+        }
         .aside_bar_user{
             .aside_user__list{
                 flex-direction: column;

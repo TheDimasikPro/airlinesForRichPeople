@@ -65,6 +65,10 @@ Route::prefix('profile')->group(function () {
 
     Route::get('/logoout',function(){
         Auth::logout();
+        Session::forget('flight_order_info');
+        Session::forget('new_passenger_ids');
+        Session::forget('cost_tickets__all_passenger');
+        Session::forget('passenger_info');
         return redirect()->route('index__page');
     })->name('logout');
 

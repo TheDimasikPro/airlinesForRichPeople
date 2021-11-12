@@ -182,10 +182,10 @@ $(document).ready(function (e) {
     $('.aside__block__info__all_price__text').text(price_tikets);
     $('.price_popup span').text("Итоговая цена: " + price_tikets);
     id_flight_end = $('.result_price__flight_from__cards__item').attr("data-id-flight");
-  });
-  $('.aside__block__info__btn').click(function (e) {
-    e.preventDefault();
-  });
+  }); // $('.aside__block__info__btn').click(function (e) {
+  //     e.preventDefault();
+  // });
+
   $('#aside__block__info__btn').click(function () {
     check_error_aside_tickets();
   });
@@ -221,8 +221,12 @@ $(document).ready(function (e) {
 
   function redirect_to_passenger_info(id_flight_start, id_flight_end) {
     var formData = new FormData();
-    var param_url_this_page = window.location.href.split('?')[1];
-    location.href = "http://richairlines/search_tickets/passenger_info?" + param_url_this_page + "&id_flight_start=" + id_flight_start + "&id_flight_end=" + id_flight_end;
+    var cost = $('.aside__block__info__all_price__text').text();
+
+    if (cost != "") {
+      var param_url_this_page = window.location.href.split('?')[1];
+      location.href = "http://richairlines/search_tickets/passenger_info?" + param_url_this_page + "&id_flight_start=" + id_flight_start + "&id_flight_end=" + id_flight_end + "&cost=" + cost;
+    }
   }
 });
 /******/ })()

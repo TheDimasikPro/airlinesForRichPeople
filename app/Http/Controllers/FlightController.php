@@ -34,7 +34,7 @@ class FlightController extends Controller
             ]
         ]);
         if ($validationFileds->fails()) {
-            return $validationFileds->errors();
+            // return $validationFileds->errors();
             return redirect()->route('index__page')->withErrors([
                 'errors' => "Пожалуйста проверьте все свои данные. Если у вас есть обратный билет, выберите данные для обратного полета и кол-во пассажиров должно быть больше 0."
             ]);
@@ -308,6 +308,9 @@ class FlightController extends Controller
             "id_flight_end" => [
                 "required",
                 "integer"
+            ],
+            "cost" => [
+                "required"
             ]
         ]);
         if ($validationFileds->fails()) {
@@ -322,6 +325,7 @@ class FlightController extends Controller
         $date_from = $request["date_from"];
         $date_back = $request["date_back"];
         $id_flight_start = $request["id_flight_start"];
+        $cost = $request["cost"];
         if ($request["id_flight_end"] == 0) {
             $id_flight_end = null;
         }
@@ -365,6 +369,7 @@ class FlightController extends Controller
                 "id_flight_end" => $id_flight_end,
                 "airport_from" => $airport_from,
                 "airport_back" => $airport_back,
+                "cost" => $cost
             ];
 
             session(['flight_order_info' => $passenger_array__session]);
@@ -456,9 +461,6 @@ class FlightController extends Controller
             // сделать проверку, что пассажира с таким местом и рядом нет, если кол-во мест = 0, ошибка, если человек с таким местом и рядом есть - ошибка.
             
             if (!empty(session("flight_order_info"))) {
-                
-
-                
                 $checkBooking_end = null;
                 $checkBooking_start = Booking::where([
                     ['id_flight_from', session("flight_order_info")["id_flight_start"]],
@@ -512,6 +514,7 @@ class FlightController extends Controller
                     $count_free_place__end = $place_free__end->get()[0]["number_of_free_seats"];
                 }
                 $array_new_passenger_ids = [];
+               
                 $arr_places_start = [];
                 foreach ($checkPassenger_start->get() as $checkPassenger_start_value) {
                     array_push($arr_places_start,$checkPassenger_start_value["place_number"]);
@@ -551,7 +554,7 @@ class FlightController extends Controller
                         'id_gender_code' => $value["gender_code"],
                         'id_citizenship' => $value["citizenship"],
                         'id_document_type' => $value["type_document"],
-                        'series_and_document_number' => $value["series_numbers_document"],
+                        'series_and_document_number' => str_replace(' ','',$value["series_numbers_document"]),
                         'row_number' => 1,
                         'place_number' => $place_passenger__start,
                         'id_booking' => $new_booking_id_start,
@@ -593,7 +596,7 @@ class FlightController extends Controller
                             'id_gender_code' => $value["gender_code"],
                             'id_citizenship' => $value["citizenship"],
                             'id_document_type' => $value["type_document"],
-                            'series_and_document_number' => $value["series_numbers_document"],
+                            'series_and_document_number' => str_replace(' ','',$value["series_numbers_document"]),
                             'row_number' => 1,
                             'place_number' => $place_passenger__end,
                             'id_booking' => $new_booking_id_end,
@@ -612,24 +615,34 @@ class FlightController extends Controller
                 $arr_places_start = [];
                 $arr_places_end = [];
             }
-            return json_encode($array_new_passenger_ids);
-            // session(["passenger_info" => $array_values_req]);
-            // return response()->json([
-            //     "status" => true,
-            //     "count_done" => $count_done,
-            //     "request_array" => count($request_array),
-            //     "array_values_req" => $array_values_req,
-            //     "route" => route('payment_tickets__page'),
-            //     // "flight_order_info__id_start" => session("flight_order_info")["id_flight_start"]
-            // ],200)->header('Content-Type', 'application/json');
+            session(["new_passenger_ids" => $array_new_passenger_ids]);
+            session(["cost_tickets__all_passenger" => session("flight_order_info")["cost"]]);
+            // return json_encode($array_new_passenger_ids);
+            session(["passenger_info" => $array_values_req]);
+            return response()->json([
+                "status" => true,
+                "count_done" => $count_done,
+                "request_array" => count($request_array),
+                "array_values_req" => $array_values_req,
+                "route" => route('payment_tickets__page'),
+                // "flight_order_info__id_start" => session("flight_order_info")["id_flight_start"]
+            ],200)->header('Content-Type', 'application/json');
         }
     }
 
     public function returnViewPaymentTickets()
     {
         // return session("passenger_info");
-        if (!empty(session("passenger_info"))) {
-            return view('payment_tickets');
+        if (!empty(session("passenger_info")) && !empty(session("new_passenger_ids")) && !empty(session("cost_tickets__all_passenger"))) {
+            $response = [
+                "cost_tickets" => session("cost_tickets__all_passenger"),
+                "new_passenger_ids" => session("new_passenger_ids")
+            ];
+            // return $response;
+            return view('payment_tickets', [
+                "cost_tickets" => session("cost_tickets__all_passenger"),
+                "new_passenger_ids" => session("new_passenger_ids")
+            ]);
         }
         else{
             return redirect()->route('index__page');

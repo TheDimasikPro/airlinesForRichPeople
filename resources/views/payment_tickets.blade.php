@@ -1,6 +1,3 @@
-
-
-
 @extends('layouts.layout_with_footer_bottom')
 @section('title_page','Оплата билетов')
 @section('styles_link')
@@ -53,11 +50,19 @@
                     <div class="payment_tickets_block__info__from__inputs_block">
                         <button class="btn_style_1" id="btn_payment_ticket" aria-label="btn_payment_ticket">
                             <i class="fas fa-lock"></i>
-                            <span>5000 <i class="fas fa-ruble-sign"></i></span>
+                            {{-- @if ($response) --}}
+                                <span>{{ $cost_tickets }} <i class="fas fa-ruble-sign"></i></span>
+                            {{-- @endif --}}
+                            
                         </button> 
                         <!-- /.btn_style_1 -->
                     </div>
                     <!-- /.payment_tickets_block__info__from__inputs_block -->
+                    <ul class="error_payment_ticket_list non_view">
+                        {{-- <li class="error_payment_ticket_list_item"></li>
+                        <!-- /.error_payment_ticket_list_item --> --}}
+                    </ul>
+                    <!-- /.error_payment_ticket_list -->
                 </form>
                 <!-- /.payment_tickets_block__info__from -->
             </div>

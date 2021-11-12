@@ -17,6 +17,6 @@ class Airport extends Model
     // ];
     public function flights()
     {
-        return $this->hasMany(FlightController::class,'id','id_airport_start');
+        return $this->hasMany(FlightController::class);
     }
 }

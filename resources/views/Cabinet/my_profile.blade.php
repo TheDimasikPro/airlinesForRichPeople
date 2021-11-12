@@ -20,7 +20,7 @@
                         <!-- /.exit_profile_link -->
                     </p>
                     <p>
-                        Из панели управления вы можете, просмотреть свои личные данные и историю поездок за последний год, если вам нужна полная история, то выберите пункт "Полная история поездок" в меню.
+                        Из панели управления вы можете, просмотреть свои личные данные и историю поездок за последний год, если вам нужна полная история, то на странице "Мои поездки" нажмите на кнопку "Полная история поездок" в меню.
                     </p>
                 </div>
                 <!-- /.control_panel_block -->
@@ -162,7 +162,27 @@
                 </div>
                 <!-- /.personal_data_block -->
                 <div class="my_travel_block profile_data_cards_non_view">
-                    <h2>Мои поездки за последний год</h2>
+                    <div class="my_travel_block_title_block df_jcspb_aic">
+                        <h2>Мои поездки за последний год</h2>
+                        <button class="btn_style_1" id="full_travel_list">Полная история поездок</button> <!-- /#full_travel_list.btn_style_1 -->
+                    </div>
+                    <!-- /.my_travel_block_title_block -->
+                    
+                    <p class="warning_text">
+                        * На данной странице выводятся все поездки, который были совершены вами за последний год. <br>
+                        * Если вы поменяли серию и номер своего документа, то здесь будут отображаться поездку только по новым данным.
+                    </p>
+                    <ul class="my_travel_block_title_list df_jcspb_aic">
+                        <li class="my_travel_block_title_list__item">Номер рейса</li>
+                        <!-- /.my_travel_block_title_list__item -->
+                        <li class="my_travel_block_title_list__item">План полета</li>
+                        <!-- /.my_travel_block_title_list__item -->
+                        <li class="my_travel_block_title_list__item">Статус рейса</li>
+                        <!-- /.my_travel_block_title_list__item -->
+                        <li class="my_travel_block_title_list__item">Цена</li>
+                        <!-- /.my_travel_block_title_list__item -->
+                    </ul>
+                    <!-- /.my_travel_block_title_list -->
                     <div class="my_travel_block__cards">
                         <!-- /.my_travel_block__cards__item -->
                         <div class="my_travel_block__cards__item">
