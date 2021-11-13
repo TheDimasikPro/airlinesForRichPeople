@@ -7,10 +7,14 @@ use App\Http\Controllers\BaggageController;
 use App\Http\Controllers\Cabinet\ProfileController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TicketController;
+use App\Notifications\HelloUser;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
 
@@ -31,7 +35,12 @@ Route::get('/#section__add_services',[IndexController::class,'index'])->name('ad
 
 
 Route::get('/forgot_password', [ForgotPasswordController::class,'index'])->name('forgot_password__page');
+Route::get('get_email_user', [MailController::class,'send'])->name('get_email');
+Route::get('/reset_password/{token}', function ($token) {
+    return view('Auth.reset_password',["token" => $token]);
+})->name('reset_password_link_email');
 
+Route::post('/reset_password', [ForgotPasswordController::class,'update'])->name('reset_password_update');
 
 Route::get('/about',[MainController::class,'returnViewAbout'])->name('about_page');
 Route::get('/order_management',[OrderController::class,'returnViewOrderManagment'])->name('order_management__page');

@@ -1,6 +1,18 @@
 @import '../overall_style.scss';
 @import '../header.scss';
 
+.container_emails{
+    color: red;
+}
+#form_reset_password{
+    .error_auth__message{
+        background: #A90000;
+        color: $white;
+        padding: 10px;
+        max-width: 400px;
+        margin-top: 30px;
+    }
+}
 .form_auth{
     display: flex;
     flex-direction: column;

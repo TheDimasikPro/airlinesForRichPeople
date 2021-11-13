@@ -1,0 +1,31 @@
+<mjml>
+  <mj-body background-color="white">
+    <mj-section>
+        <mj-column>
+            <mj-image width="200px" src="http://richairlines/assets/images/logo.png"></mj-image>
+            <mj-divider border-color="#65CF94"></mj-divider>
+            <mj-text font-size="20px" color="black" font-family="helvetica">Добро пожаловать!</mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section>
+        <mj-column>
+            <mj-text font-size="20px" color="black" font-family="helvetica">Здравствуйте <span class="full_name_user">Дмитрий</span>!</mj-text>
+            <mj-text font-size="20px" color="black" font-family="helvetica">Мы рады, что вы теперь с нами. </mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section>
+        <mj-column>
+            <mj-text font-size="20px" color="black" font-family="helvetica" font-weight="700">Данные для входа в ваш аккаунт:</mj-text>
+            <mj-text font-size="20px" color="black" font-family="helvetica">Логин: </mj-text>
+            <mj-text font-size="20px" color="black" font-family="helvetica">Пароль: </mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section>
+        <mj-column>
+            <mj-button font-family="Helvetica" background-color="#f45e43" color="white" href="http://richairlines/">
+                Наш сайт!
+            </mj-button>
+        </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
