@@ -8,7 +8,7 @@
         <form action="{{ route('reset_password_update') }}" method="POST" class="form form_auth" id="form_reset_password">
             @csrf
             <input type="hidden" name="token_user" value="{{ $token }}">
-            <h1>Восстановление пароля</h1>
+            <h2>Восстановление пароля</h2>
             <div class="form_auth_block">
                 <label for="email">Email</label>
                 <input type="email" autocomplete="off" required class="form_auth_input md_input" id="email" name="email" placeholder="Введите свой email">
@@ -27,6 +27,11 @@
             <div class="form_auth_block">
                 <button type="submit" class="btn btn_style_1 upper">Восстановить</button> 
                 <!-- /.btn btn_style_1 upper-->
+            </div>
+            <!-- /.form_auth_block -->
+            <div class="form_auth_block">
+                <p class="form_auth_block__message">* Если все данные введены верно, то для входа в кабинет с новым паролем авторизируйтесь заново</p>
+                <!-- /.form_auth_block__message -->
             </div>
             <!-- /.form_auth_block -->
             @error('errors')

@@ -5,12 +5,12 @@
 @endsection
 @section('content')
     <div class="container df_jcc_aic content_flex">
-        <form action="{{ route('get_email') }}" method="GET" class="form form_auth" id="form_forgot_password">
+        <form action="{{ route('send_mail_reset_password') }}" method="GET" class="form form_auth" id="form_forgot_password">
             {{-- @csrf --}}
-            <h1>Забыли пароль?</h1>
+            <h2>Забыли пароль или хотите его восстановить?</h2>
             <div class="form_auth_block">
                 <label for="email_forgot">Email</label>
-                <input type="text" required autocomplete="off" class="form_auth_input md_input" id="email_forgot" name="email" placeholder="Введите свою почту">
+                <input type="email" required autocomplete="off" class="form_auth_input md_input" id="email_forgot" name="email" placeholder="Введите свою почту">
             </div>
             <!-- /.form_auth_block -->
             <div class="form_auth_block">
@@ -18,6 +18,17 @@
                 <!-- /.btn btn_style_1 upper-->
             </div>
             <!-- /.form_auth_block -->
+            <div class="form_auth_block">
+                <p class="form_auth_block__message">* На указанную вами почту будет отправлено письмо с ссылкой для восстановления пароля</p>
+                <!-- /.form_auth_block__message -->
+            </div>
+            <!-- /.form_auth_block -->
+            @error('errors')
+                <div class="error_auth__message">
+                    {{ $message }}
+                </div>
+                <!-- /.errors_search_tickets -->
+            @enderror
             <div class="form_auth_block df_jcspb_aic">
                 <a href="{{ route('my_profile__page') }}" class="link_auth">Авторизоваться</a>
                 <a href="{{ route('reg__page') }}" class="link_auth">Зарегистрироваться</a>

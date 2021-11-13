@@ -277,7 +277,7 @@
                 <!-- /.my_travel_block -->
                 <div class="update_password_block profile_data_cards_non_view">
                     <h2>Здесь вы можете запросить смену нового пароля</h2>
-                    <form action="" class="update_password_block__update_form">
+                    <form action="{{ route('forgot_password__page') }}" class="update_password_block__update_form">
                         {{-- <div class="update_password_block__update_form__input_block">
                             <label for="old_password_user">Старый пароль</label>
                             <input type="password" id="old_password_user" class="input_style_pofile update_password_block__update_form__input_block__input" placeholder="Старый пароль">

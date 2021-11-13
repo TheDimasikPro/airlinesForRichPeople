@@ -594,12 +594,15 @@ input[type=button] {
   color: red;
 }
 
-#form_reset_password .error_auth__message {
+#form_reset_password .error_auth__message, #form_forgot_password .error_auth__message {
   background: #A90000;
   color: #ffffff;
   padding: 10px;
   max-width: 400px;
   margin-top: 30px;
+}
+#form_reset_password .form_auth_block__message, #form_forgot_password .form_auth_block__message {
+  max-width: 400px;
 }
 
 .form_auth {
@@ -615,6 +618,9 @@ input[type=button] {
 }
 .form_auth#form_forgot_password {
   min-height: auto;
+}
+.form_auth#form_forgot_password h2 {
+  max-width: 400px;
 }
 .form_auth#form_forgot_password .form_auth_block:last-child {
   margin-bottom: 20px;
@@ -633,7 +639,7 @@ input[type=button] {
   color: #ffffff;
   padding: 10px;
 }
-.form_auth h1 {
+.form_auth h2 {
   margin-bottom: 5px;
 }
 .form_auth .form_auth_block {
@@ -1088,6 +1094,9 @@ input[type=button] {
   }
 }
 @media (max-width: 670px) {
+  .form_auth .warning_text {
+    max-width: 450px;
+  }
   .form_auth .form_auth_block .form_auth__row .stages_list {
     width: 450px;
   }
@@ -1127,6 +1136,9 @@ input[type=button] {
   }
 }
 @media (max-width: 520px) {
+  .form_auth .warning_text {
+    max-width: 350px;
+  }
   .form_auth .form_auth_block .form_auth__row .stages_list {
     flex-direction: column;
     align-items: flex-start;
@@ -1169,10 +1181,11 @@ input[type=button] {
   }
 }
 @media (max-width: 480px) {
-  .form_auth h1 {
-    font-size: 26px;
-    margin: 10px 0;
-    margin-bottom: 0;
+  .form_auth#form_forgot_password h2, .form_auth#form_reset_password h2 {
+    max-width: 350px;
+  }
+  .form_auth#form_forgot_password .form_auth_block:last-child, .form_auth#form_forgot_password .form_auth_block__message, .form_auth#form_forgot_password .error_auth__message, .form_auth#form_reset_password .form_auth_block:last-child, .form_auth#form_reset_password .form_auth_block__message, .form_auth#form_reset_password .error_auth__message {
+    max-width: 350px;
   }
   .form_auth .warning_text {
     max-width: 300px;
@@ -1208,6 +1221,12 @@ input[type=button] {
   }
 }
 @media (max-width: 420px) {
+  .form_auth#form_forgot_password h2, .form_auth#form_reset_password h2 {
+    max-width: 300px;
+  }
+  .form_auth#form_forgot_password .form_auth_block:last-child, .form_auth#form_forgot_password .form_auth_block__message, .form_auth#form_forgot_password .error_auth__message, .form_auth#form_reset_password .form_auth_block:last-child, .form_auth#form_reset_password .form_auth_block__message, .form_auth#form_reset_password .error_auth__message {
+    max-width: 300px;
+  }
   .form_auth .warning_text {
     max-width: 250px;
   }
@@ -1237,11 +1256,20 @@ input[type=button] {
   }
 }
 @media (max-width: 370px) {
+  .form_auth#form_forgot_password h2, .form_auth#form_reset_password h2 {
+    max-width: 250px;
+  }
+  .form_auth#form_forgot_password .form_auth_block:last-child, .form_auth#form_forgot_password .form_auth_block__message, .form_auth#form_forgot_password .error_auth__message, .form_auth#form_reset_password .form_auth_block:last-child, .form_auth#form_reset_password .form_auth_block__message, .form_auth#form_reset_password .error_auth__message {
+    max-width: 250px;
+  }
   .form_auth .form_auth_block input, .form_auth .form_auth_block .btn {
-    width: 260px;
+    width: 250px;
   }
   .form_auth .form_auth_block .form_auth__row .error_contact_data, .form_auth .form_auth_block .form_auth__row .error_profile_data, .form_auth .form_auth_block .form_auth__row .error_password_data, .form_auth .form_auth_block .form_auth__row .overlay_finish_form {
     width: 250px;
+  }
+  .form_auth .form_auth_block .link_auth {
+    font-size: 12px;
   }
 }
 .non_view {

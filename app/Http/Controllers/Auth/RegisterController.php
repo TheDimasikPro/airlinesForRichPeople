@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\MailController;
 use App\Models\User;
 use App\Models\UserRole;
 use Carbon\Carbon;
@@ -30,6 +31,222 @@ class RegisterController extends Controller
             ];
             return view('Auth.reg', ['reg_info' => $response]);
         }
+    }
+
+    public function checkContactDataRegister(Request $request)
+    {
+        if (Auth::check()) {
+            return redirect()->to(route('my_profile__page'));
+        }
+        $validateFileds = Validator::make($request->all(),
+        [
+            "email" => [
+                "required",
+                "string",
+                "email"
+            ]
+        ]);
+
+        if ($validateFileds->fails()) {
+            $response = [
+                "status" => false,
+                "error_message" => "Что-то пошло не так, проверьте правильность заполнения полей в настройках",
+                'errors' => $validateFileds->errors()
+            ];
+            return json_encode($response);
+        }
+
+
+        $email = $request['email'];
+        $phone = $request['phone'];
+        if (User::where([
+            ['email',$email],
+            ['phone',$phone]
+            ])->first()) {
+                $response = [
+                    'status' => false,
+                    'message' => 'Пользователь с такой почтой и таким телефоном уже есть'
+                ];
+                return json_encode($response);
+        }
+        if (User::where([
+            ['email',$email]])->first()) {
+                $response = [
+                    'status' => false,
+                    'message' => 'Пользователь с такой почтой уже есть'
+                ];
+                return json_encode($response);
+        }
+        if (User::where([
+            ['phone',$phone]])->first()) {
+                $response = [
+                    'status' => false,
+                    'message' => 'Пользователь с таким телефоном уже есть'
+                ];
+                return json_encode($response);
+        }
+        $response = [
+            'status' => true,
+            'message' => 'все супер'
+        ];
+        return json_encode($response);
+
+    }
+
+    public function checkPersonalDataRegister(Request $request)
+    {
+        if (Auth::check()) {
+            return redirect()->to(route('my_profile__page'));
+        }
+        $validateFileds = Validator::make($request->all(),
+        [
+            "full_name" => [
+                "required",
+                "string"
+            ],
+            "date_birthday" => [
+                "required",
+                "date",
+                "date_format:Y-m-d"
+            ],
+            "id_gender_code" => [
+                "required",
+                "regex:/^[1-9]{1}$/"
+            ],
+            "city_name" => [
+                "required",
+                "string"
+            ],
+            "id_type_document" => [
+                "required",
+                "regex:/^[1-9]{1}$/"
+            ],
+            "series_document_number" => [
+                "required",
+                "regex:/^[0-9]{6,12}$/"
+            ],
+            "id_country_of_issue" => [
+                "required",
+                "regex:/^[1-9]*$/"
+            ]
+        ]);
+        if ($validateFileds->fails()) {
+            $response = [
+                "status" => false,
+                "error_message" => "Что-то пошло не так, проверьте правильность заполнения полей в настройках",
+                'errors_fields' => $validateFileds->errors()
+            ];
+            return json_encode($response);
+        }
+        else{
+            // $full_name = $request['full_name'];
+            // $date_of_birthday = $request['date_birthday'];
+            // $gender_code = $request['gender_code'];
+            // $city_of_residence = $request['city_name'];
+            $id_document_type = $request['id_type_document'];
+            $series_document_number = $request['series_document_number'];
+            // $id_country_of_issue = $request['country_of_issue'];
+
+            $user_check = User::Where([
+                ['series_and_document_number',$series_document_number]
+            ])->first();
+
+            if ($user_check) {
+                $response = [
+                    'status' => false,
+                    'error_message' => 'Пользователь с такой серией и номером паспорта уже существует. Проверьте свои данные'
+                ];
+                return json_encode($response);
+            }
+            else{
+                $response = [
+                    'status' => true,
+                    'error_message' => 'Все супер, чики'
+                ];
+                return json_encode($response);
+            }
+        }
+    }
+
+    public function checkPasswordDataRegister(Request $request)
+    {
+        if (Auth::check()) {
+            return redirect()->to(route('my_profile__page'));
+        }
+        $validateFileds = Validator::make($request->all(),[
+            "password" => [
+                "required",
+                "regex:/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/"
+            ]
+        ]);
+        if ($validateFileds->fails()) {
+            $response = [
+                "status" => false,
+                "error_message" => "Слабый пароль. Используйте заглавные и прописные латинские буквы, а также цифры и минимум один из следюущий символов: !@#$%^&*",
+                'errors_fields' => $validateFileds->errors()
+            ];
+            return json_encode($response);
+        }
+        $password = $request['password'];
+        $email = $request['email'];
+        $user_password_array = User::where([
+            ['email',$email]
+        ])->first();
+        if ($user_password_array) {
+            if(!Hash::check($password,$user_password_array->password)){
+                $response = [
+                    "status" => true,
+                    "error_message" => "Пароля нет",
+                    "passwords" => $user_password_array
+                ];
+                return json_encode($response); 
+            }
+            else{
+                $response = [
+                    "status" => false,
+                    "error_message" => "Пользователь с таким паролем уже существует"
+                ];
+                return json_encode($response);
+            }
+        }
+        $response = [
+            "status" => true,
+            "error_message" => "Пароля нет",
+            "passwords" => $user_password_array
+        ];
+        return json_encode($response); 
+
+
+        // $flag_password = false;
+        // if (isset($user_password_array) && count($user_password_array) > 0) {
+           
+        //     foreach ($user_password_array as $password_db) {
+        //         if(!Hash::check($password,$password_db)){
+        //             $flag_password = true;
+        //         }
+        //     }
+        // }
+        // else{
+        //     $flag_password = true;
+        // }
+        
+
+        // if (!$flag_password) {
+        //     $response = [
+        //         "status" => false,
+        //         "error_message" => "Пользователь с таким паролем уже существует",
+        //         "flag_password" => $flag_password
+        //     ];
+        //     return json_encode($response);
+        // }
+        // else{
+        //     $response = [
+        //         "status" => true,
+        //         "error_message" => "Пароля нет",
+        //         "passwords" => $user_password_array
+        //     ];
+        //     return json_encode($response); 
+        // }
     }
 
     public function save(Request $request)
@@ -125,6 +342,13 @@ class RegisterController extends Controller
             ]);
             if ($user) {
                 Auth::loginUsingId($user);
+                $response_mail = [
+                    "full_name" => $full_name,
+                    "email" => $email,
+                    "password" => $password
+                ];
+                $mailController = new MailController();
+                $mailController->sendMailWelcome($response_mail,$email);
                 $response = [
                     'status' => true,
                     'message' => 'Регистрация произошла успешно',
@@ -160,217 +384,11 @@ class RegisterController extends Controller
         // ]);
     }
 
-    public function checkContactDataRegister(Request $request)
-    {
-        $validateFileds = Validator::make($request->all(),
-        [
-            "email" => [
-                "required",
-                "string",
-                "email"
-            ]
-        ]);
-
-        if ($validateFileds->fails()) {
-            $response = [
-                "status" => false,
-                "error_message" => "Что-то пошло не так, проверьте правильность заполнения полей в настройках",
-                'errors' => $validateFileds->errors()
-            ];
-            return json_encode($response);
-        }
-
-
-        $email = $request['email'];
-        $phone = $request['phone'];
-        if (User::where([
-            ['email',$email],
-            ['phone',$phone]
-            ])->first()) {
-                $response = [
-                    'status' => false,
-                    'message' => 'Пользователь с такой почтой и таким телефоном уже есть'
-                ];
-                return json_encode($response);
-        }
-        if (User::where([
-            ['email',$email]])->first()) {
-                $response = [
-                    'status' => false,
-                    'message' => 'Пользователь с такой почтой уже есть'
-                ];
-                return json_encode($response);
-        }
-        if (User::where([
-            ['phone',$phone]])->first()) {
-                $response = [
-                    'status' => false,
-                    'message' => 'Пользователь с таким телефоном уже есть'
-                ];
-                return json_encode($response);
-        }
-        $response = [
-            'status' => true,
-            'message' => 'все супер'
-        ];
-        return json_encode($response);
-
-    }
-
-    public function checkPersonalDataRegister(Request $request)
-    {
-        $validateFileds = Validator::make($request->all(),
-        [
-            "full_name" => [
-                "required",
-                "string"
-            ],
-            "date_birthday" => [
-                "required",
-                "date",
-                "date_format:Y-m-d"
-            ],
-            "id_gender_code" => [
-                "required",
-                "regex:/^[1-9]{1}$/"
-            ],
-            "city_name" => [
-                "required",
-                "string"
-            ],
-            "id_type_document" => [
-                "required",
-                "regex:/^[1-9]{1}$/"
-            ],
-            "series_document_number" => [
-                "required",
-                "regex:/^[0-9]{6,12}$/"
-            ],
-            "id_country_of_issue" => [
-                "required",
-                "regex:/^[1-9]*$/"
-            ]
-        ]);
-        if ($validateFileds->fails()) {
-            $response = [
-                "status" => false,
-                "error_message" => "Что-то пошло не так, проверьте правильность заполнения полей в настройках",
-                'errors_fields' => $validateFileds->errors()
-            ];
-            return json_encode($response);
-        }
-        else{
-            // $full_name = $request['full_name'];
-            // $date_of_birthday = $request['date_birthday'];
-            // $gender_code = $request['gender_code'];
-            // $city_of_residence = $request['city_name'];
-            $id_document_type = $request['id_type_document'];
-            $series_document_number = $request['series_document_number'];
-            // $id_country_of_issue = $request['country_of_issue'];
-
-            $user_check = User::Where([
-                ['series_and_document_number',$series_document_number]
-            ])->first();
-
-            if ($user_check) {
-                $response = [
-                    'status' => false,
-                    'error_message' => 'Пользователь с такой серией и номером паспорта уже существует. Проверьте свои данные'
-                ];
-                return json_encode($response);
-            }
-            else{
-                $response = [
-                    'status' => true,
-                    'error_message' => 'Все супер, чики'
-                ];
-                return json_encode($response);
-            }
-        }
-    }
-
-    public function checkPasswordDataRegister(Request $request)
-    {
-        $validateFileds = Validator::make($request->all(),[
-            "password" => [
-                "required",
-                "regex:/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/"
-            ]
-        ]);
-        if ($validateFileds->fails()) {
-            $response = [
-                "status" => false,
-                "error_message" => "Слабый пароль. Используйте заглавные и прописные латинские буквы, а также цифры и минимум один из следюущий символов: !@#$%^&*",
-                'errors_fields' => $validateFileds->errors()
-            ];
-            return json_encode($response);
-        }
-        $password = $request['password'];
-        $email = $request['email'];
-        $user_password_array = User::where([
-            ['email',$email]
-        ])->first();
-        if ($user_password_array) {
-            if(!Hash::check($password,$user_password_array->password)){
-                $response = [
-                    "status" => true,
-                    "error_message" => "Пароля нет",
-                    "passwords" => $user_password_array
-                ];
-                return json_encode($response); 
-            }
-            else{
-                $response = [
-                    "status" => false,
-                    "error_message" => "Пользователь с таким паролем уже существует"
-                ];
-                return json_encode($response);
-            }
-        }
-        $response = [
-            "status" => true,
-            "error_message" => "Пароля нет",
-            "passwords" => $user_password_array
-        ];
-        return json_encode($response); 
-
-
-        // $flag_password = false;
-        // if (isset($user_password_array) && count($user_password_array) > 0) {
-           
-        //     foreach ($user_password_array as $password_db) {
-        //         if(!Hash::check($password,$password_db)){
-        //             $flag_password = true;
-        //         }
-        //     }
-        // }
-        // else{
-        //     $flag_password = true;
-        // }
-        
-
-        // if (!$flag_password) {
-        //     $response = [
-        //         "status" => false,
-        //         "error_message" => "Пользователь с таким паролем уже существует",
-        //         "flag_password" => $flag_password
-        //     ];
-        //     return json_encode($response);
-        // }
-        // else{
-        //     $response = [
-        //         "status" => true,
-        //         "error_message" => "Пароля нет",
-        //         "passwords" => $user_password_array
-        //     ];
-        //     return json_encode($response); 
-        // }
-    }
-
     public function redirectProfileRegister()
     {
         if(Auth::check()){
-            return redirect()->route('login');
+            return redirect()->route('my_profile__page');
         }
     }
+    
 }

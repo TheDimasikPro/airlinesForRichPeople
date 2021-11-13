@@ -35,7 +35,7 @@ Route::get('/#section__add_services',[IndexController::class,'index'])->name('ad
 
 
 Route::get('/forgot_password', [ForgotPasswordController::class,'index'])->name('forgot_password__page');
-Route::get('get_email_user', [MailController::class,'send'])->name('get_email');
+Route::get('/send_mail_reset_password', [MailController::class,'sendMailResetPassword'])->name('send_mail_reset_password');
 Route::get('/reset_password/{token}', function ($token) {
     return view('Auth.reset_password',["token" => $token]);
 })->name('reset_password_link_email');

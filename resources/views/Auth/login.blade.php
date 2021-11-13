@@ -7,7 +7,7 @@
     <div class="container df_jcc_aic desktop_section content_flex">
         <form action="{{ route('login_check') }}" method="POST" class="form form_auth" id="form_login">
             @csrf
-            <h1>Авторизация</h1>
+            <h2>Авторизация</h2>
             <div class="form_auth_block">
                 <label for="email">Email</label>
                 <input type="text" autocomplete="off" class="form_auth_input md_input" id="email" name="email" placeholder="Введите свой email">
@@ -23,6 +23,15 @@
                 <!-- /.btn btn_style_1 upper-->
             </div>
             <!-- /.form_auth_block -->
+            {{-- @if ($sendMailcomplete)
+                <div class="form_auth_block">
+                    <p class="complete_send_mail">
+                        Ваши новые данные отправлены вам на почту
+                    </p>
+                    <!-- /.complete_send_mail -->
+                </div>
+                <!-- /.form_auth_block -->
+            @endif --}}
             @error('error')
                 <div class="form_auth_block error_auth">
                     <p class="error_auth__message">{{ $message }}</p>

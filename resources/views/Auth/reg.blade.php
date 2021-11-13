@@ -6,7 +6,7 @@
 @section('content')
     <div class="container df_jcc_aic desktop_section content_flex">
         <div class="form form_auth" id="main_form_auth">
-            <h1>Регистрация</h1>
+            <h2>Регистрация</h2>
             <p class="warning_text">
                 * При регистрации все поля должны быть заполнены <br>
                 * В случае неверно набранной инфомрации, регистрацию нужно начать сначала

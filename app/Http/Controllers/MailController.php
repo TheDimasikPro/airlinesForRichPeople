@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class MailController extends Controller
 {
-    public function send(Request $request)
+    public function sendMailResetPassword(Request $request)
     {
+        if (Auth::check()) {
+            return redirect()->to(route('my_profile__page'));
+        }
         $validationFiled = Validator::make($request->only('email'),[
             "email" => [
                 "required",
@@ -19,7 +23,7 @@ class MailController extends Controller
             ]
         ]);
         if ($validationFiled->fails()) {
-            return back()->withErrors(['email' => "Неверный формат почты"]);
+            return redirect()->route('forgot_password__page')->withErrors(['email' => "Неверный формат почты"]);
         }
 
         $check_user = User::where([
@@ -42,7 +46,38 @@ class MailController extends Controller
                 $message->to('dima.site1806@gmail.com', 'Dima');
                 $message->subject('Test');
             });
+
+
+            return redirect()->route('my_profile__page');
         }
+
+        return redirect()->route('forgot_password__page')->withErrors([
+            'errors' => 'Пользователя с такой почтой не существует'
+        ]);
         
+    }
+
+    public function sendMailResetPasswordComplete($response_mail,$email_user)
+    {
+        Mail::send('emails.reset_password_complete', $response_mail, function ($message) {
+            $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
+            $message->to('dima.site1806@gmail.com', 'Dima');
+            $message->subject('Test');
+        });
+
+        User::where([
+            ["email", $email_user]
+        ])->update(
+            ["remember_token" => null]
+        );
+    }
+
+    public function sendMailWelcome($response_mail,$email_user)
+    {
+        Mail::send('emails.welcome', $response_mail, function ($message) {
+            $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
+            $message->to('dima.site1806@gmail.com', 'Dima');
+            $message->subject('Test');
+        });
     }
 }

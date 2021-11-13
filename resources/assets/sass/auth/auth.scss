@@ -4,7 +4,7 @@
 .container_emails{
     color: red;
 }
-#form_reset_password{
+#form_reset_password,#form_forgot_password{
     .error_auth__message{
         background: #A90000;
         color: $white;
@@ -12,6 +12,14 @@
         max-width: 400px;
         margin-top: 30px;
     }
+    .form_auth_block__message{
+        max-width: 400px;
+    }
+}
+#form_reset_password{
+    // input,.btn{
+    //     width: 100%;
+    // }
 }
 .form_auth{
     display: flex;
@@ -25,6 +33,9 @@
     justify-content: flex-start;
     &#form_forgot_password{
         min-height: auto;
+        h2{
+            max-width: 400px;
+        }
         .form_auth_block:last-child{
             margin-bottom: 20px;
             .link_auth:first-child{
@@ -45,7 +56,7 @@
             }
         }
     }
-    h1{
+    h2{
         margin-bottom: 5px;
     }
     .form_auth_block{
@@ -586,6 +597,9 @@
 }
 @media (max-width: 670px){
     .form_auth{
+        .warning_text{
+            max-width: 450px;
+        }
         .form_auth_block{
             .form_auth__row{
                 .stages_list{
@@ -645,6 +659,9 @@
 }
 @media (max-width: 520px){
     .form_auth{
+        .warning_text{
+            max-width: 350px;
+        }
         .form_auth_block{
             .form_auth__row{
                 .stages_list{
@@ -699,10 +716,18 @@
 }
 @media (max-width: 480px) {
     .form_auth{
-        h1{
-            font-size: 26px;
-            margin: 10px 0;
-            margin-bottom: 0;
+        // h1{
+        //     font-size: 26px;
+        //     margin: 10px 0;
+        //     margin-bottom: 0;
+        // }
+        &#form_forgot_password,&#form_reset_password{
+            h2{
+                max-width: 350px;
+            }
+            .form_auth_block:last-child,.form_auth_block__message,.error_auth__message{
+                max-width: 350px;
+            }
         }
         .warning_text{
             max-width: 300px;
@@ -749,7 +774,16 @@
     }
 }
 @media (max-width: 420px) {
+    
     .form_auth{
+        &#form_forgot_password,&#form_reset_password{
+            h2{
+                max-width: 300px;
+            }
+            .form_auth_block:last-child,.form_auth_block__message,.error_auth__message{
+                max-width: 300px;
+            }
+        }
         .warning_text{
             max-width: 250px;
         }
@@ -797,14 +831,25 @@
 }
 @media (max-width: 370px) {
     .form_auth{
+        &#form_forgot_password,&#form_reset_password{
+            h2{
+                max-width: 250px;
+            }
+            .form_auth_block:last-child,.form_auth_block__message,.error_auth__message{
+                max-width: 250px;
+            }
+        }
         .form_auth_block{
             input,.btn{
-                width: 260px;
+                width: 250px;
             }
             .form_auth__row{
                 .error_contact_data,.error_profile_data,.error_password_data,.overlay_finish_form{
                     width: 250px;
                 }
+            }
+            .link_auth{
+                font-size: 12px;
             }
         }
     }

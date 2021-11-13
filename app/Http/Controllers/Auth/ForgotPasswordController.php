@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\MailController;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -67,15 +68,12 @@ class ForgotPasswordController extends Controller
                 "email" => $email,
                 "password" => $password
             ];
-            return $response_mail;
-            // Mail::send('emails.reset_password', $response_mail, function ($message) {
-            //     $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
-            //     $message->to('dima.site1806@gmail.com', 'Dima');
-            //     $message->subject('Test');
-            // });
+            $mailController = new MailController();
+            $mailController->sendMailResetPasswordComplete($response_mail,$email);
+            return redirect()->route('my_profile__page');
         }
-        return ;
-        
-        return "cc";
+        return back()->withErrors([
+            "errors" => "У пользователя, запрашимаево сброс пароля - другая почта. Проверьте своли данные"
+        ]);
     }
 }
