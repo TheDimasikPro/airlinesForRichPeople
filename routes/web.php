@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,7 @@ Route::prefix('search_tickets')->group(function () {
     Route::get('/passenger_info',[FlightController::class,'returnViewPassengerInfo'])->name('passenger_info__page');
     Route::post('/payment_tickets_redirect',[FlightController::class,'redirectViewPaymentTickets'])->name('payment_tickets_redirect__page');
     Route::get('/payment_tickets',[FlightController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
+    Route::post('/payment_tickets',[FlightController::class,'paymentTickets'])->name('payment_tickets');
 });
 
 
@@ -96,6 +98,8 @@ Route::prefix('profile')->group(function () {
         }
         return redirect()->route('registration_page');
     })->name('reg__page');
+
+    Route::post("/update_data",[ProfileController::class,'updatePersonalData'])->name("update_data");
 
     Route::get('/registration_page', [RegisterController::class,'index'])->name('registration_page');
     Route::post('/registration', [RegisterController::class,'save'])->name('registration__save');

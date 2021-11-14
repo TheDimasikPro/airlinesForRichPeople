@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class FlightController extends Controller
@@ -325,7 +326,7 @@ class FlightController extends Controller
         $date_from = $request["date_from"];
         $date_back = $request["date_back"];
         $id_flight_start = $request["id_flight_start"];
-        $cost = $request["cost"];
+        $cost = $request["cost"] *($old_count_people + $kids_count_people + $baby_count_people);
         if ($request["id_flight_end"] == 0) {
             $id_flight_end = null;
         }
@@ -632,20 +633,74 @@ class FlightController extends Controller
 
     public function returnViewPaymentTickets()
     {
-        // return session("passenger_info");
-        if (!empty(session("passenger_info")) && !empty(session("new_passenger_ids")) && !empty(session("cost_tickets__all_passenger"))) {
+        return view('payment_tickets');
+        // if (!empty(session("passenger_info")) && !empty(session("new_passenger_ids")) && !empty(session("cost_tickets__all_passenger"))) {
+        //     return view('payment_tickets', [
+        //         "cost_tickets" => session("cost_tickets__all_passenger"),
+        //         "new_passenger_ids" => session("new_passenger_ids")
+        //     ]);
+        // }
+        // else{
+        //     return redirect()->route('index__page');
+        // }
+    }
+
+    public function paymentTickets(Request $request)
+    {
+        $validationFields = Validator::make($request->only(['name_on_card','card_number','expity_date_card','security_code_card']),[
+            "name_on_card" => [
+                "required",
+                "string",
+                "regex:/^[A-Z]+$/"
+            ],
+            "card_number" => [
+                "required",
+                "string",
+                "regex:/^[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/"
+            ],
+            "expity_date_card" => [
+                "required",
+                "string",
+                "regex:/^[0-1]{1}[0-9]{1}\/[2]{1}[1-9]{1}$/"
+            ],
+            "security_code_card" => [
+                "required",
+                "string",
+                "regex:/^[0-9]{3}$/"
+            ],
+        ]);
+        if ($validationFields->fails()) {
             $response = [
-                "cost_tickets" => session("cost_tickets__all_passenger"),
-                "new_passenger_ids" => session("new_passenger_ids")
+                "status" => false,
+                "errors_fields" => $validationFields->errors()
             ];
-            // return $response;
-            return view('payment_tickets', [
-                "cost_tickets" => session("cost_tickets__all_passenger"),
-                "new_passenger_ids" => session("new_passenger_ids")
+            return json_encode($response);
+        }
+
+        $new_passenger_ids = session("new_passenger_ids");
+        $id_booking_status_payment = DB::table('booking_statuses')->select('id')->where('name_status','Оплачено')->get();
+        $id_booking_status_pay = $id_booking_status_payment[0]->id;
+
+        foreach ($new_passenger_ids as $new_passenger_ids_item) {
+            $id_booking_passenger = Passenger::select('id_booking')->where('id',$new_passenger_ids_item)->get();
+
+            Booking::where('id',$id_booking_passenger[0]->id_booking)->update([
+                'id_booking_status' => $id_booking_status_pay,
+                "updated_at" => Carbon::now()
             ]);
+            // echo $id_booking_passenger;
         }
-        else{
-            return redirect()->route('index__page');
-        }
+        
+        Session::forget('flight_order_info');
+        Session::forget('new_passenger_ids');
+        Session::forget('cost_tickets__all_passenger');
+        Session::forget('passenger_info');
+        $response = [
+            "status" => true,
+            "message" => "Оплата успешно произведена"
+        ];
+
+        return $response;
+
     }
 }

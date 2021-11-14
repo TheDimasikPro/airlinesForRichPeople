@@ -35,6 +35,10 @@ $(document).ready(function () {
             
         });
     }
+    function showdropDownListCitiesSearchFlights(button,dropdown_info){
+        $(button).addClass('rotate_180');
+        $(dropdown_info).addClass('show_drop_content');
+    }
     $('#dropbtn_gender_user').click(function (e) {
         if (!$('.personal_data_block__update_form__gender_list').hasClass('show_drop_content')) {
             showdropDownListCitiesSearchFlights($('#dropbtn_gender_user'),$('.personal_data_block__update_form__gender_list'));
@@ -66,6 +70,23 @@ $(document).ready(function () {
             $('#dropbtn_type_document_user').removeAttr('style');
         }
     });
+
+    setTimeout(() => {
+        var input_mask = $('.personal_data_block__update_form__type_document_list__item.select_list__item').attr('data-mask-input');
+        if (input_mask.indexOf("^") === -1) {
+            $('#series_numbers_document_user').mask(input_mask,{
+                autoclear: false
+            });
+        }
+        else{
+            $.mask.definitions['s'] = "[A-Z]";
+            $.mask.definitions['n'] = "[A-ZА-Я0-9\-]";
+            $('#series_numbers_document_user').mask("ssnnnn 999999?999999",{
+                autoclear: false
+            });
+            $('#series_numbers_document_user').val().replace(' ','');
+        }
+    }, 200);
     $('.personal_data_block__update_form__type_document_list__item').click(function () {
         var gender_code__text = $(this).text();
         $('#type_document_user').val(gender_code__text);
@@ -74,6 +95,34 @@ $(document).ready(function () {
         $('.personal_data_block__update_form__type_document_list').removeClass('show_drop_content');
         $('#dropbtn_type_document_user').removeClass('rotate_180');
         $('#dropbtn_type_document_user').removeAttr('style');
+
+        var input_mask = $(this).attr('data-mask-input');
+        if (input_mask.indexOf("^") === -1) {
+            $('#series_numbers_document_user').mask(input_mask,{
+                autoclear: false
+            });
+        }
+        else{
+            $.mask.definitions['s'] = "[A-Z]";
+            $.mask.definitions['n'] = "[A-ZА-Я0-9\-]";
+            $('#series_numbers_document_user').mask("ssnnnn 999999?999999",{
+                autoclear: false
+            });
+        }
+    });
+    $.fn.setCursorPosition = function(pos) {
+        if ($(this).get(0).setSelectionRange) {
+          $(this).get(0).setSelectionRange(pos, pos);
+        } else if ($(this).get(0).createTextRange) {
+        var range = $(this).get(0).createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', pos);
+        range.moveStart('character', pos);
+        range.select();
+        }
+    };
+    $('#series_numbers_document_user').click(function () {
+        $(this).setCursorPosition(0);  
     });
     $('#dropbtn_country_of_issue_user').click(function (e) {
         if (!$('.personal_data_block__update_form__country_of_issue_list').hasClass('show_drop_content')) {
@@ -277,6 +326,87 @@ $(document).ready(function () {
                 }
             } 
         }
-        
+    });
+    
+    $('#btn_submit_update_personal_data').click(function (e) {
+        e.preventDefault();
+        $('.error_message_check_personal_data').removeClass('error_personal_data_visibly');
+        $('.error_message_check_personal_data').text('');
+        var full_name = $.trim($('#full_name_user').val());
+        var email = $.trim($('#email_user').val());
+        var phone = $.trim($('#phone_user').val());
+        var date_birthday = $.trim($('#date_birthday_user').val());
+        var gender_code_id = $.trim($('.personal_data_block__update_form__gender_list__item.select_list__item').val());
+        var city = $.trim($('#city_user').val());
+        var type_document_id = $.trim($('.personal_data_block__update_form__type_document_list__item.select_list__item').val());
+        var series_numbers_document = $.trim($('#series_numbers_document_user').val());
+        var country_of_issue_id = $.trim($('.personal_data_block__update_form__country_of_issue_list__item.select_list__item').val());
+
+        if (full_name != "" && email != "" && phone != "" && date_birthday != "" && gender_code_id != "" && city != "" && type_document_id != "" && series_numbers_document != "" && country_of_issue_id) {
+            var regex_email = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+            var provEmail = regex_email.test(email);
+            var regex_phone = /^[0-9]{6,}/;
+            var provPhone = regex_phone.test(phone);
+            if (!provPhone) {
+                $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
+                $('.error_message_check_personal_data').text("Введите телефон правильно");
+            }
+            if (!provEmail){
+                $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
+                $('.error_message_check_personal_data').text("Введите Email правильно");
+            }
+            if (provEmail && provPhone) {
+                var formData = new FormData();
+                formData.append("full_name",full_name);
+                formData.append("email",email);
+                formData.append("phone",phone);
+                formData.append("date_birthday",date_birthday);
+                formData.append("gender_code_id",gender_code_id);
+                formData.append("city",city);
+                formData.append("type_document_id",type_document_id);
+                formData.append("series_numbers_document",series_numbers_document);
+                formData.append("country_of_issue_id",country_of_issue_id);
+                
+                $.ajax({
+                    url: "http://richairlines/profile/update_data",
+                    headers:{
+                        'X-CSRF-Token' : $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: formData,
+                    dataType: "JSON",
+                    contentType: false,
+                    processData: false,
+                    cache: false,
+                    type: "POST",
+                    beforeSend: function () {
+                        $('#btn_submit_update_personal_data').addClass('non_click');
+                        $('#btn_submit_update_personal_data').css('background','#004369');
+                        $('#btn_submit_update_personal_data').text('Ожидание загрузки');
+                    },
+                    success: function (data) {
+                        if (data.status) {
+                            if ($('#btn_submit_update_personal_data').hasClass('non_click')) {
+                                $('#btn_submit_update_personal_data').text(data.message);
+                                setTimeout(() => {
+                                    $('#btn_submit_update_personal_data').removeClass('non_click');
+                                    $('#btn_submit_update_personal_data').text('Обновить');
+                                    $('#btn_submit_update_personal_data').removeAttr('style');
+                                }, 1500);
+                            }
+                        }
+                        else{
+                            $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
+                            $('.error_message_check_personal_data').text(data.error_message);
+                        }
+                    }
+                })
+            }
+            
+            
+        }
+        else{
+            $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
+            $('.error_message_check_personal_data').text("Проверьте поля на пустоту");
+        }
     });
 });

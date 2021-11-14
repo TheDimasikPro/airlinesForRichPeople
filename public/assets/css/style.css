@@ -263,6 +263,14 @@ input[type=button] {
   max-width: 100%;
 }
 
+.error_personal_data_visibly {
+  margin-top: 20px;
+  background: #A90000;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px;
+}
+
 .top_header_page {
   height: 100%;
 }
@@ -2163,6 +2171,161 @@ input[type=button] {
 }
 .payment_tickets_block h1 {
   margin: 0;
+}
+.payment_tickets_block .payment_tickets_block__info {
+  position: relative;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active {
+  position: absolute;
+  width: 100%;
+  height: 96.5%;
+  z-index: 999999;
+  background: #ffffff;
+  opacity: 0.7;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG {
+  position: relative;
+  width: 192px;
+  height: 23px;
+  margin: auto;
+  margin-top: 20%;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active .fountainG {
+  position: absolute;
+  top: 0;
+  background-color: black;
+  width: 23px;
+  height: 23px;
+  animation-name: bounce_fountainG;
+  -o-animation-name: bounce_fountainG;
+  -ms-animation-name: bounce_fountainG;
+  -webkit-animation-name: bounce_fountainG;
+  -moz-animation-name: bounce_fountainG;
+  animation-duration: 0.845s;
+  -o-animation-duration: 0.845s;
+  -ms-animation-duration: 0.845s;
+  -webkit-animation-duration: 0.845s;
+  -moz-animation-duration: 0.845s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  transform: scale(0.3);
+  -o-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG_1 {
+  left: 0;
+  animation-delay: 0.336s;
+  -o-animation-delay: 0.336s;
+  -ms-animation-delay: 0.336s;
+  -webkit-animation-delay: 0.336s;
+  -moz-animation-delay: 0.336s;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG_2 {
+  left: 24px;
+  animation-delay: 0.4225s;
+  -o-animation-delay: 0.4225s;
+  -ms-animation-delay: 0.4225s;
+  -webkit-animation-delay: 0.4225s;
+  -moz-animation-delay: 0.4225s;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG_3 {
+  left: 48px;
+  animation-delay: 0.509s;
+  -o-animation-delay: 0.509s;
+  -ms-animation-delay: 0.509s;
+  -webkit-animation-delay: 0.509s;
+  -moz-animation-delay: 0.509s;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG_4 {
+  left: 72px;
+  animation-delay: 0.5955s;
+  -o-animation-delay: 0.5955s;
+  -ms-animation-delay: 0.5955s;
+  -webkit-animation-delay: 0.5955s;
+  -moz-animation-delay: 0.5955s;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG_5 {
+  left: 96px;
+  animation-delay: 0.672s;
+  -o-animation-delay: 0.672s;
+  -ms-animation-delay: 0.672s;
+  -webkit-animation-delay: 0.672s;
+  -moz-animation-delay: 0.672s;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG_6 {
+  left: 120px;
+  animation-delay: 0.7585s;
+  -o-animation-delay: 0.7585s;
+  -ms-animation-delay: 0.7585s;
+  -webkit-animation-delay: 0.7585s;
+  -moz-animation-delay: 0.7585s;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG_7 {
+  left: 144px;
+  animation-delay: 0.845s;
+  -o-animation-delay: 0.845s;
+  -ms-animation-delay: 0.845s;
+  -webkit-animation-delay: 0.845s;
+  -moz-animation-delay: 0.845s;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG_8 {
+  left: 168px;
+  animation-delay: 0.9315s;
+  -o-animation-delay: 0.9315s;
+  -ms-animation-delay: 0.9315s;
+  -webkit-animation-delay: 0.9315s;
+  -moz-animation-delay: 0.9315s;
+}
+@keyframes bounce_fountainG {
+  0% {
+    transform: scale(1);
+    background-color: black;
+  }
+  100% {
+    transform: scale(0.3);
+    background-color: white;
+  }
+}
+@-webkit-keyframes bounce_fountainG {
+  0% {
+    -webkit-transform: scale(1);
+    background-color: black;
+  }
+  100% {
+    -webkit-transform: scale(0.3);
+    background-color: white;
+  }
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active {
+  height: 100%;
+}
+.payment_tickets_block .payment_tickets_block__info .overlay_form_active #fountainG {
+  margin-top: 25%;
+}
+.payment_tickets_block .payment_tickets_block__info .check_mark_payment img {
+  height: 0;
+}
+.payment_tickets_block .payment_tickets_block__info .check_mark_payment__active {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .payment_tickets_block .payment_tickets_block__info .payment_tickets_block__info__from {
   margin-top: 30px;

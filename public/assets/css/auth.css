@@ -263,6 +263,14 @@ input[type=button] {
   max-width: 100%;
 }
 
+.error_personal_data_visibly {
+  margin-top: 20px;
+  background: #A90000;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px;
+}
+
 .top_header_page {
   height: 100%;
 }

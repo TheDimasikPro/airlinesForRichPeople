@@ -26,31 +26,31 @@
                 <!-- /.control_panel_block -->
                 <div class="personal_data_block profile_data_cards_non_view">
                     <h2>Здесь вы можете просмотреть и изменить данные аккаунта</h2>
-                    <form action="" class="personal_data_block__update_form">
+                    <form action="#" class="personal_data_block__update_form">
                         <div class="personal_data_block__update_form__input_block">
                             <label for="full_name_user">Полное имя</label>
-                            <input type="text" id="full_name_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свое полное имя" value="{{ $auth_user["full_name"] }}">
+                            <input type="text" id="full_name_user" name="full_name" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свое полное имя" value="{{ $auth_user["full_name"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="email_user">Почта</label>
-                            <input type="text" id="email_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свою почту" value="{{ $auth_user["email"] }}">
+                            <input type="email" id="email_user" name="email" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свою почту" value="{{ $auth_user["email"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="phone_user">Телефон</label>
-                            <input type="text" id="phone_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свой телефон" value="{{ $auth_user["phone"] }}">
+                            <input type="tel" id="phone_user" name="phone" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите свой телефон" value="{{ $auth_user["phone"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="date_birthday_user">Дата рождения</label>
-                            <input type="date" id="date_birthday_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите свою дату рождения" value="{{ $auth_user["date_of_birthday"] }}">
+                            <input type="date" id="date_birthday_user" name="date_birthday" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите свою дату рождения" value="{{ $auth_user["date_of_birthday"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="gender_user">
                                 Пол
-                                <input type="text" readonly id="gender_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите свой пол" value="{{ $auth_user["user_gender_code_name"] }}">
+                                <input type="text" readonly id="gender_user" name="gender_name" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите свой пол" value="{{ $auth_user["user_gender_code_name"] }}">
                                 <button class="personal_data_block__update_form__dropbtn" type="button" id="dropbtn_gender_user" aria-label="dropbtn_gender_user">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -68,13 +68,13 @@
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="city_user">Город</label>
-                            <input type="text" id="city_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите название своего города" value="{{ $auth_user["city_of_residence"] }}">
+                            <input type="text" id="city_user" name="city" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите название своего города" value="{{ $auth_user["city_of_residence"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="type_document_user">
                                 Тип документа
-                                <input type="text" readonly id="type_document_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите тип документа" value="{{ $auth_user["user_document_type"] }}">
+                                <input type="text" readonly id="type_document_user" name="type_document" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите тип документа" value="{{ $auth_user["user_document_type"] }}">
                                 <button class="personal_data_block__update_form__dropbtn" type="button" id="dropbtn_type_document_user" aria-label="dropbtn_type_document_user">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -82,9 +82,9 @@
                             <ul class="personal_data_block__update_form__type_document_list">
                                 @foreach ($auth_user["document_types_all"] as $document_type)
                                 @if ($auth_user["id_document_type"] == $document_type->id)
-                                    <li class="personal_data_block__update_form__type_document_list__item select_list__item" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li> 
+                                    <li class="personal_data_block__update_form__type_document_list__item select_list__item" data-mask-input="{{ $document_type->mask_input }}" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li> 
                                 @else
-                                    <li class="personal_data_block__update_form__type_document_list__item" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
+                                    <li class="personal_data_block__update_form__type_document_list__item" data-mask-input="{{ $document_type->mask_input }}" value="{{ $document_type->id }}">{{ $document_type->name_document }}</li>
                                 @endif
                                 @endforeach
                             </ul>
@@ -92,13 +92,13 @@
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="series_numbers_document_user">Серия и номер документа</label>
-                            <input type="text" id="series_numbers_document_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите серию и номер документа" value="{{ $auth_user["series_and_document_number"] }}">
+                            <input type="text" id="series_numbers_document_user" name="series_numbers_document" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите серию и номер документа" value="{{ $auth_user["series_and_document_number"] }}">
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
                         <div class="personal_data_block__update_form__input_block">
                             <label for="country_of_issue_user">
                                 Страна выдачи документа
-                                <input type="text" id="country_of_issue_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите страну выдачи документа" value="{{ $auth_user["user_country_of_issue"] }}">
+                                <input type="text" id="country_of_issue_user" name="country_of_issue" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Выберите страну выдачи документа" value="{{ $auth_user["user_country_of_issue"] }}">
                                 <button class="personal_data_block__update_form__dropbtn" type="button" id="dropbtn_country_of_issue_user" aria-label="dropbtn_country_of_issue_user">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -114,49 +114,12 @@
                             </ul>
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
-                        {{-- <div class="personal_data_block__update_form__input_block">
-                            <label for="old_password_user">Старый пароль</label>
-                            <input type="password" id="old_password_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Это ваш старый пароль">
-                            <button type="button" class="btn_show" id="btn_show_old_password" aria-label="btn_show_old_password">
-                                <i class="far fa-eye-slash"></i>
-                            </button> 
-                            <!-- /.show_old_password -->
-                            <button type="button" class="btn_hide non_view" id="btn_hide_old_password" aria-label="btn_hide_old_password">
-                                <i class="far fa-eye"></i>
-                            </button> 
-                            <!-- /.hide_old_password -->
-                        </div>
-                        <!-- /.personal_data_block__update_form__input_block -->
-                        <div class="personal_data_block__update_form__input_block">
-                            <label for="new_password_user">Новый пароль</label>
-                            <input type="password" id="new_password_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Введите новый пароль">
-                            <button type="button" class="btn_show" id="btn_show_new_password" aria-label="btn_show_new_password">
-                                <i class="far fa-eye-slash"></i>
-                            </button> 
-                            <!-- /.show_new_password -->
-                            <button type="button" class="btn_hide non_view" id="btn_hide_new_password" aria-label="btn_hide_new_password">
-                                <i class="far fa-eye"></i>
-                            </button> 
-                            <!-- /.hide_new_password -->
-                        </div>
-                        <!-- /.personal_data_block__update_form__input_block -->
-                        <div class="personal_data_block__update_form__input_block">
-                            <label for="confirm_new_password_user">Подтвердите новый пароль</label>
-                            <input type="password" id="confirm_new_password_user" class="input_style_pofile personal_data_block__update_form__input_block__input" placeholder="Подтвердите новый пароль">
-                            <button type="button" class="btn_show" id="btn_show_confirm_new_password" aria-label="btn_show_confirm_new_password">
-                                <i class="far fa-eye-slash"></i>
-                            </button> 
-                            <!-- /.show_confirm_new_password -->
-                            <button type="button" class="btn_hide non_view" id="btn_hide_confirm_new_password" aria-label="btn_hide_confirm_new_password">
-                                <i class="far fa-eye"></i>
-                            </button> 
-                            <!-- /.hide_confirm_new_password -->
-                        </div>
-                        <!-- /.personal_data_block__update_form__input_block --> --}}
                         <div class="personal_data_block__update_form__input_block">
                             <button class="btn_style_1" type="button" id="btn_submit_update_personal_data" aria-label="btn_submit_update_personal_data">Обновить</button>
                         </div>
                         <!-- /.personal_data_block__update_form__input_block -->
+                        <div class="error_message_check_personal_data"></div>
+                        <!-- /.error_message_check_personal_data -->
                     </form>
                     <!-- /.personal_data_block__update_form -->
                 </div>
@@ -278,45 +241,6 @@
                 <div class="update_password_block profile_data_cards_non_view">
                     <h2>Здесь вы можете запросить смену нового пароля</h2>
                     <form action="{{ route('forgot_password__page') }}" class="update_password_block__update_form">
-                        {{-- <div class="update_password_block__update_form__input_block">
-                            <label for="old_password_user">Старый пароль</label>
-                            <input type="password" id="old_password_user" class="input_style_pofile update_password_block__update_form__input_block__input" placeholder="Старый пароль">
-                            <button type="button" class="btn_show" id="btn_show_old_password" aria-label="btn_show_old_password">
-                                <i class="far fa-eye-slash"></i>
-                            </button> 
-                            <!-- /.show_old_password -->
-                            <button type="button" class="btn_hide non_view" id="btn_hide_old_password" aria-label="btn_hide_old_password">
-                                <i class="far fa-eye"></i>
-                            </button> 
-                            <!-- /.hide_old_password -->
-                        </div>
-                        <!-- /.update_password_block__update_form__input_block -->
-                        <div class="update_password_block__update_form__input_block">
-                            <label for="new_password_user">Новый пароль</label>
-                            <input type="password" id="new_password_user" class="input_style_pofile update_password_block__update_form__input_block__input" placeholder="Введите новый пароль">
-                            <button type="button" class="btn_show" id="btn_show_new_password" aria-label="btn_show_new_password">
-                                <i class="far fa-eye-slash"></i>
-                            </button> 
-                            <!-- /.show_new_password -->
-                            <button type="button" class="btn_hide non_view" id="btn_hide_new_password" aria-label="btn_hide_new_password">
-                                <i class="far fa-eye"></i>
-                            </button> 
-                            <!-- /.hide_new_password -->
-                        </div>
-                        <!-- /.update_password_block__update_form__input_block -->
-                        <div class="update_password_block__update_form__input_block">
-                            <label for="confirm_new_password_user">Подтвердите новый пароль</label>
-                            <input type="password" id="confirm_new_password_user" class="input_style_pofile update_password_block__update_form__input_block__input" placeholder="Подтвердите новый пароль">
-                            <button type="button" class="btn_show" id="btn_show_confirm_new_password" aria-label="btn_show_confirm_new_password">
-                                <i class="far fa-eye-slash"></i>
-                            </button> 
-                            <!-- /.show_confirm_new_password -->
-                            <button type="button" class="btn_hide non_view" id="btn_hide_confirm_new_password" aria-label="btn_hide_confirm_new_password">
-                                <i class="far fa-eye"></i>
-                            </button> 
-                            <!-- /.hide_confirm_new_password -->
-                        </div>
-                        <!-- /.update_password_block__update_form__input_block --> --}}
                         <button class="btn_style_1 update_password_block__btn_update" id="update_password_block__btn_update" aria-label="update_password_block__btn_update">Запросить новый пароль</button> 
                         <!-- /.btn_style_1 update_password_block__btn_update -->
                     </form>

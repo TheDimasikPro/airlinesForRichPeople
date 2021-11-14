@@ -52,7 +52,7 @@
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
                                 <label for="id_i_s_f_t"></label>
-                                <input type="text" class="sm_input input_search_flights" name="airport_back" id="id_i_s_f_t" autocomplete="off" placeholder="Куда:">
+                                <input type="text" required class="sm_input input_search_flights" name="airport_back" id="id_i_s_f_t" autocomplete="off" placeholder="Куда:">
                                 <button class="dropbtn" type="button" id="dropbtn_to_flights">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>

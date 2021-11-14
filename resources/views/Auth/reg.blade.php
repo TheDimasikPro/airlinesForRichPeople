@@ -177,7 +177,7 @@
                                 <!-- /.form_auth__slider_input -->
                                 <ul class="gender_code_list">
                                     @foreach ($reg_info["gender_codes_all"] as $gender_code)
-                                        <li class="gender_code_list__item" value-view="Male" value="{{ $gender_code->id }}">{{ $gender_code->gender_name_rus }}</li>
+                                        <li class="gender_code_list__item" value-view="{{ $gender_code->gender_name_rus }}" value="{{ $gender_code->id }}">{{ $gender_code->gender_name_rus }}</li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -200,7 +200,7 @@
                                 <!-- /.form_auth__slider_input -->
                                 <ul class="type_document_list">
                                     @foreach ($reg_info["document_types_all"] as $document_types)
-                                        <li class="type_document_list__item" value-view="Male" value="{{ $document_types->id }}">{{ $document_types->name_document }}</li>
+                                        <li class="type_document_list__item" value-view="{{ $document_types->name_document }}" value="{{ $document_types->id }}">{{ $document_types->name_document }}</li>
                                     @endforeach
                                 </ul>
                             </div>

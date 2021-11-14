@@ -9,6 +9,26 @@
         margin: 0;
     }
     .payment_tickets_block__info{
+        position: relative;
+        @include preload_send_data_server;
+        .overlay_form_active{
+            height: 100%;
+            #fountainG{
+                margin-top: 25%;
+            }
+        }
+        .check_mark_payment{
+            img{
+                height: 0;
+            }
+        }
+        .check_mark_payment__active{
+            height: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .payment_tickets_block__info__from{
             margin-top: 30px;
             font-size: $fz_second;

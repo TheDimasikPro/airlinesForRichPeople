@@ -8,6 +8,22 @@
         <div class="payment_tickets_block df_jcspb_aic">
             {{-- @include('inc.aside_bar_search_tickets') --}}
             <div class="payment_tickets_block__info">
+                <div class="overlay_profile_data_form">
+                    <div id="fountainG">
+                        <div id="fountainG_1" class="fountainG"></div>
+                        <div id="fountainG_2" class="fountainG"></div>
+                        <div id="fountainG_3" class="fountainG"></div>
+                        <div id="fountainG_4" class="fountainG"></div>
+                        <div id="fountainG_5" class="fountainG"></div>
+                        <div id="fountainG_6" class="fountainG"></div>
+                        <div id="fountainG_7" class="fountainG"></div>
+                        <div id="fountainG_8" class="fountainG"></div>
+                    </div>
+                    <div class="check_mark_payment">
+                        <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                    </div>
+                    <!-- /.check_mark_payment -->
+                </div>
                 <h1>Оплата</h1>
                 <form action="" class="payment_tickets_block__info__from">
                     <div class="payment_tickets_block__info__from__inputs_block">
@@ -51,7 +67,8 @@
                         <button class="btn_style_1" id="btn_payment_ticket" aria-label="btn_payment_ticket">
                             <i class="fas fa-lock"></i>
                             {{-- @if ($response) --}}
-                                <span>{{ $cost_tickets }} <i class="fas fa-ruble-sign"></i></span>
+                                <span> <i class="fas fa-ruble-sign"></i></span>
+                                {{-- <span>{{ $cost_tickets }} <i class="fas fa-ruble-sign"></i></span> --}}
                             {{-- @endif --}}
                             
                         </button> 
@@ -59,8 +76,8 @@
                     </div>
                     <!-- /.payment_tickets_block__info__from__inputs_block -->
                     <ul class="error_payment_ticket_list non_view">
-                        {{-- <li class="error_payment_ticket_list_item"></li>
-                        <!-- /.error_payment_ticket_list_item --> --}}
+                        <li class="error_payment_ticket_list_item"></li>
+                        <!-- /.error_payment_ticket_list_item -->
                     </ul>
                     <!-- /.error_payment_ticket_list -->
                 </form>

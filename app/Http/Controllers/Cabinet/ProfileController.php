@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
@@ -32,7 +33,7 @@ class ProfileController extends Controller
 
             // $countries_all = DB::table('countries')->pluck('');
             $countries_all = DB::table('countries')->select('id','name_country')->get()->sortBy('id');
-            $document_types_all = DB::table('document_types')->select('id','name_document')->get()->sortBy('id');
+            $document_types_all = DB::table('document_types')->select('id','name_document','mask_input')->get()->sortBy('id');
             $gender_codes_all = DB::table('gender_codes')->select('id','gender_name_rus')->get()->sortBy('id');
 
 
@@ -196,6 +197,82 @@ class ProfileController extends Controller
             }
             
         }
+    }
+
+    public function updatePersonalData(Request $request)
+    {
+        $validationfields = Validator::make($request->only(["full_name","email","phone","date_birthday",
+        "gender_code_id","city","type_document_id","series_numbers_document","country_of_issue_id"]),[
+            "full_name" => [
+                "required",
+                "string"
+            ],
+            "email" => [
+                "required",
+                "email"
+            ],
+            "phone" => [
+                "required",
+                "string"
+            ],
+            "date_birthday" => [
+                "required",
+                "date"
+            ],
+            "gender_code_id" => [
+                "required",
+                "integer"
+            ],
+            "city" => [
+                "required",
+                "string"
+            ],
+            "type_document_id" => [
+                "required",
+                "integer"
+            ],
+            "series_numbers_document" => [
+                "required",
+                "string"
+            ],
+            "country_of_issue_id" => [
+                "required",
+                "integer"
+            ]
+        ]);
+        if ($validationfields->fails()) {
+            $response = [
+                "status" => false,
+                "error_message" => "Проверьте правильность написания ваших данных"
+            ];
+            return json_encode($response);
+        }
+
+
+        $user_id = Auth::user()->id;
+        $user = User::where([['id', $user_id]])->update([
+            'full_name' => $request["full_name"],
+            'email' => $request["email"],
+            'phone' => $request["phone"],
+            'date_of_birthday' => $request["date_birthday"],
+            'id_gender_code' => $request["gender_code_id"],
+            'city_of_residence' => $request["city"],
+            'id_document_type' => $request["type_document_id"],
+            'series_and_document_number' => $request["series_numbers_document"],
+            'id_country_of_issue' => $request["country_of_issue_id"]
+        ]);
         
+        if ($user) {
+            $response = [
+                "status" => true,
+                "message" => "Ваши данные успешно обновлены"
+            ];
+            return json_encode($response);
+        }
+        $response = [
+            "status" => false,
+            "error_message" => "Возникла непредвиденная ошибка, повторите процедуру позже"
+        ];
+        return json_encode($response);
     }
 }

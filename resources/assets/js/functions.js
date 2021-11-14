@@ -417,7 +417,11 @@ $(document).ready(function () {
             });
         }
         else{
-            $('input[id="'+id_input+'"]').parent('.passenger_full_info__forms_block__form_passenger__input_block').parent('.passenger_full_info__forms_block__form_passenger').find('.passenger_full_info__forms_block__form_passenger__input_block .series_numbers_input').mask('');
+            $.mask.definitions['s'] = "[A-Z]";
+            $.mask.definitions['n'] = "[A-ZА-Я0-9\-]";
+            $('input[id="'+id_input+'"]').parent('.passenger_full_info__forms_block__form_passenger__input_block').parent('.passenger_full_info__forms_block__form_passenger').find('.passenger_full_info__forms_block__form_passenger__input_block .series_numbers_input').mask('ssnnnn 999999?999999',{
+                autoclear: false
+            });
         }
     });
 
@@ -689,6 +693,16 @@ $(document).ready(function () {
     });
     $("#security_code_card").mask("999");
     
+    // $.mask.definitions['b'] = "[A-Z]";
+    // $('#name_on_card').click(function () {
+    //     $(this).setCursorPosition(0);  
+    // });
+    // $("#name_on_card").mask("bbbbbbbbbbbbb",
+    // {
+    //     completed:function () {
+    //           // console.log("харош");
+    //     }
+    // });
     $('#btn_payment_ticket').click(function (e) {
         e.preventDefault();
         var name_on_card = $.trim($('#name_on_card').val());
@@ -725,8 +739,54 @@ $(document).ready(function () {
 
         if (name_on_card != "" && card_number != "" && expity_date_card != "" && security_code_card != "") {
             $('.error_payment_ticket_list').addClass('non_view');
-            // ajax запрос на оплату + изменение в базе, статуса бронирования на "Подтвержден" при регситрации, статус меняется на "Зарегистрирован"
-            location.href = "http://richairlines/";
+
+            var formData = new FormData();
+            formData.append("name_on_card",name_on_card);
+            formData.append("card_number",card_number);
+            formData.append("expity_date_card",expity_date_card);
+            formData.append("security_code_card",security_code_card);
+            $('.payment_tickets_block__info .overlay_profile_data_form').addClass('overlay_form_active');
+            
+            $.ajax({
+                url: "/search_tickets/payment_tickets",
+                type: "POST",
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: formData,
+                processData: false,
+                cache: false,
+                contentType: false,
+                dataType: "json",
+                beforeSend: function () {
+                    
+                },
+                success: function (data) {
+                    $('.payment_tickets_block__info .overlay_profile_data_form #fountainG').css('display','none');
+                    if (data.status) {
+                        $('.payment_tickets_block__info .overlay_profile_data_form .check_mark_payment img').animate({
+                            height: "70px"
+                        },100);
+                        $('.payment_tickets_block__info .overlay_profile_data_form').addClass('check_mark_payment__active');
+                        setTimeout(() => {
+                            location.href = "http://richairlines/";
+                        }, 600);
+                    }
+                    else{
+                        $('.payment_tickets_block__info .overlay_profile_data_form').removeClass('overlay_form_active');
+                        $('.payment_tickets_block__info .overlay_profile_data_form .check_mark_payment img').removeAttr('style');
+                        $('.payment_tickets_block__info .overlay_profile_data_form #fountainG').removeAttr('style');
+                        $('.payment_tickets_block__info .overlay_profile_data_form').removeClass('check_mark_payment__active');
+                        $('.error_payment_ticket_list').removeClass('non_view');
+                        Object.keys(data.errors_fields).forEach(function(value_error){
+                            let error_list_item = document.createElement('li');
+                            error_list_item.setAttribute('class','error_payment_ticket_list_item');
+                            error_list_item.append(data.errors_fields[value_error]);
+                            $('.error_payment_ticket_list').append(error_list_item);
+                        });
+                    }
+                }
+            });
         }
     })
 });
