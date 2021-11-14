@@ -220,7 +220,6 @@ $(document).ready(function (e) {
   }
 
   function redirect_to_passenger_info(id_flight_start, id_flight_end) {
-    var formData = new FormData();
     var cost = $('.aside__block__info__all_price__text').text();
 
     if (cost != "") {

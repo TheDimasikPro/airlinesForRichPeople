@@ -121,7 +121,7 @@ class FlightController extends Controller
                 ['id_airport_end',$id_airport_back],
                 ['date_start',$date_from],
                 ['number_of_free_seats','>',$count_pass]
-            ])->get();
+            ])->get()->sortBy('time_start');
             if (count($flight_from) > 0) {
                 return view('search_tickets', [
                     'flight_list' => $flight_from,
@@ -215,7 +215,7 @@ class FlightController extends Controller
                 ['date_start',$date_from],
                 ['date_end',$date_back],
                 ['number_of_free_seats','>',$count_pass]
-            ])->get();
+            ])->get()->sortBy('time_start');
 
             $flight_back = Flight::with(['airport_start' => function ($query) use($id_airport_back)
             {
@@ -233,7 +233,7 @@ class FlightController extends Controller
                 ['date_start',$date_back],
                 // ['date_end',$date_from],
                 ['number_of_free_seats','>',$count_pass]
-            ])->get();
+            ])->get()->sortBy('time_start');
             
             // return $flight_back;
             
@@ -527,7 +527,7 @@ class FlightController extends Controller
                 
                 foreach ($array_values_req as $value) {
                     // выборка мест для пассажира
-                    $place_passenger__start = 0;
+                    $place_passenger__start = 1;
                     
                     foreach ($arr_places_start as $arr_places_start__item) {
                         $rand_place_start = rand(1,$count_free_place__start);
@@ -572,7 +572,7 @@ class FlightController extends Controller
                     }
                     
                     if (!empty(session("flight_order_info")["id_flight_end"])) {
-                        $place_passenger__end = 0;
+                        $place_passenger__end = 1;
                         $rand_place_end = rand(1,$count_free_place__end);
                         foreach ($arr_places_end as $arr_places_end__item) {
                             $rand_place_start = rand(1,$count_free_place__start);
@@ -633,16 +633,16 @@ class FlightController extends Controller
 
     public function returnViewPaymentTickets()
     {
-        return view('payment_tickets');
-        // if (!empty(session("passenger_info")) && !empty(session("new_passenger_ids")) && !empty(session("cost_tickets__all_passenger"))) {
-        //     return view('payment_tickets', [
-        //         "cost_tickets" => session("cost_tickets__all_passenger"),
-        //         "new_passenger_ids" => session("new_passenger_ids")
-        //     ]);
-        // }
-        // else{
-        //     return redirect()->route('index__page');
-        // }
+        // return view('payment_tickets');
+        if (!empty(session("passenger_info")) && !empty(session("new_passenger_ids")) && !empty(session("cost_tickets__all_passenger"))) {
+            return view('payment_tickets', [
+                "cost_tickets" => session("cost_tickets__all_passenger"),
+                "new_passenger_ids" => session("new_passenger_ids")
+            ]);
+        }
+        else{
+            return redirect()->route('index__page');
+        }
     }
 
     public function paymentTickets(Request $request)

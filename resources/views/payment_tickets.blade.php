@@ -67,8 +67,8 @@
                         <button class="btn_style_1" id="btn_payment_ticket" aria-label="btn_payment_ticket">
                             <i class="fas fa-lock"></i>
                             {{-- @if ($response) --}}
-                                <span> <i class="fas fa-ruble-sign"></i></span>
-                                {{-- <span>{{ $cost_tickets }} <i class="fas fa-ruble-sign"></i></span> --}}
+                                {{-- <span> <i class="fas fa-ruble-sign"></i></span> --}}
+                                <span>{{ $cost_tickets }} <i class="fas fa-ruble-sign"></i></span>
                             {{-- @endif --}}
                             
                         </button> 

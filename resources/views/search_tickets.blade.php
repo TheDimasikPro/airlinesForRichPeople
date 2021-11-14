@@ -253,11 +253,11 @@
               <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('j F Y') }}</h2>
               <div class="result_price__flight_to__cards">
                 @foreach ($flight_list as $key => $flight_list__item)
-                @if ($key == 0)
-                  <div data-id-flight="{{ $flight_list__item->id }}" class="result_price__flight_to__cards__item" id="result_price__flight_to__cards__item__{{ $key }}">
-                @else
-                  <div data-id-flight="{{ $flight_list__item->id }}" class="result_price__flight_to__cards__item not_select_result_price__flight_to__cards__item" id="result_price__flight_to__cards__item__{{ $key }}">
-                @endif
+                  @if ($flight_list->first() === $flight_list__item)
+                    <div data-id-flight="{{ $flight_list__item->id }}" class="result_price__flight_to__cards__item" id="result_price__flight_to__cards__item__{{ $key }}">
+                  @else
+                    <div data-id-flight="{{ $flight_list__item->id }}" class="result_price__flight_to__cards__item not_select_result_price__flight_to__cards__item" id="result_price__flight_to__cards__item__{{ $key }}">
+                  @endif
                   {{-- <div class="result_price__flight_to__cards__item" id="result_price__flight_to__cards__item__1"> --}}
                     <div class="result_price__flight_to__cards__item__short_info df_jcspb_aic">
                       <div class="result_price__flight_to__cards__item__short_info__card">
@@ -299,7 +299,7 @@
                       <div class="result_price__flight_to__cards__item__short_info__price">
                         <span class="result_price__flight_to__cards__item__short_info__price__text from_price">{{ $flight_list__item->cost }} <i class="fas fa-ruble-sign"></i></span> 
                         <!-- /.result_price__flight_to__cards__item__short_info__price__text -->
-                        @if ($key == 0)
+                        @if ($flight_list->first() === $flight_list__item)
                         <button class="result_price__flight_to__cards__item__short_info__price__in_basket btn_style_1" 
                         id="result_flight_to_in_basket__{{ $key }}" aria-label="result_flight_to_in_basket" data-id-item="result_price__flight_to__cards__item__{{ $key }}">Выбрать</button> <!-- /#result_flight_from_in_basket.result_price__flight_to__cards__item__short_info__price__in_basket btn_style_1 -->
                         @else
@@ -354,7 +354,7 @@
               <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_back[0]["date_start"])->format('j F Y') }}</h2>
               <div class="result_price__flight_to__cards">
                 @foreach ($flight_back as $key => $flight_back__list)
-                  @if ($key == 0)
+                  @if ($flight_back->first() === $flight_back__list)
                     <div data-id-flight="{{ $flight_back__list->id }}" class="result_price__flight_from__cards__item" id="result_price__flight_from__cards__item__{{ $key }}">
                   @else
                   <div data-id-flight="{{ $flight_back__list->id }}" class="result_price__flight_from__cards__item not_select_result_price__flight_from__cards__item" id="result_price__flight_from__cards__item__{{ $key }}">
@@ -406,7 +406,7 @@
                     <div class="result_price__flight_to__cards__item__short_info__price">
                       <span class="result_price__flight_to__cards__item__short_info__price__text back_price">{{ $flight_back__list->cost }} <i class="fas fa-ruble-sign"></i></span> 
                       <!-- /.result_price__flight_to__cards__item__short_info__price__text -->
-                      @if ($key == 0)
+                      @if ($flight_back->first() === $flight_back__list)
                         <button class="result_price__flight_from__cards__item__short_info__price__in_basket btn_style_1" 
                         id="result_flight_from_in_basket__{{ $key }}" aria-label="result_flight_to_in_basket" data-id-item="result_price__flight_from__cards__item__{{ $key }}">Выбрать</button> <!-- /#result_flight_from_in_basket.result_price__flight_to__cards__item__short_info__price__in_basket btn_style_1 -->
                       @else
