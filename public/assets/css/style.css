@@ -638,6 +638,11 @@ input[type=button] {
 .work_with_flights .flights_list .active_buy_ticket {
   background: #F7F7F7;
 }
+.work_with_flights .message_after_search_complete {
+  margin-top: 20px;
+  line-height: 22px;
+  color: red;
+}
 .work_with_flights .search_tickets_block {
   display: flex;
   margin-top: 40px;
@@ -1307,6 +1312,9 @@ input[type=button] {
 @media (max-width: 380px) {
   .payment_methods_block .bank_cards .payment_methods__warning_list .warning_list__row .row__content {
     font-size: 14px;
+  }
+  .payment_methods_block .bank_cards .payment_methods__warning_list .warning_list__row .row__content .row_content__img_block {
+    width: auto;
   }
   .payment_methods_block .bank_cards .payment_methods__warning_list .warning_list__row .row__content .row_content__img_block .row_content__img {
     width: 20px;

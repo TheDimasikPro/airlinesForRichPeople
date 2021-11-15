@@ -5,9 +5,7 @@
     <link rel="stylesheet" href="/assets/css/my_pofile.css">
 @endsection
 @section('content')
-    
-    <div class="container">
-        
+    <div class="container desktop_section">
         <div class="my_profile_block df_jcspb_aic">
             @include('inc.aside_bar_profile',$auth_user)
             {{-- @include('inc.aside_bar_profile',"array") передача массива в шаблон --}}
@@ -147,90 +145,99 @@
                     </ul>
                     <!-- /.my_travel_block_title_list -->
                     <div class="my_travel_block__cards">
-                        <!-- /.my_travel_block__cards__item -->
-                        <div class="my_travel_block__cards__item">
-                            <div class="short_details_order df_jcspb_aic">
-                                <div class="name_order"><span class="non_view__text_mobile">Номер рейса: </span> U234FD</div>
-                                <!-- /.name_order -->
-                                
-                                <div class="short_flight_scheme df_jcspb_aic">
-                                    <span class="non_view__text_mobile">План полета: </span>
-                                    <div class="short_flight_scheme__block">
-                                        <div class="short_flight_scheme__city_from">
-                                            <p>Екатеринбург</p>
-                                            <div class="details_city df_jcspb_aic">
-                                                <p class="aiport_name">(SVX)</p>
-                                                <!-- /.aiport_name -->
-                                                <div class="time_flight">18:40</div>
-                                                <!-- /.time_flight -->
-                                                <div class="date_flight">21/10/2021</div>
-                                                <!-- /.date_flight -->
+                        @foreach ($auth_user["flight_arr"] as $key => $auth_user__flight_arr)
+                            {{-- {{ 'flight_from_' . $key }} --}}
+                            <div class="my_travel_block__cards__item">
+                                <div class="short_details_order df_jcspb_aic">
+                                    <div class="name_order"><span class="non_view__text_mobile">Номер рейса: </span>{{ htmlspecialchars($auth_user__flight_arr['flight_from']["flight_code"]) }}</div>
+                                    <!-- /.name_order -->
+                                    <div class="short_flight_scheme df_jcspb_aic">
+                                        <span class="non_view__text_mobile">План полета: </span>
+                                        <div class="short_flight_scheme__block">
+                                            <div class="short_flight_scheme__city_from">
+                                                @if (empty($auth_user__flight_arr['airport_flight_from_start']["city_rus"]))
+                                                    <p>{{ htmlspecialchars($auth_user__flight_arr['airport_flight_from_start']["city_eng"]) }}</p>
+                                                @else
+                                                    <p>{{ htmlspecialchars($auth_user__flight_arr['airport_flight_from_start']["city_rus"]) }}</p>
+                                                @endif
+                                                <div class="details_city df_jcspb_aic">
+                                                    <p class="aiport_name">({{ htmlspecialchars($auth_user__flight_arr['airport_flight_from_start']["iata_code"]) }})</p>
+                                                    <!-- /.aiport_name -->
+                                                    <div class="time_flight">18:40</div>
+                                                    <!-- /.time_flight -->
+                                                    <div class="date_flight">21/10/2021</div>
+                                                    <!-- /.date_flight -->
+                                                </div>
+                                                <!-- /.details_city -->
                                             </div>
-                                            <!-- /.details_city -->
-                                        </div>
-                                        <!-- /.short_flight_scheme__city_from -->
-                                        <div class="sing_flight">
-                                            <i class="fas fa-arrow-right"></i>
-                                        </div>
-                                        <!-- /.sing_flight -->
-                                        <div class="short_flight_scheme__city_to">
-                                            <p>Москва</p>
-                                            <div class="details_city df_jcspb_aic">
-                                                <p class="aiport_name">(DME)</p>
-                                                <!-- /.aiport_name -->
-                                                <div class="time_flight">19:15</div>
-                                                <!-- /.time_flight -->
-                                                <div class="date_flight">21/10/2021</div>
-                                                <!-- /.date_flight -->
+                                            <!-- /.short_flight_scheme__city_from -->
+                                            <div class="sing_flight">
+                                                <i class="fas fa-arrow-right"></i>
                                             </div>
-                                            <!-- /.details_city -->
+                                            <!-- /.sing_flight -->
+                                            <div class="short_flight_scheme__city_to">
+                                                @if (empty($auth_user__flight_arr['airport_flight_from_end']["city_rus"]))
+                                                    <p>{{ htmlspecialchars($auth_user__flight_arr['airport_flight_from_end']["city_eng"]) }}</p>
+                                                @else
+                                                    <p>{{ htmlspecialchars($auth_user__flight_arr['airport_flight_from_end']["city_rus"]) }}</p>
+                                                @endif
+                                                <div class="details_city df_jcspb_aic">
+                                                    <p class="aiport_name">({{ htmlspecialchars($auth_user__flight_arr['airport_flight_from_end']["iata_code"]) }})</p>
+                                                    <!-- /.aiport_name -->
+                                                    <div class="time_flight">19:15</div>
+                                                    <!-- /.time_flight -->
+                                                    <div class="date_flight">21/10/2021</div>
+                                                    <!-- /.date_flight -->
+                                                </div>
+                                                <!-- /.details_city -->
+                                            </div>
+                                            <!-- /.short_flight_scheme__city_to -->
                                         </div>
-                                        <!-- /.short_flight_scheme__city_to -->
+                                        <!-- /.short_flight_scheme__block -->
                                     </div>
-                                    <!-- /.short_flight_scheme__block -->
+                                    <!-- /.short_flight_scheme -->
+                                    <div class="status_order df_jcspb_aic">
+                                        <div class="status_order__name">
+                                            <span class="non_view__text_mobile">Статус рейса: </span> Прошедший
+                                        </div>
+                                        <!-- /.status_order__name -->
+                                        {{-- <button class="btn_cancel_order btn_style_red" aria-label="btn_cancel_order" id="btn_cancel_order">
+                                            Отмена
+                                        </button> --}}
+                                    </div>
                                     
+                                    <!-- /.cancel_order -->
+                                    <!-- /.status_order -->
+                                    <div class="price_order"><span class="non_view__text_mobile">Цена: </span> 6200 <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
+                                    <!-- /.price_order -->
                                 </div>
-                                <!-- /.short_flight_scheme -->
-                                <div class="status_order df_jcspb_aic">
-                                    <div class="status_order__name">
-                                        <span class="non_view__text_mobile">Статус рейса: </span> Прошедший
+                                <!-- /.short_details_order -->
+                                <div class="full_fetails_order">
+                                    <div class="my_travel_block__cards__item__where_from_fly">
+                                        
+                                        {{-- <p class="city_name">Екатеринбург</p>
+                                        <!-- /.city_name -->
+                                        <p class="departure_date">21/10/2021</p>
+                                        <!-- /.departure_date -->
+                                        <p class="departure_time">9:30</p>
+                                        <!-- /.departure_time --> --}}
                                     </div>
-                                    <!-- /.status_order__name -->
-                                    {{-- <button class="btn_cancel_order btn_style_red" aria-label="btn_cancel_order" id="btn_cancel_order">
-                                        Отмена
-                                    </button> --}}
+                                    <!-- /.my_travel_block__cards__item__where_from_fly -->
+                                    <div class="my_travel_block__cards__item__flight_scheme">
+        
+                                    </div>
+                                    <!-- /.my_travel_block__cards__item__flight_scheme -->
+                                    <div class="my_travel_block__cards__item__where_to_fly">
+        
+                                    </div>
+                                    <!-- /.my_travel_block__cards__item__where_to_fly -->
                                 </div>
+                                <!-- /.full_fetails_order -->
                                 
-                                <!-- /.cancel_order -->
-                                <!-- /.status_order -->
-                                <div class="price_order"><span class="non_view__text_mobile">Цена: </span> 6200 <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
-                                <!-- /.price_order -->
                             </div>
-                            <!-- /.short_details_order -->
-                            <div class="full_fetails_order">
-                                <div class="my_travel_block__cards__item__where_from_fly">
-                                    
-                                    {{-- <p class="city_name">Екатеринбург</p>
-                                    <!-- /.city_name -->
-                                    <p class="departure_date">21/10/2021</p>
-                                    <!-- /.departure_date -->
-                                    <p class="departure_time">9:30</p>
-                                    <!-- /.departure_time --> --}}
-                                </div>
-                                <!-- /.my_travel_block__cards__item__where_from_fly -->
-                                <div class="my_travel_block__cards__item__flight_scheme">
-    
-                                </div>
-                                <!-- /.my_travel_block__cards__item__flight_scheme -->
-                                <div class="my_travel_block__cards__item__where_to_fly">
-    
-                                </div>
-                                <!-- /.my_travel_block__cards__item__where_to_fly -->
-                            </div>
-                            <!-- /.full_fetails_order -->
-                            
-                        </div>
-                        <!-- /.my_travel_block__cards__item -->
+                            <!-- /.my_travel_block__cards__item -->
+                        @endforeach
+                        
                         <button class="btn_style_1 more_travel_block__card" id="more_travel_block__card" aria-label="more_travel_block__card" data-last-id-order="2">Показать еще</button> 
                         <!-- /.btn_style_1 more_travel_block__card -->
                     </div>

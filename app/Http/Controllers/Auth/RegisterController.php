@@ -35,17 +35,21 @@ class RegisterController extends Controller
 
     public function checkContactDataRegister(Request $request)
     {
+        $messages = [
+            "email.required" => "Поле email обязательно к заполнению",
+            "email.email" => "Поле email должно быть опредленного формата",
+            "phone.required" => "Поле phone обязательно к заполнению"
+        ];
         if (Auth::check()) {
             return redirect()->to(route('my_profile__page'));
         }
-        $validateFileds = Validator::make($request->all(),
-        [
-            "email" => [
-                "required",
-                "string",
-                "email"
-            ]
-        ]);
+        $rules = [
+            "email" => "required|email",
+            "phone" => "required",
+        ];
+        
+        // $validation = Validator::make(Input::get(), $rules, $messages);
+        $validateFileds = Validator::make($request->all(), $rules, $messages);
 
         if ($validateFileds->fails()) {
             $response = [
@@ -98,8 +102,23 @@ class RegisterController extends Controller
         if (Auth::check()) {
             return redirect()->to(route('my_profile__page'));
         }
-        $validateFileds = Validator::make($request->all(),
-        [
+        $messages = [
+            'full_name.required' => 'Поле full_name обязательно к заполнению',
+            'full_name.string' => 'Поле full_name может принимать только буквенные символы',
+            'date_birthday.required' => 'Поле date_birthday обязательно к заполнению',
+            'date_birthday.date' => 'Поле date_birthday может принимать только дату',
+            'date_birthday.date_format' => 'Поле date_birthday может принимать только дату в формате Y-m-d',
+            'id_gender_code.required' => 'Поле id_gender_code обязательно к заполнению',
+            'id_gender_code.regex' => 'Поле id_gender_code может принимать только цифры от 1-9 в кол-ве один',
+            'city_name.required' => 'Поле city_name обязательно к заполнению',
+            'city_name.string' => 'Поле city_name может принимать только буквенные символы',
+            'id_type_document.required' => 'Поле id_type_document обязательно к заполнению',
+            'id_type_document.regex' => 'Поле id_type_document может принимать только цифры от 1-9 в кол-ве один',
+            'series_document_number.required' => 'Поле series_document_number обязательно к заполнению',
+            'id_country_of_issue.required' => 'Поле id_country_of_issue обязательно к заполнению',
+            'id_country_of_issue.regex' => 'Поле id_country_of_issue может принимать только цифры от 1-9 в кол-ве один'
+        ];
+        $rules = [
             "full_name" => [
                 "required",
                 "string"
@@ -123,13 +142,14 @@ class RegisterController extends Controller
             ],
             "series_document_number" => [
                 "required",
-                "regex:/^[0-9]{6,12}$/"
+                "string"
             ],
             "id_country_of_issue" => [
                 "required",
                 "regex:/^[1-9]*$/"
             ]
-        ]);
+            ];
+        $validateFileds = Validator::make($request->all(),$rules,$messages);
         if ($validateFileds->fails()) {
             $response = [
                 "status" => false,
@@ -173,12 +193,17 @@ class RegisterController extends Controller
         if (Auth::check()) {
             return redirect()->to(route('my_profile__page'));
         }
-        $validateFileds = Validator::make($request->all(),[
+        $messages = [
+            "password.required" => "Поле password обязательно к заполнению",
+            "password.regex" => "Поле password должно содержать заглавные и прописные латинские буквы, а также цифры и минимум один из следюущий символов: !@#$%^&*",
+        ];
+        $rules = [
             "password" => [
                 "required",
                 "regex:/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/"
             ]
-        ]);
+            ];
+        $validateFileds = Validator::make($request->all(),$rules,$messages);
         if ($validateFileds->fails()) {
             $response = [
                 "status" => false,
@@ -214,48 +239,29 @@ class RegisterController extends Controller
             "error_message" => "Пароля нет",
             "passwords" => $user_password_array
         ];
-        return json_encode($response); 
-
-
-        // $flag_password = false;
-        // if (isset($user_password_array) && count($user_password_array) > 0) {
-           
-        //     foreach ($user_password_array as $password_db) {
-        //         if(!Hash::check($password,$password_db)){
-        //             $flag_password = true;
-        //         }
-        //     }
-        // }
-        // else{
-        //     $flag_password = true;
-        // }
-        
-
-        // if (!$flag_password) {
-        //     $response = [
-        //         "status" => false,
-        //         "error_message" => "Пользователь с таким паролем уже существует",
-        //         "flag_password" => $flag_password
-        //     ];
-        //     return json_encode($response);
-        // }
-        // else{
-        //     $response = [
-        //         "status" => true,
-        //         "error_message" => "Пароля нет",
-        //         "passwords" => $user_password_array
-        //     ];
-        //     return json_encode($response); 
-        // }
+        return json_encode($response);
     }
 
     public function save(Request $request)
     {
-        if (Auth::check()) {
-            return redirect()->to(route('my_profile__page'));
-        }
-        $validateFileds = Validator::make($request->all(),
-        [
+        $messages = [
+            'full_name.required' => 'Поле full_name обязательно к заполнению',
+            'full_name.string' => 'Поле full_name может принимать только буквенные символы',
+            'date_birthday.required' => 'Поле date_birthday обязательно к заполнению',
+            'date_birthday.date' => 'Поле date_birthday может принимать только дату',
+            'date_birthday.date_format' => 'Поле date_birthday может принимать только дату в формате Y-m-d',
+            'id_gender_code.required' => 'Поле id_gender_code обязательно к заполнению',
+            'id_gender_code.regex' => 'Поле id_gender_code может принимать только цифры от 1-9 в кол-ве один',
+            'city_name.required' => 'Поле city_name обязательно к заполнению',
+            'city_name.string' => 'Поле city_name может принимать только буквенные символы',
+            'id_type_document.required' => 'Поле id_type_document обязательно к заполнению',
+            'id_type_document.regex' => 'Поле id_type_document может принимать только цифры от 1-9 в кол-ве один',
+            'series_document_number.required' => 'Поле series_document_number обязательно к заполнению',
+            'id_country_of_issue.required' => 'Поле id_country_of_issue обязательно к заполнению',
+            'id_country_of_issue.regex' => 'Поле id_country_of_issue может принимать только цифры от 1-9 в кол-ве один'
+        ];
+
+        $rules = [
             "full_name" => [
                 "required",
                 "string"
@@ -279,13 +285,18 @@ class RegisterController extends Controller
             ],
             "series_document_number" => [
                 "required",
-                "regex:/^[0-9]{6,12}$/"
+                "string"
             ],
             "id_country_of_issue" => [
                 "required",
                 "regex:/^[1-9]*$/"
             ]
-        ]);
+        ];
+        if (Auth::check()) {
+            return redirect()->to(route('my_profile__page'));
+        }
+
+        $validateFileds = Validator::make($request->all(),$rules, $messages);
         if ($validateFileds->fails()) {
             $response = [
                 "status" => false,
@@ -353,8 +364,6 @@ class RegisterController extends Controller
                     'status' => true,
                     'message' => 'Регистрация произошла успешно',
                     'url_redirect' => route('my_profile__page')
-                    // 'url_redirect' => route('registration')
-                    // 'user_info' => Auth::user()
                 ];
                 return json_encode($response);
                 
@@ -367,21 +376,6 @@ class RegisterController extends Controller
                 return json_encode($response);
             }
         }
-
-        // $validateFileds = $request->validate([
-        //     'email' => 'required|email',
-        //     'phone' => 'required',
-        //     // 'password' => 'required',
-        // ]);
-
-        // $user = User::create($validateFileds);
-        // if ($user) {
-        //     Auth::login($user);
-        //     return redirect()->route('my_profile__page');
-        // }
-        // return redirect(route('login'))->withErrors([
-        //     'foromError' => 'произошла ошибка регистрации пользователя'
-        // ]);
     }
 
     public function redirectProfileRegister()

@@ -51,6 +51,8 @@ Route::prefix('baggage_info')->group(function () {
     Route::get('/#baggage_tracing',[MainController::class,'returnViewBaggageInfo'])->name('baggage_info__page__baggage_tracing');
 });
 
+Route::post('/regiser_flight',[FlightController::class,'registerFlight'])->name('regiser_flight');
+
 Route::get('/payment_methods',[MainController::class,'returnViewPaymentsMethod'])->name('payment_methods__page');
 Route::get('/contacts',[MainController::class,'returnViewIndexContacts'])->name('contacts__page');
 Route::get('/404_page',[MainController::class,'returnView404Page'])->name('404__page');

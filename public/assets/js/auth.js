@@ -200,7 +200,7 @@ $(document).ready(function () {
     } else if (provEmail && $('#phone').val() != "") {
       var email_user = $('#email').val();
       var phone_user = $('.prefix_phone_list__item.select_list__item').attr('data-value') + $('#phone').val();
-      var phone_user_str = phone_user.replace(/-+/g, '');
+      var phone_user_str = $.trim(phone_user.replace(/-+/g, ''));
       var formData = new FormData();
       formData.append('email', email_user);
       formData.append('phone', phone_user_str);
@@ -222,6 +222,7 @@ $(document).ready(function () {
           $('.overlay_contact_form #fountainG').css('display', 'none');
 
           if (data.status) {
+            $('.error_contact_data .error_list__item').remove();
             formDataFull.append('email', email_user);
             formDataFull.append('phone', phone_user_str);
             $('.form_auth_contact_data').addClass('form_auth_card__anim');
@@ -269,8 +270,23 @@ $(document).ready(function () {
             }, 1900);
           } else {
             $('.overlay_contact_form').removeClass('overlay_form_active');
+            $('.error_contact_data .error_list__item').remove();
             $('.error_contact_data').addClass('error_contact_data__active');
-            $('.error_contact_data .error_list__item').text(data.message);
+
+            if (data.errors != null) {
+              Object.keys(data.errors).forEach(function (value_error) {
+                var error_list_item = document.createElement('li');
+                error_list_item.setAttribute('class', 'error_list__item');
+                error_list_item.append(data.errors[value_error]);
+                $('.error_contact_data .error_list').append(error_list_item);
+              });
+            } else {
+              var error_list_item = document.createElement('li');
+              error_list_item.setAttribute('class', 'error_list__item');
+              error_list_item.append(data.message);
+              $('.error_contact_data .error_list').append(error_list_item);
+            } // $('.error_contact_data .error_list__item').text(data.errors);
+
           }
         }
       });

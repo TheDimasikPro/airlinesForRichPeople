@@ -336,81 +336,81 @@ $(document).ready(function () {
   });
   $('#btn_submit_update_personal_data').click(function (e) {
     e.preventDefault();
-    $('.error_message_check_personal_data').removeClass('error_personal_data_visibly');
-    $('.error_message_check_personal_data').text('');
-    var full_name = $.trim($('#full_name_user').val());
-    var email = $.trim($('#email_user').val());
-    var phone = $.trim($('#phone_user').val());
-    var date_birthday = $.trim($('#date_birthday_user').val());
-    var gender_code_id = $.trim($('.personal_data_block__update_form__gender_list__item.select_list__item').val());
-    var city = $.trim($('#city_user').val());
-    var type_document_id = $.trim($('.personal_data_block__update_form__type_document_list__item.select_list__item').val());
-    var series_numbers_document = $.trim($('#series_numbers_document_user').val());
-    var country_of_issue_id = $.trim($('.personal_data_block__update_form__country_of_issue_list__item.select_list__item').val());
 
-    if (full_name != "" && email != "" && phone != "" && date_birthday != "" && gender_code_id != "" && city != "" && type_document_id != "" && series_numbers_document != "" && country_of_issue_id) {
-      var regex_email = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-      var provEmail = regex_email.test(email);
-      var regex_phone = /^[0-9]{6,}/;
-      var provPhone = regex_phone.test(phone);
+    if (!$(this).hasClass('non_click')) {
+      $('#btn_submit_update_personal_data').addClass('non_click');
+      $('.error_message_check_personal_data').removeClass('error_personal_data_visibly');
+      $('.error_message_check_personal_data').text('');
+      var full_name = $.trim($('#full_name_user').val());
+      var email = $.trim($('#email_user').val());
+      var phone = $.trim($('#phone_user').val());
+      var date_birthday = $.trim($('#date_birthday_user').val());
+      var gender_code_id = $.trim($('.personal_data_block__update_form__gender_list__item.select_list__item').val());
+      var city = $.trim($('#city_user').val());
+      var type_document_id = $.trim($('.personal_data_block__update_form__type_document_list__item.select_list__item').val());
+      var series_numbers_document = $.trim($('#series_numbers_document_user').val());
+      var country_of_issue_id = $.trim($('.personal_data_block__update_form__country_of_issue_list__item.select_list__item').val());
 
-      if (!provPhone) {
-        $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
-        $('.error_message_check_personal_data').text("Введите телефон правильно");
-      }
+      if (full_name != "" && email != "" && phone != "" && date_birthday != "" && gender_code_id != "" && city != "" && type_document_id != "" && series_numbers_document != "" && country_of_issue_id) {
+        var regex_email = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+        var provEmail = regex_email.test(email);
 
-      if (!provEmail) {
-        $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
-        $('.error_message_check_personal_data').text("Введите Email правильно");
-      }
+        if (!provEmail) {
+          $('#btn_submit_update_personal_data').removeClass('non_click');
+          $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
+          $('.error_message_check_personal_data').text("Введите Email правильно");
+        }
 
-      if (provEmail && provPhone) {
-        var formData = new FormData();
-        formData.append("full_name", full_name);
-        formData.append("email", email);
-        formData.append("phone", phone);
-        formData.append("date_birthday", date_birthday);
-        formData.append("gender_code_id", gender_code_id);
-        formData.append("city", city);
-        formData.append("type_document_id", type_document_id);
-        formData.append("series_numbers_document", series_numbers_document);
-        formData.append("country_of_issue_id", country_of_issue_id);
-        $.ajax({
-          url: "http://richairlines/profile/update_data",
-          headers: {
-            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-          },
-          data: formData,
-          dataType: "JSON",
-          contentType: false,
-          processData: false,
-          cache: false,
-          type: "POST",
-          beforeSend: function beforeSend() {
-            $('#btn_submit_update_personal_data').addClass('non_click');
-            $('#btn_submit_update_personal_data').css('background', '#004369');
-            $('#btn_submit_update_personal_data').text('Ожидание загрузки');
-          },
-          success: function success(data) {
-            if (data.status) {
-              if ($('#btn_submit_update_personal_data').hasClass('non_click')) {
-                $('#btn_submit_update_personal_data').text(data.message);
-                setTimeout(function () {
-                  $('#btn_submit_update_personal_data').removeClass('non_click');
-                  $('#btn_submit_update_personal_data').text('Обновить');
-                  $('#btn_submit_update_personal_data').removeAttr('style');
-                }, 1500);
+        if (provEmail) {
+          var formData = new FormData();
+          formData.append("full_name", full_name);
+          formData.append("email", email);
+          formData.append("phone", phone);
+          formData.append("date_birthday", date_birthday);
+          formData.append("gender_code_id", gender_code_id);
+          formData.append("city", city);
+          formData.append("type_document_id", type_document_id);
+          formData.append("series_numbers_document", series_numbers_document);
+          formData.append("country_of_issue_id", country_of_issue_id);
+          $.ajax({
+            url: "http://richairlines/profile/update_data",
+            headers: {
+              'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: formData,
+            dataType: "JSON",
+            contentType: false,
+            processData: false,
+            cache: false,
+            type: "POST",
+            beforeSend: function beforeSend() {
+              $('#btn_submit_update_personal_data').css('background', '#004369');
+              $('#btn_submit_update_personal_data').text('Ожидание загрузки');
+            },
+            success: function success(data) {
+              if (data.status) {
+                if ($('#btn_submit_update_personal_data').hasClass('non_click')) {
+                  $('#btn_submit_update_personal_data').text(data.message);
+                  setTimeout(function () {
+                    $('#btn_submit_update_personal_data').removeClass('non_click');
+                    $('#btn_submit_update_personal_data').text('Обновить');
+                    $('#btn_submit_update_personal_data').removeAttr('style');
+                  }, 1500);
+                }
+              } else {
+                $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
+                $('.error_message_check_personal_data').text(data.error_message);
+                $('#btn_submit_update_personal_data').text('Обновить');
+                $('#btn_submit_update_personal_data').removeAttr('style');
               }
-            } else {
-              $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
-              $('.error_message_check_personal_data').text(data.error_message);
             }
-          }
-        });
+          });
+        }
+      } else {
+        $('#btn_submit_update_personal_data').removeClass('non_click');
+        $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
+        $('.error_message_check_personal_data').text("Проверьте поля на пустоту. В каждом списке должен быть вабран элемент");
       }
-    } else {
-      $('.error_message_check_personal_data').addClass('error_personal_data_visibly');
-      $('.error_message_check_personal_data').text("Проверьте поля на пустоту");
     }
   });
 });

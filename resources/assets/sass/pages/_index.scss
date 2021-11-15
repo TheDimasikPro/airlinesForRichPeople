@@ -37,6 +37,11 @@
             background: $gray_4;
         }
     }
+    .message_after_search_complete{
+        margin-top: 20px;
+        line-height: 22px;
+        color: red;
+    }
     .search_tickets_block{
         display: flex;
         margin-top: 40px;

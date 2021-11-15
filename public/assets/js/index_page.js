@@ -5,7 +5,6 @@ var __webpack_exports__ = {};
   \*******************************************/
 $(document).ready(function () {
   // общее
-  $('.errors_search_tickets').text();
   var dropbtn_from_flights = $('#dropbtn_from_flights');
   var dropbtn_to_flights = $('#dropbtn_to_flights');
   var input_search_from_flights = $('#id_i_s_f_f');
@@ -39,6 +38,7 @@ $(document).ready(function () {
 
 
   flights_list_item.click(function () {
+    $('.errors_search_tickets').remove();
     $('.dd_count_pass .drop_count_pass').removeClass('show_drop_content');
     $('.nav_menu .geo_posistion_people').removeAttr('style');
     $('.geo_posistion_people').removeClass('geo_posistion_people__active');

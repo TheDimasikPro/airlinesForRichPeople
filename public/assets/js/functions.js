@@ -579,7 +579,7 @@ $(document).ready(function () {
                   break;
                 } else {
                   flag = true;
-                  arr.date_bithday = $(Yelement).val();
+                  arr.date_birthday = $(Yelement).val();
                 }
 
                 break;
@@ -664,7 +664,7 @@ $(document).ready(function () {
           },
           data: {
             formDataArray: JSON.stringify(formDataArray),
-            emal_feedback: $('#email_feedback_tickets').val()
+            email_feedback: $('#email_feedback_tickets').val()
           },
           // processData: false,
           // cache: false,

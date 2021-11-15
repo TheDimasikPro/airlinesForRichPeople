@@ -554,7 +554,7 @@ $(document).ready(function () {
                                 }
                                 else{
                                     flag = true;
-                                    arr.date_bithday = $(Yelement).val();
+                                    arr.date_birthday = $(Yelement).val();
                                 }
                                 
                                 break;
@@ -626,7 +626,10 @@ $(document).ready(function () {
                     headers: {
                         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
                     },
-                    data: { formDataArray: JSON.stringify(formDataArray), emal_feedback: $('#email_feedback_tickets').val() },
+                    data: { 
+                        formDataArray: JSON.stringify(formDataArray), 
+                        email_feedback: $('#email_feedback_tickets').val() 
+                    },
                     // processData: false,
                     // cache: false,
                     // contentType: "json",

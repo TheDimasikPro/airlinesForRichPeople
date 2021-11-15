@@ -16,7 +16,6 @@
                     <input type="text" class="non_view" name="old_count_people" value="0">
                     <input type="text" class="non_view" name="kids_count_people" value="0">
                     <input type="text" class="non_view" name="baby_count_people" value="0">
-                {{-- <form action="" class="form form_search_tickets"> --}}
                     <div class="form_search_block_inputs" id="from_flight_block_input">
                         <div class="dropdown">
                             <div class="input_search_block df_jcc_aic">
@@ -184,13 +183,19 @@
             </div>
             <!-- /.search_tickets_block -->
             <div class="check_in_block non_view">
-                <form action="" class="form form_check_in df_jcspb_aic">
-                    <input type="text" autocomplete="off" class="md_input" id="input_last_name_user" placeholder="Фамилия пассажира">
-                    <input type="text" autocomplete="off" class="md_input" id="input_info_ticket_reserv" placeholder="Номер брони / билета">
-                    <button class="btn search_reserve btn_style_1 upper" type="button">Найти бронь</button> 
+                <form action="{{ route('regiser_flight') }}" method="POST" class="form form_check_in df_jcspb_aic">
+                    @csrf
+                    <input type="text" required autocomplete="off" class="md_input" name="last_name" id="input_last_name_user" placeholder="Фамилия пассажира">
+                    <input type="text" required autocomplete="off" class="md_input" name="number_ticket_booking" id="input_info_ticket_reserv" placeholder="Номер билета">
+                    <button class="btn search_reserve btn_style_1 upper" type="submit">Найти бронь</button> 
                     <!-- /.btn search_reserve -->
                 </form>
                 <!-- /.form form_check_in -->
+
+                <div class="message_after_search_complete">
+                    <p>* При успешном поиске, вы автоматически будете зарегистрированы на рейс и на вашу электронную почту, которые вы указывали при оплате придет соответстующее письмо и вы будете перенаправлены обратно сюда</p>
+                </div>
+                <!-- /.message_after_search_complete -->
             </div>
             <!-- /.check_in_block -->
             @error('errors')

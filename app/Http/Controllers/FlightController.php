@@ -316,7 +316,7 @@ class FlightController extends Controller
         ]);
         if ($validationFileds->fails()) {
             return redirect()->route('search_tickets__page')->withErrors([
-                "errors" => "Что-то пошло не так, обновите страниц и перепроверьте данные"
+                "errors" => "Что-то пошло не так, обновите страницу и перепроверьте данные"
             ]);
         }
 
@@ -400,40 +400,59 @@ class FlightController extends Controller
         $flag = false;
         $count_done = 0;
         $array_values_req = [];
+        $messages = [
+            'last_name.required' => 'Поле last_name обязательно к заполнению',
+            'last_name.string' => 'Поле last_name может принимать только буквенные символы',
+            'first_name.required' => 'Поле first_name обязательно к заполнению',
+            'first_name.string' => 'Поле first_name может принимать только буквенные символы',
+            'other_name.string' => 'Поле other_name может принимать только буквенные символы',
+            'date_birthday.required' => 'Поле date_birthday обязательно к заполнению',
+            'date_birthday.date' => 'Поле date_birthday может принимать только дату',
+            'date_birthday.date_format' => 'Поле date_birthday может принимать только дату в формате Y-m-d',
+            'series_numbers_document.required' => 'Поле series_numbers_document обязательно к заполнению',
+            'gender_code.required' => 'Поле gender_code обязательно к заполнению',
+            'gender_code.regex' => 'Поле gender_code может принимать только цифры от 1-9 в кол-ве один',
+            'type_document.required' => 'Поле type_document обязательно к заполнению',
+            'type_document.regex' => 'Поле type_document может принимать только цифры от 1-9 в кол-ве один',
+            'citizenship.required' => 'Поле citizenship обязательно к заполнению',
+            'citizenship.regex' => 'Поле citizenship может принимать только цифры от 1-9 в кол-ве один',
+        ];
+        $rules = [
+            "last_name" => [
+                "required",
+                "string"
+            ],
+            "first_name" => [
+                "required",
+                "string"
+            ],
+            "other_name" => [
+                "string"
+            ],
+            "date_birthday" => [
+                "required",
+                "date",
+                "date_format:Y-m-d"
+            ],
+            "citizenship" => [
+                "required",
+                "regex:/^[1-9]*$/"
+            ],
+            "type_document" => [
+                "required",
+                "regex:/^[1-9]{1}$/"
+            ],
+            "series_numbers_document" => [
+                "required",
+                "string"
+            ],
+            "gender_code" => [
+                "required",
+                "regex:/^[1-9]*$/"
+            ]
+        ];
         foreach ($request_array as $key => $value) {
-            $validationFileds = Validator::make($value, [
-                "last_name" => [
-                    "required",
-                    "string"
-                ],
-                "first_name" => [
-                    "required",
-                    "string"
-                ],
-                "other_name" => [
-                    "string"
-                ],
-                "date_bithday" => [
-                    "required",
-                    "date"
-                ],
-                "citizenship" => [
-                    "required",
-                    "integer"
-                ],
-                "type_document" => [
-                    "required",
-                    "integer"
-                ],
-                "series_numbers_document" => [
-                    "required",
-                    "string"
-                ],
-                "gender_code" => [
-                    "required",
-                    "integer"
-                ]
-            ]);
+            $validationFileds = Validator::make($value, $rules, $messages);
             if ($validationFileds->fails()) {
                 $response = [
                     'status' => false,
@@ -548,16 +567,18 @@ class FlightController extends Controller
                     ]);
 
                     $new_passenger_id_start = Passenger::insertGetId([
+                        'ticket_code' => "RA_" . Str::random(4),
                         'last_name' => $value["last_name"],
                         'first_name' => $value["first_name"],
                         'other_name' => $value["other_name"],
-                        'date_of_birthday' => $value["date_bithday"],
+                        'date_of_birthday' => $value["date_birthday"],
                         'id_gender_code' => $value["gender_code"],
                         'id_citizenship' => $value["citizenship"],
                         'id_document_type' => $value["type_document"],
                         'series_and_document_number' => str_replace(' ','',$value["series_numbers_document"]),
                         'row_number' => 1,
                         'place_number' => $place_passenger__start,
+                        'email_feedback' => $email_feedback,
                         'id_booking' => $new_booking_id_start,
                         "created_at" => Carbon::now(),
                         "updated_at" => Carbon::now()
@@ -590,14 +611,16 @@ class FlightController extends Controller
                             "updated_at" => Carbon::now()
                         ]);
                         $new_passenger_id_end = Passenger::insertGetId([
+                            'ticket_code' => "RA_" . Str::random(4),
                             'last_name' => $value["last_name"],
                             'first_name' => $value["first_name"],
                             'other_name' => $value["other_name"],
-                            'date_of_birthday' => $value["date_bithday"],
+                            'date_of_birthday' => $value["date_birthday"],
                             'id_gender_code' => $value["gender_code"],
                             'id_citizenship' => $value["citizenship"],
                             'id_document_type' => $value["type_document"],
                             'series_and_document_number' => str_replace(' ','',$value["series_numbers_document"]),
+                            'email_feedback' => $email_feedback,
                             'row_number' => 1,
                             'place_number' => $place_passenger__end,
                             'id_booking' => $new_booking_id_end,
@@ -622,8 +645,8 @@ class FlightController extends Controller
             session(["passenger_info" => $array_values_req]);
             return response()->json([
                 "status" => true,
-                "count_done" => $count_done,
-                "request_array" => count($request_array),
+                // "count_done" => $count_done,
+                // "request_array" => count($request_array),
                 "array_values_req" => $array_values_req,
                 "route" => route('payment_tickets__page'),
                 // "flight_order_info__id_start" => session("flight_order_info")["id_flight_start"]
@@ -647,7 +670,18 @@ class FlightController extends Controller
 
     public function paymentTickets(Request $request)
     {
-        $validationFields = Validator::make($request->only(['name_on_card','card_number','expity_date_card','security_code_card']),[
+        $messages = [
+            'name_on_card.required' => 'Поле name_on_card обязательно к заполнению',
+            'name_on_card.string' => 'Поле name_on_card может принимать только буквенные символы',
+            'name_on_card.regex' => 'Поле name_on_card может принимать только заглавные буквы',
+            'card_number.required' => 'Поле card_number обязательно к заполнению',
+            'card_number.regex' => 'Поле card_number должно содержать 16 цифр',
+            'expity_date_card.required' => 'Поле expity_date_card обязательно к заполнению',
+            'expity_date_card.regex' => 'В поле expity_date_card месяц должен быть не больше 12, а год не меньше 21',
+            'security_code_card.required' => 'Поле security_code_card обязательно к заполнению',
+            'security_code_card.regex' => 'В поле security_code_card должно быть 3 цифры',
+        ];
+        $rules = [
             "name_on_card" => [
                 "required",
                 "string",
@@ -668,7 +702,8 @@ class FlightController extends Controller
                 "string",
                 "regex:/^[0-9]{3}$/"
             ],
-        ]);
+        ];
+        $validationFields = Validator::make($request->only(['name_on_card','card_number','expity_date_card','security_code_card']),$rules,$messages);
         if ($validationFields->fails()) {
             $response = [
                 "status" => false,
@@ -702,5 +737,83 @@ class FlightController extends Controller
 
         return $response;
 
+    }
+
+    public function registerFlight(Request $request)
+    {
+        $validationFields = Validator::make($request->only(['last_name','number_ticket_booking']),[
+            "last_name" => [
+                "required",
+                "string"
+            ],
+            "number_ticket_booking" => [
+                "required",
+                "string",
+            ]
+        ]);
+        if ($validationFields->fails()) {
+            return redirect()->route('index__page')->withErrors([
+                'errors' => "Проверьте свои данные"
+            ]);
+        }
+
+        $ticket = Passenger::where([
+            ['ticket_code',$request["number_ticket_booking"]],
+            ['last_name',$request["last_name"]],
+            ])->first();
+        if ($ticket != null) {
+            // $email_passneger = $ticket["email_feedback"];
+            $email_passneger = 'dima.site@gmail.com';
+            $id_booking = $ticket["id_booking"];
+            $booking = Booking::where([
+                ['id',$id_booking],
+                ['id_booking_status',2]
+            ])->first();
+            if ($booking != null) {
+                $id_flight_from = $booking["id_flight_from"];
+                $id_flight_back = $booking["id_flight_back"];
+                $flight_arr = [];
+                $airport_flight_from_start = null;
+                $airport_flight_from_end = null;
+                if ($id_flight_from != null) {
+                    $flight_from = Flight::where('id',$id_flight_from)->first();
+                    $airport_flight_from_start = Airport::where('id',$flight_from['id_airport_start'])->first();
+                    $airport_flight_from_end = Airport::where('id',$flight_from['id_airport_end'])->first();
+
+                    $flight_arr["flight_from"]=$flight_from;
+                    $flight_arr["airport_flight_from_start"]=$airport_flight_from_start;
+                    $flight_arr["airport_flight_from_end"]=$airport_flight_from_end;
+                }
+                if ($id_flight_back != null) {
+                    $flight_back = Flight::where('id',$id_flight_back)->first();
+                    $airport_flight_back_start = Airport::where('id',$flight_back['id_airport_start'])->first();
+                    $airport_flight_back_end = Airport::where('id',$flight_back['id_airport_end'])->first();
+
+                    $flight_arr["flight_back"]=$flight_back;
+                    $flight_arr["airport_flight_back_start"]=$airport_flight_back_start;
+                    $flight_arr["airport_flight_back_end"]=$airport_flight_back_end;
+                }
+
+                Booking::where([
+                    ['id',$id_booking]
+                ])->update([
+                    'id_booking_status'=>4,
+                ]);
+                $response_mail = [
+                    "flights" => $flight_arr,
+                    "ticket_code" => $ticket["ticket_code"]
+                ];
+                // return $response_mail;
+                $mailController = new MailController();
+                $mailController->sendMailAfterRegistrationFlight($response_mail,$email_passneger);
+                return redirect()->route('index__page');
+            }
+            return redirect()->route('index__page')->withErrors([
+                "errors" => "Данный билет уже зарегистрирован"
+            ]);
+        }
+        return redirect()->route('index__page')->withErrors([
+            "errors" => "Пассажира с такой фамилией и билетом не существует"
+        ]);
     }
 }

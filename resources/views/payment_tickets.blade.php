@@ -89,3 +89,7 @@
     </div>
     <!-- /.container -->
 @endsection
+
+@section('slider_script')
+    <script src="/assets/js/notification_on_page.js"></script>
+@endsection

@@ -115,9 +115,7 @@
                         <span>Я ознакомился с <a href="#"> условиями</a></span> 
                     </div>
                     <!-- /.passenger_info_block__forms_block__form_feedback__input_block -->
-                    <div class="passenger_info__errors__feedback non_view">
-
-                    </div>
+                    <div class="passenger_info__errors__feedback non_view"></div>
                     <!-- /.passenger_info__errors__feedback -->
                 </form>
                 <!-- /.passenger_info_block__forms_block__form_feedback -->
@@ -350,4 +348,8 @@
         <!-- /.passenger_info_block -->
     </div>
     <!-- /.container -->
+@endsection
+
+@section('slider_script')
+    <script src="/assets/js/notification_on_page.js"></script>
 @endsection
