@@ -37,10 +37,11 @@ class ProfileController extends Controller
             $document_types_all = DB::table('document_types')->select('id','name_document','mask_input')->get()->sortBy('id');
             $gender_codes_all = DB::table('gender_codes')->select('id','gender_name_rus')->get()->sortBy('id');
 
-
-            $series_and_document_number = Auth::user()->series_and_document_number;
+            // RA_MBK5 = 6
+            $series_and_document_number = str_replace(' ','',Auth::user()->series_and_document_number);
             $booking_ids = Passenger::select('id_booking')->where([
-                ['series_and_document_number','2222222222']
+                ['series_and_document_number','9999999999']
+                // ['series_and_document_number',$series_and_document_number]
             ])->get();
 
             $booking_ids_array = []; // id всех бронь пассажиров с серией и номером $series_and_document_number
@@ -48,9 +49,9 @@ class ProfileController extends Controller
                 array_push($booking_ids_array,$booking_id["id_booking"]);
             }
 
-            
+            $flight_arr = [];
             if (count($booking_ids_array) > 0) {
-                $flight_arr = [];
+                
                 $booking = Booking::query();
                 foreach ($booking_ids_array as $value) {
                     $booking->orWhere([
@@ -60,12 +61,12 @@ class ProfileController extends Controller
                 if ($booking->get()!=null) {
                     foreach ($booking->get() as $key => $value) {
                         $id_flight_from = $value["id_flight_from"];
-                        $id_flight_back = $value["id_flight_back"];
                         $airport_flight_from_start = null;
                         $airport_flight_from_end = null;
-                        $airport_flight_back_start = null;
-                        $airport_flight_back_end = null;
 
+                        $booking_id = $value["id_booking_status"];
+                        $booking_status = DB::table('booking_statuses')->select('name_status')->where('id',$booking_id)->first();
+                        
                         if ($id_flight_from != null) {
                             $flight_from = Flight::select('id','flight_code','time_start','time_end','cost','date_start','date_end','id_airport_start','id_airport_end')->where('id',$id_flight_from)->first();
                             $airport_flight_from_start = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_start'])->first();
@@ -74,15 +75,7 @@ class ProfileController extends Controller
                             $flight_arr['flight_info_' . $key]['flight_from'] = $flight_from;
                             $flight_arr['flight_info_' . $key]["airport_flight_from_start"] = $airport_flight_from_start;
                             $flight_arr['flight_info_' . $key]["airport_flight_from_end"] = $airport_flight_from_end;
-                        }
-                        if ($id_flight_back != null) {
-                            $flight_back = Flight::select('id','flight_code','time_start','time_end','cost','date_start','date_end','id_airport_start','id_airport_end')->where('id',$id_flight_back)->first();
-                            $airport_flight_back_start = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_back['id_airport_start'])->first();
-                            $airport_flight_back_end = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_back['id_airport_end'])->first();
-        
-                            $flight_arr['flight_info_' . $key]['flight_back'] = $flight_back;
-                            $flight_arr['flight_info_' . $key]["airport_flight_back_start"] = $airport_flight_back_start;
-                            $flight_arr['flight_info_' . $key]["airport_flight_back_end"] = $airport_flight_back_end;
+                            $flight_arr['flight_info_' . $key]["booking_status_from"] = $booking_status;
                         }
                     }
                     
@@ -96,7 +89,7 @@ class ProfileController extends Controller
             // foreach ($flight_arr as $key => $value) {
             //     echo $value['flight_from'];
             // }
-            // return 0;
+            // return "fgff0";
 
             if (!empty($user_gender_code_name) && !empty($user_document_type) && !empty($user_country_of_issue) 
             && !empty($countries_all) && !empty($document_types_all) && !empty($gender_codes_all) ) {

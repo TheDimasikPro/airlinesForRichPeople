@@ -89,4 +89,12 @@ class MailController extends Controller
             $message->subject('Регистрация на рейс');
         });
     }
+    public function sendMailAfterPaymentFlight($response_mail,$email_user)
+    {
+        Mail::send('emails.after_payment_fight', $response_mail, function ($message) {
+            $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
+            $message->to('dima.site1806@gmail.com', 'Dima');
+            $message->subject('Регистрация на рейс');
+        });
+    }
 }

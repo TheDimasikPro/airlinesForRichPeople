@@ -809,10 +809,10 @@ $(document).ready(function () {
             $('.payment_tickets_block__info .overlay_profile_data_form .check_mark_payment img').animate({
               height: "70px"
             }, 100);
-            $('.payment_tickets_block__info .overlay_profile_data_form').addClass('check_mark_payment__active');
-            setTimeout(function () {
-              location.href = "http://richairlines/";
-            }, 600);
+            $('.payment_tickets_block__info .overlay_profile_data_form').addClass('check_mark_payment__active'); // console.log(data.flights);
+            // setTimeout(() => {
+
+            location.href = "http://richairlines/"; // }, 600);
           } else {
             $('.payment_tickets_block__info .overlay_profile_data_form').removeClass('overlay_form_active');
             $('.payment_tickets_block__info .overlay_profile_data_form .check_mark_payment img').removeAttr('style');

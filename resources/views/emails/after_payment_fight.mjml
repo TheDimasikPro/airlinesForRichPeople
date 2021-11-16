@@ -1,0 +1,75 @@
+<mjml>
+    <mj-head>
+        <mj-attributes>
+            <mj-class name="big" font-size="20px" />
+            <mj-all font-family="Arial" />
+        </mj-attributes>
+    </mj-head>
+  <mj-body background-color="white" width>
+    <mj-section padding="0">
+        <mj-column>
+            <mj-image width="200px" src="http://richairlines/assets/images/logo.png"></mj-image>
+            <mj-divider border-color="#65CF94"></mj-divider>
+            <mj-text font-size="20px" color="black" font-family="helvetica">Здравствуйте!</mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section padding="0">
+        <mj-column>
+            <mj-text font-size="20px" color="black" font-family="helvetica" font-weight="700">Оплата билетов прошла успешно</mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section>
+        <mj-column>
+            <mj-text font-size="20px" color="black" font-family="helvetica" font-weight="700">Вы оплатили следующие рейсы:</mj-text>
+            <mj-text font-size="16px" color="red" font-family="helvetica">Время указно местное</mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section border-bottom="1px solid black" padding="0" mj-class="row_tickets_title">
+        <mj-column width="5%" border-right="1px solid black" padding="10px">
+            <mj-text font-size="20px" color="black" font-family="helvetica" padding="0">№</mj-text>
+        </mj-column>
+        <mj-column width="15%" border-right="1px solid black" padding="10px">
+            <mj-text font-size="20px" color="black" font-family="helvetica" padding="0">Номер рейса: </mj-text>
+        </mj-column>
+        <mj-column width="36%" border-right="1px solid black" padding="10px">
+            <mj-text font-size="20px" color="black" font-family="helvetica" padding="0">План полета: </mj-text>
+        </mj-column>
+        <mj-column width="22%" border-right="1px solid black" padding="10px">
+            <mj-text font-size="20px" color="black" font-family="helvetica" padding="0">Время и дата вылета:</mj-text>
+        </mj-column>
+        <mj-column width="22%" padding="10px">
+            <mj-text font-size="20px" color="black" font-family="helvetica" padding="0">Время и дата прилета:</mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section border-bottom="1px solid black" padding="0" mj-class="row_tickets_item">
+        <mj-column width="5%" border-right="1px solid black" padding="10px">
+            <mj-text font-size="16px" color="black" font-family="helvetica" padding="0">1</mj-text>
+        </mj-column>
+        <mj-column width="15%" border-right="1px solid black" padding="10px">
+            <mj-text font-size="16px" color="black" font-family="helvetica" padding="0">CSDCSD</mj-text>
+        </mj-column>
+        <mj-column width="36%" border-right="1px solid black" padding="10px">
+            <mj-text font-size="16px" color="black" font-family="helvetica" padding="0">Москва (DME) - Екатеринбург (SVX)</mj-text>
+        </mj-column>
+        <mj-column width="22%" border-right="1px solid black" padding="10px">
+            <mj-text font-size="16px" color="black" font-family="helvetica" padding="0">20:30 21/11/2021</mj-text>
+        </mj-column>
+        <mj-column width="22%" padding="10px">
+            <mj-text font-size="16px" color="black" font-family="helvetica" padding="0">00:30 22/11/2021</mj-text>
+        </mj-column>
+    </mj-section>
+    
+    <mj-section>
+        <mj-column>
+            <mj-text font-size="16px">Итоговая сумма билетов: 7500р</mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section>
+        <mj-column>
+            <mj-button font-family="Helvetica" background-color="#f45e43" color="white" href="http://richairlines/">
+                Наш сайт!
+            </mj-button>
+        </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
