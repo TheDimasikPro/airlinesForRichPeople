@@ -66,6 +66,11 @@ Route::prefix('search_tickets')->group(function () {
     Route::post('/payment_tickets',[FlightController::class,'paymentTickets'])->name('payment_tickets');
 });
 
+route::prefix('pdf')->group(function ()
+{
+    Route::get('/preview',[PDFController::class,'previewPDF'])->name('preview_pdf');
+    Route::get('/generate',[PDFController::class,'generatePDF'])->name('generate_pdf');
+});
 
 Route::prefix('profile')->group(function () {
     
