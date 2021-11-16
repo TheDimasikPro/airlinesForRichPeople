@@ -91,6 +91,8 @@ class MailController extends Controller
     }
     public function sendMailAfterPaymentFlight($response_mail,$email_user)
     {
+        $pdf = new PDFController();
+        $pdf_file = $pdf->generatePDF();
         Mail::send('emails.after_payment_fight', $response_mail, function ($message) {
             $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
             $message->to('dima.site1806@gmail.com', 'Dima');

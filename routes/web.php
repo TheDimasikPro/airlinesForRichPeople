@@ -10,6 +10,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\TicketController;
 use App\Notifications\HelloUser;
 use Illuminate\Foundation\Auth\User;
@@ -70,6 +71,7 @@ route::prefix('pdf')->group(function ()
 {
     Route::get('/preview',[PDFController::class,'previewPDF'])->name('preview_pdf');
     Route::get('/generate',[PDFController::class,'generatePDF'])->name('generate_pdf');
+    Route::get('/generatePDF_email',[PDFController::class,'generatePDF_email'])->name('generatePDF_email');
 });
 
 Route::prefix('profile')->group(function () {
