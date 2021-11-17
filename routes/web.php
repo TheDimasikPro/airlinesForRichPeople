@@ -11,6 +11,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TicketController;
 use App\Notifications\HelloUser;
 use Illuminate\Foundation\Auth\User;
@@ -130,6 +131,9 @@ Route::prefix('profile')->group(function () {
 
     Route::post('/login', [LoginController::class,'login_check'])->name('login_check');
 });
+
+Route::post('/send_review',[ReviewController::class,'sendReview'])->name('send_review');
+Route::post('/more_review',[ReviewController::class,'moreReview'])->name('more_review');
 // определние ip пользователя и его страны
 Route::get('/ip', function () {
     if ($position = Location::get()) {

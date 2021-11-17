@@ -399,65 +399,74 @@ $(document).ready(function () {
       $('input[name="baby_count_people"]').val(count_baby_people);
     }
   }); // свое
-  // $('#btn_search').click(function (e) {
-  //     e.preventDefault();
-  //     var id_flight_from = $('.drop_from_flights .dropdown_content__item.select_elem_airport').attr('data-id');
-  //     var id_flight_back = $('.drop_to_flights .dropdown_content__item.select_elem_airport').attr('data-id');
-  //     var date_from = $.trim($('#id_i_d_t').val());
-  //     var date_back = $.trim($('#id_i_d_b').val());
-  //     var count_pass_str = $.trim($('#id_i_c_pass').val());
-  //     if (id_flight_from == null) {
-  //         console.log("Выберите аэропорт вылета");
-  //     }
-  //     else if (id_flight_from == id_flight_back) {
-  //         console.log("Аэропорт 'Обратно' должен отличаться от аэропорта 'Туда'");
-  //     }
-  //     else if (date_from == "") {
-  //         console.log("Выберите дату вылета");
-  //     }
-  //     else if (id_flight_back != null && date_back == "") {
-  //         console.log("Выберите дату вылета обратно");
-  //     }
-  //     else if (count_pass_str == "0 пассажиров") {
-  //         console.log("Кол-во пассажирова должно быть больше 0");
-  //     }
-  //     else{
-  //         var count_pass = count_pass_str.split(' ')[0];
-  //         var formData = new FormData();
-  //         formData.append("id_flight_from",id_flight_from);
-  //         formData.append("id_flight_back",id_flight_back);
-  //         formData.append("date_from",date_from);
-  //         formData.append("date_back",date_back);
-  //         formData.append("count_pass",count_pass);
-  //         // for(let key of formData){
-  //         //     console.log(key);
-  //         // }
-  //         $.ajax({
-  //             headers: {
-  //                 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-  //             },
-  //             url: "/search_tickets",
-  //             type: "POST",
-  //             data: formData,
-  //             processData: false,
-  //             cache: false,
-  //             contentType: false,
-  //             beforeSend: function () {
-  //             },
-  //             success: function (data) {
-  //                 if (data.startsWith("[")) {
-  //                     var data_JSON = JSON.parse(data); // преобразовываем ответ с сервера в json
-  //                     if (data_JSON.status) {
-  //                         console.log('крутотень');
-  //                     }
-  //                     else{
-  //                         console.log(formData);
-  //                     }
-  //                 }
-  //             }
-  //         });
-  //     }
-  // });
+
+  $('#btn_send_review').click(function (e) {
+    e.preventDefault();
+    var name_user = $('input[name="name_user"]').val();
+    var text_review = $('textarea[name="text_review"]').val();
+
+    if (name_user != "" && text_review != "") {
+      var formData = new FormData();
+      formData.append("name_user", name_user);
+      formData.append("text_review", text_review);
+      $.ajax({
+        headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: "/send_review",
+        type: "POST",
+        data: formData,
+        dataType: "JSON",
+        contentType: false,
+        processData: false,
+        cache: false,
+        beforeSend: function beforeSend() {
+          $('.overlay_review_data_form').addClass('overlay_form_active');
+        },
+        success: function success(data) {
+          $('.overlay_review_data_form #fountainG').css('display', 'none');
+
+          if (data.status) {
+            $('input[name="name_user"]').val('');
+            $('textarea[name="text_review"]').val('');
+            $('.overlay_review_data_form .check_mark_review_form img').animate({
+              height: "70px"
+            }, 100);
+            $('.overlay_review_data_form .check_mark_review_form').addClass('check_mark_image__active');
+            setTimeout(function () {
+              $('.overlay_review_data_form').removeClass('overlay_form_active');
+              $('.overlay_review_data_form .check_mark_review_form').removeAttr('style');
+              $('.overlay_review_data_form .check_mark_review_form img').removeAttr('style');
+              $('.overlay_review_data_form .check_mark_review_form').removeClass('check_mark_image__active');
+            }, 400);
+          } else {
+            $('.overlay_review_data_form').removeClass('overlay_form_active');
+          }
+        }
+      });
+    }
+  });
+  $('#more_review_btn').click(function (e) {
+    e.preventDefault();
+    var last_review_id = $('.reviews_block__cards .reviews_block__cards__item:last-child').attr('data-id');
+    console.log(last_review_id);
+    $.ajax({
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      url: "/more_review",
+      type: "POST",
+      data: {
+        last_review_id: last_review_id
+      },
+      dataType: "JSON",
+      success: function success(data) {
+        // $('.overlay_review_data_form #fountainG').css('display','none');
+        if (data.status) {} else {// $('.overlay_review_data_form').removeClass('overlay_form_active');
+        }
+      }
+    });
+  });
 });
 /******/ })()
 ;

@@ -919,6 +919,179 @@ input[type=button] {
   margin-top: 20px;
 }
 
+#section__review_send form {
+  width: 100%;
+  position: relative;
+}
+#section__review_send form .overlay_form_active {
+  position: absolute;
+  width: 100%;
+  height: 96.5%;
+  z-index: 999999;
+  background: #ffffff;
+  opacity: 0.7;
+}
+#section__review_send form .overlay_form_active #fountainG {
+  position: relative;
+  width: 192px;
+  height: 23px;
+  margin: auto;
+  margin-top: 20%;
+}
+#section__review_send form .overlay_form_active .fountainG {
+  position: absolute;
+  top: 0;
+  background-color: black;
+  width: 23px;
+  height: 23px;
+  animation-name: bounce_fountainG;
+  -o-animation-name: bounce_fountainG;
+  -ms-animation-name: bounce_fountainG;
+  -webkit-animation-name: bounce_fountainG;
+  -moz-animation-name: bounce_fountainG;
+  animation-duration: 0.845s;
+  -o-animation-duration: 0.845s;
+  -ms-animation-duration: 0.845s;
+  -webkit-animation-duration: 0.845s;
+  -moz-animation-duration: 0.845s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  transform: scale(0.3);
+  -o-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+#section__review_send form .overlay_form_active #fountainG_1 {
+  left: 0;
+  animation-delay: 0.336s;
+  -o-animation-delay: 0.336s;
+  -ms-animation-delay: 0.336s;
+  -webkit-animation-delay: 0.336s;
+  -moz-animation-delay: 0.336s;
+}
+#section__review_send form .overlay_form_active #fountainG_2 {
+  left: 24px;
+  animation-delay: 0.4225s;
+  -o-animation-delay: 0.4225s;
+  -ms-animation-delay: 0.4225s;
+  -webkit-animation-delay: 0.4225s;
+  -moz-animation-delay: 0.4225s;
+}
+#section__review_send form .overlay_form_active #fountainG_3 {
+  left: 48px;
+  animation-delay: 0.509s;
+  -o-animation-delay: 0.509s;
+  -ms-animation-delay: 0.509s;
+  -webkit-animation-delay: 0.509s;
+  -moz-animation-delay: 0.509s;
+}
+#section__review_send form .overlay_form_active #fountainG_4 {
+  left: 72px;
+  animation-delay: 0.5955s;
+  -o-animation-delay: 0.5955s;
+  -ms-animation-delay: 0.5955s;
+  -webkit-animation-delay: 0.5955s;
+  -moz-animation-delay: 0.5955s;
+}
+#section__review_send form .overlay_form_active #fountainG_5 {
+  left: 96px;
+  animation-delay: 0.672s;
+  -o-animation-delay: 0.672s;
+  -ms-animation-delay: 0.672s;
+  -webkit-animation-delay: 0.672s;
+  -moz-animation-delay: 0.672s;
+}
+#section__review_send form .overlay_form_active #fountainG_6 {
+  left: 120px;
+  animation-delay: 0.7585s;
+  -o-animation-delay: 0.7585s;
+  -ms-animation-delay: 0.7585s;
+  -webkit-animation-delay: 0.7585s;
+  -moz-animation-delay: 0.7585s;
+}
+#section__review_send form .overlay_form_active #fountainG_7 {
+  left: 144px;
+  animation-delay: 0.845s;
+  -o-animation-delay: 0.845s;
+  -ms-animation-delay: 0.845s;
+  -webkit-animation-delay: 0.845s;
+  -moz-animation-delay: 0.845s;
+}
+#section__review_send form .overlay_form_active #fountainG_8 {
+  left: 168px;
+  animation-delay: 0.9315s;
+  -o-animation-delay: 0.9315s;
+  -ms-animation-delay: 0.9315s;
+  -webkit-animation-delay: 0.9315s;
+  -moz-animation-delay: 0.9315s;
+}
+@keyframes bounce_fountainG {
+  0% {
+    transform: scale(1);
+    background-color: black;
+  }
+  100% {
+    transform: scale(0.3);
+    background-color: white;
+  }
+}
+@-webkit-keyframes bounce_fountainG {
+  0% {
+    -webkit-transform: scale(1);
+    background-color: black;
+  }
+  100% {
+    -webkit-transform: scale(0.3);
+    background-color: white;
+  }
+}
+#section__review_send form .overlay_form_active {
+  height: 100%;
+}
+#section__review_send form .check_mark_review_form {
+  height: 0;
+}
+#section__review_send form .check_mark_review_form img {
+  height: 0;
+}
+#section__review_send form .check_mark_image__active {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#section__review_send form #name_user {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #BEBEBE;
+}
+#section__review_send form #review_text {
+  margin-top: 30px;
+  width: 100%;
+  height: 150px;
+  resize: none;
+  padding: 10px;
+  box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
+}
+#section__review_send form #btn_send_review {
+  margin-top: 30px;
+}
+
 @media (max-width: 1160px) {
   .work_with_flights .search_tickets_block .form_search_tickets {
     flex-direction: column;
@@ -1040,6 +1213,11 @@ input[type=button] {
   .resorts .resort_cards_block .resort_card a .shortdesk_resort .title_add_services, .resorts .resort_cards_block .resort_card a .shortdesk_resort .title_resort, .resorts .resort_cards_block .resort_card a .shortdesk_add_services .title_add_services, .resorts .resort_cards_block .resort_card a .shortdesk_add_services .title_resort, .resorts .resort_cards_block .add_services_card a .shortdesk_resort .title_add_services, .resorts .resort_cards_block .add_services_card a .shortdesk_resort .title_resort, .resorts .resort_cards_block .add_services_card a .shortdesk_add_services .title_add_services, .resorts .resort_cards_block .add_services_card a .shortdesk_add_services .title_resort, .resorts .add_services_block .resort_card a .shortdesk_resort .title_add_services, .resorts .add_services_block .resort_card a .shortdesk_resort .title_resort, .resorts .add_services_block .resort_card a .shortdesk_add_services .title_add_services, .resorts .add_services_block .resort_card a .shortdesk_add_services .title_resort, .resorts .add_services_block .add_services_card a .shortdesk_resort .title_add_services, .resorts .add_services_block .add_services_card a .shortdesk_resort .title_resort, .resorts .add_services_block .add_services_card a .shortdesk_add_services .title_add_services, .resorts .add_services_block .add_services_card a .shortdesk_add_services .title_resort, .add_services .resort_cards_block .resort_card a .shortdesk_resort .title_add_services, .add_services .resort_cards_block .resort_card a .shortdesk_resort .title_resort, .add_services .resort_cards_block .resort_card a .shortdesk_add_services .title_add_services, .add_services .resort_cards_block .resort_card a .shortdesk_add_services .title_resort, .add_services .resort_cards_block .add_services_card a .shortdesk_resort .title_add_services, .add_services .resort_cards_block .add_services_card a .shortdesk_resort .title_resort, .add_services .resort_cards_block .add_services_card a .shortdesk_add_services .title_add_services, .add_services .resort_cards_block .add_services_card a .shortdesk_add_services .title_resort, .add_services .add_services_block .resort_card a .shortdesk_resort .title_add_services, .add_services .add_services_block .resort_card a .shortdesk_resort .title_resort, .add_services .add_services_block .resort_card a .shortdesk_add_services .title_add_services, .add_services .add_services_block .resort_card a .shortdesk_add_services .title_resort, .add_services .add_services_block .add_services_card a .shortdesk_resort .title_add_services, .add_services .add_services_block .add_services_card a .shortdesk_resort .title_resort, .add_services .add_services_block .add_services_card a .shortdesk_add_services .title_add_services, .add_services .add_services_block .add_services_card a .shortdesk_add_services .title_resort {
     font-size: 22px;
     max-width: 100%;
+  }
+}
+@media (max-width: 520px) {
+  #section__review_send form #btn_send_review {
+    width: 100%;
   }
 }
 @media (max-width: 400px) {

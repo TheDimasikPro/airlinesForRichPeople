@@ -46,6 +46,7 @@ return array(
     'App\\Models\\Flight' => $baseDir . '/app/Models/Flight.php',
     'App\\Models\\GenderCode' => $baseDir . '/app/Models/GenderCode.php',
     'App\\Models\\Passenger' => $baseDir . '/app/Models/Passenger.php',
+    'App\\Models\\Review' => $baseDir . '/app/Models/Review.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\UserRole' => $baseDir . '/app/Models/UserRole.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

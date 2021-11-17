@@ -810,9 +810,10 @@ $(document).ready(function () {
               height: "70px"
             }, 100);
             $('.payment_tickets_block__info .overlay_profile_data_form').addClass('check_mark_payment__active'); // console.log(data.flights);
-            // setTimeout(() => {
 
-            location.href = "http://richairlines/"; // }, 600);
+            setTimeout(function () {
+              location.href = "http://richairlines/";
+            }, 400);
           } else {
             $('.payment_tickets_block__info .overlay_profile_data_form').removeClass('overlay_form_active');
             $('.payment_tickets_block__info .overlay_profile_data_form .check_mark_payment img').removeAttr('style');

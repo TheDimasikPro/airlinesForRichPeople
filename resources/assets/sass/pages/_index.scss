@@ -343,6 +343,45 @@
     }
 }
 
+#section__review_send{
+    form{
+        width: 100%;
+        position: relative;
+        @include preload_send_data_server;
+        .overlay_form_active{
+            height: 100%;
+        }
+        .check_mark_review_form{
+            height: 0;
+            img{
+                height: 0;
+            }
+        }
+        .check_mark_image__active{
+            height: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #name_user{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid $black_gray;
+        }
+        #review_text{
+            margin-top: 30px;
+            width: 100%;
+            height: 150px;
+            resize: none;
+            padding: 10px;
+            box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
+        }
+        #btn_send_review{
+            margin-top: 30px;
+        }
+    }
+}
 @media (max-width: 1160px) {
     .work_with_flights{
         .search_tickets_block{
@@ -515,6 +554,15 @@
         }
     }
 }
+@media (max-width: 520px) {
+    #section__review_send{
+        form{
+            #btn_send_review{
+                width: 100%;
+            }
+        }
+    }
+}
 @media (max-width: 400px) {
     .work_with_flights{
         .flights_list{
@@ -522,7 +570,6 @@
                 font-size: $fz_base;
                 text-align: center;
             }
-            
         }
     }
 }

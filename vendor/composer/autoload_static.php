@@ -631,6 +631,7 @@ class ComposerStaticInit7b3848cee6dac2230954156947de25fb
         'App\\Models\\Flight' => __DIR__ . '/../..' . '/app/Models/Flight.php',
         'App\\Models\\GenderCode' => __DIR__ . '/../..' . '/app/Models/GenderCode.php',
         'App\\Models\\Passenger' => __DIR__ . '/../..' . '/app/Models/Passenger.php',
+        'App\\Models\\Review' => __DIR__ . '/../..' . '/app/Models/Review.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\UserRole' => __DIR__ . '/../..' . '/app/Models/UserRole.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

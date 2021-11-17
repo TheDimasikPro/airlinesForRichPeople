@@ -318,75 +318,68 @@
             <!-- /.add_services_block -->
         </div>
         <!-- /.add_services -->
+        
+    </section>
+    <!-- /.container -->
+
+    <section class="container desktop_section">
         <div class="reviews_block">
-            <h1>Отзывы</h1>
+            <h2>Отзывы</h2>
             <div class="reviews_block__cards">
-                <div class="reviews_block__cards__item">
-                    <div class="reviews_block__cards__item__name_user">
-                        Галина
+                @foreach ($index_data["reviews"] as $review_item)
+                    <div class="reviews_block__cards__item" data-id="{{ $review_item["id"] }}">
+                        <div class="reviews_block__cards__item__name_user">
+                            {{ $review_item->name_user }}
+                        </div>
+                        <!-- /.reviews_block__cards__item__name_user -->
+                        <div class="reviews_block__cards__item__date">
+                            {{ \Carbon\Carbon::parse($review_item->created_at)->format('d.m.Y') }}
+                        </div>
+                        <!-- /.reviews_block__cards__item__date -->
+                        <div class="reviews_block__cards__item__text_review">
+                            {{ $review_item->text_review }}
+                        </div>
+                        <!-- /.reviews_block__cards__item__text_review -->
                     </div>
-                    <!-- /.reviews_block__cards__item__name_user -->
-                    <div class="reviews_block__cards__item__date">
-                        10/10/2021
-                    </div>
-                    <!-- /.reviews_block__cards__item__date -->
-                    <div class="reviews_block__cards__item__text_review">
-                        Все было супер, мне все понравилось, буду еще раз летать у всех, как птица, а жарить как пчеал лол, кек, слоупок
-                    </div>
-                    <!-- /.reviews_block__cards__item__text_review -->
-                </div>
-                <!-- /.reviews_block__cards__item -->
-                <div class="reviews_block__cards__item">
-                    <div class="reviews_block__cards__item__name_user">
-                        Галина
-                    </div>
-                    <!-- /.reviews_block__cards__item__name_user -->
-                    <div class="reviews_block__cards__item__date">
-                        10/10/2021
-                    </div>
-                    <!-- /.reviews_block__cards__item__date -->
-                    <div class="reviews_block__cards__item__text_review">
-                        Все было супер, мне все понравилось, буду еще раз летать у всех, как птица, а жарить как пчеал лол, кек, слоупок
-                    </div>
-                    <!-- /.reviews_block__cards__item__text_review -->
-                </div>
-                <!-- /.reviews_block__cards__item -->
-                <div class="reviews_block__cards__item">
-                    <div class="reviews_block__cards__item__name_user">
-                        Галина
-                    </div>
-                    <!-- /.reviews_block__cards__item__name_user -->
-                    <div class="reviews_block__cards__item__date">
-                        10/10/2021
-                    </div>
-                    <!-- /.reviews_block__cards__item__date -->
-                    <div class="reviews_block__cards__item__text_review">
-                        Все было супер, мне все понравилось, буду еще раз летать у всех, как птица, а жарить как пчеал лол, кек, слоупок
-                    </div>
-                    <!-- /.reviews_block__cards__item__text_review -->
-                </div>
-                <!-- /.reviews_block__cards__item -->
-                <div class="reviews_block__cards__item">
-                    <div class="reviews_block__cards__item__name_user">
-                        Галина
-                    </div>
-                    <!-- /.reviews_block__cards__item__name_user -->
-                    <div class="reviews_block__cards__item__date">
-                        10/10/2021
-                    </div>
-                    <!-- /.reviews_block__cards__item__date -->
-                    <div class="reviews_block__cards__item__text_review">
-                        Все было супер, мне все понравилось, буду еще раз летать у всех, как птица, а жарить как пчеал лол, кек, слоупок
-                    </div>
-                    <!-- /.reviews_block__cards__item__text_review -->
-                </div>
-                <!-- /.reviews_block__cards__item -->
+                    <!-- /.reviews_block__cards__item -->
+                @endforeach
             </div>
             <!-- /.reviews_block__cards -->
+            @if ($index_data["reviews_count"] > 5)
+                <button id="more_review_btn" class="btn_style_1">Показать еще</button>
+            @endif
         </div>
         <!-- /.reviews_block -->
     </section>
     <!-- /.container -->
+    <section class="container desktop_section" id="section__review_send">
+        <h2>Оставьте свой отзыв</h2>
+        <form action="#" method="post">
+            @csrf
+            <div class="overlay_review_data_form">
+                <div id="fountainG">
+                    <div id="fountainG_1" class="fountainG"></div>
+                    <div id="fountainG_2" class="fountainG"></div>
+                    <div id="fountainG_3" class="fountainG"></div>
+                    <div id="fountainG_4" class="fountainG"></div>
+                    <div id="fountainG_5" class="fountainG"></div>
+                    <div id="fountainG_6" class="fountainG"></div>
+                    <div id="fountainG_7" class="fountainG"></div>
+                    <div id="fountainG_8" class="fountainG"></div>
+                </div>
+                <div class="check_mark_review_form">
+                    <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                </div>
+                <!-- /.check_mark_review_form -->
+            </div>
+            <label for="name_user"></label>
+            <input type="text" name="name_user" required id="name_user" placeholder="Введите свое имя">
+            <label for="text_review"></label>
+            <textarea name="text_review" id="review_text" required placeholder="Напишите свой отзыв..."></textarea>
+            <button type="button" class="btn_style_1" id="btn_send_review" >Отправить</button>
+        </form>
+    </section>
+    <!-- /.container desktop_section -->
 @endsection
 
 @section('slider_script')
