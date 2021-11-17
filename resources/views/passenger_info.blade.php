@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
 @endsection
 @section('content')
-<div class="my_order__block_mobile desktop_section" id="passenger_order_info">
+{{-- <div class="my_order__block_mobile desktop_section" id="passenger_order_info">
     <div class="container">
         <button class="btn_open__popup" id="btn_open__popup" aria-label="btn_open__popup">
             Просмотреть заказ можно здесь <i class="fas fa-arrow-right"></i> <i class="fas fa-shopping-basket"></i>
@@ -15,9 +15,9 @@
     </div>
     <!-- /.container -->
     
-  </div>
+  </div> --}}
     <div class="container">
-        <div class="popup_fade non_view desktop_section"></div>
+        {{-- <div class="popup_fade non_view desktop_section"></div>
         <div class="popup_modal non_view desktop_section">
         <div class="popup">
             <button class="btn_popup_close" id="btn_popup_close" aria-label="btn_popup_close">Закрыть</button>
@@ -96,7 +96,7 @@
             <!-- /.popup_order_block -->
             <a href="{{ route('payment_tickets__page') }}" id="btn_continune_order" aria-label="btn_continune_order" class="continune_order btn_style_1">Продолжить</a> <!-- /.continune_order -->
         </div>		
-        </div>
+        </div> --}}
         
         <div class="passenger_info_block df_jcspb_aic">
             {{-- @include('inc.aside_bar_search_tickets') --}}
