@@ -34,11 +34,20 @@ use Illuminate\Support\Facades\Session;
 Route::get('/', [IndexController::class,'index'])->name('index__page');
 Route::get('/#section__add_services',[IndexController::class,'index'])->name('add_services__block_index');
 
-
-
 Route::get('/forgot_password', [ForgotPasswordController::class,'index'])->name('forgot_password__page');
 Route::get('/send_mail_reset_password', [MailController::class,'sendMailResetPassword'])->name('send_mail_reset_password');
 Route::get('/reset_password/{token}', function ($token) {
+    $user = User::where([
+        ["remember_token", $token]
+    ])->first();
+    if (empty($token)) {
+        return redirect()->route('404__page');
+    }
+    if ($user == null) {
+        return redirect()->route('login')->withErrors([
+            'error' => "Ссылка для сброса пароля больше недоступна. Сделайте запрос заново"
+        ]);
+    }
     return view('Auth.reset_password',["token" => $token]);
 })->name('reset_password_link_email');
 
@@ -65,6 +74,8 @@ Route::prefix('search_tickets')->group(function () {
     Route::post('/payment_tickets_redirect',[FlightController::class,'redirectViewPaymentTickets'])->name('payment_tickets_redirect__page');
     Route::get('/payment_tickets',[FlightController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
     Route::post('/payment_tickets',[FlightController::class,'paymentTickets'])->name('payment_tickets');
+
+    
 });
 
 route::prefix('pdf')->group(function ()
@@ -119,21 +130,6 @@ Route::prefix('profile')->group(function () {
 
     Route::post('/login', [LoginController::class,'login_check'])->name('login_check');
 });
-
-
-// Route::post('/search_flight', [FlightController::class,'search'])->name('search_flight');
-
-
-
-// Route::post('/login', [LoginController::class,'index'])->name('login__page');
-
-
-
-
-
-// Route::get('/logout', []);
-
-
 // определние ip пользователя и его страны
 Route::get('/ip', function () {
     if ($position = Location::get()) {

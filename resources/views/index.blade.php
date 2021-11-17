@@ -185,8 +185,9 @@
             <div class="check_in_block non_view">
                 <form action="{{ route('regiser_flight') }}" method="POST" class="form form_check_in df_jcspb_aic">
                     @csrf
-                    <input type="text" required autocomplete="off" class="md_input" name="last_name" id="input_last_name_user" placeholder="Фамилия пассажира">
-                    <input type="text" required autocomplete="off" class="md_input" name="number_ticket_booking" id="input_info_ticket_reserv" placeholder="Номер билета">
+                    <input type="text" required autocomplete="off" class="sm_input" name="last_name" id="input_last_name_user" placeholder="Фамилия пассажира">
+                    <input type="text" required autocomplete="off" class="sm_input" name="series_number_document" id="input_series_number_document" placeholder="Серия и номер документа">
+                    <input type="text" required autocomplete="off" class="sm_input" name="number_flight" id="input_info_ticket_reserv" placeholder="Номер рейса">
                     <button class="btn search_reserve btn_style_1 upper" type="submit">Найти бронь</button> 
                     <!-- /.btn search_reserve -->
                 </form>

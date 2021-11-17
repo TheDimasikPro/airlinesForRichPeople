@@ -21,7 +21,7 @@ class RegisterController extends Controller
             return redirect()->route('my_profile__page');
         }
         $countries_all = DB::table('countries')->select('id','name_country')->get()->sortBy('id');
-        $document_types_all = DB::table('document_types')->select('id','name_document')->get()->sortBy('id');
+        $document_types_all = DB::table('document_types')->select('id','name_document','mask_input')->get()->sortBy('id');
         $gender_codes_all = DB::table('gender_codes')->select('id','gender_name_rus')->get()->sortBy('id');
         if (!empty($countries_all) && !empty($document_types_all) && !empty($gender_codes_all)) {
             $response = [

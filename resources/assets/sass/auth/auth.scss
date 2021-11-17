@@ -52,6 +52,7 @@
             &.error_auth{
                 background: #A90000;
                 color: $white;
+                max-width: 400px;
                 padding: 10px;
             }
         }
@@ -536,6 +537,13 @@
         //     margin: 10px 0;
         //     margin-bottom: 0;
         // }
+        &#form_login{
+            .form_auth_block{
+                &.error_auth{
+                    max-width: 350px;
+                }
+            }
+        }
         &#form_forgot_password,&#form_reset_password{
             h2{
                 max-width: 350px;
@@ -591,6 +599,13 @@
 @media (max-width: 420px) {
     
     .form_auth{
+        &#form_login{
+            .form_auth_block{
+                &.error_auth{
+                    max-width: 300px;
+                }
+            }
+        }
         &#form_forgot_password,&#form_reset_password{
             h2{
                 max-width: 300px;
@@ -646,6 +661,13 @@
 }
 @media (max-width: 370px) {
     .form_auth{
+        &#form_login{
+            .form_auth_block{
+                &.error_auth{
+                    max-width: 250px;
+                }
+            }
+        }
         &#form_forgot_password,&#form_reset_password{
             h2{
                 max-width: 250px;

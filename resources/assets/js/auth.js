@@ -93,6 +93,21 @@ $(document).ready(function () {
         $('#type_document').val(type_document__text);
         $('.type_document_list__item').removeClass('select_list__item');
         $(this).addClass('select_list__item');
+
+        var input_mask = $(this).attr('data-mask-input');
+        // console.log(input_mask);
+        if (input_mask.indexOf("^") === -1) {
+            $('#series_document_number').mask(input_mask,{
+                autoclear: false
+            });
+        }
+        else{
+            $.mask.definitions['s'] = "[A-Z]";
+            $.mask.definitions['n'] = "[A-ZА-Я0-9\-]";
+            $('#series_document_number').mask('ssnnnn 999999?999999',{
+                autoclear: false
+            });
+        }
     });
     $('#series_document_number').click(function () {
         $(this).setCursorPosition(0);  

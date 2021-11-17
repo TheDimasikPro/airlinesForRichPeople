@@ -200,7 +200,7 @@
                                 <!-- /.form_auth__slider_input -->
                                 <ul class="type_document_list">
                                     @foreach ($reg_info["document_types_all"] as $document_types)
-                                        <li class="type_document_list__item" value-view="{{ $document_types->name_document }}" value="{{ $document_types->id }}">{{ $document_types->name_document }}</li>
+                                        <li class="type_document_list__item" data-mask-input="{{ $document_types->mask_input }}"  value-view="{{ $document_types->name_document }}" value="{{ $document_types->id }}">{{ $document_types->name_document }}</li>
                                     @endforeach
                                 </ul>
                             </div>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class MailController extends Controller
 {
@@ -68,7 +69,8 @@ class MailController extends Controller
         User::where([
             ["email", $email_user]
         ])->update(
-            ["remember_token" => null]
+            ["remember_token" => null],
+            ["updated_at" => Carbon::now()]
         );
     }
 
@@ -92,11 +94,15 @@ class MailController extends Controller
     public function sendMailAfterPaymentFlight($response_mail,$email_user)
     {
         $pdf = new PDFController();
-        $pdf_file = $pdf->generatePDF();
-        Mail::send('emails.after_payment_fight', $response_mail, function ($message) {
+        $urls = [];
+        $urls = $pdf->generatePDF($response_mail);
+        // return $urls->stream();
+        // // return count([])
+        Mail::send('emails.after_payment_fight', $response_mail, function ($message) use($urls) {
             $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
             $message->to('dima.site1806@gmail.com', 'Dima');
             $message->subject('Регистрация на рейс');
+            $message->attach('http://richairlines/' . $urls);
         });
     }
 }

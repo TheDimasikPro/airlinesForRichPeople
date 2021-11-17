@@ -645,6 +645,7 @@ input[type=button] {
 .form_auth#form_login .form_auth_block.error_auth {
   background: #A90000;
   color: #ffffff;
+  max-width: 400px;
   padding: 10px;
 }
 .form_auth h2 {
@@ -1189,6 +1190,9 @@ input[type=button] {
   }
 }
 @media (max-width: 480px) {
+  .form_auth#form_login .form_auth_block.error_auth {
+    max-width: 350px;
+  }
   .form_auth#form_forgot_password h2, .form_auth#form_reset_password h2 {
     max-width: 350px;
   }
@@ -1229,6 +1233,9 @@ input[type=button] {
   }
 }
 @media (max-width: 420px) {
+  .form_auth#form_login .form_auth_block.error_auth {
+    max-width: 300px;
+  }
   .form_auth#form_forgot_password h2, .form_auth#form_reset_password h2 {
     max-width: 300px;
   }
@@ -1264,6 +1271,9 @@ input[type=button] {
   }
 }
 @media (max-width: 370px) {
+  .form_auth#form_login .form_auth_block.error_auth {
+    max-width: 250px;
+  }
   .form_auth#form_forgot_password h2, .form_auth#form_reset_password h2 {
     max-width: 250px;
   }

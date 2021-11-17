@@ -11,7 +11,6 @@ use App\Models\Flight;
 use App\Models\GenderCode;
 use App\Models\Passenger;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -40,8 +39,7 @@ class ProfileController extends Controller
             // RA_MBK5 = 6
             $series_and_document_number = str_replace(' ','',Auth::user()->series_and_document_number);
             $booking_ids = Passenger::select('id_booking')->where([
-                ['series_and_document_number','9999999999']
-                // ['series_and_document_number',$series_and_document_number]
+                ['series_and_document_number',$series_and_document_number]
             ])->get();
 
             $booking_ids_array = []; // id всех бронь пассажиров с серией и номером $series_and_document_number
@@ -51,7 +49,6 @@ class ProfileController extends Controller
 
             $flight_arr = [];
             if (count($booking_ids_array) > 0) {
-                
                 $booking = Booking::query();
                 foreach ($booking_ids_array as $value) {
                     $booking->orWhere([
@@ -78,19 +75,8 @@ class ProfileController extends Controller
                             $flight_arr['flight_info_' . $key]["booking_status_from"] = $booking_status;
                         }
                     }
-                    
                 }
-                
             }
-
-            // return $booking_ids_array;
-            // return count($flight_arr);
-            // return $flight_arr;
-            // foreach ($flight_arr as $key => $value) {
-            //     echo $value['flight_from'];
-            // }
-            // return "fgff0";
-
             if (!empty($user_gender_code_name) && !empty($user_document_type) && !empty($user_country_of_issue) 
             && !empty($countries_all) && !empty($document_types_all) && !empty($gender_codes_all) ) {
                 $response = [
@@ -180,8 +166,6 @@ class ProfileController extends Controller
                 "regex:/^[1-9]*$/"
             ]
         ];
-
-
 
         $validationfields = Validator::make($request->only(["full_name","email","phone","date_birthday",
         "gender_code_id","city","type_document_id","series_numbers_document","country_of_issue_id"]),$rules,$messages);
