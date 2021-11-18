@@ -346,7 +346,11 @@
             </div>
             <!-- /.reviews_block__cards -->
             @if ($index_data["reviews_count"] > 5)
+            <div class="btn_review_block df_jcc_aic">
                 <button id="more_review_btn" class="btn_style_1">Показать еще</button>
+            </div>
+            <!-- /.btn_review_block -->
+
             @endif
         </div>
         <!-- /.reviews_block -->

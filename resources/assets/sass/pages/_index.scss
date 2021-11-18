@@ -318,11 +318,11 @@
         .reviews_block__cards__item{
             width: 30%;
             padding: 10px;
-            background: $green;
             margin-bottom: 50px;
+            box-shadow: 0px 15px 18px 5px rgba(34,60,80, $alpha: 0.2);
             .reviews_block__cards__item__name_user{
                 font-weight: bold;
-                font-size: $fz_last;
+                font-size: $fz_second;
             }
             .reviews_block__cards__item__date{
                 font-style: italic;
@@ -330,15 +330,8 @@
             }
             .reviews_block__cards__item__text_review{
                 margin-top: 20px;
+                word-wrap: break-word;
             }
-            // &:hover{
-            //     margin-top: -20px;
-            //     margin-bottom: 20px;
-            //     box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
-            // }
-            // &:nth-child(n+4){
-            //     margin-top: 50px;
-            // }
         }
     }
 }

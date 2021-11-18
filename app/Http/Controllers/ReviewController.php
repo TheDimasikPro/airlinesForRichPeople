@@ -6,6 +6,7 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
@@ -53,10 +54,9 @@ class ReviewController extends Controller
     public function moreReview(Request $request)
     {
         $last_review_id = $request["last_review_id"];
-
-        // return $last_review_id;
         if ($last_review_id > 0) {
-            $new_review = Review::select('id','name_user','text_review','created_at')->whereBetween('id',[$last_review_id, $last_review_id + 9])->get();
+            $convert = DB::raw("DATE_FORMAT(created_at, '%d.%m.%Y') as create_date_review");
+            $new_review = Review::select('id','name_user','text_review',$convert)->whereBetween('id',[$last_review_id, $last_review_id + 8])->get();
             $response = [
                 "status" => true,
                 "new_reviews" => $new_review

@@ -463,30 +463,85 @@ $(document).ready(function () {
         }
     });
 
+    String.prototype.toDate = function(format)
+    {
+        var normalized      = this.replace(/[^a-zA-Z0-9]/g, '-');
+        var normalizedFormat= format.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-');
+        var formatItems     = normalizedFormat.split('-');
+        var dateItems       = normalized.split('-');
+
+        var monthIndex  = formatItems.indexOf("mm");
+        var dayIndex    = formatItems.indexOf("dd");
+        var yearIndex   = formatItems.indexOf("yyyy");
+        var hourIndex     = formatItems.indexOf("hh");
+        var minutesIndex  = formatItems.indexOf("ii");
+        var secondsIndex  = formatItems.indexOf("ss");
+
+        var today = new Date();
+
+        var year  = yearIndex>-1  ? dateItems[yearIndex]    : today.getFullYear();
+        var month = monthIndex>-1 ? dateItems[monthIndex]-1 : today.getMonth()-1;
+        var day   = dayIndex>-1   ? dateItems[dayIndex]     : today.getDate();
+
+        var hour    = hourIndex>-1      ? dateItems[hourIndex]    : today.getHours();
+        var minute  = minutesIndex>-1   ? dateItems[minutesIndex] : today.getMinutes();
+        var second  = secondsIndex>-1   ? dateItems[secondsIndex] : today.getSeconds();
+
+        return new Date(year,month,day,hour,minute,second);
+    };
+
     $('#more_review_btn').click(function (e) {
         e.preventDefault();
-        var last_review_id = $('.reviews_block__cards .reviews_block__cards__item:last-child').attr('data-id');
-        console.log(last_review_id);
-        $.ajax({
-            headers: {
-                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: "/more_review",
-            type: "POST",
-            data: {
-                last_review_id: last_review_id
-            },
-            dataType: "JSON",
-            success: function (data) {
-                // $('.overlay_review_data_form #fountainG').css('display','none');
-                
-                if (data.status) {
-                    
+        if ($(this).text() == "Показать еще") {
+            var last_review_id = $('.reviews_block__cards .reviews_block__cards__item:last-child').attr('data-id');
+            $.ajax({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "/more_review",
+                type: "POST",
+                data: {
+                    last_review_id: Number(last_review_id) + 1
+                },
+                dataType: "JSON",
+                success: function (data) {
+                    if (data.status) {
+                        if (data.new_reviews.length < 9) {
+                            $('#more_review_btn').text('Свернуть');
+                        }
+                        Object.keys(data.new_reviews).forEach(function (value) {
+                            let new_review_item = document.createElement('div');
+                            new_review_item.setAttribute('class','reviews_block__cards__item');
+                            new_review_item.setAttribute('data-id',data.new_reviews[value]["id"]);
+                            $('.reviews_block__cards').append(new_review_item);
+
+                            let new_review_item_name_user = document.createElement('div');
+                            new_review_item_name_user.setAttribute('class','reviews_block__cards__item__name_user');
+                            new_review_item_name_user.append(data.new_reviews[value]["name_user"]);
+                            $(new_review_item).append(new_review_item_name_user);
+
+                            let new_review_item_date = document.createElement('div');
+                            new_review_item_date.setAttribute('class','reviews_block__cards__item__date');
+                            new_review_item_date.append(data.new_reviews[value]["create_date_review"]);
+                            $(new_review_item).append(new_review_item_date);
+
+                            let new_review_item_text_review = document.createElement('div');
+                            new_review_item_text_review.setAttribute('class','reviews_block__cards__item__text_review');
+                            new_review_item_text_review.append(data.new_reviews[value]["text_review"]);
+                            $(new_review_item).append(new_review_item_text_review);
+                        });
+                    }
                 }
-                else{
-                    // $('.overlay_review_data_form').removeClass('overlay_form_active');
+            });
+        }
+        else{
+            $('.reviews_block__cards__item').each(function (i,element) {
+                if ($(element).attr('data-id') > 9) {
+                    $(element).remove();
+                    $('#more_review_btn').text('Показать еще');
                 }
-            }
-        });
+            });
+            $('body,html').animate({scrollTop: $('.reviews_block').offset().top - 50}, 100);
+        }
     });
 });

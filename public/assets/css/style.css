@@ -904,12 +904,12 @@ input[type=button] {
 .reviews_block .reviews_block__cards .reviews_block__cards__item {
   width: 30%;
   padding: 10px;
-  background: #8CDE4E;
   margin-bottom: 50px;
+  box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
 }
 .reviews_block .reviews_block__cards .reviews_block__cards__item .reviews_block__cards__item__name_user {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
 }
 .reviews_block .reviews_block__cards .reviews_block__cards__item .reviews_block__cards__item__date {
   font-style: italic;
@@ -917,6 +917,7 @@ input[type=button] {
 }
 .reviews_block .reviews_block__cards .reviews_block__cards__item .reviews_block__cards__item__text_review {
   margin-top: 20px;
+  word-wrap: break-word;
 }
 
 #section__review_send form {
