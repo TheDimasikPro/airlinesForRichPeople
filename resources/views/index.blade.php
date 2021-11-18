@@ -91,7 +91,7 @@
                         <div class="dropdown dd_count_pass">
                             <div class="input_count_pass_block df_jcc_aic">
                                 <label for="id_i_c_pass"></label>
-                                <input type="text" required name="count_pass" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="0 пассажиров">
+                                <input type="text" required name="count_pass" readonly autocomplete="off" name="" class="min_input" id="id_i_c_pass" value="0 пассажиров">
                                 <button class="dropbtn" type="button" id="dropbtn_count_pass">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -214,13 +214,13 @@
             <h2>Наши лучшие предложения</h2>
             <div class="resort_cards_block df_jcspb_aic">
                 <div class="resort_card">
-                    <a href="">
+                    <a href="#">
                         <img src="/assets/images/resorts/moscow.jpg" alt="moscow" class="resotr_img">
                         <div class="shortdesk_resort">
                             <h2 class="title_resort">Москва</h2>
                             <!-- /.title_resort -->
                             <span class="starting_price">
-                                от 5000 <i class="fas fa-ruble-sign"></i>
+                                от 40000 <i class="fas fa-ruble-sign"></i>
                             </span> 
                             <!-- /.starting_price -->
                         </div>
@@ -229,13 +229,13 @@
                 </div>
                 <!-- /.resort_card -->
                 <div class="resort_card">
-                    <a href="">
+                    <a href="#">
                         <img src="/assets/images/resorts/maldivy.jpg" alt="maldivy" class="resotr_img">
                         <div class="shortdesk_resort">
                             <h2 class="title_resort">Мальдивы</h2>
                             <!-- /.title_resort -->
                             <span class="starting_price">
-                                от 51000 <i class="fas fa-ruble-sign"></i>
+                                от 150000 <i class="fas fa-ruble-sign"></i>
                             </span> 
                             <!-- /.starting_price -->
                         </div>
@@ -244,13 +244,13 @@
                 </div>
                 <!-- /.resort_card -->
                 <div class="resort_card">
-                    <a href="">
+                    <a href="#">
                         <img src="/assets/images/resorts/new-york.jpg" alt="new-york" class="resotr_img">
                         <div class="shortdesk_resort">
                             <h2 class="title_resort">New York</h2>
                             <!-- /.title_resort -->
                             <span class="starting_price">
-                                от 45000 <i class="fas fa-ruble-sign"></i>
+                                от 100000 <i class="fas fa-ruble-sign"></i>
                             </span> 
                             <!-- /.starting_price -->
                         </div>
@@ -270,13 +270,13 @@
             <h2>Дополнительные услуги</h2>
             <div class="add_services_block df_jcspb_aic">
                 <div class="add_services_card">
-                    <a href="">
-                        <img src="/assets/images/services/dog.jpg" alt="maldivy" class="add_services_img">
+                    <a href="#">
+                        <img src="/assets/images/services/dog350x340.jpg" alt="maldivy" class="add_services_img">
                         <div class="shortdesk_add_services">
                             <h2 class="title_add_services">Провоз питомца в самолете</h2>
                             <!-- /.title_resort -->
                             <span class="add_services_price">
-                                от 51000 <i class="fas fa-ruble-sign"></i>
+                                от 10000 <i class="fas fa-ruble-sign"></i>
                             </span> 
                             <!-- /.add_services_price -->
                         </div>
@@ -285,13 +285,13 @@
                 </div>
                 <!-- /.add_services_card -->
                 <div class="add_services_card">
-                    <a href="">
+                    <a href="#">
                         <img src="/assets/images/services/transfer.jpg" alt="maldivy" class="add_services_img">
                         <div class="shortdesk_add_services">
                             <h2 class="title_add_services">Трансфер от аэропорта до отеля</h2>
                             <!-- /.title_resort -->
                             <span class="add_services_price">
-                                от 51000 <i class="fas fa-ruble-sign"></i>
+                                от 10000 <i class="fas fa-ruble-sign"></i>
                             </span> 
                             <!-- /.add_services_price -->
                         </div>
@@ -300,13 +300,13 @@
                 </div>
                 <!-- /.add_services_card -->
                 <div class="add_services_card">
-                    <a href="">
+                    <a href="#">
                         <img src="/assets/images/services/hotel_sey.jpg" alt="maldivy" class="add_services_img">
                         <div class="shortdesk_add_services">
                             <h2 class="title_add_services">Предоставление списка лучших отелей города</h2>
                             <!-- /.title_resort -->
                             <span class="add_services_price">
-                                от 51000 <i class="fas fa-ruble-sign"></i>
+                                от 10000 <i class="fas fa-ruble-sign"></i>
                             </span> 
                             <!-- /.add_services_price -->
                         </div>

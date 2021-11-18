@@ -920,6 +920,9 @@ input[type=button] {
   word-wrap: break-word;
 }
 
+#section__review_send {
+  margin-top: 50px;
+}
 #section__review_send form {
   width: 100%;
   position: relative;
@@ -1090,7 +1093,7 @@ input[type=button] {
   box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
 }
 #section__review_send form #btn_send_review {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 @media (max-width: 1160px) {
@@ -1147,7 +1150,7 @@ input[type=button] {
   .check_in_block .form_check_in input, .check_in_block .form_check_in button {
     width: 100%;
   }
-  .check_in_block .form_check_in #input_info_ticket_reserv {
+  .check_in_block .form_check_in #input_info_ticket_reserv, .check_in_block .form_check_in #input_series_number_document {
     margin-top: 20px;
   }
   .check_in_block .form_check_in button {
@@ -1172,7 +1175,7 @@ input[type=button] {
     height: 230px;
   }
   .resorts .resort_cards_block .resort_card a .shortdesk_resort, .resorts .resort_cards_block .resort_card a .shortdesk_add_services, .resorts .resort_cards_block .add_services_card a .shortdesk_resort, .resorts .resort_cards_block .add_services_card a .shortdesk_add_services, .resorts .add_services_block .resort_card a .shortdesk_resort, .resorts .add_services_block .resort_card a .shortdesk_add_services, .resorts .add_services_block .add_services_card a .shortdesk_resort, .resorts .add_services_block .add_services_card a .shortdesk_add_services, .add_services .resort_cards_block .resort_card a .shortdesk_resort, .add_services .resort_cards_block .resort_card a .shortdesk_add_services, .add_services .resort_cards_block .add_services_card a .shortdesk_resort, .add_services .resort_cards_block .add_services_card a .shortdesk_add_services, .add_services .add_services_block .resort_card a .shortdesk_resort, .add_services .add_services_block .resort_card a .shortdesk_add_services, .add_services .add_services_block .add_services_card a .shortdesk_resort, .add_services .add_services_block .add_services_card a .shortdesk_add_services {
-    width: 270px;
+    width: 230px;
   }
 }
 @media (max-width: 790px) {

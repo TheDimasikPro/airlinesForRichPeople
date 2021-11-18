@@ -10,5 +10,9 @@
     "/assets/css/style.css": "/assets/css/style.css",
     "/assets/images/favicon.png": "/assets/images/favicon.png",
     "/assets/images/logo.png": "/assets/images/logo.png",
-    "/assets/images/logo_old.png": "/assets/images/logo_old.png"
+    "/assets/images/logo_old.png": "/assets/images/logo_old.png",
+    "/assets/js/index_page.min.js": "/assets/js/index_page.min.js",
+    "/assets/js/functions.min.js": "/assets/js/functions.min.js",
+    "/assets/js/update_data_user.min.js": "/assets/js/update_data_user.min.js",
+    "/assets/js/search_ticket_page.min.js": "/assets/js/search_ticket_page.min.js"
 }

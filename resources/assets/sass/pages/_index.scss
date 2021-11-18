@@ -337,9 +337,11 @@
 }
 
 #section__review_send{
+    margin-top: 50px;
     form{
         width: 100%;
         position: relative;
+        
         @include preload_send_data_server;
         .overlay_form_active{
             height: 100%;
@@ -371,7 +373,7 @@
             box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.2);
         }
         #btn_send_review{
-            margin-top: 30px;
+            margin-top: 50px;
         }
     }
 }
@@ -447,7 +449,7 @@
             input,button{
                 width: 100%;
             }
-            #input_info_ticket_reserv{
+            #input_info_ticket_reserv,#input_series_number_document{
                 margin-top: 20px;
             }
             button{
@@ -481,12 +483,13 @@
         .resort_cards_block,.add_services_block{
             .resort_card,.add_services_card{
                 a{
+                    // width: 230px;
                     .resotr_img,.add_services_img{
                         width: 230px;
                         height: 230px;
                     }
                     .shortdesk_resort,.shortdesk_add_services{
-                        width: 270px;
+                        width: 230px;
                     }
                 }
             }

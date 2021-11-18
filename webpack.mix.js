@@ -34,3 +34,7 @@ mix.then(() => {
     minifier.minify('public/assets/css/auth.css')
 });
 
+mix.minify('public/assets/js/index_page.js');
+mix.minify('public/assets/js/functions.js');
+mix.minify('public/assets/js/update_data_user.js');
+mix.minify('public/assets/js/search_ticket_page.js');

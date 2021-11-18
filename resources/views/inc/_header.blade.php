@@ -22,14 +22,14 @@
         <!-- десктопное меню -->
         <div class="d_menu df_jcspb_aic">
             <div class="left_col df_aic">
-                <button class="btn btn_additional_menu">
+                <button class="btn btn_additional_menu" id="btn_additional_menu">
                     <i class="fas fa-bars"></i>
                     <i class="fas fa-times non_view"></i>  
                 </button> 
                 <!-- /.btn .additional menu-->
                 
                 <div class="logo_image">
-                    <a href="{{ route('index__page') }}" class="link_header">
+                    <a href="{{ route('index__page') }}" class="link_header" aria-label="logo_image">
                         <img src="/assets/images/logo.png" alt="" class="logo">
                     </a> 
                     <!-- /.link_header -->
@@ -46,7 +46,7 @@
                         <!-- /.bottom_slider_big_input -->
                     </span>
                     <!-- /.span_big_input -->
-                    <button>
+                    <button id="search_btn">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
@@ -107,7 +107,7 @@
                 </li>
                 <!-- /.geo_posistion_people -->
                 <li class="my_cabinet">
-                    <a href="{{ route('login') }}" class="link_header">
+                    <a href="{{ route('login') }}" class="link_header" aria-label="my_cabinet">
                         <i class="fas fa-user"></i>
                     </a>
                     <!-- /.link_header -->
