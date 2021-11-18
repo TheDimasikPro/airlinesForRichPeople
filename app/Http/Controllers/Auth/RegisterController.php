@@ -339,7 +339,7 @@ class RegisterController extends Controller
             $user = User::insertGetId([
                 'email' => $email,
                 'id_role' => $user_roles->id,
-                'phone' => $phone,
+                'phone' => str_replace(array('(',')'),'',$phone),
                 'full_name' => $full_name,
                 'date_of_birthday' => $date_of_birthday,
                 'id_gender_code' => $id_gender_code,

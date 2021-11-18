@@ -716,7 +716,7 @@ class FlightController extends Controller
         $new_passenger_ids = session("new_passenger_ids");
         $id_booking_status_payment = DB::table('booking_statuses')->select('id')->where('name_status','Оплачено')->get();
         $id_booking_status_pay = $id_booking_status_payment[0]->id;
-
+        $flight_arr = [];
         foreach ($new_passenger_ids as $new_passenger_ids_item) {
             $id_booking_passenger = Passenger::select('id_booking')->where('id',$new_passenger_ids_item)->get();
 
@@ -725,7 +725,7 @@ class FlightController extends Controller
                 "updated_at" => Carbon::now()
             ]);
 
-            $flight_arr = [];
+            
             $booking = Booking::orWhere([
                 ["id",$id_booking_passenger[0]->id_booking]
             ]);
@@ -733,6 +733,7 @@ class FlightController extends Controller
                 $count_pass = count($new_passenger_ids);
                 foreach ($booking->get() as $key => $value) {
                     // $count_pass++;
+                    // echo $value["booking_code"];
                     $id_flight_from = $value["id_flight_from"];
                     $id_flight_back = $value["id_flight_back"];
                     $airport_flight_from_start = null;
@@ -741,8 +742,8 @@ class FlightController extends Controller
                     $airport_flight_back_end = null;
 
                     $booking_id = $value["id_booking_status"];
-                    $booking_status = DB::table('booking_statuses')->select('name_status')->where('id',$booking_id)->first();
-                    
+                    $bookings = Booking::where('id',$booking_id)->first();
+                    // $flight_arr['flight_info_' . $key]["booking_code"] = $value["booking_code"];
                     if ($id_flight_from != null) {
                         $flight_from = Flight::select('id','flight_code','time_start','time_end','cost','date_start','date_end','id_airport_start','id_airport_end')->where('id',$id_flight_from)->first();
                         $airport_flight_from_start = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_start'])->first();
@@ -751,6 +752,7 @@ class FlightController extends Controller
                         $flight_arr['flight_info_' . $key]['flight_from'] = $flight_from;
                         $flight_arr['flight_info_' . $key]['flight_from']["airport_flight_from_start"] = $airport_flight_from_start;
                         $flight_arr['flight_info_' . $key]['flight_from']["airport_flight_from_end"] = $airport_flight_from_end;
+                        // $flight_arr['flight_info_' . $key]['flight_from']["booking_code"] = $booking->get()[$key]["booking_code"];
                     }
                     if ($id_flight_back != null) {
                         $flight_back = Flight::select('id','flight_code','time_start','time_end','cost','date_start','date_end','id_airport_start','id_airport_end')->where('id',$id_flight_back)->first();
@@ -760,45 +762,58 @@ class FlightController extends Controller
                         $flight_arr['flight_info_' . $key]['flight_back'] = $flight_back;
                         $flight_arr['flight_info_' . $key]['flight_back']["airport_flight_back_start"] = $airport_flight_back_start;
                         $flight_arr['flight_info_' . $key]['flight_back']["airport_flight_back_end"] = $airport_flight_back_end;
+                        // $flight_arr['flight_info_' . $key]['flight_back']["booking_code"] = $booking->get()[$key]["booking_code"];
                     }
                 }
                 $flight_arr['count_pass'] = $count_pass;
+                // $flight_arr['booking_codes'] = session('new_passenger_ids');
                 $flight_arr['all_cost'] = session("cost_tickets__all_passenger");
+
+                $codes = [];
+                foreach ($booking->get() as $key => $value) {
+                    $codes["booking_code"] = $value["booking_code"];
+                    echo $value["booking_code"] . ' ';
+                    echo $key;
+                }
+                $flight_arr['booking_codes'] = $codes;
             }
-            // echo $id_booking_passenger;
         }
 
-        // return $booking->get();
-        $mailController = new MailController();
-        $mailController->sendMailAfterPaymentFlight($flight_arr,session("email_feedback"));
+        return $booking->get();
+        // echo ' ';
+        echo $codes[1];
+        // $mailController = new MailController();
+        // $mailController->sendMailAfterPaymentFlight($flight_arr,session("email_feedback"));
 
-        Session::forget('flight_order_info');
-        Session::forget('new_passenger_ids');
-        Session::forget('cost_tickets__all_passenger');
-        Session::forget('passenger_info');
+        // Session::forget('flight_order_info');
+        // Session::forget('new_passenger_ids');
+        // Session::forget('cost_tickets__all_passenger');
+        // Session::forget('passenger_info');
 
-        // return $flight_arr;
-        $response = [
-            "status" => true,
-            "message" => "Оплата успешно произведена",
-            "flights" => $flight_arr
-        ];
-        return $response;
+        // // return $flight_arr;
+        // $response = [
+        //     "status" => true,
+        //     "message" => "Оплата успешно произведена",
+        //     "flights" => $flight_arr
+        // ];
+        // return $response;
 
     }
 
     public function registerFlight(Request $request)
     {
-        $validationFields = Validator::make($request->only(['last_name','number_ticket_booking']),[
+        $validationFields = Validator::make($request->only(['last_name','number_booking','series_number_document']),[
             "last_name" => [
                 "required",
                 "string"
             ],
-            "number_flight" => [
+            "number_booking" => [
                 "string",
+                "required"
             ],
             "series_number_document" => [
-                "string"
+                "string",
+                "required"
             ],
         ]);
         if ($validationFields->fails()) {
@@ -818,11 +833,13 @@ class FlightController extends Controller
         if ($ticket != null) {
             $email_passneger = $ticket["email_feedback"];
             $full_name = $ticket["last_name"] . ' ' .  $ticket["first_name"] . ' ' .  $ticket["other_name"];
-            // $email_passneger = 'dima.site@gmail.com';
+
+
             $id_booking = $ticket["id_booking"];
             $booking = Booking::where([
                 ['id',$id_booking],
-                ['id_booking_status',2]
+                ['id_booking_status',2],
+                ['booking_code',$request['number_booking']]
             ])->first();
             if ($booking != null) {
                 $id_flight_from = $booking["id_flight_from"];
@@ -831,24 +848,40 @@ class FlightController extends Controller
                 $airport_flight_from_start = null;
                 $airport_flight_from_end = null;
                 if ($id_flight_from != null) {
-                    $flight_from = Flight::where('id',$id_flight_from)->first();
-                    $airport_flight_from_start = Airport::where('id',$flight_from['id_airport_start'])->first();
-                    $airport_flight_from_end = Airport::where('id',$flight_from['id_airport_end'])->first();
-
-                    $flight_arr["flight_from"]=$flight_from;
-                    $flight_arr["airport_flight_from_start"]=$airport_flight_from_start;
-                    $flight_arr["airport_flight_from_end"]=$airport_flight_from_end;
+                    $flight_from = Flight::where([
+                        ['id',$id_flight_from],
+                        // ['flight_code',$request["number_flight"]]
+                    ])->first();
+                    if ($flight_from != null) {
+                        $airport_flight_from_start = Airport::where('id',$flight_from['id_airport_start'])->first();
+                        $airport_flight_from_end = Airport::where('id',$flight_from['id_airport_end'])->first();
+    
+                        $flight_arr["flight_from"]=$flight_from;
+                        $flight_arr["airport_flight_from_start"] = $airport_flight_from_start;
+                        $flight_arr["airport_flight_from_end"] = $airport_flight_from_end;
+                    }
+                   
                 }
                 if ($id_flight_back != null) {
-                    $flight_back = Flight::where('id',$id_flight_back)->first();
-                    $airport_flight_back_start = Airport::where('id',$flight_back['id_airport_start'])->first();
-                    $airport_flight_back_end = Airport::where('id',$flight_back['id_airport_end'])->first();
+                    $flight_back = Flight::where([
+                        ['id',$id_flight_back],
+                        // ['flight_cde',$request["number_flight"]]
+                    ])->first();
+                    if ($flight_back != null) {
+                        $airport_flight_back_start = Airport::where('id',$flight_back['id_airport_start'])->first();
+                        $airport_flight_back_end = Airport::where('id',$flight_back['id_airport_end'])->first();
 
-                    $flight_arr["flight_back"]=$flight_back;
-                    $flight_arr["airport_flight_back_start"]=$airport_flight_back_start;
-                    $flight_arr["airport_flight_back_end"]=$airport_flight_back_end;
+                        $flight_arr["flight_back"]=$flight_back;
+                        $flight_arr["airport_flight_back_start"] = $airport_flight_back_start;
+                        $flight_arr["airport_flight_back_end"] = $airport_flight_back_end;
+                    }
                 }
-
+                if ($flight_arr == []) {
+                    return redirect()->route('index__page')->withErrors([
+                        // "errors" => "Пассажира с такими данными в рейсе с таким номером не существует00000"
+                        "errors" => $booking
+                    ]);
+                }
                 Booking::where([
                     ['id',$id_booking]
                 ])->update([
@@ -856,7 +889,8 @@ class FlightController extends Controller
                 ]);
                 $response_mail = [
                     "flights" => $flight_arr,
-                    "ticket_code" => $ticket["ticket_code"]
+                    "ticket_code" => $ticket["ticket_code"],
+                    
                 ];
                 // return $response_mail;
                 $mailController = new MailController();
@@ -864,11 +898,11 @@ class FlightController extends Controller
                 return redirect()->route('index__page');
             }
             return redirect()->route('index__page')->withErrors([
-                "errors" => "Данный билет уже зарегистрирован"
+                "errors" => "Билет(ы) в данной брони уже зарегистрированы или их не существует"
             ]);
         }
         return redirect()->route('index__page')->withErrors([
-            "errors" => "Пассажира с такой фамилией и билетом не существует"
+            "errors" => "Пассажира с такой фамилией, серией и номером документа не существует не существует"
         ]);
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 class ForgotPasswordController extends Controller
@@ -62,7 +63,8 @@ class ForgotPasswordController extends Controller
             ["email", $email],
             ["remember_token", $token_user]
         ])->update(
-            ["password" => $hashed_password]
+            ["password" => $hashed_password],
+            ["updated_at" => Carbon::now()]
         );
 
         if ($user) {
@@ -70,10 +72,13 @@ class ForgotPasswordController extends Controller
                 "email" => $email,
                 "password" => $password
             ];
-            $full_name = $user->full_name;
+            $user = User::where([
+                ["email",$email]
+            ])->first();
+            $full_name = $user["full_name"];
             $mailController = new MailController();
             $mailController->sendMailResetPasswordComplete($response_mail,$email,$full_name);
-            return redirect()->route('my_profile__page');
+            return redirect()->route('login')->with('success', 'Profile updated successfully!');
         }
         return back()->withErrors([
             "errors" => "У пользователя, запрашимаево сброс пароля - другая почта. Проверьте своли данные"

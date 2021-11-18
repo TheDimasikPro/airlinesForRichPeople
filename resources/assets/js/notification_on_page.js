@@ -15,7 +15,7 @@ $(document).ready(function () {
 function timerIncrement() {
     idleTime = idleTime + 1;
     if (idleTime > 2) { // 20 minutes
-        alert();
-        window.location.reload();
+        alert('Вы тут?');
+        // window.location.reload();
     }
 }

@@ -187,7 +187,7 @@
                     @csrf
                     <input type="text" required autocomplete="off" class="sm_input" name="last_name" id="input_last_name_user" placeholder="Фамилия пассажира">
                     <input type="text" required autocomplete="off" class="sm_input" name="series_number_document" id="input_series_number_document" placeholder="Серия и номер документа">
-                    <input type="text" required autocomplete="off" class="sm_input" name="number_flight" id="input_info_ticket_reserv" placeholder="Номер рейса">
+                    <input type="text" required autocomplete="off" class="sm_input" name="number_booking" id="input_info_ticket_reserv" placeholder="Номер брони">
                     <button class="btn search_reserve btn_style_1 upper" type="submit">Найти бронь</button> 
                     <!-- /.btn search_reserve -->
                 </form>
@@ -394,5 +394,5 @@
 @endsection
 
 @section('slider_script')
-    <script src="/assets/js/index_page.js"></script>
+    <script src="/assets/js/index_page.min.js"></script>
 @endsection

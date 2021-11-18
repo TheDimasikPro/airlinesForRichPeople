@@ -151,7 +151,7 @@
                                 @if (!empty($auth_user__flight_arr['flight_from']))
                                     <div class="my_travel_block__cards__item">
                                         <div class="short_details_order df_jcspb_aic">
-                                            <div class="name_order"><span class="non_view__text_mobile">Номер рейса: </span>{{ htmlspecialchars($auth_user__flight_arr['flight_from']["flight_code"]) }}</div>
+                                            <div class="name_order upper"><span class="non_view__text_mobile">Номер рейса: </span>{{ htmlspecialchars($auth_user__flight_arr['flight_from']["flight_code"]) }}</div>
                                             <!-- /.name_order -->
                                             <div class="short_flight_scheme df_jcspb_aic">
                                                 <span class="non_view__text_mobile">План полета: </span>
@@ -235,7 +235,7 @@
                 <!-- /.my_travel_block -->
                 <div class="update_password_block profile_data_cards_non_view">
                     <h2>Здесь вы можете запросить смену нового пароля</h2>
-                    <form action="{{ route('forgot_password__page') }}" class="update_password_block__update_form">
+                    <form action="{{ route('forgot_password__page') }}" method="GET" class="update_password_block__update_form">
                         <button class="btn_style_1 update_password_block__btn_update" id="update_password_block__btn_update" aria-label="update_password_block__btn_update">Запросить новый пароль</button> 
                         <!-- /.btn_style_1 update_password_block__btn_update -->
                     </form>

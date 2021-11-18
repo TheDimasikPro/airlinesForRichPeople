@@ -268,7 +268,7 @@
                             <button class="dropbtn" type="button" id="show_passwod" aria-label="btn_show_passwod">
                                 <i class="far fa-eye-slash"></i>
                             </button>
-                            <button class="dropbtn non_view" type="button" id="hide_passwod" aria-label="btn_hide_passwod">
+                            <button class="dropbtn non_view" type="button" id="hide_password" aria-label="btn_hide_password">
                                 <i class="far fa-eye"></i>
                             </button>
                             <div class="form_auth__slider_input"></div>

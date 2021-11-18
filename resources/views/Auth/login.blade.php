@@ -33,11 +33,13 @@
                 <!-- /.form_auth_block -->
             @endif --}}
             @error('error')
-                <div class="form_auth_block error_auth">
-                    <p class="error_auth__message">{{ $message }}</p>
-                    <!-- /.error_auth__message -->
-                </div>
-                <!-- /.form_auth_block error_auth -->
+                @if (!empty($message))
+                    <div class="form_auth_block error_auth">
+                        <p class="error_auth__message">{{ $message }}</p>
+                        <!-- /.error_auth__message -->
+                    </div>
+                    <!-- /.form_auth_block error_auth -->
+                @endif
             @enderror
             <div class="form_auth_block df_jcspb_aic">
                 <a href="{{ route('forgot_password__page') }}" class="link_auth">Забыли свой пароль?</a>

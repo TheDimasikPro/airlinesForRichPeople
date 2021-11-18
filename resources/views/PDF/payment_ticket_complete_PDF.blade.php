@@ -35,6 +35,9 @@
     p{
         color: #FF0800;
     }
+    .upper{
+        text-transform: uppercase;
+    }
 </style>
 <h1>Оплата билетов прошла успешно</h1>
 <h3>В таблице указаны рейсы, которые вы оплатили. Номер билета вы получите после регистрации на рейс онлайн или в аэропорту.</h3>
@@ -45,19 +48,21 @@
 	<tbody>
 		<tr>
 			<td class="иап title_name">№</td>
-			<td class="title_name">Номер рейса</td>
+			{{-- <td class="title_name">Номер рейса</td> --}}
+			<td class="title_name">Номер брони</td>
 			<td class="title_name" colspan="2">План полета</td>
 			<td class="title_name">Время и дата вылета</td>
 			<td class="title_name">Время и дата прилета</td>
 			<td class="title_name">Цена</td>
 		</tr>
-        <?php $key_number = 0;?>
+        <?php $key_number = 1;?>
         @foreach ($response_mail as $key => $response_mail__item__second)
             <?php $key_number++;?>
             @if (!empty($response_mail__item__second["flight_from"]))
                 <tr>
                     <td>{{ $key_number }}</td>
-                    <td>{{ $response_mail__item__second["flight_from"]["flight_code"] }}</td>
+                    {{-- <td class="upper">{{ $response_mail__item__second["flight_from"]["flight_code"] }}</td> --}}
+                    <td class="upper">{{ $response_mail["booking_codes"][0] }}</td>
                     @if (empty($response_mail__item__second["flight_from"]['airport_flight_from_start']["city_rus"]))
                         <td>
                             {{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_start']["city_eng"]) }} 
@@ -100,7 +105,8 @@
             @if (!empty($response_mail__item__second["flight_back"]))
                 <tr>
                     <td>{{ $key_number }}</td>
-                    <td>{{ $response_mail__item__second["flight_back"]["flight_code"] }}</td>
+                    {{-- <td class="upper">{{ $response_mail__item__second["flight_back"]["flight_code"] }}</td> --}}
+                    <td class="upper">{{ $response_mail["booking_codes"][1] }}</td>
                     @if (empty($response_mail__item__second["flight_back"]['airport_flight_back_start']["city_rus"]))
                         <td>
                             {{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_start']["city_eng"]) }} 

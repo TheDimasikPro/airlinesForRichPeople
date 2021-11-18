@@ -26,7 +26,7 @@ $(document).ready(function(){
     
     function doPreload()
     {
-        alert();
+      alert('Вы тут?');
       //Preload images, etc.
     }
     

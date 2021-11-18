@@ -46,7 +46,7 @@ Route::get('/reset_password/{token}', function ($token) {
     }
     if ($user == null) {
         return redirect()->route('login')->withErrors([
-            'error' => "Ссылка для сброса пароля больше недоступна. Сделайте запрос заново"
+            'error' => "Ссылка для сброса пароля больше недоступна, либо возникла непредвиденная ошибка. Сделайте запрос заново"
         ]);
     }
     return view('Auth.reset_password',["token" => $token]);

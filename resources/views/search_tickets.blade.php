@@ -2,8 +2,8 @@
 @section('title_page','Результаты поиска билетов')
 @section('styles_link')
     <link rel="stylesheet" href="/assets/css/style.min.css">
-    <link rel="stylesheet" href="/assets/css/chief-slider.min.css">
-    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    {{-- <link rel="stylesheet" href="/assets/css/chief-slider.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css"> --}}
 @endsection
 @section('content')
 @php( Date::setLocale('ru'))
@@ -448,7 +448,7 @@
 @endsection
 @section('slider_script')
 <script src="/assets/js/owl.carousel.min.js"></script>
-<script src="/assets/js/search_ticket_page.js"></script>
+<script src="/assets/js/search_ticket_page.min.js"></script>
 <script type="text/javascript">
   var count_pass = {!! $count_pass!!};
 </script>

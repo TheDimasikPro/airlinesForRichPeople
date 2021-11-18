@@ -4,6 +4,7 @@ var __webpack_exports__ = {};
   !*** ./resources/assets/js/auth.js ***!
   \*************************************/
 $(document).ready(function () {
+  $('.error_auth').remove();
   var dropbtn_prefix_phone = $('#dropbtn_prefix_phone');
   var dropbtn_gender_code = $('#dropbtn_gender_code');
   var dropbtn_type_document = $('#dropbtn_type_document');
@@ -650,10 +651,10 @@ $(document).ready(function () {
     if (!$(this).hasClass('non_view')) {
       $(this).addClass('non_view');
       $('#input_password').attr('type', 'text');
-      $('#hide_passwod').removeClass('non_view');
+      $('#hide_password').removeClass('non_view');
     }
   });
-  $('#hide_passwod').click(function (e) {
+  $('#hide_password').click(function (e) {
     e.preventDefault();
 
     if (!$(this).hasClass('non_view')) {

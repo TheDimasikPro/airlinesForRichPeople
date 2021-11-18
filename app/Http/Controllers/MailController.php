@@ -9,14 +9,15 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class MailController extends Controller
 {
     public function sendMailResetPassword(Request $request)
     {
-        if (Auth::check()) {
-            return redirect()->to(route('my_profile__page'));
-        }
+        // if (Auth::check()) {
+        //     return redirect()->to(route('my_profile__page'));
+        // }
         $validationFiled = Validator::make($request->only('email'),[
             "email" => [
                 "required",
@@ -36,7 +37,8 @@ class MailController extends Controller
             User::where([
                 ["email", $request["email"]]
             ])->update(
-                ["remember_token" => $token]
+                ["remember_token" => $token],
+                ["updated_at" => Carbon::now()]
             );
             $response_mail = [
                 "full_name" => $check_user->full_name,
@@ -49,9 +51,12 @@ class MailController extends Controller
                 $message->to($email, $full_name);
                 $message->subject('Сброс пароля');
             });
-
-
-            return redirect()->route('my_profile__page');
+            Auth::logout();
+            Session::forget('flight_order_info');
+            Session::forget('new_passenger_ids');
+            Session::forget('cost_tickets__all_passenger');
+            Session::forget('passenger_info');
+            return redirect()->route('login')->withSuccess("");
         }
 
         return redirect()->route('forgot_password__page')->withErrors([
