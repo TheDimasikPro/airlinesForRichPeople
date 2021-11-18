@@ -45,7 +45,9 @@ class ReviewController extends Controller
         if ($new_review_id > 0) {
             $response = [
                 "status" => true,
-                "message" => "Ваш отзыв записан. Большое спасибо"
+                "message" => "Ваш отзыв записан. Большое спасибо",
+                "id_new_review" => $new_review_id,
+                "create_date" => Carbon::now()->format("d.m.Y")
             ];
             return json_encode($response);
         }

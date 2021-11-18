@@ -325,8 +325,12 @@
     <section class="container desktop_section">
         <div class="reviews_block">
             <h2>Отзывы</h2>
+            
             <div class="reviews_block__cards">
-                @foreach ($index_data["reviews"] as $review_item)
+                @if (count($index_data["reviews"]) == 0)
+                    <p>Оставьте первый отзыв на нашем сайте</p>
+                @else
+                    @foreach ($index_data["reviews"] as $review_item)
                     <div class="reviews_block__cards__item" data-id="{{ $review_item["id"] }}">
                         <div class="reviews_block__cards__item__name_user">
                             {{ $review_item->name_user }}
@@ -343,8 +347,11 @@
                     </div>
                     <!-- /.reviews_block__cards__item -->
                 @endforeach
+                @endif
+                
             </div>
             <!-- /.reviews_block__cards -->
+            
             @if ($index_data["reviews_count"] > 5)
             <div class="btn_review_block df_jcc_aic">
                 <button id="more_review_btn" class="btn_style_1">Показать еще</button>

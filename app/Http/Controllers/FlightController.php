@@ -401,21 +401,21 @@ class FlightController extends Controller
         $count_done = 0;
         $array_values_req = [];
         $messages = [
-            'last_name.required' => 'Поле last_name обязательно к заполнению',
-            'last_name.string' => 'Поле last_name может принимать только буквенные символы',
-            'first_name.required' => 'Поле first_name обязательно к заполнению',
-            'first_name.string' => 'Поле first_name может принимать только буквенные символы',
-            'other_name.string' => 'Поле other_name может принимать только буквенные символы',
-            'date_birthday.required' => 'Поле date_birthday обязательно к заполнению',
-            'date_birthday.date' => 'Поле date_birthday может принимать только дату',
-            'date_birthday.date_format' => 'Поле date_birthday может принимать только дату в формате Y-m-d',
-            'series_numbers_document.required' => 'Поле series_numbers_document обязательно к заполнению',
-            'gender_code.required' => 'Поле gender_code обязательно к заполнению',
-            'gender_code.regex' => 'Поле gender_code может принимать только цифры от 1-9 в кол-ве один',
-            'type_document.required' => 'Поле type_document обязательно к заполнению',
-            'type_document.regex' => 'Поле type_document может принимать только цифры от 1-9 в кол-ве один',
-            'citizenship.required' => 'Поле citizenship обязательно к заполнению',
-            'citizenship.regex' => 'Поле citizenship может принимать только цифры от 1-9 в кол-ве один',
+            'last_name.required' => 'Поле "Фамилия" обязательно к заполнению',
+            'last_name.string' => 'Поле "Фамилия" может принимать только буквенные символы',
+            'first_name.required' => 'Поле "Имя" обязательно к заполнению',
+            'first_name.string' => 'Поле "Имя" может принимать только буквенные символы',
+            'other_name.string' => 'Поле "Фамилия" может принимать только буквенные символы',
+            'date_birthday.required' => 'Поле "Дата рождения" обязательно к заполнению',
+            'date_birthday.date' => 'Поле "Дата рождения" может принимать только дату',
+            'date_birthday.date_format' => 'Поле "Дата рождения" может принимать только дату в формате Y-m-d',
+            'series_numbers_document.required' => 'Поле "Серия и номер документа" обязательно к заполнению',
+            'gender_code.required' => 'Поле "Пол" обязательно к заполнению',
+            'gender_code.regex' => 'Поле "Пол" может принимать только цифры от 1-9 в кол-ве один',
+            'type_document.required' => 'Поле "Тип документа" обязательно к заполнению',
+            'type_document.regex' => 'Поле "Тип документа" может принимать только цифры от 1-9 в кол-ве один',
+            'citizenship.required' => 'Поле "Гражданство" обязательно к заполнению',
+            'citizenship.regex' => 'Поле "Гражданство" может принимать только цифры от 1-9 в кол-ве один',
         ];
         $rules = [
             "last_name" => [
@@ -560,7 +560,7 @@ class FlightController extends Controller
                     $new_booking_id_start = Booking::insertGetId([
                         'id_flight_from' => session("flight_order_info")["id_flight_start"],
                         'id_flight_back' => session("flight_order_info")["id_flight_end"],
-                        'booking_code' => "booking__" . Str::random(6),
+                        'booking_code' => "RA_booking_" . Str::random(6),
                         'id_booking_status' => 1,
                         "created_at" => Carbon::now(),
                         "updated_at" => Carbon::now()
@@ -605,7 +605,7 @@ class FlightController extends Controller
                         $new_booking_id_end = Booking::insertGetId([
                             'id_flight_from' => session("flight_order_info")["id_flight_end"],
                             'id_flight_back' => session("flight_order_info")["id_flight_start"],
-                            'booking_code' => "booking__" . Str::random(6),
+                            'booking_code' => "RA_booking_" . Str::random(6),
                             'id_booking_status' => 1,
                             "created_at" => Carbon::now(),
                             "updated_at" => Carbon::now()
@@ -671,15 +671,15 @@ class FlightController extends Controller
     public function paymentTickets(Request $request)
     {
         $messages = [
-            'name_on_card.required' => 'Поле name_on_card обязательно к заполнению',
-            'name_on_card.string' => 'Поле name_on_card может принимать только буквенные символы',
-            'name_on_card.regex' => 'Поле name_on_card может принимать только заглавные буквы',
-            'card_number.required' => 'Поле card_number обязательно к заполнению',
-            'card_number.regex' => 'Поле card_number должно содержать 16 цифр',
-            'expity_date_card.required' => 'Поле expity_date_card обязательно к заполнению',
-            'expity_date_card.regex' => 'В поле expity_date_card месяц должен быть не больше 12, а год не меньше 21',
-            'security_code_card.required' => 'Поле security_code_card обязательно к заполнению',
-            'security_code_card.regex' => 'В поле security_code_card должно быть 3 цифры',
+            'name_on_card.required' => 'Поле "Имя указанное на карте" обязательно к заполнению',
+            'name_on_card.string' => 'Поле "Имя указанное на карте" может принимать только буквенные символы',
+            'name_on_card.regex' => 'Поле "Имя указанное на карте" может принимать только заглавные буквы',
+            'card_number.required' => 'Поле "Номер карты" обязательно к заполнению',
+            'card_number.regex' => 'Поле "Номер карты" должно содержать 16 цифр',
+            'expity_date_card.required' => 'Поле "Истечение срока действия" обязательно к заполнению',
+            'expity_date_card.regex' => 'В поле "Истечение срока действия" месяц должен быть не больше 12, а год не меньше 21',
+            'security_code_card.required' => 'Поле "Секретный код" обязательно к заполнению',
+            'security_code_card.regex' => 'В поле "Секретный код" должно быть 3 цифры',
         ];
         $rules = [
             "name_on_card" => [

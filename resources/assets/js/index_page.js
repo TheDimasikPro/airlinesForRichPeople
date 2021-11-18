@@ -417,6 +417,7 @@ $(document).ready(function () {
 
     $('#btn_send_review').click(function (e) {
         e.preventDefault();
+        $('.reviews_block p').addClass('non_view');
         var name_user = $('input[name="name_user"]').val();
         var text_review = $('textarea[name="text_review"]').val();
         if (name_user != "" && text_review != "") {
@@ -441,6 +442,26 @@ $(document).ready(function () {
                     $('.overlay_review_data_form #fountainG').css('display','none');
                     
                     if (data.status) {
+                        let new_review_item = document.createElement('div');
+                        new_review_item.setAttribute('class','reviews_block__cards__item');
+                        new_review_item.setAttribute('data-id',data.id_new_review);
+                        $('.reviews_block__cards').append(new_review_item);
+
+                        let new_review_item_name_user = document.createElement('div');
+                        new_review_item_name_user.setAttribute('class','reviews_block__cards__item__name_user');
+                        new_review_item_name_user.append(name_user);
+                        $(new_review_item).append(new_review_item_name_user);
+
+                        let new_review_item_date = document.createElement('div');
+                        new_review_item_date.setAttribute('class','reviews_block__cards__item__date');
+                        new_review_item_date.append(data.create_date);
+                        $(new_review_item).append(new_review_item_date);
+
+                        let new_review_item_text_review = document.createElement('div');
+                        new_review_item_text_review.setAttribute('class','reviews_block__cards__item__text_review');
+                        new_review_item_text_review.append(text_review);
+                        $(new_review_item).append(new_review_item_text_review);
+
                         $('input[name="name_user"]').val('');
                         $('textarea[name="text_review"]').val('');
                         $('.overlay_review_data_form .check_mark_review_form img').animate({
@@ -463,32 +484,6 @@ $(document).ready(function () {
         }
     });
 
-    String.prototype.toDate = function(format)
-    {
-        var normalized      = this.replace(/[^a-zA-Z0-9]/g, '-');
-        var normalizedFormat= format.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-');
-        var formatItems     = normalizedFormat.split('-');
-        var dateItems       = normalized.split('-');
-
-        var monthIndex  = formatItems.indexOf("mm");
-        var dayIndex    = formatItems.indexOf("dd");
-        var yearIndex   = formatItems.indexOf("yyyy");
-        var hourIndex     = formatItems.indexOf("hh");
-        var minutesIndex  = formatItems.indexOf("ii");
-        var secondsIndex  = formatItems.indexOf("ss");
-
-        var today = new Date();
-
-        var year  = yearIndex>-1  ? dateItems[yearIndex]    : today.getFullYear();
-        var month = monthIndex>-1 ? dateItems[monthIndex]-1 : today.getMonth()-1;
-        var day   = dayIndex>-1   ? dateItems[dayIndex]     : today.getDate();
-
-        var hour    = hourIndex>-1      ? dateItems[hourIndex]    : today.getHours();
-        var minute  = minutesIndex>-1   ? dateItems[minutesIndex] : today.getMinutes();
-        var second  = secondsIndex>-1   ? dateItems[secondsIndex] : today.getSeconds();
-
-        return new Date(year,month,day,hour,minute,second);
-    };
 
     $('#more_review_btn').click(function (e) {
         e.preventDefault();

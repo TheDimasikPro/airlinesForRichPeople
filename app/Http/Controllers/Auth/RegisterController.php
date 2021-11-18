@@ -103,20 +103,20 @@ class RegisterController extends Controller
             return redirect()->to(route('my_profile__page'));
         }
         $messages = [
-            'full_name.required' => 'Поле full_name обязательно к заполнению',
-            'full_name.string' => 'Поле full_name может принимать только буквенные символы',
-            'date_birthday.required' => 'Поле date_birthday обязательно к заполнению',
-            'date_birthday.date' => 'Поле date_birthday может принимать только дату',
-            'date_birthday.date_format' => 'Поле date_birthday может принимать только дату в формате Y-m-d',
-            'id_gender_code.required' => 'Поле id_gender_code обязательно к заполнению',
-            'id_gender_code.regex' => 'Поле id_gender_code может принимать только цифры от 1-9 в кол-ве один',
-            'city_name.required' => 'Поле city_name обязательно к заполнению',
-            'city_name.string' => 'Поле city_name может принимать только буквенные символы',
-            'id_type_document.required' => 'Поле id_type_document обязательно к заполнению',
-            'id_type_document.regex' => 'Поле id_type_document может принимать только цифры от 1-9 в кол-ве один',
-            'series_document_number.required' => 'Поле series_document_number обязательно к заполнению',
-            'id_country_of_issue.required' => 'Поле id_country_of_issue обязательно к заполнению',
-            'id_country_of_issue.regex' => 'Поле id_country_of_issue может принимать только цифры от 1-9 в кол-ве один'
+            'full_name.required' => 'Поле "Фамилия" обязательно к заполнению',
+            'full_name.string' => 'Поле "Фамилия" может принимать только буквенные символы',
+            'date_birthday.required' => 'Поле "Дата рождения" обязательно к заполнению',
+            'date_birthday.date' => 'Поле "Дата рождения" может принимать только дату',
+            'date_birthday.date_format' => 'Поле Дата рождения может принимать только дату в формате Y-m-d',
+            'id_gender_code.required' => 'Поле "Пол" обязательно к заполнению',
+            'id_gender_code.regex' => 'Поле "Пол" может принимать только цифры от 1-9 в кол-ве один',
+            'city_name.required' => 'Поле "Город проживания" обязательно к заполнению',
+            'city_name.string' => 'Поле "Город проживания" может принимать только буквенные символы',
+            'id_type_document.required' => 'Поле "Тип документа" обязательно к заполнению',
+            'id_type_document.regex' => 'Поле "Тип документа" может принимать только цифры от 1-9 в кол-ве один',
+            'series_document_number.required' => 'Поле "Серия и номер документа" обязательно к заполнению',
+            'id_country_of_issue.required' => 'Поле "Страна выдачи документа" обязательно к заполнению',
+            'id_country_of_issue.regex' => 'Поле "Страна выдачи документа" может принимать только цифры от 1-9 в кол-ве один'
         ];
         $rules = [
             "full_name" => [
@@ -245,20 +245,20 @@ class RegisterController extends Controller
     public function save(Request $request)
     {
         $messages = [
-            'full_name.required' => 'Поле full_name обязательно к заполнению',
-            'full_name.string' => 'Поле full_name может принимать только буквенные символы',
-            'date_birthday.required' => 'Поле date_birthday обязательно к заполнению',
-            'date_birthday.date' => 'Поле date_birthday может принимать только дату',
-            'date_birthday.date_format' => 'Поле date_birthday может принимать только дату в формате Y-m-d',
-            'id_gender_code.required' => 'Поле id_gender_code обязательно к заполнению',
-            'id_gender_code.regex' => 'Поле id_gender_code может принимать только цифры от 1-9 в кол-ве один',
-            'city_name.required' => 'Поле city_name обязательно к заполнению',
-            'city_name.string' => 'Поле city_name может принимать только буквенные символы',
-            'id_type_document.required' => 'Поле id_type_document обязательно к заполнению',
-            'id_type_document.regex' => 'Поле id_type_document может принимать только цифры от 1-9 в кол-ве один',
-            'series_document_number.required' => 'Поле series_document_number обязательно к заполнению',
-            'id_country_of_issue.required' => 'Поле id_country_of_issue обязательно к заполнению',
-            'id_country_of_issue.regex' => 'Поле id_country_of_issue может принимать только цифры от 1-9 в кол-ве один'
+            'full_name.required' => 'Поле "Фамилия" обязательно к заполнению',
+            'full_name.string' => 'Поле "Фамилия" может принимать только буквенные символы',
+            'date_birthday.required' => 'Поле "Дата рождения" обязательно к заполнению',
+            'date_birthday.date' => 'Поле "Дата рождения" может принимать только дату',
+            'date_birthday.date_format' => 'Поле "Дата рождения" может принимать только дату в формате Y-m-d',
+            'id_gender_code.required' => 'Поле "Пол" обязательно к заполнению',
+            'id_gender_code.regex' => 'Поле "Пол" может принимать только цифры от 1-9 в кол-ве один',
+            'city_name.required' => 'Поле "Город проживания" обязательно к заполнению',
+            'city_name.string' => 'Поле "Город проживания" может принимать только буквенные символы',
+            'id_type_document.required' => 'Поле "Тип документа" обязательно к заполнению',
+            'id_type_document.regex' => 'Поле "Тип документа" может принимать только цифры от 1-9 в кол-ве один',
+            'series_document_number.required' => 'Поле "Серия и номер документа" обязательно к заполнению',
+            'id_country_of_issue.required' => 'Поле "Страна выдачи документа" обязательно к заполнению',
+            'id_country_of_issue.regex' => 'Поле "Страна выдачи документа" может принимать только цифры от 1-9 в кол-ве один'
         ];
 
         $rules = [
