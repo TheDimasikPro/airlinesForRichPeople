@@ -250,7 +250,12 @@
             {{-- </div> --}}
             
             <div class="result_price__flight_to">
-              <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('j F Y') }}</h2>
+              @if ($flight_list[0]["airport_start"]["city_rus"] == null)
+                <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('j F Y') }} из г. {{ $flight_list[0]["airport_start"]["city_eng"] }}</h2>
+              @else
+                <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('j F Y') }} из г. {{ $flight_list[0]["airport_start"]["city_rus"] }}</h2>
+              @endif
+              {{-- <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_list[0]["date_start"])->format('j F Y') }}</h2> --}}
               <div class="result_price__flight_to__cards">
                 @foreach ($flight_list as $key => $flight_list__item)
                   @if ($flight_list->first() === $flight_list__item)
@@ -351,7 +356,12 @@
               
             {{-- </div> --}}
             <div class="result_price__flight_to">
-              <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_back[0]["date_start"])->format('j F Y') }}</h2>
+              @if ($flight_back[0]["airport_start"]["city_rus"] == null)
+                <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_back[0]["date_start"])->format('j F Y') }} из г. {{ $flight_back[0]["airport_start"]["city_eng"] }}</h2>
+              @else
+                <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_back[0]["date_start"])->format('j F Y') }} из г. {{ $flight_back[0]["airport_start"]["city_rus"] }}</h2>
+              @endif
+              {{-- <h2>Варианты вылета {{ \Jenssegers\Date\Date::parse($flight_back[0]["date_start"])->format('j F Y') }}</h2> --}}
               <div class="result_price__flight_to__cards">
                 @foreach ($flight_back as $key => $flight_back__list)
                   @if ($flight_back->first() === $flight_back__list)

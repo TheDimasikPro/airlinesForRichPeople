@@ -42,10 +42,12 @@ class MailController extends Controller
                 "full_name" => $check_user->full_name,
                 "token" => $token,
             ];
-            Mail::send('emails.reset_password', $response_mail, function ($message) {
+            $email = $request["email"];
+            $full_name = $check_user->full_name;
+            Mail::send('emails.reset_password', $response_mail, function ($message) use($email,$full_name) {
                 $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
-                $message->to('dima.site1806@gmail.com', 'Dima');
-                $message->subject('Test');
+                $message->to($email, $full_name);
+                $message->subject('Сброс пароля');
             });
 
 
@@ -58,12 +60,12 @@ class MailController extends Controller
         
     }
 
-    public function sendMailResetPasswordComplete($response_mail,$email_user)
+    public function sendMailResetPasswordComplete($response_mail,$email_user,$full_name)
     {
-        Mail::send('emails.reset_password_complete', $response_mail, function ($message) {
+        Mail::send('emails.reset_password_complete', $response_mail, function ($message) use($email_user,$full_name) {
             $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
-            $message->to('dima.site1806@gmail.com', 'Dima');
-            $message->subject('Test');
+            $message->to($email_user, $full_name);
+            $message->subject('Успешный сброс пароля');
         });
 
         User::where([
@@ -74,20 +76,20 @@ class MailController extends Controller
         );
     }
 
-    public function sendMailWelcome($response_mail,$email_user)
+    public function sendMailWelcome($response_mail,$email_user,$full_name)
     {
-        Mail::send('emails.welcome', $response_mail, function ($message) {
+        Mail::send('emails.welcome', $response_mail, function ($message) use($email_user,$full_name) {
             $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
-            $message->to('dima.site1806@gmail.com', 'Dima');
+            $message->to($email_user, $full_name);
             $message->subject('Добро пожаловать');
         });
     }
 
-    public function sendMailAfterRegistrationFlight($response_mail,$email_user)
+    public function sendMailAfterRegistrationFlight($response_mail,$email_user,$full_name)
     {
-        Mail::send('emails.after_registration_fight', $response_mail, function ($message) {
+        Mail::send('emails.after_registration_fight', $response_mail, function ($message) use($email_user,$full_name) {
             $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
-            $message->to('dima.site1806@gmail.com', 'Dima');
+            $message->to($email_user, $full_name);
             $message->subject('Регистрация на рейс');
         });
     }
@@ -98,9 +100,9 @@ class MailController extends Controller
         $urls = $pdf->generatePDF($response_mail);
         // return $urls->stream();
         // // return count([])
-        Mail::send('emails.after_payment_fight', $response_mail, function ($message) use($urls) {
+        Mail::send('emails.after_payment_fight', $response_mail, function ($message) use($urls,$email_user) {
             $message->from('mailForTestsOfMy.webProjects@gmail.com', 'RichAirlines');
-            $message->to('dima.site1806@gmail.com', 'Dima');
+            $message->to($email_user, '');
             $message->subject('Регистрация на рейс');
             $message->attach('http://richairlines/' . $urls);
         });

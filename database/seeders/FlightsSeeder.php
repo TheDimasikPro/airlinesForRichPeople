@@ -29,12 +29,12 @@ class FlightsSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 2; $i++) {
+        for ($i=0; $i < 5; $i++) {
             $date_start = $this->randomDate(Carbon::now(),Carbon::now()->addWeek());
             $date_end = $this->randomDate($date_start,CarbonImmutable::parse($date_start)->addWeek());
 
-            $id_airport_start = 2;
-            $id_airport_end = 1;
+            $id_airport_start = 3;
+            $id_airport_end = 2;
             if ($id_airport_start != $id_airport_end) {
                 DB::table('flights')->insert([
                     'flight_code' => "RA_" . Str::random(4),
@@ -42,8 +42,8 @@ class FlightsSeeder extends Seeder
                     "id_airport_end" =>  $id_airport_end,
                     "time_start" => Carbon::now()->format('H:i:s'),
                     "time_end" => Carbon::now()->format('H:i:s'),
-                    "date_start" => $date_start,
-                    "date_end" => $date_end,
+                    "date_start" => '2021-11-19',
+                    "date_end" => '2021-11-19',
                     "cost" => rand(3000,5000),
                     "travel_time" => "03:20:00",
                     "number_of_seats" => 50,

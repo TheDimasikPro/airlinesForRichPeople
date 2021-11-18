@@ -70,8 +70,9 @@ class ForgotPasswordController extends Controller
                 "email" => $email,
                 "password" => $password
             ];
+            $full_name = $user->full_name;
             $mailController = new MailController();
-            $mailController->sendMailResetPasswordComplete($response_mail,$email);
+            $mailController->sendMailResetPasswordComplete($response_mail,$email,$full_name);
             return redirect()->route('my_profile__page');
         }
         return back()->withErrors([

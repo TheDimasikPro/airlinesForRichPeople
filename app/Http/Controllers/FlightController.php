@@ -643,6 +643,7 @@ class FlightController extends Controller
             session(["cost_tickets__all_passenger" => session("flight_order_info")["cost"]]);
             // return json_encode($array_new_passenger_ids);
             session(["passenger_info" => $array_values_req]);
+            session(["email_feedback" => $email_feedback]);
             return response()->json([
                 "status" => true,
                 // "count_done" => $count_done,
@@ -730,8 +731,6 @@ class FlightController extends Controller
             ]);
             if ($booking->get()!=null) {
                 $count_pass = count($new_passenger_ids);
-                
-                
                 foreach ($booking->get() as $key => $value) {
                     // $count_pass++;
                     $id_flight_from = $value["id_flight_from"];
@@ -744,7 +743,6 @@ class FlightController extends Controller
                     $booking_id = $value["id_booking_status"];
                     $booking_status = DB::table('booking_statuses')->select('name_status')->where('id',$booking_id)->first();
                     
-                    
                     if ($id_flight_from != null) {
                         $flight_from = Flight::select('id','flight_code','time_start','time_end','cost','date_start','date_end','id_airport_start','id_airport_end')->where('id',$id_flight_from)->first();
                         $airport_flight_from_start = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_start'])->first();
@@ -753,7 +751,6 @@ class FlightController extends Controller
                         $flight_arr['flight_info_' . $key]['flight_from'] = $flight_from;
                         $flight_arr['flight_info_' . $key]['flight_from']["airport_flight_from_start"] = $airport_flight_from_start;
                         $flight_arr['flight_info_' . $key]['flight_from']["airport_flight_from_end"] = $airport_flight_from_end;
-                        // $all_cost += $flight_from["cost"];
                     }
                     if ($id_flight_back != null) {
                         $flight_back = Flight::select('id','flight_code','time_start','time_end','cost','date_start','date_end','id_airport_start','id_airport_end')->where('id',$id_flight_back)->first();
@@ -763,7 +760,6 @@ class FlightController extends Controller
                         $flight_arr['flight_info_' . $key]['flight_back'] = $flight_back;
                         $flight_arr['flight_info_' . $key]['flight_back']["airport_flight_back_start"] = $airport_flight_back_start;
                         $flight_arr['flight_info_' . $key]['flight_back']["airport_flight_back_end"] = $airport_flight_back_end;
-                        // $all_cost += $flight_back["cost"];
                     }
                 }
                 $flight_arr['count_pass'] = $count_pass;
@@ -771,8 +767,10 @@ class FlightController extends Controller
             }
             // echo $id_booking_passenger;
         }
+
+        // return $booking->get();
         $mailController = new MailController();
-        $mailController->sendMailAfterPaymentFlight($flight_arr,"email");
+        $mailController->sendMailAfterPaymentFlight($flight_arr,session("email_feedback"));
 
         Session::forget('flight_order_info');
         Session::forget('new_passenger_ids');
@@ -805,20 +803,22 @@ class FlightController extends Controller
         ]);
         if ($validationFields->fails()) {
             // return $request["series_number_document"];
-            return $validationFields->errors();
+            // return $validationFields->errors();
             return redirect()->route('index__page')->withErrors([
                 'errors' => "Проверьте свои данные"
             ]);
         }
 
+        // сделать проверку на совместимость номера рейса пользователя
         $ticket = Passenger::where([
             // ['ticket_code',$request["number_ticket_booking"]],
             ['last_name',$request["last_name"]],
             ['series_and_document_number',str_replace(' ','',$request["series_number_document"])],
-            ])->first();
+        ])->first();
         if ($ticket != null) {
-            // $email_passneger = $ticket["email_feedback"];
-            $email_passneger = 'dima.site@gmail.com';
+            $email_passneger = $ticket["email_feedback"];
+            $full_name = $ticket["last_name"] . ' ' .  $ticket["first_name"] . ' ' .  $ticket["other_name"];
+            // $email_passneger = 'dima.site@gmail.com';
             $id_booking = $ticket["id_booking"];
             $booking = Booking::where([
                 ['id',$id_booking],
@@ -860,7 +860,7 @@ class FlightController extends Controller
                 ];
                 // return $response_mail;
                 $mailController = new MailController();
-                $mailController->sendMailAfterRegistrationFlight($response_mail,$email_passneger);
+                $mailController->sendMailAfterRegistrationFlight($response_mail,$email_passneger,$full_name);
                 return redirect()->route('index__page');
             }
             return redirect()->route('index__page')->withErrors([

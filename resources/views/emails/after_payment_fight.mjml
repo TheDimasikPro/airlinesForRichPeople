@@ -24,12 +24,6 @@
             <mj-text font-size="16px" color="red" font-family="helvetica">Время в билетах указано местное, согласно городу</mj-text>
         </mj-column>
     </mj-section>
-    
-    <mj-section>
-        <mj-column>
-            <mj-text font-size="16px">Итоговая сумма билетов: 7500р</mj-text>
-        </mj-column>
-    </mj-section>
     <mj-section>
         <mj-column>
             <mj-button font-family="Helvetica" background-color="#f45e43" color="white" href="http://richairlines/">

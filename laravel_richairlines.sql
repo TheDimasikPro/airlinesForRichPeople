@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Ноя 08 2021 г., 17:55
+-- Время создания: Ноя 18 2021 г., 17:02
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.8
 
@@ -9476,16 +9476,14 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `id_flight_from`, `id_flight_back`, `booking_code`, `id_booking_status`, `created_at`, `updated_at`) VALUES
-(1, 9, 4, 'qIiuCu', 1, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(2, 9, 9, '2dADvT', 3, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(3, 3, 1, '0BdVut', 1, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(4, 5, 7, 'DOWL4f', 2, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(5, 10, 9, 'HvAh3Y', 2, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(6, 9, 8, 'uCzlPC', 3, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(7, 7, 10, 'n6EYNX', 3, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(8, 3, 9, 'vhAh3U', 1, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(9, 5, 5, '3bEoxy', 1, '2021-11-06 04:47:18', '2021-11-06 04:47:18'),
-(10, 4, 9, 'LXO0oz', 2, '2021-11-06 04:47:18', '2021-11-06 04:47:18');
+(1, 4, NULL, 'RA_booking_9lOz9D', 4, '2021-11-18 17:18:41', '2021-11-18 17:24:34'),
+(2, 4, NULL, 'RA_booking_J1O96F', 2, '2021-11-18 17:41:50', '2021-11-18 17:43:47'),
+(3, 4, NULL, 'RA_booking_0wLqnR', 2, '2021-11-18 17:47:22', '2021-11-18 17:47:28'),
+(4, 4, NULL, 'RA_booking_fsuWwf', 2, '2021-11-18 17:49:49', '2021-11-18 17:54:33'),
+(5, 4, NULL, 'RA_booking_vuv0Zi', 2, '2021-11-18 17:55:34', '2021-11-18 17:55:39'),
+(6, 2, NULL, 'RA_booking_gOrEwJ', 2, '2021-11-18 18:04:15', '2021-11-18 18:04:22'),
+(7, 1, 6, 'RA_booking_myuczn', 2, '2021-11-18 18:06:47', '2021-11-18 18:06:53'),
+(8, 6, 1, 'RA_booking_QokFpj', 2, '2021-11-18 18:06:47', '2021-11-18 18:06:53');
 
 -- --------------------------------------------------------
 
@@ -9506,8 +9504,9 @@ CREATE TABLE `booking_statuses` (
 
 INSERT INTO `booking_statuses` (`id`, `name_status`, `created_at`, `updated_at`) VALUES
 (1, 'Не подтвержден', '2021-11-05 13:03:40', '2021-11-05 13:03:40'),
-(2, 'Подтвержден', '2021-11-05 13:03:40', '2021-11-05 13:03:40'),
-(3, 'Не действителен', '2021-11-05 13:03:40', '2021-11-05 13:03:40');
+(2, 'Оплачено', '2021-11-05 13:03:40', '2021-11-05 13:03:40'),
+(3, 'Не действителен', '2021-11-05 13:03:40', '2021-11-05 13:03:40'),
+(4, 'Зарегистрирован', '2021-11-12 06:59:17', '2021-11-12 06:59:17');
 
 -- --------------------------------------------------------
 
@@ -9795,6 +9794,7 @@ INSERT INTO `countries` (`id`, `name_country`, `fullname_country`, `english_name
 CREATE TABLE `document_types` (
   `id` bigint UNSIGNED NOT NULL,
   `name_document` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mask_input` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -9803,10 +9803,10 @@ CREATE TABLE `document_types` (
 -- Дамп данных таблицы `document_types`
 --
 
-INSERT INTO `document_types` (`id`, `name_document`, `created_at`, `updated_at`) VALUES
-(1, 'Паспорт РФ', '2021-11-04 02:45:10', '2021-11-04 02:45:10'),
-(2, 'Заграничный паспорт', '2021-11-04 02:45:10', '2021-11-04 02:45:10'),
-(3, 'Свидетельство о рождении', '2021-11-04 02:45:10', '2021-11-04 02:45:10');
+INSERT INTO `document_types` (`id`, `name_document`, `mask_input`, `created_at`, `updated_at`) VALUES
+(1, 'Паспорт РФ', '99 99 999999', '2021-11-04 02:45:10', '2021-11-04 02:45:10'),
+(2, 'Заграничный паспорт', '99 9999999', '2021-11-04 02:45:10', '2021-11-04 02:45:10'),
+(3, 'Свидетельство о рождении', '^[A-Z]{1,4}[А-Я]{2}[0-9]{6}$', '2021-11-04 02:45:10', '2021-11-04 02:45:10');
 
 -- --------------------------------------------------------
 
@@ -9841,6 +9841,8 @@ CREATE TABLE `flights` (
   `date_start` date NOT NULL,
   `date_end` date DEFAULT NULL,
   `travel_time` time NOT NULL,
+  `number_of_free_seats` int NOT NULL,
+  `number_of_seats` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -9849,18 +9851,27 @@ CREATE TABLE `flights` (
 -- Дамп данных таблицы `flights`
 --
 
-INSERT INTO `flights` (`id`, `flight_code`, `id_airport_start`, `id_airport_end`, `time_start`, `time_end`, `cost`, `date_start`, `date_end`, `travel_time`, `created_at`, `updated_at`) VALUES
-(1, 'ZTCByf', 9, 6, '13:15:00', '13:15:00', 6592, '2021-11-08', '2021-11-08', '02:30:00', NULL, NULL),
-(2, 'hwOfup', 5, 10, '13:15:00', '13:15:00', 9963, '2021-11-09', '2021-11-08', '02:30:00', NULL, NULL),
-(3, 'pyowzv', 10, 3, '13:15:00', '13:15:00', 6516, '2021-11-08', '2021-11-08', '02:30:00', NULL, NULL),
-(4, 'a5EZQ7', 2, 9, '13:15:00', '13:15:00', 9146, '2021-11-08', '2021-11-08', '02:30:00', NULL, NULL),
-(5, 'hX2WPe', 9, 7, '13:15:00', '13:15:00', 9975, '2021-11-08', '2021-11-08', '02:30:00', NULL, NULL),
-(6, 'OLghhP', 10, 3, '13:15:00', '13:15:00', 5978, '2021-11-08', '2021-11-08', '02:30:00', NULL, NULL),
-(7, 'LnBUJI', 2, 9, '13:15:00', '13:15:00', 7046, '2021-11-08', '2021-11-08', '02:30:00', NULL, NULL),
-(8, 'V8Llrc', 6, 10, '13:15:00', '13:15:00', 5093, '2021-11-08', '2021-11-08', '02:30:00', NULL, NULL),
-(9, 'RVg9me', 1, 4, '13:15:00', '13:15:00', 7400, '2021-11-08', '2021-11-08', '02:30:00', NULL, NULL),
-(10, 'bpPhV6', 5, 10, '13:15:00', '13:20:00', 7313, '2021-11-10', '2021-11-08', '02:30:00', NULL, NULL),
-(11, 'FYPfrP', 5, 10, '13:15:00', '13:07:00', 4407, '2021-11-05', '2021-11-08', '02:30:00', NULL, NULL);
+INSERT INTO `flights` (`id`, `flight_code`, `id_airport_start`, `id_airport_end`, `time_start`, `time_end`, `cost`, `date_start`, `date_end`, `travel_time`, `number_of_free_seats`, `number_of_seats`, `created_at`, `updated_at`) VALUES
+(1, 'RA_yF3z', 1, 2, '15:43:00', '17:40:00', 4397, '2021-11-19', '2021-11-19', '01:57:00', 15, 50, '2021-11-18 15:43:30', '2021-11-18 18:06:47'),
+(2, 'RA_uNwX', 1, 2, '15:20:30', '17:00:30', 4712, '2021-11-19', '2021-11-19', '01:40:00', 11, 50, '2021-11-18 15:43:30', '2021-11-18 18:04:15'),
+(3, 'RA_7lkO', 1, 2, '16:43:30', '20:43:30', 3387, '2021-11-19', '2021-11-19', '02:00:00', 24, 50, '2021-11-18 15:43:30', '2021-11-18 15:43:30'),
+(4, 'RA_KDAY', 1, 2, '14:43:30', '16:50:30', 3216, '2021-11-19', '2021-11-19', '02:07:00', 12, 50, '2021-11-18 15:43:30', '2021-11-18 17:55:34'),
+(5, 'RA_HCWz', 1, 2, '19:43:30', '22:58:30', 4769, '2021-11-19', '2021-11-19', '03:15:00', 40, 50, '2021-11-18 15:43:30', '2021-11-18 15:43:30'),
+(6, 'RA_Fggb', 2, 1, '10:00:34', '12:30:34', 3479, '2021-11-19', '2021-11-19', '01:30:00', 48, 50, '2021-11-18 15:59:34', '2021-11-18 18:06:47'),
+(7, 'RA_Mnq3', 2, 1, '12:00:34', '14:05:34', 3991, '2021-11-19', '2021-11-19', '02:05:00', 47, 50, '2021-11-18 15:59:34', '2021-11-18 15:59:34'),
+(8, 'RA_ECIo', 2, 1, '13:30:34', '16:00:34', 3488, '2021-11-19', '2021-11-19', '02:30:00', 44, 50, '2021-11-18 15:59:34', '2021-11-18 15:59:34'),
+(9, 'RA_Earm', 2, 1, '16:00:34', '17:30:34', 3996, '2021-11-19', '2021-11-19', '01:30:00', 11, 50, '2021-11-18 15:59:34', '2021-11-18 15:59:34'),
+(10, 'RA_CTdn', 2, 1, '21:00:35', '23:30:34', 3795, '2021-11-19', '2021-11-19', '02:30:00', 24, 50, '2021-11-18 15:59:34', '2021-11-18 15:59:34'),
+(11, 'RA_J5Ps', 2, 3, '02:10:37', '05:10:10', 4387, '2021-11-19', '2021-11-19', '03:00:00', 34, 50, '2021-11-18 16:10:10', '2021-11-18 16:10:10'),
+(12, 'RA_yhrU', 2, 3, '07:00:10', '09:40:10', 3029, '2021-11-19', '2021-11-19', '02:40:00', 9, 50, '2021-11-18 16:10:10', '2021-11-18 16:10:10'),
+(13, 'RA_1hox', 2, 3, '10:00:10', '12:10:10', 3791, '2021-11-19', '2021-11-19', '02:00:00', 10, 50, '2021-11-18 16:10:10', '2021-11-18 16:10:10'),
+(14, 'RA_T6BR', 2, 3, '16:30:10', '17:55:10', 4951, '2021-11-19', '2021-11-19', '01:25:00', 30, 50, '2021-11-18 16:10:10', '2021-11-18 16:10:10'),
+(15, 'RA_4xpp', 2, 3, '20:10:10', '23:00:10', 3849, '2021-11-19', '2021-11-19', '02:50:00', 5, 50, '2021-11-18 16:10:10', '2021-11-18 16:10:10'),
+(16, 'RA_OXb4', 3, 2, '10:00:09', '12:13:09', 4021, '2021-11-19', '2021-11-19', '03:20:00', 10, 50, '2021-11-18 16:13:09', '2021-11-18 16:13:09'),
+(17, 'RA_kPvL', 3, 2, '16:10:09', '18:33:09', 3112, '2021-11-19', '2021-11-19', '03:20:00', 45, 50, '2021-11-18 16:13:09', '2021-11-18 16:13:09'),
+(18, 'RA_Hs7q', 3, 2, '17:13:09', '20:05:09', 4090, '2021-11-19', '2021-11-19', '03:20:00', 39, 50, '2021-11-18 16:13:09', '2021-11-18 16:13:09'),
+(19, 'RA_b9Fl', 3, 2, '22:20:09', '00:30:09', 3655, '2021-11-19', '2021-11-20', '03:20:00', 29, 50, '2021-11-18 16:13:09', '2021-11-18 16:13:09'),
+(20, 'RA_jw9X', 3, 2, '23:13:09', '01:20:09', 4526, '2021-11-19', '2021-11-20', '03:20:00', 31, 50, '2021-11-18 16:13:09', '2021-11-18 16:13:09');
 
 -- --------------------------------------------------------
 
@@ -9913,7 +9924,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2021_11_05_114790_create_booking_statuses_table', 3),
 (14, '2021_11_05_170729_create_passengers_table', 3),
 (16, '2021_11_05_120557_create_bookings_table', 4),
-(17, '2021_11_05_113547_create_flights_table', 5);
+(17, '2021_11_05_113547_create_flights_table', 5),
+(19, '2021_11_17_181556_create_reviews_table', 6);
 
 -- --------------------------------------------------------
 
@@ -9923,6 +9935,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `passengers` (
   `id` bigint UNSIGNED NOT NULL,
+  `ticket_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `other_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -9931,10 +9944,9 @@ CREATE TABLE `passengers` (
   `date_of_birthday` date NOT NULL,
   `id_document_type` bigint UNSIGNED NOT NULL,
   `series_and_document_number` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `row_number_from` int NOT NULL,
-  `row_number_back` int NOT NULL,
-  `place_number_from` int NOT NULL,
-  `place_number_back` int NOT NULL,
+  `email_feedback` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `row_number` int NOT NULL,
+  `place_number` int NOT NULL,
   `id_booking` bigint UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -9944,17 +9956,15 @@ CREATE TABLE `passengers` (
 -- Дамп данных таблицы `passengers`
 --
 
-INSERT INTO `passengers` (`id`, `last_name`, `first_name`, `other_name`, `id_gender_code`, `id_citizenship`, `date_of_birthday`, `id_document_type`, `series_and_document_number`, `row_number_from`, `row_number_back`, `place_number_from`, `place_number_back`, `id_booking`, `created_at`, `updated_at`) VALUES
-(1, 'Wyman', 'Lyla', 'VrHbfYVvJv', 2, 91, '2021-11-05', 1, '1045492098', 4, 4, 2, 5, 2, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(2, 'McDermott', 'Britney', '8dAqjUdsWy', 1, 79, '2021-11-05', 3, '2055499753', 10, 7, 5, 4, 9, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(3, 'Rosenbaum', 'Kian', 'M35VvLbpPk', 2, 43, '2021-11-05', 3, '2118103134', 5, 3, 4, 10, 2, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(4, 'Koss', 'Spencer', 'i7CD6M9Z7n', 1, 49, '2021-11-05', 1, '470318358', 8, 8, 6, 2, 5, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(5, 'Davis', 'Lulu', 'AbhR669YCL', 2, 15, '2021-11-05', 1, '704731072', 3, 6, 6, 4, 9, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(6, 'Brakus', 'Cielo', 'ncLGhrRe1Q', 1, 18, '2021-11-05', 3, '1958511271', 7, 3, 4, 7, 2, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(7, 'Adams', 'Georgianna', 'bgB207kAQH', 2, 27, '2021-11-05', 3, '901371240', 6, 6, 3, 4, 6, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(8, 'Kuhn', 'Jannie', 'Gy6rNeFChD', 1, 82, '2021-11-05', 1, '1037428039', 8, 8, 2, 1, 6, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(9, 'Cummerata', 'Jerrell', 'QnFg6kff2J', 2, 100, '2021-11-05', 1, '740569106', 2, 4, 6, 8, 5, '2021-11-05 13:41:54', '2021-11-05 13:41:54'),
-(10, 'Keebler', 'Waino', 'PmHcedcLuM', 2, 11, '2021-11-05', 1, '1752434721', 10, 3, 3, 7, 10, '2021-11-05 13:41:54', '2021-11-05 13:41:54');
+INSERT INTO `passengers` (`id`, `ticket_code`, `last_name`, `first_name`, `other_name`, `id_gender_code`, `id_citizenship`, `date_of_birthday`, `id_document_type`, `series_and_document_number`, `email_feedback`, `row_number`, `place_number`, `id_booking`, `created_at`, `updated_at`) VALUES
+(1, 'RA_VdxA', 'Трошков', 'Дмитрий', 'Александрович', 1, 1, '2021-11-03', 1, '2222222222', 'dmitti.tro@gmail.com', 1, 1, 1, '2021-11-18 17:18:41', '2021-11-18 17:18:41'),
+(2, 'RA_4QAR', 'Трошков', 'Дмитрий', 'Александрович', 1, 1, '2021-11-18', 1, '1111111111', 'dmitti.tro@gmail.com', 1, 2, 2, '2021-11-18 17:41:50', '2021-11-18 17:41:50'),
+(3, 'RA_J2Id', 'Трошков', 'Дмитрий', 'Александрович', 1, 1, '2021-11-19', 1, '3333333333', 'dmitti.tro@gmail.com', 1, 14, 3, '2021-11-18 17:47:22', '2021-11-18 17:47:22'),
+(4, 'RA_hbYQ', 'Трошков', 'Дмитрий', 'Александрович', 1, 171, '2021-11-18', 1, '3333333333', 'dmitti.tro@gmail.com', 1, 4, 4, '2021-11-18 17:49:49', '2021-11-18 17:49:49'),
+(5, 'RA_9IHi', 'Трошков', 'Дмитрий', 'csdcsd', 1, 1, '2021-11-18', 1, '1111111111', 'dmitti.tro@gmail.com', 1, 12, 5, '2021-11-18 17:55:34', '2021-11-18 17:55:34'),
+(6, 'RA_rc27', 'Трошков', 'Дмитрий', 'Александрович', 1, 1, '2021-11-19', 1, '1111111111', 'dmitti.tro@gmail.com', 1, 7, 6, '2021-11-18 18:04:15', '2021-11-18 18:04:15'),
+(7, 'RA_xqjQ', 'Трошков', 'Дмитрий', 'Александрович', 1, 171, '2021-11-04', 1, '6767671111', 'dmitti.tro@gmail.com', 1, 4, 7, '2021-11-18 18:06:47', '2021-11-18 18:06:47'),
+(8, 'RA_nKmy', 'Трошков', 'Дмитрий', 'Александрович', 1, 171, '2021-11-04', 1, '6767671111', 'dmitti.tro@gmail.com', 1, 16, 8, '2021-11-18 18:06:47', '2021-11-18 18:06:47');
 
 -- --------------------------------------------------------
 
@@ -10002,6 +10012,27 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name_user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text_review` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `name_user`, `text_review`, `created_at`, `updated_at`) VALUES
+(1, 'Дмитрий', 'Все было хорошо', '2021-11-18 09:29:22', '2021-11-18 09:29:22');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -10022,18 +10053,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Дамп данных таблицы `users`
---
-
-INSERT INTO `users` (`id`, `id_role`, `email`, `phone`, `full_name`, `date_of_birthday`, `id_gender_code`, `city_of_residence`, `id_document_type`, `series_and_document_number`, `id_country_of_issue`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 3, 'vvf@gmail.com', '+7(111)1111111', 'Дмитрий Дмитрий', '2021-11-11', 1, '3ddd', 1, '1111111111', 1, '$2y$10$Ds21IcF6Shu1XDhGypzF9e7gS32a8UYjXE5K2vv8adusuT3M5btHS', NULL, '2021-11-05 05:11:59', '2021-11-05 05:11:59'),
-(2, 3, 'vv22f@gmail.com', '+7(444)4444444', 'Трошков Дмитрий Александрович', '2021-11-10', 1, '111', 2, '7777777777', 1, '$2y$10$RrtttVh/wceiTEr8zkuls.wU3.fipXjXh.cOqNbHkpGROXYG39lBi', NULL, '2021-11-05 05:13:59', '2021-11-05 05:13:59'),
-(3, 3, 'v3333vf@gmail.com', '+7(111)1111222', 'Трошков Дмитрий Александрович', '2021-11-08', 1, '3ddd', 1, '1133311111', 1, '$2y$10$fWkmygzKiNn8.Yj68Urx/e2YrMZ3ZPMLuA6WPT.3gpeIjgBI07b2O', NULL, '2021-11-05 05:43:49', '2021-11-05 05:43:49'),
-(4, 3, 'vv3f@gmail.com', '+7(333)3333333', 'test', '2021-11-10', 1, '3ddd', 2, '1111122222', 1, '$2y$10$fAVYsHYQesvj2a4fjBXya.lRMpH5sd7NTPjW84D9m8XKnkgUiLxv6', NULL, '2021-11-05 05:46:55', '2021-11-05 05:46:55'),
-(5, 3, 'vvf55@gmail.com', '+7(545)5555555', 'Трошков Дмитрий Александрович', '2021-11-02', 1, '3ddd', 1, '3555533333', 1, '$2y$10$RUuJMQXZzgyVQbvX4xBsJ.yen1bJFd.ZcQsbu3EwOYO3NL3rJZ8IK', NULL, '2021-11-05 05:49:25', '2021-11-05 05:49:25'),
-(6, 3, 'v33vf@gmail.com', '+7(444)4444448', 'Трошков Дмитрий Александрович', '2021-11-25', 1, '111', 1, '3333333311', 1, '$2y$10$MJ45sCq.cGDt288dBFs3iupiLhNyBGkyrVlhjNbPX0bq9uFafqHp.', NULL, '2021-11-05 05:50:28', '2021-11-05 05:50:28');
 
 -- --------------------------------------------------------
 
@@ -10130,7 +10149,6 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `passengers`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `series_and_document_number` (`series_and_document_number`),
   ADD KEY `passengers_id_gender_code_foreign` (`id_gender_code`),
   ADD KEY `passengers_id_citizenship_foreign` (`id_citizenship`),
   ADD KEY `passengers_id_document_type_foreign` (`id_document_type`),
@@ -10149,6 +10167,12 @@ ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Индексы таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `users`
@@ -10183,13 +10207,13 @@ ALTER TABLE `airports`
 -- AUTO_INCREMENT для таблицы `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `booking_statuses`
 --
 ALTER TABLE `booking_statuses`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `countries`
@@ -10213,7 +10237,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `flights`
 --
 ALTER TABLE `flights`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `gender_codes`
@@ -10225,13 +10249,13 @@ ALTER TABLE `gender_codes`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `passengers`
 --
 ALTER TABLE `passengers`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
@@ -10240,10 +10264,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT для таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `user_roles`

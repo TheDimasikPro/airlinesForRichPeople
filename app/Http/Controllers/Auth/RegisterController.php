@@ -359,7 +359,7 @@ class RegisterController extends Controller
                     "password" => $password
                 ];
                 $mailController = new MailController();
-                $mailController->sendMailWelcome($response_mail,$email);
+                $mailController->sendMailWelcome($response_mail,$email,$full_name);
                 $response = [
                     'status' => true,
                     'message' => 'Регистрация произошла успешно',

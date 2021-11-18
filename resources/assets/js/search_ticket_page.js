@@ -129,76 +129,91 @@ $(document).ready(function (e) {
     var id_flight_end = 0;
     var price_tikets__one_way = 0;
     $('.result_price__flight_to__cards__item__short_info__price__in_basket').click(function (e) {
-        console.log("enter");
-        e.preventDefault();
-        $('.row_select_ticket_from').removeClass('non_view__select_ticket_form');
-        $('.select_ticket_from__date').removeClass('non_view__select_ticket_form');
-        $('.select_ticket_from__time').removeClass('non_view__select_ticket_form');
-        $('.select_ticket_from__number_flight').removeClass('non_view__select_ticket_form');
-        $('.name_model_air').removeClass('non_view__select_ticket_form');
+        if (!$(this).hasClass('btn_in_basket_active')) {
+            $('.result_price__flight_to__cards__item__short_info__price__in_basket').removeClass('btn_in_basket_active');
+            $(this).addClass('btn_in_basket_active');
+            // console.log("enter");
+            e.preventDefault();
+            $('.row_select_ticket_from').removeClass('non_view__select_ticket_form');
+            $('.select_ticket_from__date').removeClass('non_view__select_ticket_form');
+            $('.select_ticket_from__time').removeClass('non_view__select_ticket_form');
+            $('.select_ticket_from__number_flight').removeClass('non_view__select_ticket_form');
+            $('.name_model_air').removeClass('non_view__select_ticket_form');
 
-        var parent_this_btn = $('.result_price__flight_to__cards__item:not(.not_select_result_price__flight_to__cards__item)');
-        var start_time = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__from_short_info__time').text();
-        var end_time = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__to_short_info__time').text();
-        var flight_code = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__from_short_info__number_flight').text();
+            var parent_this_btn = $('.result_price__flight_to__cards__item:not(.not_select_result_price__flight_to__cards__item)');
+            var start_time = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__from_short_info__time').text();
+            var end_time = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__to_short_info__time').text();
+            var flight_code = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__from_short_info__number_flight').text();
 
 
-        $('.deatils_start_from__time').text(start_time);
-        $('.deatils_start_to__time').text(end_time);
-        $('#deatils_start_number_flight').text(flight_code);
+            $('.deatils_start_from__time').text(start_time);
+            $('.deatils_start_to__time').text(end_time);
+            $('#deatils_start_number_flight').text(flight_code);
 
-        $('.from_price').removeClass('select_from_price');
-        $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__price__text').addClass('select_from_price');
-        var cost_start = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__price__text.select_from_price').text();
+            $('.from_price').removeClass('select_from_price');
+            $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__price__text').addClass('select_from_price');
+            var cost_start = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__price__text.select_from_price').text();
 
-        var parent_this_btn_back = $('.result_price__flight_from__cards__item:not(.not_select_result_price__flight_from__cards__item)');
-        var cost_back = $('.result_price__flight_to__cards__item__short_info__price__text.select_back_price').text();
+            var parent_this_btn_back = $('.result_price__flight_from__cards__item:not(.not_select_result_price__flight_from__cards__item)');
+            var cost_back = $('.result_price__flight_to__cards__item__short_info__price__text.select_back_price').text();
 
-        price_tikets = 0;
-        price_tikets += Number(cost_start) + Number(cost_back);
-        console.log(flight_code);
-        $('.select_ticket_from__time_start').text(start_time);
-        $('.select_ticket_from__time_end').text(end_time);
-        $('.select_ticket_from__number_flight').text(flight_code);
-        $('.aside__block__info__all_price__text').text(price_tikets);
-        $('.price_popup span').text("Итоговая цена: " + price_tikets);
+            price_tikets = 0;
+            price_tikets += Number(cost_start) + Number(cost_back);
+            console.log(flight_code);
+            $('.select_ticket_from__time_start').text(start_time);
+            $('.select_ticket_from__time_end').text(end_time);
+            $('.select_ticket_from__number_flight').text(flight_code);
+            $('.aside__block__info__all_price__text').text(price_tikets);
+            $('.price_popup span').text("Итоговая цена: " + price_tikets);
 
-        id_flight_start = $('.result_price__flight_to__cards__item').attr("data-id-flight");
+            id_flight_start = $(parent_this_btn).attr("data-id-flight");
+            // console.log(id_flight_start);
+        }
+        else{
+            $(this).removeClass('btn_in_basket_active');
+        }
     });
-
+    // result_price__flight_to__cards__item__short_info__price__in_basket 
     $('.result_price__flight_from__cards__item__short_info__price__in_basket').click(function (e) {
-        e.preventDefault();
-        $('.row_select_ticket_to').removeClass('non_view__select_ticket_form');
-        $('.select_ticket_to__date').removeClass('non_view__select_ticket_form');
-        $('.select_ticket_to__time').removeClass('non_view__select_ticket_form');
-        $('.select_ticket_to__number_flight').removeClass('non_view__select_ticket_form');
-        $('.name_model_air').removeClass('non_view__select_ticket_form');
+        if (!$(this).hasClass('btn_in_basket_active')) {
+            $('.result_price__flight_from__cards__item__short_info__price__in_basket').removeClass('btn_in_basket_active');
+            $(this).addClass('btn_in_basket_active');
+            e.preventDefault();
+            $('.row_select_ticket_to').removeClass('non_view__select_ticket_form');
+            $('.select_ticket_to__date').removeClass('non_view__select_ticket_form');
+            $('.select_ticket_to__time').removeClass('non_view__select_ticket_form');
+            $('.select_ticket_to__number_flight').removeClass('non_view__select_ticket_form');
+            $('.name_model_air').removeClass('non_view__select_ticket_form');
 
-        var parent_this_btn = $('.result_price__flight_from__cards__item:not(.not_select_result_price__flight_from__cards__item)');
-        var start_time = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__from_short_info__time').text();
-        var end_time = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__to_short_info__time').text();
-        var flight_code = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__from_short_info__number_flight').text();
-        
-        $('.deatils_both_sides_back_from__time').text(start_time);
-        $('.deatils_both_sides_back_to__time').text(end_time);
-        $('#deatils_both_sides_back_number_flight').text(flight_code);
+            var parent_this_btn = $('.result_price__flight_from__cards__item:not(.not_select_result_price__flight_from__cards__item)');
+            var start_time = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__from_short_info__time').text();
+            var end_time = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__to_short_info__time').text();
+            var flight_code = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__card__city__from_short_info__number_flight').text();
+            
+            $('.deatils_both_sides_back_from__time').text(start_time);
+            $('.deatils_both_sides_back_to__time').text(end_time);
+            $('#deatils_both_sides_back_number_flight').text(flight_code);
 
-        $('.back_price').removeClass('select_back_price');
-        $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__price__text').addClass('select_back_price');
-        var cost_back = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__price__text.select_back_price').text();
-        var cost_start = $('.result_price__flight_to__cards__item__short_info__price__text.select_from_price').text();
-        price_tikets = 0;
-        price_tikets += Number(cost_back) + Number(cost_start);
+            $('.back_price').removeClass('select_back_price');
+            $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__price__text').addClass('select_back_price');
+            var cost_back = $(parent_this_btn).find('.result_price__flight_to__cards__item__short_info__price__text.select_back_price').text();
+            var cost_start = $('.result_price__flight_to__cards__item__short_info__price__text.select_from_price').text();
+            price_tikets = 0;
+            price_tikets += Number(cost_back) + Number(cost_start);
 
-        // price_tikets__both_sides += Number(cost);
-        console.log(flight_code);
-        $('.select_ticket_to__time_start').text(start_time);
-        $('.select_ticket_to__time_end').text(end_time);
-        $('.select_ticket_to__number_flight').text(flight_code);
-        $('.aside__block__info__all_price__text').text(price_tikets);
-        $('.price_popup span').text("Итоговая цена: " + price_tikets);
+            // price_tikets__both_sides += Number(cost);
+            console.log(flight_code);
+            $('.select_ticket_to__time_start').text(start_time);
+            $('.select_ticket_to__time_end').text(end_time);
+            $('.select_ticket_to__number_flight').text(flight_code);
+            $('.aside__block__info__all_price__text').text(price_tikets);
+            $('.price_popup span').text("Итоговая цена: " + price_tikets);
 
-        id_flight_end = $('.result_price__flight_from__cards__item').attr("data-id-flight");
+            id_flight_end = $(parent_this_btn).attr("data-id-flight");
+        }
+        else{
+            $(this).removeClass('btn_in_basket_active');
+        }
     });
 
     // $('.aside__block__info__btn').click(function (e) {
@@ -243,6 +258,7 @@ $(document).ready(function (e) {
         var cost = $('.aside__block__info__all_price__text').text();
         if (cost != "") {
             var param_url_this_page = window.location.href.split('?')[1];
+            // console.log(id_flight_start);
             location.href = "http://richairlines/search_tickets/passenger_info?" + param_url_this_page + "&id_flight_start=" + id_flight_start + "&id_flight_end=" + id_flight_end + "&cost=" + cost; 
         }
         

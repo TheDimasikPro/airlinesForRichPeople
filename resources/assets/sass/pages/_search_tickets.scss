@@ -101,6 +101,12 @@
                         .result_price__flight_to__cards__item__short_info__price__in_basket,.result_price__flight_from__cards__item__short_info__price__in_basket{
                             margin-top: 20px;
                         }
+
+                        .btn_in_basket_active{
+                            background: $blue;
+                            color: $white;
+                        }
+
                     }
                 }
             }
