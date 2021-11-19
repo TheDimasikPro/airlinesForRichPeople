@@ -170,7 +170,7 @@
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="type-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-old-{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
+                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="drop_old_type_document__{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
                                     {{-- список документов --}}
                                     <button class="passenger_type_document__dropbtn" type="button" id="drop_old_type_document__{{ $i+1 }}" aria-label="dropbtn_type_document__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>
@@ -242,7 +242,7 @@
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="type-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-kids-{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
+                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="drop_kids_type_document__{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
                                     {{-- список документов --}}
                                     <button class="passenger_type_document__dropbtn" type="button" id="drop_kids_type_document__{{ $i+1 }}" aria-label="dropbtn_type_document__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>
@@ -314,7 +314,7 @@
                                 <!-- /.passenger_full_info__forms_block__form_passenger__input_block -->
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="type-document-{{ $i+1 }}"></label>
-                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="type-document-baby-{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
+                                    <input type="text" class="sm_input passenger_full_info__type_document_input" readonly id="drop_baby_type_document__{{ $i+1 }}" name="type-document" placeholder="Тип документа *">
                                     {{-- список документов --}}
                                     <button class="passenger_type_document__dropbtn" type="button" id="drop_baby_type_document__{{ $i+1 }}" aria-label="dropbtn_type_document__{{ $i+1 }}">
                                         <i class="fas fa-arrow-down"></i>

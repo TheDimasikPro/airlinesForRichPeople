@@ -2290,7 +2290,7 @@ input[type=button] {
   height: auto;
 }
 .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger_full_info__type_document_input:hover {
-  cursor: auto;
+  cursor: pointer;
 }
 .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item:not(:first-child) {
   margin-top: 30px;

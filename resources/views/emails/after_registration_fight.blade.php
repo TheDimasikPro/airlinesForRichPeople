@@ -19,6 +19,9 @@
           table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
           img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
           p { display:block;margin:13px 0; }
+          .upper{
+            text-transform: uppercase;
+          }
         </style>
         <!--[if !mso]><!-->
         <style type="text/css">
@@ -304,14 +307,14 @@
             <tr>
               <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">  
                 <div style="font-family:helvetica;font-size:20px;line-height:1;text-align:left;color:black;">
-                  Номер рейса туда: <span>{{ $flights["flight_from"]->flight_code }}</span>
+                  Номер рейса туда: <span class="upper">{{ $flights["flight_from"]->flight_code }}</span>
                 </div>
               </td>
             </tr>
             <tr>
               <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                 <div style="font-family:helvetica;font-size:20px;line-height:1;text-align:left;color:black;">
-                  Номер билета: <span>{{ $ticket_code }}</span>
+                  Номер билета: <span class="upper">{{ $ticket_code }}</span>
                 </div>
               </td>
             </tr>
@@ -366,14 +369,14 @@
             <tr>
               <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">  
                 <div style="font-family:helvetica;font-size:20px;line-height:1;text-align:left;color:black;">
-                  Номер рейса обратно: <span>{{ $flights["flight_back"]->flight_code }}</span>
+                  Номер рейса обратно: <span class="upper">{{ $flights["flight_back"]->flight_code }}</span>
                 </div>
               </td>
             </tr>
             <tr>
               <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                 <div style="font-family:helvetica;font-size:20px;line-height:1;text-align:left;color:black;">
-                  Номер билета: <span>{{ $ticket_code }}</span>
+                  Номер билета: <span class="upper">{{ $ticket_code }}</span>
                 </div>
               </td>
             </tr>

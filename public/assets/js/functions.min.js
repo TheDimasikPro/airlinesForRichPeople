@@ -405,6 +405,20 @@ $(document).ready(function () {
     completed: function completed() {// console.log("харош");
     }
   });
+  $('.passenger_full_info__type_document_input').click(function (e) {
+    var this_id = $(this).attr('id');
+
+    if (!$('.passenger_type_document__dropbtn[id="' + this_id + '"]').hasClass('rotate_180')) {
+      $('.passenger__type_document_list').removeClass('show_drop_content');
+      $('.passenger__type_document_list[id="' + this_id + '"]').addClass('show_drop_content');
+      $('.passenger_type_document__dropbtn[id="' + this_id + '"]').removeClass('rotate_180');
+      $('.passenger__citizenship_list').removeClass('show_drop_content');
+      $('.passenger_type_document__dropbtn[id="' + this_id + '"]').addClass('rotate_180');
+    } else {
+      $('.passenger__type_document_list[id="' + this_id + '"]').removeClass('show_drop_content');
+      $('.passenger_type_document__dropbtn[id="' + this_id + '"]').removeClass('rotate_180');
+    }
+  });
   $('.passenger_type_document__dropbtn').click(function (e) {
     e.preventDefault();
     var this_id = $(this).attr('id');

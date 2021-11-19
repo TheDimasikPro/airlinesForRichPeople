@@ -57,21 +57,20 @@
 		</tr>
         <?php $key_number = 1;?>
         @foreach ($response_mail as $key => $response_mail__item__second)
-            <?php $key_number++;?>
             @if (!empty($response_mail__item__second["flight_from"]))
                 <tr>
-                    <td>{{ $key_number }}</td>
+                    <td>{{ $key }}</td>
                     {{-- <td class="upper">{{ $response_mail__item__second["flight_from"]["flight_code"] }}</td> --}}
-                    <td class="upper">{{ $response_mail["booking_codes"][0] }}</td>
+                    <td class="upper">{{ $response_mail__item__second["booking_codes"][$key] }}</td>
                     @if (empty($response_mail__item__second["flight_from"]['airport_flight_from_start']["city_rus"]))
                         <td>
-                            {{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_start']["city_eng"]) }} 
-                            ({{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_start']["iata_code"]) }})
+                            {{ htmlspecialchars($response_mail__item__second['airport_flight_from_start']["city_eng"]) }} 
+                            ({{ htmlspecialchars($response_mail__item__second['airport_flight_from_start']["iata_code"]) }})
                         </td>
                     @else
                         <td>
-                            {{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_start']["city_rus"]) }} 
-                            ({{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_start']["iata_code"]) }})
+                            {{ htmlspecialchars($response_mail__item__second['airport_flight_from_start']["city_rus"]) }} 
+                            ({{ htmlspecialchars($response_mail__item__second['airport_flight_from_start']["iata_code"]) }})
                         </td>
                     @endif
                     {{-- <td>
@@ -79,13 +78,13 @@
                     </td> --}}
                     @if (empty($response_mail__item__second["flight_from"]['airport_flight_from_end']["city_rus"]))
                         <td>
-                            {{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_end']["city_eng"]) }} 
-                            ({{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_end']["iata_code"]) }})
+                            {{ htmlspecialchars($response_mail__item__second['airport_flight_from_end']["city_eng"]) }} 
+                            ({{ htmlspecialchars($response_mail__item__second['airport_flight_from_end']["iata_code"]) }})
                         </td>
                     @else
                         <td>
-                            {{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_end']["city_rus"]) }} 
-                            ({{ htmlspecialchars($response_mail__item__second["flight_from"]['airport_flight_from_end']["iata_code"]) }})
+                            {{ htmlspecialchars($response_mail__item__second['airport_flight_from_end']["city_rus"]) }} 
+                            ({{ htmlspecialchars($response_mail__item__second['airport_flight_from_end']["iata_code"]) }})
                         </td>
                     @endif
                     {{-- <td>Москва (DME)</td> --}}
@@ -102,49 +101,7 @@
                 </tr>
             @endif
             
-            @if (!empty($response_mail__item__second["flight_back"]))
-                <tr>
-                    <td>{{ $key_number }}</td>
-                    {{-- <td class="upper">{{ $response_mail__item__second["flight_back"]["flight_code"] }}</td> --}}
-                    <td class="upper">{{ $response_mail["booking_codes"][1] }}</td>
-                    @if (empty($response_mail__item__second["flight_back"]['airport_flight_back_start']["city_rus"]))
-                        <td>
-                            {{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_start']["city_eng"]) }} 
-                            ({{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_start']["iata_code"]) }})
-                        </td>
-                    @else
-                        <td>
-                            {{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_start']["city_rus"]) }} 
-                            ({{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_start']["iata_code"]) }})
-                        </td>
-                    @endif
-                    {{-- <td>
-                        {{ Екатеринбург }} (SVX)
-                    </td> --}}
-                    @if (empty($response_mail__item__second["flight_back"]['airport_flight_back_end']["city_rus"]))
-                        <td>
-                            {{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_end']["city_eng"]) }} 
-                            ({{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_end']["iata_code"]) }})
-                        </td>
-                    @else
-                        <td>
-                            {{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_end']["city_rus"]) }} 
-                            ({{ htmlspecialchars($response_mail__item__second["flight_back"]['airport_flight_back_end']["iata_code"]) }})
-                        </td>
-                    @endif
-                    {{-- <td>Москва (DME)</td> --}}
-                    {{-- <div class="time_flight">{{ \Jenssegers\Date\Date::parse($auth_user__flight_arr['flight_from']["time_start"])->format('H:i') }}</div> --}}
-                    <td>
-                        {{ \Jenssegers\Date\Date::parse($response_mail__item__second['flight_back']["time_start"])->format('H:i') }} 
-                        {{ \Jenssegers\Date\Date::parse($response_mail__item__second['flight_back']["date_start"])->format('Y/m/d') }}
-                    </td>
-                    <td>
-                        {{ \Jenssegers\Date\Date::parse($response_mail__item__second['flight_back']["time_end"])->format('H:i') }} 
-                        {{ \Jenssegers\Date\Date::parse($response_mail__item__second['flight_back']["date_end"])->format('Y/m/d') }}
-                    </td>
-                    <td>{{ htmlspecialchars( $response_mail__item__second['flight_back']["cost"]) }}р</td>
-                </tr>
-            @endif
+            
         @endforeach
 		<tr>
             <td colspan="4">Общее кол-во пассажиров на всех рейсах: {{ $response_mail["count_pass"] }}</td>
