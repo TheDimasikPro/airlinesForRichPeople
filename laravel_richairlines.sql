@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Ноя 19 2021 г., 12:29
+-- Время создания: Ноя 19 2021 г., 13:49
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.8
 
@@ -9893,6 +9893,232 @@ INSERT INTO `gender_codes` (`id`, `gender_name_rus`, `gender_name_eng`, `created
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `international_country_codes`
+--
+
+CREATE TABLE `international_country_codes` (
+  `id` bigint UNSIGNED NOT NULL,
+  `country_name_rus` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country_name_eng` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country_iso` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country_code` int NOT NULL,
+  `phone_number_length` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `international_country_codes`
+--
+
+INSERT INTO `international_country_codes` (`id`, `country_name_rus`, `country_name_eng`, `country_iso`, `country_code`, `phone_number_length`, `created_at`, `updated_at`) VALUES
+(1, 'Россия', 'Russia', 'RU', 7, 11, NULL, NULL),
+(2, 'Украина', 'Ukraine', 'UA', 380, 12, NULL, NULL),
+(3, 'Казахстан', 'Kazakhstan', 'KZ', 77, 11, NULL, NULL),
+(4, 'Литва', 'Lithuania', 'LT', 370, 11, NULL, NULL),
+(5, 'Беларусь', 'Belarus', 'BY', 375, 12, NULL, NULL),
+(6, 'США', 'USA', 'US', 1, 11, NULL, NULL),
+(7, 'Абхазия', 'Abkhazia', 'AB', 7940, 11, NULL, NULL),
+(8, 'Австралия', 'Australia', 'AU', 61, 11, NULL, NULL),
+(9, 'Австрия', 'Austria', 'AT', 43, 12, NULL, NULL),
+(10, 'Азербайджан', 'Azerbaijan', 'AZ', 994, 12, NULL, NULL),
+(11, 'Албания', 'Albania', 'AL', 355, 12, NULL, NULL),
+(12, 'Алжир', 'Algeria', 'DZ', 213, 12, NULL, NULL),
+(13, 'Ангола', 'Angola', 'AO', 244, 12, NULL, NULL),
+(14, 'Андорра', 'Andorra', 'AD', 376, 9, NULL, NULL),
+(15, 'Антигуа и Барбуда', 'Antigua And Barbuda', 'AG', 1268, 11, NULL, NULL),
+(16, 'Аргентина', 'Argentina', 'AR', 54, 13, NULL, NULL),
+(17, 'Армения', 'Armenia', 'AM', 374, 11, NULL, NULL),
+(18, 'Аруба', 'Aruba', 'AW', 297, 10, NULL, NULL),
+(19, 'Афганистан', 'Afghanistan', 'AF', 93, 11, NULL, NULL),
+(20, 'Багамские о-ва', 'Bahamas', 'BS', 1242, 11, NULL, NULL),
+(21, 'Бангладеш', 'Bangladesh', 'BD', 880, 13, NULL, NULL),
+(22, 'Барбадос', 'Barbados', 'BB', 1246, 11, NULL, NULL),
+(23, 'Бахрейн', 'Bahrain', 'BH', 973, 11, NULL, NULL),
+(24, 'Белиз', 'Belize', 'BZ', 501, 10, NULL, NULL),
+(25, 'Бельгия', 'Belgium', 'BE', 32, 11, NULL, NULL),
+(26, 'Бенин', 'Benin', 'BJ', 229, 11, NULL, NULL),
+(27, 'Берег слоновой кости', 'Cote D\"Ivoire', 'CI', 225, 11, NULL, NULL),
+(28, 'Бермуды', 'Bermuda', 'BM', 1441, 11, NULL, NULL),
+(29, 'Болгария', 'Bulgaria', 'BG', 359, 12, NULL, NULL),
+(30, 'Боливия', 'Bolivia', 'BO', 591, 11, NULL, NULL),
+(31, 'Босния', 'Bosnia And Herzegovina', 'BA', 387, 11, NULL, NULL),
+(32, 'Ботсвана', 'Botswana', 'BW', 267, 11, NULL, NULL),
+(33, 'Бразилия', 'Brazil', 'BR', 55, 12, NULL, NULL),
+(34, 'Британские Вирджинские о-ва', 'British Virgin Islands', 'VG', 1284, 11, NULL, NULL),
+(35, 'Бруней', 'Brunei Darussalam', 'BN', 673, 10, NULL, NULL),
+(36, 'Буркина Фасо', 'Burkina Faso', 'BF', 226, 11, NULL, NULL),
+(37, 'Бурунди', 'Burundi', 'BI', 257, 11, NULL, NULL),
+(38, 'Бутан', 'Bhutan', 'BT', 975, 11, NULL, NULL),
+(39, 'Вануату', 'Vanuatu', 'VU', 678, 10, NULL, NULL),
+(40, 'Великобритания', 'United Kingdom', 'UK', 44, 12, NULL, NULL),
+(41, 'Венгрия', 'Hungary', 'HU', 36, 11, NULL, NULL),
+(42, 'Венесуэла', 'Venezuela', 'VE', 58, 12, NULL, NULL),
+(43, 'Восточный Тимор', 'Timor-Leste', 'TL', 670, 11, NULL, NULL),
+(44, 'Вьетнам', 'Vietnam', 'VN', 84, 11, NULL, NULL),
+(45, 'Габон', 'Gabon', 'GA', 241, 11, NULL, NULL),
+(46, 'Гаити', 'Haiti', 'HT', 509, 11, NULL, NULL),
+(47, 'Гамбия', 'Gambia', 'GM', 220, 10, NULL, NULL),
+(48, 'Гана', 'Ghana', 'GH', 233, 12, NULL, NULL),
+(49, 'Гваделупа', 'Guadeloupe', 'GP', 590, 12, NULL, NULL),
+(50, 'Гватемала', 'Guatemala', 'GT', 502, 11, NULL, NULL),
+(51, 'Гвинея', 'Guinea', 'GN', 224, 11, NULL, NULL),
+(52, 'Гвинея-Бисау', 'Guinea-Bissau', 'GW', 245, 10, NULL, NULL),
+(53, 'Германия', 'Germany', 'DE', 49, 12, NULL, NULL),
+(54, 'Гибралтар', 'Gibraltar', 'GI', 350, 11, NULL, NULL),
+(55, 'Гонг Конг', 'Hong Kong', 'HK', 852, 11, NULL, NULL),
+(56, 'Гондурас', 'Honduras', 'HN', 504, 11, NULL, NULL),
+(57, 'Гренада', 'Grenada', 'GD', 1473, 11, NULL, NULL),
+(58, 'Гренландия', 'Greenland', 'GL', 299, 9, NULL, NULL),
+(59, 'Греция', 'Greece', 'GR', 30, 12, NULL, NULL),
+(60, 'Грузия', 'Georgia', 'GE', 995, 12, NULL, NULL),
+(61, 'Гуам', 'Guam', 'GU', 671, 11, NULL, NULL),
+(62, 'Дания', 'Denmark', 'DK', 45, 10, NULL, NULL),
+(63, 'Доминика', 'Dominica', 'DM', 1767, 11, NULL, NULL),
+(64, 'Доминиканская республика', 'Dominican Republic', 'DO', 1809, 11, NULL, NULL),
+(65, 'Египет', 'Egypt', 'EG', 20, 12, NULL, NULL),
+(66, 'Замбия', 'Zambia', 'ZM', 260, 12, NULL, NULL),
+(67, 'Зимбабве', 'Zimbabwe', 'ZW', 263, 12, NULL, NULL),
+(68, 'Израиль', 'Israel', 'IL', 972, 12, NULL, NULL),
+(69, 'Индия', 'India', 'IN', 91, 12, NULL, NULL),
+(70, 'Индонезия', 'Indonesia', '\"ID\"', 62, 11, NULL, NULL),
+(71, 'Иордания', 'Jordan', 'JO', 962, 12, NULL, NULL),
+(72, 'Ирак', 'Iraq', 'IQ', 964, 13, NULL, NULL),
+(73, 'Иран', 'Iran', 'IR', 98, 12, NULL, NULL),
+(74, 'Ирландия', 'Ireland', 'IE', 353, 12, NULL, NULL),
+(75, 'Исландия', 'Iceland', 'IS', 354, 10, NULL, NULL),
+(76, 'Испания', 'Spain', 'ES', 34, 11, NULL, NULL),
+(77, 'Италия', 'Italy', 'IT', 39, 12, NULL, NULL),
+(78, 'Йемен', 'Yemen', 'YE', 967, 12, NULL, NULL),
+(79, 'Каймановы о-ва', 'Cayman Islands', 'KY', 1345, 11, NULL, NULL),
+(80, 'Камбоджа', 'Cambodia', 'KH', 855, 11, NULL, NULL),
+(81, 'Камерун', 'Cameroon', 'CM', 237, 11, NULL, NULL),
+(82, 'Канада', 'Canada', 'CA', 1, 11, NULL, NULL),
+(83, 'Капе Верде', 'Cape Verde', 'CV', 238, 10, NULL, NULL),
+(84, 'Катар', 'Qatar', 'QA', 974, 11, NULL, NULL),
+(85, 'Кения', 'Kenya', 'KE', 254, 12, NULL, NULL),
+(86, 'Кипр', 'Cyprus', 'CY', 357, 11, NULL, NULL),
+(87, 'Китай', 'China', 'CN', 86, 13, NULL, NULL),
+(88, 'Колумбия', 'Colombia', 'CO', 57, 12, NULL, NULL),
+(89, 'Коморские о-ва', 'Comoros', 'KM', 269, 10, NULL, NULL),
+(90, 'Конго', 'Congo', 'CG', 242, 12, NULL, NULL),
+(91, 'Конго', 'Congo [DRC]', 'CD', 242, 12, NULL, NULL),
+(92, 'Косово', 'KOSOVO', 'RK', 3478, 0, NULL, NULL),
+(93, 'Коста-Рика', 'Costa Rica', 'CR', 506, 11, NULL, NULL),
+(94, 'Куба', 'Cuba', 'CU', 53, 10, NULL, NULL),
+(95, 'Кыргызстан', 'Kyrgyzstan', 'KG', 996, 12, NULL, NULL),
+(96, 'Кювейт', 'Kuwait', 'KW', 965, 11, NULL, NULL),
+(97, 'Кюрасао', 'Curacao', 'AN', 599, 11, NULL, NULL),
+(98, 'Латвия', 'Latvia', 'LV', 371, 11, NULL, NULL),
+(99, 'Лесото', 'Lesotho', 'LS', 266, 11, NULL, NULL),
+(100, 'Либерия', 'Liberia', 'LR', 231, 10, NULL, NULL),
+(101, 'Ливан', 'Lebanon', 'LB', 961, 11, NULL, NULL),
+(102, 'Ливия', 'Libya', 'LY', 21, 12, NULL, NULL),
+(103, 'Лихтенштейн', 'Liechtenstein', 'LI', 423, 12, NULL, NULL),
+(104, 'Люксенбург', 'Luxembourg', 'LU', 352, 12, NULL, NULL),
+(105, 'Маврикий', 'Mauritius', 'MU', 230, 10, NULL, NULL),
+(106, 'Мавритания', 'Mauritania', 'MR', 222, 11, NULL, NULL),
+(107, 'Мадагаскар', 'Madagascar', 'MG', 261, 12, NULL, NULL),
+(108, 'Макао', 'Macao', 'MO', 853, 11, NULL, NULL),
+(109, 'Македония', 'Macedonia', 'MK', 389, 11, NULL, NULL),
+(110, 'Малави', 'Malawi', 'MW', 265, 12, NULL, NULL),
+(111, 'Малайзия', 'Malaysia', 'MY', 60, 11, NULL, NULL),
+(112, 'Мали', 'Mali', 'ML', 223, 11, NULL, NULL),
+(113, 'Мальдивы', 'Maldives', 'MV', 960, 10, NULL, NULL),
+(114, 'Мальта', 'Malta', 'MT', 356, 11, NULL, NULL),
+(115, 'Марокко', 'Morocco', 'MA', 212, 12, NULL, NULL),
+(116, 'Мартиника', 'Martinique', 'MQ', 596, 12, NULL, NULL),
+(117, 'Мексика', 'Mexico', 'MX', 52, 13, NULL, NULL),
+(118, 'Мозамбик', 'Mozambique', 'MZ', 258, 12, NULL, NULL),
+(119, 'Молдова', 'Moldova', 'MD', 373, 11, NULL, NULL),
+(120, 'Монако', 'Monaco', 'MC', 377, 12, NULL, NULL),
+(121, 'Монголия', 'Mongolia', 'MN', 976, 11, NULL, NULL),
+(122, 'Монтенегро', 'Montenegro', 'ME', 381, 11, NULL, NULL),
+(123, 'Намибия', 'Namibia', 'NA', 264, 12, NULL, NULL),
+(124, 'Науру', 'Nauru', 'NR', 674, 10, NULL, NULL),
+(125, 'Непал', 'Nepal', 'NP', 977, 13, NULL, NULL),
+(126, 'Нигер', 'Niger', 'NE', 227, 11, NULL, NULL),
+(127, 'Нигерия', 'Nigeria', 'NG', 234, 13, NULL, NULL),
+(128, 'Нидерланды', 'Netherlands', 'NL', 31, 11, NULL, NULL),
+(129, 'Никарагуа', 'Nicaragua', 'NI', 505, 11, NULL, NULL),
+(130, 'Новая Зеландия', 'New Zealand', 'NZ', 64, 11, NULL, NULL),
+(131, 'Новая Каледония', 'New Caledonia', 'NC', 687, 9, NULL, NULL),
+(132, 'Норвегия', 'Norway', 'NO', 47, 10, NULL, NULL),
+(133, 'о-ва Кука', 'Cook Islands', 'CK', 682, 8, NULL, NULL),
+(134, 'Объединенные Арабские эмираты', 'United Arab Emirates', 'AE', 971, 12, NULL, NULL),
+(135, 'Оман', 'Oman', 'OM', 968, 11, NULL, NULL),
+(136, 'Пакистан', 'Pakistan', 'PK', 92, 12, NULL, NULL),
+(137, 'Палестина', 'Palestinian Territories', 'PS', 970, 12, NULL, NULL),
+(138, 'Панама', 'Panama', 'PA', 507, 11, NULL, NULL),
+(139, 'Папуа-Новая Гвинея', 'Papua New Guinea', 'PG', 675, 10, NULL, NULL),
+(140, 'Парагвай', 'Paraguay', 'PY', 595, 12, NULL, NULL),
+(141, 'Перу', 'Peru', 'PE', 51, 11, NULL, NULL),
+(142, 'Польша', 'Poland', 'PL', 48, 11, NULL, NULL),
+(143, 'Португалия', 'Portugal', 'PT', 351, 12, NULL, NULL),
+(144, 'Пуэрто Рико', 'Puerto Rico', 'PR', 1787, 11, NULL, NULL),
+(145, 'Реюнион', 'Reunion', 'RE', 262, 12, NULL, NULL),
+(146, 'Руанда', 'Rwanda', 'RW', 250, 12, NULL, NULL),
+(147, 'Румыния', 'Romania', 'RO', 40, 11, NULL, NULL),
+(148, 'Самоа', 'Samoa', 'AS', 685, 9, NULL, NULL),
+(149, 'Сан-Марино', 'San Marino', 'SM', 378, 11, NULL, NULL),
+(150, 'Санта Лючия', 'Saint Lucia', 'LC', 1758, 11, NULL, NULL),
+(151, 'Саудовская Аравия', 'Saudi Arabia', 'SA', 966, 12, NULL, NULL),
+(152, 'Северная Корея', 'North Korea', 'KP', 82, 13, NULL, NULL),
+(153, 'Северо-Марианские о-ва', 'Northern Mariana Islands', 'MP', 670, 11, NULL, NULL),
+(154, 'Сейшельские острова', 'Seychelles', 'SC', 248, 10, NULL, NULL),
+(155, 'Сенегал', 'Senegal', 'SN', 221, 12, NULL, NULL),
+(156, 'Сент Винцент и Гренадины', 'Saint Vincent And The Grenadines', 'VC', 1784, 11, NULL, NULL),
+(157, 'Сент-Китс и Невис', 'Saint Kitts And Nevis', 'KN', 1869, 11, NULL, NULL),
+(158, 'Сербия', 'Serbia', 'CS', 381, 11, NULL, NULL),
+(159, 'Сингапур', 'Singapore', 'SG', 65, 10, NULL, NULL),
+(160, 'Сирия', 'Syrian Arab Republic', 'SY', 963, 12, NULL, NULL),
+(161, 'Словакия', 'Slovakia', 'SK', 421, 12, NULL, NULL),
+(162, 'Словения', 'Slovenia', 'SI', 386, 11, NULL, NULL),
+(163, 'Соломоновы острова', 'Solomon Islands', 'SB', 677, 10, NULL, NULL),
+(164, 'Судан', 'Sudan', 'SD', 249, 12, NULL, NULL),
+(165, 'Суринам', 'Suriname', 'SR', 597, 10, NULL, NULL),
+(166, 'Сьерра-Леоне', 'Sierra Leone', 'SL', 232, 11, NULL, NULL),
+(167, 'Таджикистан', 'Tajikistan', 'TJ', 992, 12, NULL, NULL),
+(168, 'Таиланд', 'Thailand', 'TH', 66, 11, NULL, NULL),
+(169, 'Тайвань', 'Taiwan', 'TW', 886, 12, NULL, NULL),
+(170, 'Танзания', 'Tanzania', 'TZ', 255, 12, NULL, NULL),
+(171, 'Того', 'Togo', 'TG', 228, 11, NULL, NULL),
+(172, 'Тонга', 'Tonga', 'TO', 676, 10, NULL, NULL),
+(173, 'Тринидад и Тобаго', 'Trinidad And Tobago', 'TT', 1868, 11, NULL, NULL),
+(174, 'Тунис', 'Tunisia', 'TN', 216, 11, NULL, NULL),
+(175, 'Туркменистан', 'Turkmenistan', 'TM', 993, 11, NULL, NULL),
+(176, 'Турция', 'Turkey', 'TR', 90, 12, NULL, NULL),
+(177, 'Уганда', 'Uganda', 'UG', 256, 12, NULL, NULL),
+(178, 'Узбекистан', 'Uzbekistan', 'UZ', 998, 12, NULL, NULL),
+(179, 'Уругвай', 'Uruguay', 'UY', 598, 11, NULL, NULL),
+(180, 'Фарерские острова', 'Faroe Islands', 'FO', 298, 9, NULL, NULL),
+(181, 'Фиджи', 'Fiji', 'FJ', 679, 10, NULL, NULL),
+(182, 'Филиппины', 'Philippines', 'PH', 63, 12, NULL, NULL),
+(183, 'Финляндия', 'Finland', 'FI', 358, 12, NULL, NULL),
+(184, 'Франция', 'France', 'FR', 33, 11, NULL, NULL),
+(185, 'Французская Гвиана', 'French Guiana', 'GF', 594, 12, NULL, NULL),
+(186, 'Французская Полинезия', 'French Polynesia', 'PF', 689, 9, NULL, NULL),
+(187, 'Хорватия', 'Croatia', 'HR', 385, 11, NULL, NULL),
+(188, 'ЦАР', 'Central African Republic', 'CF', 236, 11, NULL, NULL),
+(189, 'Чад', 'Chad', 'TD', 235, 11, NULL, NULL),
+(190, 'Чешская республика', 'Czech Republic', 'CZ', 420, 12, NULL, NULL),
+(191, 'Чили', 'Chile', 'CL', 56, 11, NULL, NULL),
+(192, 'Швейцария', 'Switzerland', 'CH', 41, 11, NULL, NULL),
+(193, 'Швеция', 'Sweden', 'SE', 46, 11, NULL, NULL),
+(194, 'Шри-Ланка', 'Sri Lanka', 'LK', 94, 11, NULL, NULL),
+(195, 'Эквадор', 'Ecuador', 'EC', 593, 12, NULL, NULL),
+(196, 'Экваториальная Гвинея', 'Equatorial Guinea', 'GQ', 240, 12, NULL, NULL),
+(197, 'Эль Сальвадор', 'El Salvador', 'SV', 503, 11, NULL, NULL),
+(198, 'Эстония', 'Estonia', 'EE', 372, 11, NULL, NULL),
+(199, 'Эфиопия', 'Ethiopia', 'ET', 251, 12, NULL, NULL),
+(200, 'ЮАР', 'South Africa', 'ZA', 27, 11, NULL, NULL),
+(201, 'Южная Корея', 'South Korea', 'KR', 82, 12, NULL, NULL),
+(202, 'Ямайка', 'Jamaica', 'JM', 1876, 11, NULL, NULL),
+(203, 'Япония', 'Japan', 'JP', 81, 12, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `migrations`
 --
 
@@ -9920,7 +10146,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2021_11_05_170729_create_passengers_table', 3),
 (16, '2021_11_05_120557_create_bookings_table', 4),
 (17, '2021_11_05_113547_create_flights_table', 5),
-(19, '2021_11_17_181556_create_reviews_table', 6);
+(19, '2021_11_17_181556_create_reviews_table', 6),
+(20, '2021_11_19_151314_create_international_country_codes_table', 7);
 
 -- --------------------------------------------------------
 
@@ -10129,6 +10356,12 @@ ALTER TABLE `gender_codes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `international_country_codes`
+--
+ALTER TABLE `international_country_codes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `migrations`
 --
 ALTER TABLE `migrations`
@@ -10236,10 +10469,16 @@ ALTER TABLE `gender_codes`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT для таблицы `international_country_codes`
+--
+ALTER TABLE `international_country_codes`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
+
+--
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `passengers`
