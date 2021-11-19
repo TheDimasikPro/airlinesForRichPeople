@@ -791,7 +791,7 @@ $(document).ready(function () {
 
       _error_payment_ticket_list_item3.setAttribute('class', 'error_payment_ticket_list_item');
 
-      _error_payment_ticket_list_item3.append("Заполните поле 'секретный код'");
+      _error_payment_ticket_list_item3.append("Заполните поле секретный код");
 
       $('.error_payment_ticket_list').append(_error_payment_ticket_list_item3);
     }

@@ -752,7 +752,7 @@ $(document).ready(function () {
         if (security_code_card == "") {
             let error_payment_ticket_list_item = document.createElement('li');
             error_payment_ticket_list_item.setAttribute('class','error_payment_ticket_list_item');
-            error_payment_ticket_list_item.append("Заполните поле 'секретный код'");
+            error_payment_ticket_list_item.append("Заполните поле секретный код");
             $('.error_payment_ticket_list').append(error_payment_ticket_list_item);
         }
 
