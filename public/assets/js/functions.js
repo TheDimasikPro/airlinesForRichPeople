@@ -480,8 +480,8 @@ $(document).ready(function () {
     }
 
     var filter = $(this).val().toUpperCase(); // приводим все к верхнему регистру
+    // console.log($('.passenger__citizenship_list[id="'+parent_id+'"]'));
 
-    console.log($('.passenger__citizenship_list[id="' + parent_id + '"]'));
     var elements = $('.passenger__citizenship_list[id="' + parent_id + '"] .passenger__citizenship_list__item'); // все элементы с классом dropdown-content--item
 
     searchСountryOfIssue(id_input, filter, elements);
@@ -667,9 +667,9 @@ $(document).ready(function () {
 
 
           formDataArray[randomString(5)] = arr; //    (index+"_array", JSON.stringify(mapToAoO(arr)));
-        }
+        } // console.log(JSON.stringify(formDataArray));
 
-        console.log(JSON.stringify(formDataArray));
+
         $.ajax({
           url: "/search_tickets/payment_tickets_redirect",
           type: "POST",
@@ -686,8 +686,8 @@ $(document).ready(function () {
           // dataType:false,
           beforeSend: function beforeSend() {},
           success: function success(data, textStatus, request) {
-            var contType = request.getResponseHeader("Content-Type");
-            console.log(contType); // if(contType == "") { // take it from here... }
+            var contType = request.getResponseHeader("Content-Type"); // console.log(contType);
+            // if(contType == "") { // take it from here... }
 
             $('#payment_ticket_btn').removeClass('non_click');
 

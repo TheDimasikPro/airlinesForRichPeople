@@ -220,8 +220,7 @@ $(document).ready(function () {
       $('#count_pass_block_input').removeClass('block_inputs_active');
     }, 100);
     $('.drop_count_pass').removeClass('show_drop_content');
-    $('#dropbtn_count_pass').removeClass('rotate_180');
-    console.log('vvv');
+    $('#dropbtn_count_pass').removeClass('rotate_180'); // console.log('vvv');
   }); // календари
 
   $('#id_i_d_t').change(function () {

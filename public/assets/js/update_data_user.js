@@ -139,8 +139,7 @@ $(document).ready(function () {
     } else {
       $('.personal_data_block__update_form__country_of_issue_list').removeClass('show_drop_content');
       $('#dropbtn_country_of_issue_user').removeClass('rotate_180');
-      $('#dropbtn_country_of_issue_user').removeAttr('style');
-      console.log('vv');
+      $('#dropbtn_country_of_issue_user').removeAttr('style'); // console.log('vv');
     }
   });
   $('.personal_data_block__update_form__country_of_issue_list__item').click(function () {
@@ -325,8 +324,8 @@ $(document).ready(function () {
               $('.update_password_block').removeClass('profile_data_cards_non_view');
               $('.update_password_block').removeClass('profile_data_cards__anim');
               $('.update_password_block').addClass('active_profile_data');
-              $('.profile_data_cards').height('auto');
-              console.log($('.update_password_block').height());
+              $('.profile_data_cards').height('auto'); // console.log($('.update_password_block').height());
+
               $('.aside_user__list__item__btn').removeClass('aside_user__list__item_non_click');
             }, 1200);
           }

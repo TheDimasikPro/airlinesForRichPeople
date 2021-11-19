@@ -223,7 +223,7 @@ $(document).ready(function () {
         $('.drop_count_pass').removeClass('show_drop_content');
         $('#dropbtn_count_pass').removeClass('rotate_180');
         
-        console.log('vvv');
+        // console.log('vvv');
     });
     // календари
     $('#id_i_d_t').change(function () {

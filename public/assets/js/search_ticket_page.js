@@ -148,8 +148,8 @@ $(document).ready(function (e) {
       var parent_this_btn_back = $('.result_price__flight_from__cards__item:not(.not_select_result_price__flight_from__cards__item)');
       var cost_back = $('.result_price__flight_to__cards__item__short_info__price__text.select_back_price').text();
       price_tikets = 0;
-      price_tikets += Number(cost_start) + Number(cost_back);
-      console.log(flight_code);
+      price_tikets += Number(cost_start) + Number(cost_back); // console.log(flight_code);
+
       $('.select_ticket_from__time_start').text(start_time);
       $('.select_ticket_from__time_end').text(end_time);
       $('.select_ticket_from__number_flight').text(flight_code);
@@ -184,8 +184,8 @@ $(document).ready(function (e) {
       var cost_start = $('.result_price__flight_to__cards__item__short_info__price__text.select_from_price').text();
       price_tikets = 0;
       price_tikets += Number(cost_back) + Number(cost_start); // price_tikets__both_sides += Number(cost);
+      // console.log(flight_code);
 
-      console.log(flight_code);
       $('.select_ticket_to__time_start').text(start_time);
       $('.select_ticket_to__time_end').text(end_time);
       $('.select_ticket_to__number_flight').text(flight_code);

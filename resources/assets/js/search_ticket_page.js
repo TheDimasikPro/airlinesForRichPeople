@@ -159,7 +159,7 @@ $(document).ready(function (e) {
 
             price_tikets = 0;
             price_tikets += Number(cost_start) + Number(cost_back);
-            console.log(flight_code);
+            // console.log(flight_code);
             $('.select_ticket_from__time_start').text(start_time);
             $('.select_ticket_from__time_end').text(end_time);
             $('.select_ticket_from__number_flight').text(flight_code);
@@ -202,7 +202,7 @@ $(document).ready(function (e) {
             price_tikets += Number(cost_back) + Number(cost_start);
 
             // price_tikets__both_sides += Number(cost);
-            console.log(flight_code);
+            // console.log(flight_code);
             $('.select_ticket_to__time_start').text(start_time);
             $('.select_ticket_to__time_end').text(end_time);
             $('.select_ticket_to__number_flight').text(flight_code);
