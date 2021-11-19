@@ -151,3 +151,8 @@ Route::get('/ip', function () {
     // $data = \Location::get($ip);
     // dd($data);
 });
+
+
+
+Route::get('/edit_future_flights',[FlightController::class,'returnViewEditFutureFlight'])->name('edit_future_flights');
+Route::get('/operator',[FlightController::class,'returnViewOperatorWelcome'])->name('operator');

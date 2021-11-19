@@ -22,10 +22,12 @@ mix.js('resources/assets/js/app.js', 'public/assets/js')
     .js('resources/assets/js/functions.js', 'public/assets/js/functions.js')
     .js('resources/assets/js/update_data_user.js', 'public/assets/js/update_data_user.js')
     .js('resources/assets/js/search_ticket_page.js', 'public/assets/js/search_ticket_page.js')
+    .js('resources/assets/js/operator.js', 'public/assets/js/operator.js')
     .copy('resources/assets/images', 'public/assets/images')
     .sass('resources/assets/sass/style.scss', 'public/assets/css/style.css')
     .sass('resources/assets/sass/auth/auth.scss', 'public/assets/css/auth.css')
     .sass('resources/assets/sass/cabinet/my_profile.scss', 'public/assets/css/my_pofile.css')
+    .sass('resources/assets/sass/operator/operator.scss', 'public/assets/css/operator.css')
     // .browserSync({ 
     //     proxy: 'http://127.0.0.1:8000'
     // });
@@ -38,3 +40,4 @@ mix.minify('public/assets/js/index_page.js');
 mix.minify('public/assets/js/functions.js');
 mix.minify('public/assets/js/update_data_user.js');
 mix.minify('public/assets/js/search_ticket_page.js');
+mix.minify('public/assets/js/operator.js');

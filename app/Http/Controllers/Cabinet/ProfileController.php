@@ -21,6 +21,7 @@ class ProfileController extends Controller
     public function index()
     {
         if (Auth::check()) {
+            // return redirect()->route('edit_future_flights');
             $user_gender_code_name = GenderCode::where([
                 ['id', Auth::user()->id_gender_code]
             ])->first();

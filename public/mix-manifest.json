@@ -5,6 +5,8 @@
     "/assets/js/functions.js": "/assets/js/functions.js",
     "/assets/js/update_data_user.js": "/assets/js/update_data_user.js",
     "/assets/js/search_ticket_page.js": "/assets/js/search_ticket_page.js",
+    "/assets/js/operator.js": "/assets/js/operator.js",
+    "/assets/css/operator.css": "/assets/css/operator.css",
     "/assets/css/my_pofile.css": "/assets/css/my_pofile.css",
     "/assets/css/auth.css": "/assets/css/auth.css",
     "/assets/css/style.css": "/assets/css/style.css",
@@ -14,5 +16,6 @@
     "/assets/js/index_page.min.js": "/assets/js/index_page.min.js",
     "/assets/js/functions.min.js": "/assets/js/functions.min.js",
     "/assets/js/update_data_user.min.js": "/assets/js/update_data_user.min.js",
-    "/assets/js/search_ticket_page.min.js": "/assets/js/search_ticket_page.min.js"
+    "/assets/js/search_ticket_page.min.js": "/assets/js/search_ticket_page.min.js",
+    "/assets/js/operator.min.js": "/assets/js/operator.min.js"
 }

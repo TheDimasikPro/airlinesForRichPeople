@@ -1,0 +1,82 @@
+@import '../overall_style.scss';
+
+@keyframes animate_width_220_aside {
+    0% {
+        width: 60px;
+    }
+    100% {
+        width: 220px;
+    }
+}
+@keyframes animate_width_60_aside {
+    0% {
+        width: 220px;
+    }
+    100% {
+        width: 60px;
+    }
+}
+main{
+    display: flex;
+    justify-content: space-between;
+    .aside_nav{
+        background: $blue;
+        height: 100vh;
+        
+        .navbar{
+            .navbar__list{
+                .navbar__list__item{
+                    border-bottom: 1px solid transparent;
+                    display: flex;
+                    justify-content: center;
+                    .fas{
+                        font-size: 24px;
+                        transition: 0.1s;
+                    }
+                    &:hover{
+                        .fas{
+                            color: $light_green;
+                        }
+                    }
+                    .navbar__list__item__btn,.navbar__list__item__link,.navbar__list__item__link_icon{
+                        color: $white;
+                        font-size: $fz_second;
+                        padding: 15px;
+                        width: 100%;
+                    }
+
+                    .navbar__list__item__btn_active{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    
+                    .navbar__list__item__link_icon{
+                        display: flex;
+                        justify-content: center;
+                    }
+                    &:hover{
+                        border-bottom: 1px solid $white;
+                    }
+                    .non_view{
+                        display: none;
+                    }
+                }
+            }
+            
+        }
+        .navbar_open{
+            animation: 0.5s animate_width_220_aside forwards;
+            .navbar__list{
+                .navbar__list__item{
+                    .navbar__list__item__btn{
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    .section_content{
+        width: 100%;
+        padding: 15px;
+    }
+}

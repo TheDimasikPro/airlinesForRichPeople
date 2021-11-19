@@ -1,0 +1,357 @@
+*, *::after, *::before {
+  border: none;
+  background: none;
+  outline: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.2s;
+  outline-offset: 0px;
+  scroll-behavior: smooth;
+  font-family: "Roboto-Regular", sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+* ::-moz-selection, *::after ::-moz-selection, *::before ::-moz-selection {
+  color: white;
+  background: #52C9B9;
+}
+* ::selection, *::after ::selection, *::before ::selection {
+  color: white;
+  background: #52C9B9;
+}
+
+*::after, *::before {
+  font-family: "Font Awesome 5 Free";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  margin: 20px 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+body {
+  background: #FDFDFD;
+  font-size: 14px;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: #f9f9fd;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #004369;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9fd;
+}
+
+button, input {
+  padding: 6px 12px;
+}
+
+a {
+  color: #222222;
+  display: inline-block;
+}
+
+.df_jcspb_aic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.df_jcc_aic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.df_aic {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.warning_text {
+  color: red;
+}
+
+.non_view {
+  display: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.min_input {
+  width: 150px;
+  height: 40px;
+  font-weight: 400;
+  border: 1px solid #BEBEBE;
+}
+
+.sm_input {
+  width: 250px;
+  height: 40px;
+  font-weight: 400;
+  border: 1px solid #BEBEBE;
+  padding-right: 35px;
+}
+
+.sm_input_2 {
+  width: 322px;
+  height: 40px;
+  font-weight: 400;
+  border: 1px solid #BEBEBE;
+  padding-right: 35px;
+  font-size: 16px;
+}
+
+.md_input {
+  width: 400px;
+  height: 40px;
+  font-weight: 400;
+  border: 1px solid #BEBEBE;
+}
+
+.big_input {
+  width: 500px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.super_big_input {
+  width: 700px;
+  font-size: 16px;
+  border: 1px solid #BEBEBE;
+  height: 40px;
+  font-weight: 400;
+}
+
+.input_style_pofile {
+  height: 40px;
+  font-weight: 400;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #BEBEBE;
+  margin-top: 10px;
+}
+
+input[type=button] {
+  cursor: pointer;
+  text-align: left;
+}
+
+.rotate_180 {
+  transform-origin: center;
+  transform: rotate(180deg);
+}
+
+.btn_style_1 {
+  width: 240px;
+  font-weight: 700;
+  font-size: 14px;
+  background: #52C9B9;
+  height: 35px;
+  color: #ffffff;
+}
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #52C9B9;
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #52C9B9;
+  }
+}
+.btn_style_1:hover {
+  background: #004369;
+}
+
+@-webkit-keyframes slidein {
+  0% {
+    margin-top: -25px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    margin-top: -25px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+@-webkit-keyframes slidein_personal_data {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -25px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+@keyframes slidein_personal_data {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: -25px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+.btn_style_2 .fas {
+  font-size: 60px;
+  color: #ffffff;
+}
+
+.btn_style_3 {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #BEBEBE;
+}
+.btn_style_3:hover {
+  background: #E5E5E5;
+}
+
+.btn_style_red {
+  background: #A90000;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.logo_image {
+  width: 150px;
+}
+.logo_image .link_header img {
+  max-width: 100%;
+}
+
+.error_personal_data_visibly {
+  margin-top: 20px;
+  background: #A90000;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px;
+}
+
+@-webkit-keyframes animate_width_220_aside {
+  0% {
+    width: 60px;
+  }
+  100% {
+    width: 220px;
+  }
+}
+
+@keyframes animate_width_220_aside {
+  0% {
+    width: 60px;
+  }
+  100% {
+    width: 220px;
+  }
+}
+@-webkit-keyframes animate_width_60_aside {
+  0% {
+    width: 220px;
+  }
+  100% {
+    width: 60px;
+  }
+}
+@keyframes animate_width_60_aside {
+  0% {
+    width: 220px;
+  }
+  100% {
+    width: 60px;
+  }
+}
+main {
+  display: flex;
+  justify-content: space-between;
+}
+main .aside_nav {
+  background: #004369;
+  height: 100vh;
+}
+main .aside_nav .navbar .navbar__list .navbar__list__item {
+  border-bottom: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+}
+main .aside_nav .navbar .navbar__list .navbar__list__item .fas {
+  font-size: 24px;
+  transition: 0.1s;
+}
+main .aside_nav .navbar .navbar__list .navbar__list__item:hover .fas {
+  color: #52C9B9;
+}
+main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__btn, main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__link, main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__link_icon {
+  color: #ffffff;
+  font-size: 16px;
+  padding: 15px;
+  width: 100%;
+}
+main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__btn_active {
+  display: flex;
+  justify-content: center;
+}
+main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__link_icon {
+  display: flex;
+  justify-content: center;
+}
+main .aside_nav .navbar .navbar__list .navbar__list__item:hover {
+  border-bottom: 1px solid #ffffff;
+}
+main .aside_nav .navbar .navbar__list .navbar__list__item .non_view {
+  display: none;
+}
+main .aside_nav .navbar_open {
+  -webkit-animation: 0.5s animate_width_220_aside forwards;
+          animation: 0.5s animate_width_220_aside forwards;
+}
+main .aside_nav .navbar_open .navbar__list .navbar__list__item .navbar__list__item__btn {
+  text-align: left;
+}
+main .section_content {
+  width: 100%;
+  padding: 15px;
+}

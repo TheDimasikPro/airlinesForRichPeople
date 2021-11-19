@@ -380,6 +380,7 @@ class FlightController extends Controller
         
         
     }
+
     function objectToarray($data)
     {
         $array = (array)$data;
@@ -388,6 +389,7 @@ class FlightController extends Controller
         }
         return $array;
     }
+
     public function redirectViewPaymentTickets(Request $request)
     {
         $data = $request['formDataArray'];
@@ -872,5 +874,15 @@ class FlightController extends Controller
         return redirect()->route('index__page')->withErrors([
             "errors" => "Пассажира с таким номером брони не существует"
         ]);
+    }
+
+    public function returnViewOperatorWelcome()
+    {
+        return view('Operator.operator_welcome');
+    }
+
+    public function returnViewEditFutureFlight()
+    {
+        return view('Operator.future_flights');
     }
 }

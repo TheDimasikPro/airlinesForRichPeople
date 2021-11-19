@@ -18,6 +18,7 @@ class LoginController extends Controller
     {
         if(Auth::check()){
             return redirect()->route('my_profile__page');
+            // return redirect()->route('edit_future_flights');
         }
 
         $validateFields = $request->only(['email','password']);
