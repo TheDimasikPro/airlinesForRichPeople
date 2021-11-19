@@ -23,11 +23,13 @@ class RegisterController extends Controller
         $countries_all = DB::table('countries')->select('id','name_country')->get()->sortBy('id');
         $document_types_all = DB::table('document_types')->select('id','name_document','mask_input')->get()->sortBy('id');
         $gender_codes_all = DB::table('gender_codes')->select('id','gender_name_rus')->get()->sortBy('id');
+        $international_country_codes = DB::table('international_country_codes')->select('country_code','phone_number_length')->get()->sortBy('country_code');
         if (!empty($countries_all) && !empty($document_types_all) && !empty($gender_codes_all)) {
             $response = [
                 'countries_all' => $countries_all,
                 'document_types_all' => $document_types_all,
-                'gender_codes_all' => $gender_codes_all
+                'gender_codes_all' => $gender_codes_all,
+                'international_country_codes' => $international_country_codes
             ];
             return view('Auth.reg', ['reg_info' => $response]);
         }

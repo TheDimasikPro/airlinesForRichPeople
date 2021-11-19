@@ -61,50 +61,13 @@
                                 <div class="form_auth__slider_input"></div>
                                 <!-- /.form_auth__slider_input -->
                                 <ul class="prefix_phone_list">
-                                    <li class="prefix_phone_list__item select_list__item" data-value="+7" data-count-number-phone-not-prefix="10">+7</li>
-                                    <li class="prefix_phone_list__item" data-value="+20" data-count-number-phone-not-prefix="10">+20</li>
-                                    <li class="prefix_phone_list__item" data-value="+21" data-count-number-phone-not-prefix="10">+21</li>
-                                    <li class="prefix_phone_list__item" data-value="+30" data-count-number-phone-not-prefix="10">+30</li>
-                                    <li class="prefix_phone_list__item" data-value="+31" data-count-number-phone-not-prefix="9">+31</li>
-                                    <li class="prefix_phone_list__item" data-value="+33" data-count-number-phone-not-prefix="9">+33</li>
-                                    <li class="prefix_phone_list__item" data-value="+34" data-count-number-phone-not-prefix="9">+34</li>
-                                    <li class="prefix_phone_list__item" data-value="+351" data-count-number-phone-not-prefix="9">+351</li>
-                                    <li class="prefix_phone_list__item" data-value="+355" data-count-number-phone-not-prefix="">+355</li>
-                                    <li class="prefix_phone_list__item" data-value="+356" data-count-number-phone-not-prefix="">+356</li>
-                                    <li class="prefix_phone_list__item" data-value="+357" data-count-number-phone-not-prefix="">+357</li>
-                                    <li class="prefix_phone_list__item" data-value="+358" data-count-number-phone-not-prefix="">+358</li>
-                                    <li class="prefix_phone_list__item" data-value="+359" data-count-number-phone-not-prefix="">+359</li>
-                                    <li class="prefix_phone_list__item" data-value="+36" data-count-number-phone-not-prefix="">+36</li>
-                                    <li class="prefix_phone_list__item" data-value="+371" data-count-number-phone-not-prefix="">+371</li>
-                                    <li class="prefix_phone_list__item" data-value="+374" data-count-number-phone-not-prefix="">+374</li>
-                                    <li class="prefix_phone_list__item" data-value="+375" data-count-number-phone-not-prefix="">+375</li>
-                                    <li class="prefix_phone_list__item" data-value="+380" data-count-number-phone-not-prefix="">+380</li>
-                                    <li class="prefix_phone_list__item" data-value="+382" data-count-number-phone-not-prefix="">+382</li>
-                                    <li class="prefix_phone_list__item" data-value="+385" data-count-number-phone-not-prefix="">+385</li>
-                                    <li class="prefix_phone_list__item" data-value="+386" data-count-number-phone-not-prefix="">+386</li>
-                                    <li class="prefix_phone_list__item" data-value="+39" data-count-number-phone-not-prefix="">+39</li>
-                                    <li class="prefix_phone_list__item" data-value="+41" data-count-number-phone-not-prefix="">+41</li>
-                                    <li class="prefix_phone_list__item" data-value="+420" data-count-number-phone-not-prefix="">+420</li>
-                                    <li class="prefix_phone_list__item" data-value="+43" data-count-number-phone-not-prefix="">+43</li>
-                                    <li class="prefix_phone_list__item" data-value="+44" data-count-number-phone-not-prefix="">+44</li>
-                                    <li class="prefix_phone_list__item" data-value="+47" data-count-number-phone-not-prefix="">+47</li>
-                                    <li class="prefix_phone_list__item" data-value="+48" data-count-number-phone-not-prefix="">+48</li>
-                                    <li class="prefix_phone_list__item" data-value="+49" data-count-number-phone-not-prefix="">+49</li>
-                                    <li class="prefix_phone_list__item" data-value="+66" data-count-number-phone-not-prefix="">+66</li>
-                                    <li class="prefix_phone_list__item" data-value="+81" data-count-number-phone-not-prefix="">+81</li>
-                                    <li class="prefix_phone_list__item" data-value="+84" data-count-number-phone-not-prefix="">+84</li>
-                                    <li class="prefix_phone_list__item" data-value="+86" data-count-number-phone-not-prefix="">+86</li>
-                                    <li class="prefix_phone_list__item" data-value="+90" data-count-number-phone-not-prefix="">+90</li>
-                                    <li class="prefix_phone_list__item" data-value="+91" data-count-number-phone-not-prefix="">+91</li>
-                                    <li class="prefix_phone_list__item" data-value="+962" data-count-number-phone-not-prefix="">+962</li>
-                                    <li class="prefix_phone_list__item" data-value="+971" data-count-number-phone-not-prefix="">+971</li>
-                                    <li class="prefix_phone_list__item" data-value="+972" data-count-number-phone-not-prefix="">+972</li>
-                                    <li class="prefix_phone_list__item" data-value="+973" data-count-number-phone-not-prefix="">+973</li>
-                                    <li class="prefix_phone_list__item" data-value="+992" data-count-number-phone-not-prefix="">+992</li>
-                                    <li class="prefix_phone_list__item" data-value="+994" data-count-number-phone-not-prefix="">+994</li>
-                                    <li class="prefix_phone_list__item" data-value="+995" data-count-number-phone-not-prefix="">+995</li>
-                                    <li class="prefix_phone_list__item" data-value="+996" data-count-number-phone-not-prefix="">+996</li>
-                                    <li class="prefix_phone_list__item" data-value="+998" data-count-number-phone-not-prefix="">+998</li>
+                                    @foreach ($reg_info["international_country_codes"] as $key => $country_codes__item)
+                                        @if ($country_codes__item->country_code == "7")
+                                            <li class="prefix_phone_list__item select_list__item" data-value="+{{ $country_codes__item->country_code }}" data-count-number-phone-not-prefix="{{ $country_codes__item->phone_number_length - iconv_strlen($country_codes__item->country_code) }}">+{{ $country_codes__item->country_code }}</li>
+                                        @else
+                                            <li class="prefix_phone_list__item" data-value="+{{ $country_codes__item->country_code }}" data-count-number-phone-not-prefix="{{ $country_codes__item->phone_number_length - iconv_strlen($country_codes__item->country_code) }}">+{{ $country_codes__item->country_code }}</li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </div>
                             <!-- /.form_auth_block_second -->
