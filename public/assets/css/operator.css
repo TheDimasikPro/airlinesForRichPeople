@@ -450,7 +450,7 @@ main .section_content .flight_info .flight_info_block .flght_table_block .flght_
 }
 main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title .flght_table_block__item_title__text:nth-child(4) {
   margin-right: 30px;
-  width: 50px;
+  width: 60px;
 }
 main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title .flght_table_block__item_title__text:nth-last-child(-n+2) {
   width: 30px;
@@ -499,7 +499,7 @@ main .section_content .flight_info .flight_info_block .flght_table_block .flght_
   width: 180px;
   text-align: center;
 }
-main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start .flght_table_block__item__info__flight_plan__start__iata_code, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start .flght_table_block__item__info__flight_plan__end__iata_code, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end .flght_table_block__item__info__flight_plan__start__iata_code, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end .flght_table_block__item__info__flight_plan__end__iata_code {
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start .flght_table_block__item__info__flight_plan__start__iata_code_date, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start .flght_table_block__item__info__flight_plan__end__iata_code_date, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end .flght_table_block__item__info__flight_plan__start__iata_code_date, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end .flght_table_block__item__info__flight_plan__end__iata_code_date {
   margin-top: 10px;
 }
 main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__travel_time {
@@ -514,7 +514,10 @@ main .section_content .flight_info .flight_info_block .flght_table_block .flght_
 }
 main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flght_price {
   margin-right: 30px;
-  width: 50px;
+  width: 60px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flght_price .fa-ruble-sign {
+  font-size: 16px;
 }
 main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__edit button, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__delete button {
   padding: 0;

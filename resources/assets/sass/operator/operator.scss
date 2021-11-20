@@ -176,7 +176,7 @@ main{
                             }
                             &:nth-child(4){
                                 margin-right: 30px;
-                                width: 50px;
+                                width: 60px;
                             }
                             &:nth-last-child(-n+2){
                                 // margin-right: 30px;
@@ -227,7 +227,7 @@ main{
                                         width: 180px;
                                         text-align: center;
                                     }
-                                    .flght_table_block__item__info__flight_plan__start__iata_code,.flght_table_block__item__info__flight_plan__end__iata_code{
+                                    .flght_table_block__item__info__flight_plan__start__iata_code_date,.flght_table_block__item__info__flight_plan__end__iata_code_date{
                                         margin-top: 10px;
                                     }
                                 }
@@ -244,7 +244,10 @@ main{
                             }
                             .flght_table_block__item__info__flght_price{
                                 margin-right: 30px;
-                                width: 50px;
+                                width: 60px;
+                                .fa-ruble-sign{
+                                    font-size: $fz_second;
+                                }
                             }
                         }
                         .flght_table_block__item__edit,.flght_table_block__item__delete{

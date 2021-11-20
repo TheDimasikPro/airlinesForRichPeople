@@ -883,6 +883,56 @@ class FlightController extends Controller
 
     public function returnViewEditFutureFlight()
     {
-        return view('Operator.flights');
+        // return Carbon::now()->format('Y-m-d');
+        $flight_arr = [];
+        // $booking = Booking::query();
+        $date_now = Carbon::now()->format('Y-m-d');
+        $date_add_3month = Carbon::now()->addMonths(3)->format('Y-m-d');
+
+        $booking = Booking::select('id_flight_from');
+        $booking_ids_arr = [];
+        // foreach($booking->get() as $booking__item){
+        //     if (!in_array($booking__item["id_flight_from"],$booking_ids_arr)) {
+        //         array_push($booking_ids_arr,$booking__item["id_flight_from"]);
+        //     }
+        // }
+
+        // return $booking_ids_arr;
+        // $booking = Booking::select('id','id_flight_from','id_booking_status')->whereIn('id_booking_status',[2,4])->whereIn('id_flight_fro',$booking_ids_arr);
+        $booking = Booking::select('id','id_flight_from','id_booking_status')->whereIn('id_booking_status',[2,4]);
+
+        $flights_ids = Flight::select('id');
+        if ($flights_ids->get()!=null) {
+            foreach ($flights_ids->get() as $key => $value) {
+                if (!in_array($value["id"],$booking_ids_arr)) {
+                    array_push($booking_ids_arr,$value["id"]);
+                    $id_flight_from = $value["id"];
+                    $airport_flight_from_start = null;
+                    $airport_flight_from_end = null;
+
+                    // $id_booking_status = $value["id_booking_status"];
+                    // $booking_status = DB::table('booking_statuses')->select('name_status')->where('id',$id_booking_status)->first();
+                    
+                    if ($id_flight_from != null) {
+                        
+                        $flight_from = Flight::select('id','flight_code','time_start','time_end','travel_time','cost','date_start','date_end','id_airport_start','id_airport_end')
+                        ->where([
+                            ['id',$id_flight_from]
+                        ])->whereBetween('date_start',[$date_now,$date_add_3month])->first();
+                        
+                        if ($flight_from != null) {
+                            $airport_flight_from_start = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_start'])->first();
+                            $airport_flight_from_end = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_end'])->first();
+                            $flight_arr[$key]['flight'] = $flight_from;
+                            $flight_arr[$key]["airport_flight_start"] = $airport_flight_from_start;
+                            $flight_arr[$key]["airport_flight_end"] = $airport_flight_from_end;
+                            // $flight_arr[$key]["booking_status"] = $booking_status;
+                        }
+                    }
+                }
+                
+            }
+        }
+        return view('Operator.flights',['flight_arr' => $flight_arr]);
     }
 }

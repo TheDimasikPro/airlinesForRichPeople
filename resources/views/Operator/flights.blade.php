@@ -40,706 +40,80 @@
                 <!-- /.flght_table_block__item_title__text -->
             </li>
             <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
+            @if (count($flight_arr) > 0)
+            <?php $number = 0; ?>
+                @foreach ($flight_arr as $key => $flight_arr__item)
+                <?php $number++?>
+                    <li class="flght_table_block__item">
+                        <div class="flght_table_block__item__number_row">{{ $number }}</div>
+                        <!-- /.flght_table_block__item__number_row -->
+                        <div class="flght_table_block__item__info">
+                            <div class="flght_table_block__item__info__flight_number upper">{{ $flight_arr__item['flight']["flight_code"] }}</div>
+                            <!-- /.flght_table_block__item__info__flight_number -->
+                            <div class="flght_table_block__item__info__flight_plan">
+                                <div class="flght_table_block__item__info__flight_plan__start">
+                                    @if (empty($flight_arr__item["airport_flight_start"]["city_rus"]))
+                                        <div class="flght_table_block__item__info__flight_plan__start__city">{{ $flight_arr__item["airport_flight_start"]["city_eng"] }}</div>
+                                        <!-- /.flght_table_block__item__info__flight_plan__start__city -->
+                                    @else
+                                        <div class="flght_table_block__item__info__flight_plan__start__city">{{ $flight_arr__item["airport_flight_start"]["city_rus"] }}</div>
+                                        <!-- /.flght_table_block__item__info__flight_plan__start__city -->
+                                    @endif
+                                    
+                                    <div class="flght_table_block__item__info__flight_plan__start__iata_code_date">
+                                        {{ \Carbon\Carbon::parse($flight_arr__item['flight']["time_start"])->format('H:i') }}
+                                        ({{ $flight_arr__item['airport_flight_start']["iata_code"] }})
+                                    </div>
+                                    <!-- /.flght_table_block__item__info__flight_plan__start__iata_code_date -->
+                                </div>
+                                <!-- /.flght_table_block__item__info__flight_plan__start -->
 
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
+                                <div class="flght_table_block__item__info__flight_plan__travel_time">
+                                    {{ \Carbon\Carbon::parse($flight_arr__item["flight"]["travel_time"])->format('H:i') }}
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
 
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
+                                <div class="flght_table_block__item__info__flight_plan__end">
+                                    @if (empty($flight_arr__item["airport_flight_start"]["city_rus"]))
+                                        <div class="flght_table_block__item__info__flight_plan__end__city">{{ $flight_arr__item["airport_flight_end"]["city_eng"] }}</div>
+                                        <!-- /.flght_table_block__item__info__flight_plan__end__city -->
+                                    @else
+                                        <div class="flght_table_block__item__info__flight_plan__end__city">{{ $flight_arr__item["airport_flight_end"]["city_rus"] }}</div>
+                                        <!-- /.flght_table_block__item__info__flight_plan__end__city -->
+                                    @endif
+                                    <div class="flght_table_block__item__info__flight_plan__end__iata_code_date">
+                                        {{ \Carbon\Carbon::parse($flight_arr__item['flight']["time_end"])->format('H:i') }}
+                                        ({{ $flight_arr__item['airport_flight_end']["iata_code"] }})
+                                    </div>
+                                    <!-- /.flght_table_block__item__info__flight_plan__end__iata_code_date -->
+                                </div>
+                                <!-- /.flght_table_block__item__info__flight_plan__end -->
+                            </div>
+                            <!-- /.flght_table_block__item__info__flight_plan -->
+                            <div class="flght_table_block__item__info__flght_price">{{ $flight_arr__item["flight"]["cost"] }} <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
+                            <!-- /.flght_table_block__item__info__flght_price -->
                         </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
+                        <!-- /.flght_table_block__item__info -->
+                        <div class="flght_table_block__item__edit">
+                            <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_{{ $number }}" aria-label="flight_edit_btn_{{ $number }}">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button> 
+                            <!-- /.flght_table_block__item__edit_btn -->
                         </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
+                        <!-- /.flght_table_block__item__edit -->
+                        <div class="flght_table_block__item__delete">
+                            <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_{{ $number }}" aria-label="flight_delete_btn_{{ $number }}">
+                                <i class="fas fa-backspace"></i>
+                            </button> 
+                            <!-- /.flght_table_block__item__delete_btn -->
                         </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
-            <li class="flght_table_block__item">
-                <div class="flght_table_block__item__number_row">1</div>
-                <!-- /.flght_table_block__item__number_row -->
-                <div class="flght_table_block__item__info">
-                    <div class="flght_table_block__item__info__flight_number">RA_GFBF</div>
-                    <!-- /.flght_table_block__item__info__flight_number -->
-                    <div class="flght_table_block__item__info__flight_plan">
-                        <div class="flght_table_block__item__info__flight_plan__start">
-                            <div class="flght_table_block__item__info__flight_plan__start__city">Екатеринбург</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                            <div class="flght_table_block__item__info__flight_plan__start__iata_code">(SVX)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__start__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__start -->
-
-                        <div class="flght_table_block__item__info__flight_plan__travel_time">
-                            02:30
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
-
-                        <div class="flght_table_block__item__info__flight_plan__end">
-                            <div class="flght_table_block__item__info__flight_plan__end__city">МоскваМоскваМоскваМоскваМоскваМоскваМоскваМосква</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                            <div class="flght_table_block__item__info__flight_plan__end__iata_code">(DME)</div>
-                            <!-- /.flght_table_block__item__info__flight_plan__end__iata_code -->
-                        </div>
-                        <!-- /.flght_table_block__item__info__flight_plan__end -->
-                    </div>
-                    <!-- /.flght_table_block__item__info__flight_plan -->
-                    <div class="flght_table_block__item__info__flght_price">5000p</div>
-                    <!-- /.flght_table_block__item__info__flght_price -->
-                </div>
-                <!-- /.flght_table_block__item__info -->
-                <div class="flght_table_block__item__edit">
-                    <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_1" aria-label="flight_edit_btn_1">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__edit_btn -->
-                </div>
-                <!-- /.flght_table_block__item__edit -->
-                <div class="flght_table_block__item__delete">
-                    <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_1" aria-label="flight_delete_btn_1">
-                        <i class="fas fa-backspace"></i>
-                    </button> 
-                    <!-- /.flght_table_block__item__delete_btn -->
-                </div>
-                <!-- /.flght_table_block__item__delete -->
-            </li>
-            <!-- /.flght_table_block__item -->
+                        <!-- /.flght_table_block__item__delete -->
+                    </li>
+                    <!-- /.flght_table_block__item -->
+                @endforeach
+            @endif
+            
         </ul>
         <!-- /.flght_table_block -->
     </div>

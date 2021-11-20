@@ -38,7 +38,7 @@
                     </li>
                     <!-- /.navbar__list__item -->
                     <li class="navbar__list__item">
-                        <a href="" class="navbar__list__item__link_icon"><i class="fas fa-plane-departure"></i></a>
+                        <a href="{{ route('edit_future_flights') }}" class="navbar__list__item__link_icon"><i class="fas fa-plane-departure"></i></a>
                         <!-- /.navbar__list__item__link_icon -->
                     </li>
                     <!-- /.navbar__list__item -->
@@ -68,11 +68,11 @@
                     </li>
                     <!-- /.navbar_slide__list__item -->
                     <li class="navbar_slide__list__item">
-                        <a href="" class="navbar_slide__list__item_link">Профиль</a>
+                        <a href="{{ route('my_profile__page') }}" class="navbar_slide__list__item_link">Профиль</a>
                     </li>
                     <!-- /.navbar_slide__list__item -->
                     <li class="navbar_slide__list__item">
-                        <a href="" class="navbar_slide__list__item_link">Будущие рейсы</a>
+                        <a href="{{ route('edit_future_flights') }}" class="navbar_slide__list__item_link">Будущие рейсы</a>
                     </li>
                     <!-- /.navbar_slide__list__item -->
                     <li class="navbar_slide__list__item">
