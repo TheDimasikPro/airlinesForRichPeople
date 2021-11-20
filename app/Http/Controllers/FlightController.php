@@ -883,6 +883,6 @@ class FlightController extends Controller
 
     public function returnViewEditFutureFlight()
     {
-        return view('Operator.future_flights');
+        return view('Operator.flights');
     }
 }

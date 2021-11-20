@@ -304,12 +304,39 @@ input[type=button] {
     width: 60px;
   }
 }
+.fas {
+  font-size: 24px;
+  transition: 0.1s;
+}
+
+.site_overlay {
+  display: block;
+  position: fixed;
+  padding: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: rgba(34, 34, 34, 0.3);
+  z-index: 1001;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.site_overlay__active {
+  opacity: 1;
+  visibility: visible;
+}
+
 main {
   display: flex;
   justify-content: space-between;
 }
 main .aside_nav {
   background: #004369;
+  position: fixed;
   height: 100vh;
 }
 main .aside_nav .navbar .navbar__list .navbar__list__item {
@@ -317,41 +344,233 @@ main .aside_nav .navbar .navbar__list .navbar__list__item {
   display: flex;
   justify-content: center;
 }
-main .aside_nav .navbar .navbar__list .navbar__list__item .fas {
-  font-size: 24px;
-  transition: 0.1s;
+main .aside_nav .navbar .navbar__list .navbar__list__item:hover {
+  border-bottom: 1px solid #ffffff;
 }
 main .aside_nav .navbar .navbar__list .navbar__list__item:hover .fas {
   color: #52C9B9;
 }
-main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__btn, main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__link, main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__link_icon {
+main .aside_nav .navbar .navbar__list .navbar__list__item .non_view {
+  display: none;
+}
+main .aside_nav_slide {
+  height: 100vh;
+  background: #004369;
+  left: -220px;
+  position: fixed;
+  z-index: 2000;
+  overflow: hidden;
+}
+main .aside_nav_slide .navbar_slide__list .navbar_slide__list__item {
+  border-bottom: 1px solid transparent;
+}
+main .aside_nav_slide .navbar_slide__list .navbar_slide__list__item:hover {
+  border-bottom: 1px solid #ffffff;
+}
+main .aside_nav_slide .navbar_slide__list .navbar_slide__list__item:hover .fas {
+  color: #52C9B9;
+}
+main .aside_nav_slide__open {
+  left: 0;
+}
+main .navbar__list__item__btn, main .navbar__list__item__link, main .navbar__list__item__link_icon, main .navbar_slide__list__item__btn, main .navbar_slide__list__item_link {
   color: #ffffff;
   font-size: 16px;
   padding: 15px;
   width: 100%;
+  height: 55px;
 }
-main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__btn_active {
+main .navbar__list__item__btn_active {
   display: flex;
   justify-content: center;
 }
-main .aside_nav .navbar .navbar__list .navbar__list__item .navbar__list__item__link_icon {
+main .navbar__list__item__link_icon {
   display: flex;
   justify-content: center;
 }
-main .aside_nav .navbar .navbar__list .navbar__list__item:hover {
-  border-bottom: 1px solid #ffffff;
-}
-main .aside_nav .navbar .navbar__list .navbar__list__item .non_view {
-  display: none;
-}
-main .aside_nav .navbar_open {
-  -webkit-animation: 0.5s animate_width_220_aside forwards;
-          animation: 0.5s animate_width_220_aside forwards;
-}
-main .aside_nav .navbar_open .navbar__list .navbar__list__item .navbar__list__item__btn {
-  text-align: left;
+main .navbar_slide__list__item__btn {
+  text-align: right;
 }
 main .section_content {
   width: 100%;
   padding: 15px;
+  display: flex;
+  margin-left: 60px;
+  justify-content: space-between;
+}
+main .section_content h2 {
+  margin: 0 0 20px 0;
+}
+main .section_content .flight_info {
+  display: flex;
+  justify-content: space-between;
+}
+main .section_content .flight_info .flight_info_block .flight_info_block_form_sort form {
+  display: flex;
+  flex-direction: column;
+}
+main .section_content .flight_info .flight_info_block .flight_info_block_form_sort form .inputs_block {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+main .section_content .flight_info .flight_info_block .flight_info_block_form_sort form .inputs_block label {
+  display: flex;
+  flex-direction: column;
+}
+main .section_content .flight_info .flight_info_block .flight_info_block_form_sort form .inputs_block label:last-child {
+  margin-left: 30px;
+}
+main .section_content .flight_info .flight_info_block .flight_info_block_form_sort form .inputs_block label input {
+  margin-top: 10px;
+}
+main .section_content .flight_info .flight_info_block .flight_info_block_form_sort form .inputs_block #btn_search_future_flight {
+  height: 40px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block {
+  margin-top: 30px;
+  border: 1px solid #222222;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title {
+  padding: 10px;
+  display: flex;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title .flght_table_block__item_title__text:first-child {
+  width: 50px;
+  margin-right: 20px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title .flght_table_block__item_title__text:nth-child(2) {
+  width: 90px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title .flght_table_block__item_title__text:nth-child(3) {
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 450px;
+  text-align: center;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title .flght_table_block__item_title__text:nth-child(4) {
+  margin-right: 30px;
+  width: 50px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title .flght_table_block__item_title__text:nth-last-child(-n+2) {
+  width: 30px;
+  margin-right: 20px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item_title .flght_table_block__item_title__text:last-child {
+  margin-right: 10px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  min-width: 700px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item:not(:first-child) {
+  border-top: 1px solid #000;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__number_row {
+  width: 50px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info {
+  display: flex;
+  align-items: center;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_number {
+  font-weight: bold;
+  width: 90px;
+  margin: 0 10px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan {
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start .flght_table_block__item__info__flight_plan__start__city, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start .flght_table_block__item__info__flight_plan__end__city, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end .flght_table_block__item__info__flight_plan__start__city, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end .flght_table_block__item__info__flight_plan__end__city {
+  word-wrap: break-word;
+  width: 180px;
+  text-align: center;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start .flght_table_block__item__info__flight_plan__start__iata_code, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__start .flght_table_block__item__info__flight_plan__end__iata_code, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end .flght_table_block__item__info__flight_plan__start__iata_code, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__end .flght_table_block__item__info__flight_plan__end__iata_code {
+  margin-top: 10px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__travel_time {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flight_plan .flght_table_block__item__info__flight_plan__travel_time .fas {
+  margin-top: 10px;
+  font-size: 20px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__info .flght_table_block__item__info__flght_price {
+  margin-right: 30px;
+  width: 50px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__edit button, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__delete button {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__edit button .fas, main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__delete button .fas {
+  font-size: 20px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__delete {
+  margin-left: 30px;
+}
+main .section_content .flight_info .flight_info_block .flght_table_block .flght_table_block__item .flght_table_block__item__delete .fas {
+  color: #A01010;
+}
+main .section_content .flight_info .flight_forms_block {
+  margin-left: 50px;
+  margin-top: 35%;
+}
+main .section_content .flight_info .flight_forms_block .flight_form {
+  position: fixed;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs {
+  display: flex;
+  flex-direction: column;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row {
+  display: flex;
+  justify-content: space-between;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row:not(:first-child) {
+  margin-top: 30px;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block {
+  display: flex;
+  flex-direction: column;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block input {
+  margin-top: 10px;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block button {
+  width: 250px;
+  cursor: pointer;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .non_active_button {
+  background: #999999;
+  cursor: default;
+}
+main .btn_scroll_top {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 50px;
+  background: #A01010;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: #ffffff;
 }

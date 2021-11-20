@@ -13,7 +13,6 @@
     <title>@yield('title_page')</title>
 </head>
 <body>
-    
 <header id="header">
     <div class="container">
         <!-- мобильное меню -->
