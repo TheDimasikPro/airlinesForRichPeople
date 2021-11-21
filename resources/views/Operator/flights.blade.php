@@ -111,126 +111,131 @@
     <div class="flight_forms_block">
         <form action="" method="post" class="flight_form">
             @csrf
-            <div class="overlay_flight_forms">
-                <div id="fountainG">
-                    <div id="fountainG_1" class="fountainG"></div>
-                    <div id="fountainG_2" class="fountainG"></div>
-                    <div id="fountainG_3" class="fountainG"></div>
-                    <div id="fountainG_4" class="fountainG"></div>
-                    <div id="fountainG_5" class="fountainG"></div>
-                    <div id="fountainG_6" class="fountainG"></div>
-                    <div id="fountainG_7" class="fountainG"></div>
-                    <div id="fountainG_8" class="fountainG"></div>
-                </div>
-                <div class="check_mark_flight_forms">
-                    <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
-                </div>
-                <!-- /.check_mark_flight_forms -->
-            </div>
-            <h2>Форма добавления, редактирования рейсов</h2>
-            <div class="flight_form__inputs">
-                <div class="flight_form__inputs__row">
-                    <div class="input_block">
-                        <label for="input_airport_start">Аэропорт старта:</label>
-                        <input type="text" id="input_airport_start" name="airport_start" class="sm_input" placeholder="Выберите аэропорт взлета">
-                        <button class="airport_start__dropbtn drop_btn" type="button" id="dropbtn_airport_start" aria-label="dropbtn_airport_start">
-                            <i class="fas fa-arrow-down"></i>
-                        </button>
-                        
-                        <ul class="airport_start__list">
-                            @foreach ($operator["airport_data"] as $airport)
-                                <li class="airport_start__list__item" data-id="{{ $airport->id }}">
-                                    <div class="info_country">
-                                        <div class="airport_name">{{ $airport->name_eng }}</div>
-                                        <!-- /.airport_name -->
-                                        <div class="desc_airport_eng">Airport, {{ $airport->desc_airport_eng }}</div>
-                                        <!-- /.desc_airport_eng -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="iata_code">{{ $airport->iata_code }}</div>
-                                    <!-- /.iata_code -->
-                                </li>
-                            @endforeach
-                            <!-- /.airport_start__list__item -->
-                        </ul>
-                    </div>
-                    <!-- /.inputs_block -->
-                    <div class="input_block">
-                        <label for="input_airport_end">Аэропорт прибытия:</label>
-                        <input type="text" id="input_airport_end" name="airport_end" class="sm_input" placeholder="Выберите аэропорт прибытия">
-                        <button class="airport_end__dropbtn drop_btn" type="button" id="dropbtn_airport_end" aria-label="dropbtn_airport_end">
-                            <i class="fas fa-arrow-down"></i>
-                        </button>
-                        
-                        <ul class="airport_end__list">
-                            @foreach ($operator["airport_data"] as $airport)
-                                <li class="airport_end__list__item" data-id="{{ $airport->id }}">
-                                    <div class="info_country">
-                                        <div class="airport_name">{{ $airport->name_eng }}</div>
-                                        <!-- /.airport_name -->
-                                        <div class="desc_airport_eng">Airport, {{ $airport->desc_airport_eng }}</div>
-                                        <!-- /.desc_airport_eng -->
-                                    </div>
-                                    <!-- /.info_country -->
-                                    <div class="iata_code">{{ $airport->iata_code }}</div>
-                                    <!-- /.iata_code -->
-                                </li>
-                            @endforeach
-                            <!-- /.airport_end__list__item -->
-                        </ul>
-                    </div>
-                    <!-- /.inputs_block -->
-                </div>
-                <!-- /.flight_form__inputs__row -->
-                <div class="flight_form__inputs__row">
-                    <div class="input_block">
-                        <label for="date_start">Дата старта:</label>
-                        <input type="date" class="sm_input" name="date_start" id="date_start" placeholder="Выберите дату взлета">
-                    </div>
-                    <!-- /.inputs_block -->
-                    <div class="input_block">
-                        <label for="date_end">Дата прибытия:</label>
-                        <input type="date" class="sm_input" name="date_end" id="date_end" placeholder="Выберите дату прибытия">
-                    </div>
-                    <!-- /.inputs_block -->
-                </div>
-                <!-- /.flight_form__inputs__row -->
-                <div class="flight_form__inputs__row">
-                    <div class="input_block">
-                        <label for="input_time_start">Время взлета:</label>
-                        <input type="text" class="sm_input" name="time_start" id="input_time_start" placeholder="Выберите время взлета">
-                    </div>
-                    <!-- /.inputs_block -->
-                    <div class="input_block">
-                        <label for="input_time_end">Время приземления:</label>
-                        <input type="text" class="sm_input" name="time_end" id="input_time_end" placeholder="Выберите время приземления">
-                    </div>
-                    <!-- /.inputs_block -->
-                </div>
-                <!-- /.flight_form__inputs__row -->
-                <div class="flight_form__inputs__row">
-                    <div class="input_block">
-                        <button type="button" class="btn_style_1" name="add_flight" id="add_flight">Добавить</button>
-                    </div>
-                    <!-- /.inputs_block -->
-                    <div class="input_block">
-                        <button type="button" class="btn_style_1 non_active_button" name="update_flight" id="update_flight">Сохранить</button>
-                    </div>
-                    <!-- /.inputs_block -->
-                </div>
-                <!-- /.flight_form__inputs__row -->
-            </div>
-            <!-- /.flight_form__inputs -->
-            <ul class="errors_list">
 
-            </ul>
-            <!-- /.errors_list -->
+            <div class="flight_form__main">
+                <div class="overlay_flight_forms">
+                    <div id="fountainG">
+                        <div id="fountainG_1" class="fountainG"></div>
+                        <div id="fountainG_2" class="fountainG"></div>
+                        <div id="fountainG_3" class="fountainG"></div>
+                        <div id="fountainG_4" class="fountainG"></div>
+                        <div id="fountainG_5" class="fountainG"></div>
+                        <div id="fountainG_6" class="fountainG"></div>
+                        <div id="fountainG_7" class="fountainG"></div>
+                        <div id="fountainG_8" class="fountainG"></div>
+                    </div>
+                    <div class="check_mark_flight_forms">
+                        <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                    </div>
+                    <!-- /.check_mark_flight_forms -->
+                </div>
+                <h2>Форма добавления, редактирования рейсов</h2>
+                <div class="flight_form__inputs">
+                    <div class="flight_form__inputs__row">
+                        <div class="input_block">
+                            <label for="input_airport_start">Аэропорт старта:</label>
+                            <input type="text" id="input_airport_start" name="airport_start" class="sm_input" placeholder="Выберите аэропорт взлета">
+                            <button class="airport_start__dropbtn drop_btn" type="button" id="dropbtn_airport_start" aria-label="dropbtn_airport_start">
+                                <i class="fas fa-arrow-down"></i>
+                            </button>
+                            
+                            <ul class="airport_start__list">
+                                @foreach ($operator["airport_data"] as $airport)
+                                    <li class="airport_start__list__item" data-id="{{ $airport->id }}">
+                                        <div class="info_country">
+                                            <div class="airport_name">{{ $airport->name_eng }}</div>
+                                            <!-- /.airport_name -->
+                                            <div class="desc_airport_eng">Airport, {{ $airport->desc_airport_eng }}</div>
+                                            <!-- /.desc_airport_eng -->
+                                        </div>
+                                        <!-- /.info_country -->
+                                        <div class="iata_code">{{ $airport->iata_code }}</div>
+                                        <!-- /.iata_code -->
+                                    </li>
+                                @endforeach
+                                <!-- /.airport_start__list__item -->
+                            </ul>
+                        </div>
+                        <!-- /.inputs_block -->
+                        <div class="input_block">
+                            <label for="input_airport_end">Аэропорт прибытия:</label>
+                            <input type="text" id="input_airport_end" name="airport_end" class="sm_input" placeholder="Выберите аэропорт прибытия">
+                            <button class="airport_end__dropbtn drop_btn" type="button" id="dropbtn_airport_end" aria-label="dropbtn_airport_end">
+                                <i class="fas fa-arrow-down"></i>
+                            </button>
+                            
+                            <ul class="airport_end__list">
+                                @foreach ($operator["airport_data"] as $airport)
+                                    <li class="airport_end__list__item" data-id="{{ $airport->id }}">
+                                        <div class="info_country">
+                                            <div class="airport_name">{{ $airport->name_eng }}</div>
+                                            <!-- /.airport_name -->
+                                            <div class="desc_airport_eng">Airport, {{ $airport->desc_airport_eng }}</div>
+                                            <!-- /.desc_airport_eng -->
+                                        </div>
+                                        <!-- /.info_country -->
+                                        <div class="iata_code">{{ $airport->iata_code }}</div>
+                                        <!-- /.iata_code -->
+                                    </li>
+                                @endforeach
+                                <!-- /.airport_end__list__item -->
+                            </ul>
+                        </div>
+                        <!-- /.inputs_block -->
+                    </div>
+                    <!-- /.flight_form__inputs__row -->
+                    <div class="flight_form__inputs__row">
+                        <div class="input_block">
+                            <label for="date_start">Дата старта:</label>
+                            <input type="date" class="sm_input" name="date_start" min="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" max="{{ \Carbon\Carbon::now()->addMonth(3)->format('d-m-Y') }}" id="date_start" placeholder="Выберите дату взлета">
+                        </div>
+                        <!-- /.inputs_block -->
+                        <div class="input_block">
+                            <label for="date_end">Дата прибытия:</label>
+                            <input type="date" class="sm_input" name="date_end" min="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" max="{{ \Carbon\Carbon::now()->addMonth(3)->format('d-m-Y') }}" id="date_end" placeholder="Выберите дату прибытия">
+                        </div>
+                        <!-- /.inputs_block -->
+                    </div>
+                    <!-- /.flight_form__inputs__row -->
+                    <div class="flight_form__inputs__row">
+                        <div class="input_block">
+                            <label for="input_time_start">Время взлета:</label>
+                            <input type="text" class="sm_input" name="time_start" id="input_time_start" placeholder="Выберите время взлета">
+                        </div>
+                        <!-- /.inputs_block -->
+                        <div class="input_block">
+                            <label for="input_time_end">Время приземления:</label>
+                            <input type="text" class="sm_input" name="time_end" id="input_time_end" placeholder="Выберите время приземления">
+                        </div>
+                        <!-- /.inputs_block -->
+                    </div>
+                    <!-- /.flight_form__inputs__row -->
+                    <div class="flight_form__inputs__row">
+                        <div class="input_block">
+                            <button type="button" class="btn_style_1" name="add_flight" id="add_flight">Добавить</button>
+                        </div>
+                        <!-- /.inputs_block -->
+                        <div class="input_block">
+                            <button type="button" class="btn_style_1 non_active_button" name="update_flight" id="update_flight">Сохранить</button>
+                        </div>
+                        <!-- /.inputs_block -->
+                    </div>
+                    <!-- /.flight_form__inputs__row -->
+                </div>
+                <!-- /.flight_form__inputs -->
+                <ul class="errors_list non_view">
+    
+                </ul>
+                <!-- /.errors_list -->
+            </div>
+            <!-- /.flight_form__main -->
+            
         </form>
     </div>
     <!-- /.flight_forms_block -->
 </div>
 <!-- /.flight_info -->
-<button class="btn_scroll_top" id="btn_scroll_top">
+<button class="btn_scroll_top non_view" id="btn_scroll_top">
     <i class="fas fa-arrow-up"></i>
 </button> 
 <!-- /#btn_add_flight.btn_add_flight -->

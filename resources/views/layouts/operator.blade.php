@@ -18,10 +18,41 @@
     <title>Редактирование будующих рейсов</title>
 </head>
 <body>
-    <div class="site_overlay">
-        
-    </div>
+    <div class="site_overlay"></div>
     <!-- /.site_overlay -->
+    <div class="popup_fade non_view"></div>
+    <div class="popup_modal non_view">
+        <div class="popup">
+            <div class="overlay_popup">
+                <div id="fountainG">
+                    <div id="fountainG_1" class="fountainG"></div>
+                    <div id="fountainG_2" class="fountainG"></div>
+                    <div id="fountainG_3" class="fountainG"></div>
+                    <div id="fountainG_4" class="fountainG"></div>
+                    <div id="fountainG_5" class="fountainG"></div>
+                    <div id="fountainG_6" class="fountainG"></div>
+                    <div id="fountainG_7" class="fountainG"></div>
+                    <div id="fountainG_8" class="fountainG"></div>
+                </div>
+                <div class="check_mark_popup">
+                    <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                </div>
+                <!-- /.check_mark_popup -->
+            </div>
+            <button class="btn_popup_close" id="btn_popup_close" aria-label="btn_popup_close">Закрыть</button>
+            <div class="popup_order_block">
+                <h3>Вы уверены, что хотите удалить этот рейс?</h3>
+            </div>
+            <!-- /.popup_order_block -->
+            <div class="btn_popup_group">
+                <button id="btn_yes" class="btn_popup_group__yes" aria-label="btn_popup_group__yes">Да</button> 
+                <!-- /#btn_yes.btn_popup_group__yes -->
+                <button id="btn_no" class="btn_popup_group__no" aria-label="btn_popup_group__no">Нет</button> 
+                <!-- /#btn_no.btn_popup_group__no -->
+            </div>
+            <!-- /.btn_popup_group -->
+        </div>		
+    </div>
     <main>
         <aside class="aside_nav">
             <nav class="navbar">

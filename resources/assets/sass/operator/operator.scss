@@ -20,7 +20,9 @@
     font-size: 24px;
     transition: 0.1s;
 }
-
+.body_popup__open{
+    overflow: hidden;
+}
 .site_overlay{
     display: block;
     position: fixed;
@@ -202,6 +204,10 @@ main{
                         .flght_table_block__item__number_row{
                             width: 50px;
                         }
+                        .flght_table_block__item__number_row__ajax{
+                            width: 50px;
+                            font-size: $fz_base;;
+                        }
                         .flght_table_block__item__info{
                             display: flex;
                             align-items: center;
@@ -270,145 +276,149 @@ main{
                 }
             }
             .flight_forms_block{
-                margin-left: 50px;
-                margin-top: 35%;
+                margin-left: 250px;
+                margin-top: 30%;
                 position: relative;
                 .flight_form{
                     position: fixed;
                     box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, $alpha: .3);
                     padding: 15px;
-                    .flight_form__inputs{
-                        display: flex;
-                        flex-direction: column;
-                        .flight_form__inputs__row{
+                    .flight_form__main{
+                        position: relative;
+                        .flight_form__inputs{
                             display: flex;
-                            justify-content: space-between;
-                            &:not(:first-child){
-                                margin-top: 30px;
-                            }
-                            .input_block{
+                            flex-direction: column;
+                            .flight_form__inputs__row{
                                 display: flex;
-                                flex-direction: column;
-                                position: relative;
-                                input{
-                                    margin-top: 10px;
+                                justify-content: space-between;
+                                &:not(:first-child){
+                                    margin-top: 30px;
                                 }
-                                button{
-                                    width: 250px;
-                                    cursor: pointer;
-                                }
-                                .non_active_button{
-                                    background: $black_gray_2;
-                                    cursor: default;
-                                }
-                                .drop_btn{
-                                    width: auto;
-                                    position: absolute;
-                                    display: block;
-                                    right: 0;
-                                    top: 48%;
-                                    cursor: pointer;
-                                    .fas{
-                                        font-size: $fz_last;
+                                .input_block{
+                                    display: flex;
+                                    flex-direction: column;
+                                    position: relative;
+                                    input{
+                                        margin-top: 10px;
                                     }
-                                }
-
-                                .airport_start__list,.airport_end__list{
-                                    transform-origin: 0 0;
-                                    transform: scaleY(0);
-                                    opacity: 0;
-                                    z-index: 99999;
-                                    position: absolute;
-                                    overflow-y: auto;
-                                    @include custom_scroll_bar;
-                                    max-height: 188px;
-                                    width: 250px;
-                                    margin-top: 65px;
-                                    box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, $alpha: .3);
-                                    .airport_start__list__item,.airport_end__list__item{
-                                        padding: 15px;
-                                        border:1px solid $gray_3;
-                                        background: $white;
-                                        display: flex;
-                                        justify-content: space-between;
-                                        align-items: center;
-                                        color: $black;
-                                        &:hover{
-                                            cursor: pointer;
-                                            background: $gray_4;
-                                        }
-                                        &:last-child{
-                                            border-bottom: none;
-                                        }
-                                        &:not(:first-child){
-                                            border-top: none;
-                                        }
-                                        .info_country{
-                                            width: 70%;
-                                            .airport_name{
-                                                font-size: $fz_second;
-                                            }
-                                            .desc_airport_eng{
-                                                margin-top: 6px;
-                                                color: $black_gray_2;
-                                            }
+                                    button{
+                                        width: 250px;
+                                        cursor: pointer;
+                                    }
+                                    .non_active_button{
+                                        background: $black_gray_2;
+                                        cursor: default;
+                                    }
+                                    .drop_btn{
+                                        width: auto;
+                                        position: absolute;
+                                        display: block;
+                                        right: 0;
+                                        top: 48%;
+                                        cursor: pointer;
+                                        .fas{
+                                            font-size: $fz_second;
                                         }
                                     }
-                                    .select_elem_airport{
-                                        background-color: $light_green_2;
-                                       
-                                        .info_country,.airport_name{
+    
+                                    .airport_start__list,.airport_end__list{
+                                        transform-origin: 0 0;
+                                        transform: scaleY(0);
+                                        opacity: 0;
+                                        z-index: 99999;
+                                        position: absolute;
+                                        overflow-y: auto;
+                                        @include custom_scroll_bar;
+                                        max-height: 188px;
+                                        width: 250px;
+                                        margin-top: 65px;
+                                        box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, $alpha: .3);
+                                        .airport_start__list__item,.airport_end__list__item{
+                                            padding: 15px;
+                                            border:1px solid $gray_3;
+                                            background: $white;
+                                            display: flex;
+                                            justify-content: space-between;
+                                            align-items: center;
                                             color: $black;
-                                            .desc_airport_eng{
-                                                color: $white
+                                            &:hover{
+                                                cursor: pointer;
+                                                background: $gray_4;
+                                            }
+                                            &:last-child{
+                                                border-bottom: none;
+                                            }
+                                            &:not(:first-child){
+                                                border-top: none;
+                                            }
+                                            .info_country{
+                                                width: 70%;
+                                                .airport_name{
+                                                    font-size: $fz_second;
+                                                }
+                                                .desc_airport_eng{
+                                                    margin-top: 6px;
+                                                    color: $black_gray_2;
+                                                }
                                             }
                                         }
-                                        &:hover{
-                                            background: $light_green;
-                                            color: black;
+                                        .select_elem_airport{
+                                            background-color: $light_green_2;
+                                           
+                                            .info_country,.airport_name{
+                                                color: $black;
+                                                .desc_airport_eng{
+                                                    color: $white
+                                                }
+                                            }
+                                            &:hover{
+                                                background: $light_green;
+                                                color: black;
+                                            }
+                                            
                                         }
-                                        
                                     }
-                                }
-                                .show_drop_content{
-                                    transform: scaleY(1);
-                                    opacity: 1;
+                                    .show_drop_content{
+                                        transform: scaleY(1);
+                                        opacity: 1;
+                                    }
                                 }
                             }
+                            
                         }
-                        
-                    }
-                    .errors_list{
-                        margin-top: 20px;
-                        max-width: 532px;
-                        .errors_list__item{
-                            padding: 10px;
-                            background: #A01010;
-                            color: $white;
-                            line-height: 20px;
+                        .errors_list{
+                            margin-top: 20px;
+                            max-width: 532px;
+                            .errors_list__item{
+                                padding: 10px;
+                                background: #A01010;
+                                color: $white;
+                                line-height: 20px;
+                            }
                         }
                     }
-                }
-                @include preload_send_data_server;
-                .overlay_form_active{
-                    height: 96.5%;
-                    width: 95%;
-                    #fountainG{
-                        margin-top: 40%;
+                    @include preload_send_data_server;
+                    .overlay_form_active{
+                        height: 100%;
+                        #fountainG{
+                            margin-top: 40%;
+                        }
                     }
-                }
-                .check_mark_flight_forms{
-                    img{
+                    .check_mark_flight_forms{
                         height: 0;
+                        img{
+                            height: 0;
+                        }
+                    }
+                    .check_mark_flight_forms__active{
+                        height: 100%;
+                        margin: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                     }
                 }
-                .check_mark_flight_forms__active{
-                    height: 100%;
-                    margin: auto;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
+                
             }
         }
     }
@@ -423,5 +433,86 @@ main{
         width: 60px;
         height: 60px;
         color: $white;
+    }
+}
+.popup_fade{
+    content: '';
+	background: #000;
+	position: fixed; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	opacity: 0.7;
+	z-index: 9999;
+}
+.popup_modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        width: 360px;
+        background: #fff;
+        border: 1px solid orange;
+        border-radius: 4px; 
+        z-index: 9999;
+        opacity: 1;
+        .btn_popup_close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .popup_order_block{
+            margin: 30px 0;
+            .popup_order_block__info{
+                .popup_order_block__info__from{
+                    .popup_order_block__info__from__city{
+                    }
+                    .popup_order_block__info__from__date_time{
+                        margin-top: 10px;
+                        line-height: 22px;
+                    }
+                    .popup_order_block__info__from__details_air{
+                        display: flex;
+                        margin-top: 30px;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+        #btn_continune_order{
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+    @include preload_send_data_server;
+    .overlay_popup{
+        margin-left: -20px;
+        margin-top: -20px;
+    }
+    .overlay_form_active{
+        height: 100%;
+    }
+    .check_mark_popup{
+        img{
+            height: 0;
+        }
+    }
+    .check_mark_popup__active{
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

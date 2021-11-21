@@ -139,7 +139,7 @@ $(document).ready(function () {
         mn=d.getMonth();
         mn++;
         yy=d.getFullYear();
-        $('#date_start').val(yy+"-"+mn+"-"+dt);
+        // $('#date_start').val(yy+"-"+mn+"-"+dt);
     });
     $('#date_end').change(function () {
         d=new Date($(this).val());
@@ -147,7 +147,8 @@ $(document).ready(function () {
         mn=d.getMonth();
         mn++;
         yy=d.getFullYear();
-        $('#date_end').val(yy+"-"+mn+"-"+dt);
+        console.log(yy+"-"+mn+"-"+dt);
+        // $('#date_end').val(yy+"-"+mn+"-"+dt);
     });
     window.addEventListener('click', e => {
         const target = e.target;
@@ -184,24 +185,28 @@ $(document).ready(function () {
         let time_end = $('#input_time_end').val();
         $('.errors_list .errors_list__item').remove();
         if (count_airport_start_select > 1 || count_airport_start_select == 0) {
+            $('.errors_list').removeClass('non_view');
             let error_list__item = document.createElement('li');
             error_list__item.setAttribute('class','errors_list__item');
             error_list__item.append('Выберите только 1 аэропорт старта');
             $('.errors_list').append(error_list__item);
         }
         else if (count_airport_end_select > 1 || count_airport_end_select == 0) {
+            $('.errors_list').removeClass('non_view');
             let error_list__item = document.createElement('li');
             error_list__item.setAttribute('class','errors_list__item');
             error_list__item.append('Выберите только 1 аэропорт прибытия');
             $('.errors_list').append(error_list__item);
         }
         else if (id_airport_start == id_airport_end) {
+            $('.errors_list').removeClass('non_view');
             let error_list__item = document.createElement('li');
             error_list__item.setAttribute('class','errors_list__item');
             error_list__item.append('Аэропорт старта не может быть равен аэропорту прибытия');
             $('.errors_list').append(error_list__item);
         }
         else if (date_start == "" || date_end == "" || time_start == "" || time_end == "") {
+            $('.errors_list').removeClass('non_view');
             let error_list__item = document.createElement('li');
             error_list__item.setAttribute('class','errors_list__item');
             error_list__item.append('Проверьте заполненность полей. Все поля должны быть заполнены');
@@ -230,23 +235,24 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     if (data.status) {
+                        $('.errors_list').addClass('non_view');
                         $('.overlay_flight_forms #fountainG').css('display','none');
                         $('.overlay_flight_forms .check_mark_flight_forms img').animate({
                             height: "70px"
                         },100);
                         $('.overlay_flight_forms .check_mark_flight_forms').addClass('check_mark_flight_forms__active');
 
-                        let last_id_list_item = Number($('.flght_table_block .flght_table_block__item:last-child').attr('data-id')) + 1;
+                        let last_id_list_item = 'new_' + (Number($('.flght_table_block .flght_table_block__item:last-child').attr('data-id')) + 1);
 
 
                         let flght_table_block__item = document.createElement('li');
-                        flght_table_block__item.setAttribute('data-id',last_id_list_item);
+                        flght_table_block__item.setAttribute('data-id',data.temporary_id);
                         flght_table_block__item.setAttribute('class','flght_table_block__item');
                         $('.flght_table_block .flght_table_block__item')[0].before(flght_table_block__item);
 
                         let flght_table_block__item__number_row = document.createElement('div');
-                        flght_table_block__item__number_row.setAttribute('class','flght_table_block__item__number_row');
-                        flght_table_block__item__number_row.append(last_id_list_item);
+                        flght_table_block__item__number_row.setAttribute('class','flght_table_block__item__number_row__ajax');
+                        flght_table_block__item__number_row.append(data.temporary_id);
                         $(flght_table_block__item).append(flght_table_block__item__number_row);
 
                         let flght_table_block__item__info = document.createElement('div');
@@ -268,17 +274,17 @@ $(document).ready(function () {
 
                                     let flght_table_block__item__info__flight_plan__start__city = document.createElement('div');
                                     flght_table_block__item__info__flight_plan__start__city.setAttribute('class','flght_table_block__item__info__flight_plan__start__city');
-                                    flght_table_block__item__info__flight_plan__start__city.append("Тест аэропорт 1(СВМ)");
+                                    flght_table_block__item__info__flight_plan__start__city.append(data.airport_start__city_name + ' ' + '(' + data.airport_start__iata_code + ')');
                                     $(flght_table_block__item__info__flight_plan__start).append(flght_table_block__item__info__flight_plan__start__city);
 
                                     let flght_table_block__item__info__flight_plan__start__iata_code_date = document.createElement('div');
                                     flght_table_block__item__info__flight_plan__start__iata_code_date.setAttribute('class','flght_table_block__item__info__flight_plan__start__iata_code_date');
-                                    flght_table_block__item__info__flight_plan__start__iata_code_date.append("00-00-0000 23:13");
+                                    flght_table_block__item__info__flight_plan__start__iata_code_date.append(data.date_start + ' ' + data.time_start);
                                     $(flght_table_block__item__info__flight_plan__start).append(flght_table_block__item__info__flight_plan__start__iata_code_date);
                                     
                                 let flght_table_block__item__info__flight_plan__travel_time = document.createElement('div');
                                 flght_table_block__item__info__flight_plan__travel_time.setAttribute('class','flght_table_block__item__info__flight_plan__travel_time');
-                                flght_table_block__item__info__flight_plan__travel_time.append("00:00");
+                                flght_table_block__item__info__flight_plan__travel_time.append(data.travel_time);
                                 $(flght_table_block__item__info__flight_plan).append(flght_table_block__item__info__flight_plan__travel_time);
 
                                     let arrow_right = document.createElement('i');
@@ -292,17 +298,17 @@ $(document).ready(function () {
 
                                     let flght_table_block__item__info__flight_plan__end__city = document.createElement('div');
                                     flght_table_block__item__info__flight_plan__end__city.setAttribute('class','flght_table_block__item__info__flight_plan__end__city');
-                                    flght_table_block__item__info__flight_plan__end__city.append("Тест аэропорт 2(СВМ)");
+                                    flght_table_block__item__info__flight_plan__end__city.append(data.airport_end__city_name + ' ' + '(' + data.airport_end__iata_code + ')');
                                     $(flght_table_block__item__info__flight_plan__end).append(flght_table_block__item__info__flight_plan__end__city);
 
                                     let flght_table_block__item__info__flight_plan__end__iata_code_date = document.createElement('div');
                                     flght_table_block__item__info__flight_plan__end__iata_code_date.setAttribute('class','flght_table_block__item__info__flight_plan__end__iata_code_date');
-                                    flght_table_block__item__info__flight_plan__end__iata_code_date.append("00-00-0000 11:11");
+                                    flght_table_block__item__info__flight_plan__end__iata_code_date.append(data.date_end + ' ' + data.time_end);
                                     $(flght_table_block__item__info__flight_plan__end).append(flght_table_block__item__info__flight_plan__end__iata_code_date);
                         
                             let flght_table_block__item__info__flght_price = document.createElement('div');
                             flght_table_block__item__info__flght_price.setAttribute('class','flght_table_block__item__info__flght_price');
-                            flght_table_block__item__info__flght_price.append("4500");
+                            flght_table_block__item__info__flght_price.append(data.cost + ' ');
                             $(flght_table_block__item__info).append(flght_table_block__item__info__flght_price);
 
                                 let ruble = document.createElement('i');
@@ -316,8 +322,8 @@ $(document).ready(function () {
 
                             let flght_table_block__item__edit_btn = document.createElement('button');
                             flght_table_block__item__edit_btn.setAttribute('class','flght_table_block__item__edit_btn');
-                            flght_table_block__item__edit_btn.setAttribute('id','flight_edit_btn_' + last_id_list_item);
-                            flght_table_block__item__edit_btn.setAttribute('aria-label','flight_edit_btn_' + last_id_list_item);
+                            flght_table_block__item__edit_btn.setAttribute('id','flight_edit_btn_' + data.temporary_id);
+                            flght_table_block__item__edit_btn.setAttribute('aria-label','flight_edit_btn_' + data.temporary_id);
                             $(flght_table_block__item__edit).append(flght_table_block__item__edit_btn);
 
                                 let edit_pensil = document.createElement('i');
@@ -331,8 +337,8 @@ $(document).ready(function () {
 
                                 let flght_table_block__item__delete_btn = document.createElement('button');
                                 flght_table_block__item__delete_btn.setAttribute('class','flght_table_block__item__delete_btn');
-                                flght_table_block__item__delete_btn.setAttribute('id','flight_delete_btn_' + last_id_list_item);
-                                flght_table_block__item__delete_btn.setAttribute('aria-label','flight_delete_btn_' + last_id_list_item);
+                                flght_table_block__item__delete_btn.setAttribute('id','flight_delete_btn_' + data.temporary_id);
+                                flght_table_block__item__delete_btn.setAttribute('aria-label','flight_delete_btn_' + data.temporary_id);
                                 $(flght_table_block__item__delete).append(flght_table_block__item__delete_btn);
 
                                     let delete_item = document.createElement('i');
@@ -341,15 +347,26 @@ $(document).ready(function () {
                                     $(flght_table_block__item__delete_btn).append(delete_item);
 
                         setTimeout(() => {
+                            
+                            $('.overlay_flight_forms .check_mark_flight_forms img').css('display','none');
+                            $('.overlay_flight_forms .check_mark_flight_forms').removeClass('check_mark_flight_forms__active');  
+                        }, 400);
+                        setTimeout(() => {
+                             
                             $('.overlay_flight_forms').removeClass('overlay_form_active');
-                            $('.overlay_flight_forms .check_mark_flight_forms').removeAttr('style');
-                            $('.overlay_flight_forms .check_mark_flight_forms').removeClass('check_mark_flight_forms__active');
-                            $('.overlay_flight_forms .check_mark_flight_forms img').removeAttr('style');
-                            $('.errors_list .errors_list__item').remove();
-                        }, 600);
+                            $('.overlay_flight_forms #fountainG').removeAttr('style');
+
+                            $('#input_airport_start').val('');
+                            $('#input_airport_end').val('');
+                            $('#date_start').val('');
+                            $('#date_end').val('');
+                            $('#input_time_end').val('');
+                            $('#input_time_start').val('');
+                        }, 500);
                     }
                     else if(data.type_error == 1){
-                        $('.overlay_flight_forms ').removeClass('overlay_form_active');
+                        $('.errors_list').removeClass('non_view');
+                        $('.overlay_flight_forms').removeClass('overlay_form_active');
                         Object.keys(data.errors_fields).forEach(function(value_error){
                             let error_list__item = document.createElement('li');
                             error_list__item.setAttribute('class','errors_list__item');
@@ -358,7 +375,8 @@ $(document).ready(function () {
                         });
                     }
                     else{
-                        $('.overlay_flight_forms ').removeClass('overlay_form_active');
+                        $('.errors_list').removeClass('non_view');
+                        $('.overlay_flight_forms').removeClass('overlay_form_active');
                         let error_list__item = document.createElement('li');
                         error_list__item.setAttribute('class','errors_list__item');
                         error_list__item.append(data.error_message);
@@ -366,24 +384,112 @@ $(document).ready(function () {
                     }
                 },
                 error: function () {
-                    $('.overlay_flight_forms ').removeClass('overlay_form_active');
-                        let error_list__item = document.createElement('li');
-                        error_list__item.setAttribute('class','errors_list__item');
-                        error_list__item.append('Возникла непредвиденная ошибка. Обновите страницу и попробуйте еще раз');
-                        $('.errors_list').append(error_list__item);
+                    $('.errors_list').removeClass('non_view');
+                    $('.overlay_flight_forms').removeClass('overlay_form_active');
+                    let error_list__item = document.createElement('li');
+                    error_list__item.setAttribute('class','errors_list__item');
+                    error_list__item.append('Возникла непредвиденная ошибка. Обновите страницу и попробуйте еще раз');
+                    $('.errors_list').append(error_list__item);
                 }
             });
         }
     });
 
-    $('.flght_table_block__item__delete_btn').click(function (e) {
+    var id_elem_delete__arr;
+    // document.querySelector('.flght_table_block__item__delete_btn').addEventListener('click', e => {
+    $( document).on( "click", "button[class='flght_table_block__item__delete_btn']", function(e) {
         e.preventDefault();
 
-        let id_elem_delete__arr = $(this).attr('id');
+        $('body').addClass('body_popup__open');
+        $('.popup_fade').removeClass('non_view');
+        $('.popup_modal').removeClass('non_view');
+        id_elem_delete__arr = $(this).attr('id');
+    });
+    
+    $('#btn_yes').click(function (e) {
+        e.preventDefault();
+        
         let id_elem_delete = id_elem_delete__arr[id_elem_delete__arr.length -1];
+        let flight_code_elem_delete__arr = $('.flght_table_block__item[data-id="' + id_elem_delete + '"]').find('.flght_table_block__item__info__flight_number').text();
+        
+        let formData = new FormData();
+        formData.append('flight_code_delete',flight_code_elem_delete__arr);
+        $.ajax({
+            headers: {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/edit_future_flights__delete',
+            type: "POST",
+            data: formData,
+            dataType: 'JSON',
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('.overlay_popup').addClass('overlay_form_active');
+            },
+            success: function (data) {
+                if (data.status) {
+                    $('.overlay_popup #fountainG').css('display','none');
+                    $('.overlay_popup .check_mark_popup img').animate({
+                        height: "70px"
+                    },100);
+                    $('.overlay_popup .check_mark_popup').addClass('check_mark_popup__active');
+                    setTimeout(() => {
+                        $('body').removeClass('body_popup__open');
+                        $('.popup_fade').addClass('non_view');
+                        $('.popup_modal').addClass('non_view');
+                        $('.overlay_popup').removeClass('overlay_form_active');
+                        $('.overlay_popup #fountainG').css('display','none');
+                        $('.flght_table_block__item[data-id="' + id_elem_delete + '"]').remove();
+                        $('.overlay_popup .check_mark_popup').removeClass('check_mark_popup__active');
+                        $('.overlay_popup .check_mark_popup img').removeAttr('style');
+                        $('.overlay_popup #fountainG').removeAttr('style');
+                    }, 800);
+                }
+                else{
+                    $('.overlay_popup').removeClass('overlay_form_active');
+                    $('.overlay_popup #fountainG').css('display','none');
+                    $('.overlay_popup .check_mark_popup').removeClass('check_mark_popup__active');
+                    $('.popup_order_block h3').text(data.error_message);
+                    $('.overlay_popup .check_mark_popup img').removeAttr('style');
+                    $('.overlay_popup #fountainG').removeAttr('style');
+                }
+            },
+            error: function () {
+                $('.overlay_popup').removeClass('overlay_form_active');
+                $('.overlay_popup #fountainG').css('display','none');
+                $('.overlay_popup .check_mark_popup').removeClass('check_mark_popup__active');
+                $('.popup_order_block h3').text("Возникла непредвиденная ошибка. Обновите страницу и попробуйте еще раз");
+                $('.overlay_popup .check_mark_popup img').removeAttr('style');
+                $('.overlay_popup #fountainG').removeAttr('style');
+            }
+        });
+        
+    });
+    $('#btn_no').click(function (e) {
+        e.preventDefault();
+        $('body').removeClass('body_popup__open');
+        $('.popup_fade').addClass('non_view');
+        $('.popup_modal').addClass('non_view');
+    });
+    // закрытие модального окна
+    $('#btn_popup_close').click(function (e) {
+        e.preventDefault();
+        $('body').removeClass('body_popup__open');
+        $('.popup_fade').addClass('non_view');
+        $('.popup_modal').addClass('non_view');
+    });
 
-        // сделать модальное окно с уточнением об удалении
-        $('.flght_table_block__item[data-id="' + id_elem_delete + '"]').remove();
-        console.log(id_elem_delete);
-    })
+
+    $(window).on('scroll',function () {
+        if ($(this).scrollTop() > 300) {
+            $('#btn_scroll_top').removeClass('non_view');
+        }
+        else{
+            $('#btn_scroll_top').addClass('non_view');
+        }
+    });
+    $('#btn_scroll_top').click(function () {
+        $('html, body').animate({scrollTop : 0}, 50); 
+    });
 });
