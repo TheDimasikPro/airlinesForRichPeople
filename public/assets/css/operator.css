@@ -536,9 +536,12 @@ main .section_content .flight_info .flight_info_block .flght_table_block .flght_
 main .section_content .flight_info .flight_forms_block {
   margin-left: 50px;
   margin-top: 35%;
+  position: relative;
 }
 main .section_content .flight_info .flight_forms_block .flight_form {
   position: fixed;
+  box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.3);
+  padding: 15px;
 }
 main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs {
   display: flex;
@@ -554,6 +557,7 @@ main .section_content .flight_info .flight_forms_block .flight_form .flight_form
 main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block input {
   margin-top: 10px;
@@ -565,6 +569,251 @@ main .section_content .flight_info .flight_forms_block .flight_form .flight_form
 main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .non_active_button {
   background: #999999;
   cursor: default;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .drop_btn {
+  width: auto;
+  position: absolute;
+  display: block;
+  right: 0;
+  top: 48%;
+  cursor: pointer;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .drop_btn .fas {
+  font-size: 20px;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list {
+  transform-origin: 0 0;
+  transform: scaleY(0);
+  opacity: 0;
+  z-index: 99999;
+  position: absolute;
+  overflow-y: auto;
+  max-height: 188px;
+  width: 250px;
+  margin-top: 65px;
+  box-shadow: 0px 15px 18px 5px rgba(34, 60, 80, 0.3);
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list::-webkit-scrollbar, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list::-webkit-scrollbar {
+  width: 7px;
+  background-color: #f9f9fd;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list::-webkit-scrollbar-thumb, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #004369;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list::-webkit-scrollbar-track, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f9f9fd;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_start__list__item, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_end__list__item, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_start__list__item, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_end__list__item {
+  padding: 15px;
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #222222;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_start__list__item:hover, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_end__list__item:hover, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_start__list__item:hover, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_end__list__item:hover {
+  cursor: pointer;
+  background: #F7F7F7;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_start__list__item:last-child, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_end__list__item:last-child, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_start__list__item:last-child, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_end__list__item:last-child {
+  border-bottom: none;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_start__list__item:not(:first-child), main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_end__list__item:not(:first-child), main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_start__list__item:not(:first-child), main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_end__list__item:not(:first-child) {
+  border-top: none;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_start__list__item .info_country, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_end__list__item .info_country, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_start__list__item .info_country, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_end__list__item .info_country {
+  width: 70%;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_start__list__item .info_country .airport_name, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_end__list__item .info_country .airport_name, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_start__list__item .info_country .airport_name, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_end__list__item .info_country .airport_name {
+  font-size: 16px;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_start__list__item .info_country .desc_airport_eng, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .airport_end__list__item .info_country .desc_airport_eng, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_start__list__item .info_country .desc_airport_eng, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .airport_end__list__item .info_country .desc_airport_eng {
+  margin-top: 6px;
+  color: #999999;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .select_elem_airport, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .select_elem_airport {
+  background-color: #84C2AD;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .select_elem_airport .info_country, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .select_elem_airport .airport_name, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .select_elem_airport .info_country, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .select_elem_airport .airport_name {
+  color: #222222;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .select_elem_airport .info_country .desc_airport_eng, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .select_elem_airport .airport_name .desc_airport_eng, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .select_elem_airport .info_country .desc_airport_eng, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .select_elem_airport .airport_name .desc_airport_eng {
+  color: #ffffff;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_start__list .select_elem_airport:hover, main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .airport_end__list .select_elem_airport:hover {
+  background: #52C9B9;
+  color: black;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .flight_form__inputs .flight_form__inputs__row .input_block .show_drop_content {
+  transform: scaleY(1);
+  opacity: 1;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .errors_list {
+  margin-top: 20px;
+  max-width: 532px;
+}
+main .section_content .flight_info .flight_forms_block .flight_form .errors_list .errors_list__item {
+  padding: 10px;
+  background: #A01010;
+  color: #ffffff;
+  line-height: 20px;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active {
+  position: absolute;
+  width: 100%;
+  height: 96.5%;
+  z-index: 999999;
+  background: #ffffff;
+  opacity: 0.7;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG {
+  position: relative;
+  width: 192px;
+  height: 23px;
+  margin: auto;
+  margin-top: 20%;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active .fountainG {
+  position: absolute;
+  top: 0;
+  background-color: black;
+  width: 23px;
+  height: 23px;
+  animation-name: bounce_fountainG;
+  -o-animation-name: bounce_fountainG;
+  -ms-animation-name: bounce_fountainG;
+  -webkit-animation-name: bounce_fountainG;
+  -moz-animation-name: bounce_fountainG;
+  animation-duration: 0.845s;
+  -o-animation-duration: 0.845s;
+  -ms-animation-duration: 0.845s;
+  -webkit-animation-duration: 0.845s;
+  -moz-animation-duration: 0.845s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  transform: scale(0.3);
+  -o-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG_1 {
+  left: 0;
+  animation-delay: 0.336s;
+  -o-animation-delay: 0.336s;
+  -ms-animation-delay: 0.336s;
+  -webkit-animation-delay: 0.336s;
+  -moz-animation-delay: 0.336s;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG_2 {
+  left: 24px;
+  animation-delay: 0.4225s;
+  -o-animation-delay: 0.4225s;
+  -ms-animation-delay: 0.4225s;
+  -webkit-animation-delay: 0.4225s;
+  -moz-animation-delay: 0.4225s;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG_3 {
+  left: 48px;
+  animation-delay: 0.509s;
+  -o-animation-delay: 0.509s;
+  -ms-animation-delay: 0.509s;
+  -webkit-animation-delay: 0.509s;
+  -moz-animation-delay: 0.509s;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG_4 {
+  left: 72px;
+  animation-delay: 0.5955s;
+  -o-animation-delay: 0.5955s;
+  -ms-animation-delay: 0.5955s;
+  -webkit-animation-delay: 0.5955s;
+  -moz-animation-delay: 0.5955s;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG_5 {
+  left: 96px;
+  animation-delay: 0.672s;
+  -o-animation-delay: 0.672s;
+  -ms-animation-delay: 0.672s;
+  -webkit-animation-delay: 0.672s;
+  -moz-animation-delay: 0.672s;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG_6 {
+  left: 120px;
+  animation-delay: 0.7585s;
+  -o-animation-delay: 0.7585s;
+  -ms-animation-delay: 0.7585s;
+  -webkit-animation-delay: 0.7585s;
+  -moz-animation-delay: 0.7585s;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG_7 {
+  left: 144px;
+  animation-delay: 0.845s;
+  -o-animation-delay: 0.845s;
+  -ms-animation-delay: 0.845s;
+  -webkit-animation-delay: 0.845s;
+  -moz-animation-delay: 0.845s;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG_8 {
+  left: 168px;
+  animation-delay: 0.9315s;
+  -o-animation-delay: 0.9315s;
+  -ms-animation-delay: 0.9315s;
+  -webkit-animation-delay: 0.9315s;
+  -moz-animation-delay: 0.9315s;
+}
+@keyframes bounce_fountainG {
+  0% {
+    transform: scale(1);
+    background-color: black;
+  }
+  100% {
+    transform: scale(0.3);
+    background-color: white;
+  }
+}
+@-webkit-keyframes bounce_fountainG {
+  0% {
+    -webkit-transform: scale(1);
+    background-color: black;
+  }
+  100% {
+    -webkit-transform: scale(0.3);
+    background-color: white;
+  }
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active {
+  height: 96.5%;
+  width: 95%;
+}
+main .section_content .flight_info .flight_forms_block .overlay_form_active #fountainG {
+  margin-top: 40%;
+}
+main .section_content .flight_info .flight_forms_block .check_mark_flight_forms img {
+  height: 0;
+}
+main .section_content .flight_info .flight_forms_block .check_mark_flight_forms__active {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 main .btn_scroll_top {
   position: fixed;

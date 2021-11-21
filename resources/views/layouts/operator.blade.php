@@ -102,6 +102,7 @@
     <footer>
         <script src="/assets/js/jquery-3.6.0.min.js"></script>
         <script src="/assets/js/operator.min.js"></script>
+        <script src="/assets/js/maskedinput.min.js"></script>
     </footer>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@extends('inc.operator')
+@extends('layouts.operator')
 @section('content')
 <div class="flight_info">
     <div class="flight_info_block">
@@ -40,11 +40,11 @@
                 <!-- /.flght_table_block__item_title__text -->
             </li>
             <!-- /.flght_table_block__item -->
-            @if (count($flight_arr) > 0)
+            @if (count($operator["flight_arr"]) > 0)
             <?php $number = 0; ?>
-                @foreach ($flight_arr as $key => $flight_arr__item)
+                @foreach ($operator["flight_arr"] as $key => $flight_arr__item)
                 <?php $number++?>
-                    <li class="flght_table_block__item">
+                    <li class="flght_table_block__item" data-id="{{ $number }}">
                         <div class="flght_table_block__item__number_row">{{ $number }}</div>
                         <!-- /.flght_table_block__item__number_row -->
                         <div class="flght_table_block__item__info">
@@ -52,17 +52,12 @@
                             <!-- /.flght_table_block__item__info__flight_number -->
                             <div class="flght_table_block__item__info__flight_plan">
                                 <div class="flght_table_block__item__info__flight_plan__start">
-                                    @if (empty($flight_arr__item["airport_flight_start"]["city_rus"]))
-                                        <div class="flght_table_block__item__info__flight_plan__start__city">{{ $flight_arr__item["airport_flight_start"]["city_eng"] }}</div>
-                                        <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                                    @else
-                                        <div class="flght_table_block__item__info__flight_plan__start__city">{{ $flight_arr__item["airport_flight_start"]["city_rus"] }}</div>
-                                        <!-- /.flght_table_block__item__info__flight_plan__start__city -->
-                                    @endif
+                                    <div class="flght_table_block__item__info__flight_plan__start__city">{{ $flight_arr__item["airport_flight_start"]["city_eng"] }} ({{ $flight_arr__item['airport_flight_start']["iata_code"] }})</div>
+                                    <!-- /.flght_table_block__item__info__flight_plan__start__city -->
                                     
                                     <div class="flght_table_block__item__info__flight_plan__start__iata_code_date">
+                                        {{ \Carbon\Carbon::parse($flight_arr__item['flight']["date_start"])->format('d-m-Y') }}
                                         {{ \Carbon\Carbon::parse($flight_arr__item['flight']["time_start"])->format('H:i') }}
-                                        ({{ $flight_arr__item['airport_flight_start']["iata_code"] }})
                                     </div>
                                     <!-- /.flght_table_block__item__info__flight_plan__start__iata_code_date -->
                                 </div>
@@ -75,16 +70,11 @@
                                 <!-- /.flght_table_block__item__info__flight_plan__travel_time -->
 
                                 <div class="flght_table_block__item__info__flight_plan__end">
-                                    @if (empty($flight_arr__item["airport_flight_start"]["city_rus"]))
-                                        <div class="flght_table_block__item__info__flight_plan__end__city">{{ $flight_arr__item["airport_flight_end"]["city_eng"] }}</div>
-                                        <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                                    @else
-                                        <div class="flght_table_block__item__info__flight_plan__end__city">{{ $flight_arr__item["airport_flight_end"]["city_rus"] }}</div>
-                                        <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                                    @endif
+                                    <div class="flght_table_block__item__info__flight_plan__end__city">{{ $flight_arr__item["airport_flight_end"]["city_eng"] }} ({{ $flight_arr__item['airport_flight_end']["iata_code"] }})</div>
+                                    <!-- /.flght_table_block__item__info__flight_plan__end__city -->
                                     <div class="flght_table_block__item__info__flight_plan__end__iata_code_date">
+                                        {{ \Carbon\Carbon::parse($flight_arr__item['flight']["date_end"])->format('d-m-Y') }}
                                         {{ \Carbon\Carbon::parse($flight_arr__item['flight']["time_end"])->format('H:i') }}
-                                        ({{ $flight_arr__item['airport_flight_end']["iata_code"] }})
                                     </div>
                                     <!-- /.flght_table_block__item__info__flight_plan__end__iata_code_date -->
                                 </div>
@@ -113,7 +103,6 @@
                     <!-- /.flght_table_block__item -->
                 @endforeach
             @endif
-            
         </ul>
         <!-- /.flght_table_block -->
     </div>
@@ -122,24 +111,80 @@
     <div class="flight_forms_block">
         <form action="" method="post" class="flight_form">
             @csrf
+            <div class="overlay_flight_forms">
+                <div id="fountainG">
+                    <div id="fountainG_1" class="fountainG"></div>
+                    <div id="fountainG_2" class="fountainG"></div>
+                    <div id="fountainG_3" class="fountainG"></div>
+                    <div id="fountainG_4" class="fountainG"></div>
+                    <div id="fountainG_5" class="fountainG"></div>
+                    <div id="fountainG_6" class="fountainG"></div>
+                    <div id="fountainG_7" class="fountainG"></div>
+                    <div id="fountainG_8" class="fountainG"></div>
+                </div>
+                <div class="check_mark_flight_forms">
+                    <img src="/assets/images/icons/icons8-check-mark-48.png" alt="check-mark">
+                </div>
+                <!-- /.check_mark_flight_forms -->
+            </div>
             <h2>Форма добавления, редактирования рейсов</h2>
             <div class="flight_form__inputs">
                 <div class="flight_form__inputs__row">
                     <div class="input_block">
-                        <label for="airport_start">Аэропорт старта:</label>
-                        <input type="text" class="sm_input" name="airport_start" id="airport_start" placeholder="Выберите аэропорт взлета">
+                        <label for="input_airport_start">Аэропорт старта:</label>
+                        <input type="text" id="input_airport_start" name="airport_start" class="sm_input" placeholder="Выберите аэропорт взлета">
+                        <button class="airport_start__dropbtn drop_btn" type="button" id="dropbtn_airport_start" aria-label="dropbtn_airport_start">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                        
+                        <ul class="airport_start__list">
+                            @foreach ($operator["airport_data"] as $airport)
+                                <li class="airport_start__list__item" data-id="{{ $airport->id }}">
+                                    <div class="info_country">
+                                        <div class="airport_name">{{ $airport->name_eng }}</div>
+                                        <!-- /.airport_name -->
+                                        <div class="desc_airport_eng">Airport, {{ $airport->desc_airport_eng }}</div>
+                                        <!-- /.desc_airport_eng -->
+                                    </div>
+                                    <!-- /.info_country -->
+                                    <div class="iata_code">{{ $airport->iata_code }}</div>
+                                    <!-- /.iata_code -->
+                                </li>
+                            @endforeach
+                            <!-- /.airport_start__list__item -->
+                        </ul>
                     </div>
                     <!-- /.inputs_block -->
                     <div class="input_block">
-                        <label for="airport_end">Аэропорт прибытия:</label>
-                        <input type="text" class="sm_input" name="airport_end" id="airport_end" placeholder="Выберите аэропорт прибытия">
+                        <label for="input_airport_end">Аэропорт прибытия:</label>
+                        <input type="text" id="input_airport_end" name="airport_end" class="sm_input" placeholder="Выберите аэропорт прибытия">
+                        <button class="airport_end__dropbtn drop_btn" type="button" id="dropbtn_airport_end" aria-label="dropbtn_airport_end">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                        
+                        <ul class="airport_end__list">
+                            @foreach ($operator["airport_data"] as $airport)
+                                <li class="airport_end__list__item" data-id="{{ $airport->id }}">
+                                    <div class="info_country">
+                                        <div class="airport_name">{{ $airport->name_eng }}</div>
+                                        <!-- /.airport_name -->
+                                        <div class="desc_airport_eng">Airport, {{ $airport->desc_airport_eng }}</div>
+                                        <!-- /.desc_airport_eng -->
+                                    </div>
+                                    <!-- /.info_country -->
+                                    <div class="iata_code">{{ $airport->iata_code }}</div>
+                                    <!-- /.iata_code -->
+                                </li>
+                            @endforeach
+                            <!-- /.airport_end__list__item -->
+                        </ul>
                     </div>
                     <!-- /.inputs_block -->
                 </div>
                 <!-- /.flight_form__inputs__row -->
                 <div class="flight_form__inputs__row">
                     <div class="input_block">
-                        <label for="date_start">Дата старт:</label>
+                        <label for="date_start">Дата старта:</label>
                         <input type="date" class="sm_input" name="date_start" id="date_start" placeholder="Выберите дату взлета">
                     </div>
                     <!-- /.inputs_block -->
@@ -152,13 +197,13 @@
                 <!-- /.flight_form__inputs__row -->
                 <div class="flight_form__inputs__row">
                     <div class="input_block">
-                        <label for="time_start">Время взлета:</label>
-                        <input type="text" class="sm_input" name="time_start" id="time_start" placeholder="Выберите время взлета">
+                        <label for="input_time_start">Время взлета:</label>
+                        <input type="text" class="sm_input" name="time_start" id="input_time_start" placeholder="Выберите время взлета">
                     </div>
                     <!-- /.inputs_block -->
                     <div class="input_block">
-                        <label for="time_end">Время приземления:</label>
-                        <input type="text" class="sm_input" name="time_end" id="time_end" placeholder="Выберите время приземления">
+                        <label for="input_time_end">Время приземления:</label>
+                        <input type="text" class="sm_input" name="time_end" id="input_time_end" placeholder="Выберите время приземления">
                     </div>
                     <!-- /.inputs_block -->
                 </div>
@@ -176,6 +221,10 @@
                 <!-- /.flight_form__inputs__row -->
             </div>
             <!-- /.flight_form__inputs -->
+            <ul class="errors_list">
+
+            </ul>
+            <!-- /.errors_list -->
         </form>
     </div>
     <!-- /.flight_forms_block -->

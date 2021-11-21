@@ -883,24 +883,10 @@ class FlightController extends Controller
 
     public function returnViewEditFutureFlight()
     {
-        // return Carbon::now()->format('Y-m-d');
         $flight_arr = [];
-        // $booking = Booking::query();
         $date_now = Carbon::now()->format('Y-m-d');
         $date_add_3month = Carbon::now()->addMonths(3)->format('Y-m-d');
-
-        $booking = Booking::select('id_flight_from');
         $booking_ids_arr = [];
-        // foreach($booking->get() as $booking__item){
-        //     if (!in_array($booking__item["id_flight_from"],$booking_ids_arr)) {
-        //         array_push($booking_ids_arr,$booking__item["id_flight_from"]);
-        //     }
-        // }
-
-        // return $booking_ids_arr;
-        // $booking = Booking::select('id','id_flight_from','id_booking_status')->whereIn('id_booking_status',[2,4])->whereIn('id_flight_fro',$booking_ids_arr);
-        $booking = Booking::select('id','id_flight_from','id_booking_status')->whereIn('id_booking_status',[2,4]);
-
         $flights_ids = Flight::select('id');
         if ($flights_ids->get()!=null) {
             foreach ($flights_ids->get() as $key => $value) {
@@ -909,10 +895,6 @@ class FlightController extends Controller
                     $id_flight_from = $value["id"];
                     $airport_flight_from_start = null;
                     $airport_flight_from_end = null;
-
-                    // $id_booking_status = $value["id_booking_status"];
-                    // $booking_status = DB::table('booking_statuses')->select('name_status')->where('id',$id_booking_status)->first();
-                    
                     if ($id_flight_from != null) {
                         
                         $flight_from = Flight::select('id','flight_code','time_start','time_end','travel_time','cost','date_start','date_end','id_airport_start','id_airport_end')
@@ -933,6 +915,139 @@ class FlightController extends Controller
                 
             }
         }
-        return view('Operator.flights',['flight_arr' => $flight_arr]);
+        $airport_data = DB::table('airports')->select('id','iata_code','name_eng','desc_airport_eng')->limit(50)->get();
+        $response = [
+            "airport_data" => $airport_data,
+            "flight_arr" => array_reverse($flight_arr)
+        ];
+        return view('Operator.flights',['operator' => array_reverse($response)] );
+    }
+
+    public function SendEditFutureFlight(Request $request)
+    {
+        $rules = [
+            'id_airport_start' => [
+                'required',
+                'integer'
+            ],
+            'id_airport_end' => [
+                'required',
+                'integer'
+            ],
+            'date_start' => [
+                'date',
+                'required',
+                "date_format:Y-m-d"
+            ],
+            'date_end' => [
+                'date',
+                'required',
+                "date_format:Y-m-d"
+            ],
+            'time_start' => [
+                'required',
+                'regex:/^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$/'
+            ],
+            'time_end' => [
+                'required',
+                'regex:/^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$/'
+            ]
+        ];
+        $messages = [
+            'id_airport_start.required' => 'Поле "Аэропорт старта" не выбрано',
+            'id_airport_start.integer' => 'Поле "Аэропорт старта" не выбрано',
+            'id_airport_end.required' => 'Поле "Аэропорт прибытия" не выбрано',
+            'id_airport_end.integer' => 'Поле "Аэропорт прибытия" не выбрано',
+            'date_start.required' => 'Поле "Дата старта" не выбрано',
+            'date_start.date' => 'Поле "Дата старта" имеет не тот формат',
+            'date_start.date_format' => 'Поле "Дата старта" имеет не тот формат',
+            'date_end.required' => 'Поле "Дата прибытия" не выбрано',
+            'date_end.date' => 'Поле "Дата прибытия" имеет не тот формат',
+            'date_end.date_format' => 'Поле "Дата прибытия" имеет не тот формат',
+            'time_start.required' => 'Поле "Время взлета" не выбрано',
+            'time_start.regex' => 'Поле "Время взлета" имеет не тот формат',
+            'time_end.required' => 'Поле "Время прибытия" не выбрано',
+            'time_end.regex' => 'Поле "Время прибытия" имеет не тот формат'
+        ];
+        $validationFields = Validator::make($request->all(),$rules,$messages);
+        if ($validationFields->fails()) {
+            $response = [
+                'status' => false,
+                'type_error' => 1,
+                'errors_fields' => $validationFields->errors()
+            ];
+            return json_encode($response);
+        }
+        
+        $id_airport_start = $request["id_airport_start"];
+        $id_airport_end = $request["id_airport_end"];
+        $date_start = $request["date_start"];
+        $date_end = $request["date_end"];
+        $time_start = $request["time_start"];
+        $time_end = $request["time_end"];
+
+        if ($date_start > $date_end) {
+            $response = [
+                'status' => false,
+                'type_error' => 2,
+                'error_message' => "Дата старта не может быть больше даты прибытия"
+            ];
+            return json_encode($response);
+        }
+        if ($id_airport_start == $id_airport_end) {
+            $response = [
+                'status' => false,
+                'type_error' => 2,
+                'error_message' => "Аэропорт старта не может быть равен аэропорту прибытия"
+            ];
+            return json_encode($response);
+        }
+
+        $time1 = strtotime('2021-01-01 ' . $time_end); // это время "сейчас" (как целое число)
+        $time2 = strtotime('2021-01-01 ' . $time_start); // а это время в недавнем прошлом
+        
+        $diff = $time1 - $time2; // разница в секундах
+        $travel_time = gmdate('H:i:s', $diff); //
+
+        $check_flight = Flight::where([
+            "id_airport_start" => $id_airport_start,
+            "id_airport_end" =>  $id_airport_end,
+            "time_start" => $time_start,
+            "time_end" => $time_end,
+            "date_start" => $date_start,
+            "date_end" => $date_end,
+            "travel_time" => $travel_time,
+            "number_of_seats" => 50,
+            "number_of_free_seats" => 50,
+        ])->count();
+        if ($check_flight > 4) {
+            $response = [
+                'status' => false,
+                'type_error' => 2,
+                'error_message' => "Рейсов с такими данными уже больше 4...слишком много"
+            ];
+            return json_encode($response);
+        }
+        $flight_code = "RA_" . Str::random(4);
+        $id_new_flight = Flight::insertGetId([
+            "flight_code" => $flight_code,
+            "id_airport_start" => $id_airport_start,
+            "id_airport_end" =>  $id_airport_end,
+            "time_start" => $time_start,
+            "time_end" => $time_end,
+            "date_start" => $date_start,
+            "date_end" => $date_end,
+            "cost" => rand(3000,5000),
+            "travel_time" => $travel_time,
+            "number_of_seats" => 50,
+            "number_of_free_seats" => 50,
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
+        ]);
+        $response = [
+            'status' => true,
+            'flight_code' => $flight_code
+        ];
+        return json_encode($response);
     }
 }
