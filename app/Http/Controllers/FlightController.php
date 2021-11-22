@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Session;
 use Mockery\Generator\StringManipulation\Pass\Pass;
 
@@ -916,11 +917,41 @@ class FlightController extends Controller
             }
         }
         $airport_data = DB::table('airports')->select('id','iata_code','name_eng','desc_airport_eng')->limit(50)->get();
+
+
+        // Get current page form url e.x. &page=1
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+        // Create a new Laravel collection from the array data
+        $itemCollection = collect($flight_arr);
+
+        // Define how many items we want to be visible in each page
+        $perPage = 4;
+
+        // Slice the collection to get the items to display in current page
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+
+        // Create our paginator and pass it to the view
+        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+
+        $path_page = 'http://richairlines/edit_future_flights';
+        // set url path for generted links
+        $paginatedItems->setPath($path_page);
+
+        // return view('items_view', ['items' => $paginatedItems]);
+
+
+
         $response = [
             "airport_data" => $airport_data,
-            "flight_arr" => $flight_arr
+            "flight_arr" => $paginatedItems
         ];
         // return $flights_ids->get()->sortBy('id');
+        
+        
+        
+
+
         return view('Operator.flights',['operator' => array_reverse($response)] );
     }
 
