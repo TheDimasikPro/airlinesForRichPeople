@@ -55,10 +55,7 @@
                                     <div class="flght_table_block__item__info__flight_plan__start__city">{{ $flight_arr__item["airport_flight_start"]["city_eng"] }} ({{ $flight_arr__item['airport_flight_start']["iata_code"] }})</div>
                                     <!-- /.flght_table_block__item__info__flight_plan__start__city -->
                                     
-                                    <div class="flght_table_block__item__info__flight_plan__start__iata_code_date">
-                                        {{ \Carbon\Carbon::parse($flight_arr__item['flight']["date_start"])->format('d-m-Y') }}
-                                        {{ \Carbon\Carbon::parse($flight_arr__item['flight']["time_start"])->format('H:i') }}
-                                    </div>
+                                    <div class="flght_table_block__item__info__flight_plan__start__iata_code_date">{{ \Carbon\Carbon::parse($flight_arr__item['flight']["date_start"])->format('d-m-Y') }} {{ \Carbon\Carbon::parse($flight_arr__item['flight']["time_start"])->format('H:i') }}</div>
                                     <!-- /.flght_table_block__item__info__flight_plan__start__iata_code_date -->
                                 </div>
                                 <!-- /.flght_table_block__item__info__flight_plan__start -->
@@ -72,10 +69,7 @@
                                 <div class="flght_table_block__item__info__flight_plan__end">
                                     <div class="flght_table_block__item__info__flight_plan__end__city">{{ $flight_arr__item["airport_flight_end"]["city_eng"] }} ({{ $flight_arr__item['airport_flight_end']["iata_code"] }})</div>
                                     <!-- /.flght_table_block__item__info__flight_plan__end__city -->
-                                    <div class="flght_table_block__item__info__flight_plan__end__iata_code_date">
-                                        {{ \Carbon\Carbon::parse($flight_arr__item['flight']["date_end"])->format('d-m-Y') }}
-                                        {{ \Carbon\Carbon::parse($flight_arr__item['flight']["time_end"])->format('H:i') }}
-                                    </div>
+                                    <div class="flght_table_block__item__info__flight_plan__end__iata_code_date">{{ \Carbon\Carbon::parse($flight_arr__item['flight']["date_end"])->format('d-m-Y') }} {{ \Carbon\Carbon::parse($flight_arr__item['flight']["time_end"])->format('H:i') }}</div>
                                     <!-- /.flght_table_block__item__info__flight_plan__end__iata_code_date -->
                                 </div>
                                 <!-- /.flght_table_block__item__info__flight_plan__end -->

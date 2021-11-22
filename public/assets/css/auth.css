@@ -415,6 +415,7 @@ input[type=button] {
 }
 #header .d_menu .nav_menu .geo_posistion_people .language_currency::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
   background-color: #f9f9fd;
 }
 #header .d_menu .nav_menu .geo_posistion_people .language_currency::-webkit-scrollbar-thumb {
@@ -561,6 +562,7 @@ input[type=button] {
   }
   #header .additional_sub_menu::-webkit-scrollbar {
     width: 7px;
+    height: 7px;
     background-color: #f9f9fd;
   }
   #header .additional_sub_menu::-webkit-scrollbar-thumb {
@@ -761,6 +763,7 @@ input[type=button] {
 }
 .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list::-webkit-scrollbar, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
   background-color: #f9f9fd;
 }
 .form_auth .form_auth_block .form_auth__row .form_auth_block_second .prefix_phone_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .gender_code_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .type_document_list::-webkit-scrollbar-thumb, .form_auth .form_auth_block .form_auth__row .form_auth_block_second .country_of_issue_list::-webkit-scrollbar-thumb {

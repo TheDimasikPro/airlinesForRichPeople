@@ -415,6 +415,7 @@ input[type=button] {
 }
 #header .d_menu .nav_menu .geo_posistion_people .language_currency::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
   background-color: #f9f9fd;
 }
 #header .d_menu .nav_menu .geo_posistion_people .language_currency::-webkit-scrollbar-thumb {
@@ -561,6 +562,7 @@ input[type=button] {
   }
   #header .additional_sub_menu::-webkit-scrollbar {
     width: 7px;
+    height: 7px;
     background-color: #f9f9fd;
   }
   #header .additional_sub_menu::-webkit-scrollbar-thumb {
@@ -710,6 +712,7 @@ input[type=button] {
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
   background-color: #f9f9fd;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content::-webkit-scrollbar-thumb {
@@ -745,6 +748,8 @@ input[type=button] {
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item .info_country .airport_name {
   font-size: 16px;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 .work_with_flights .search_tickets_block .form_search_tickets .form_search_block_inputs .dropdown .dropdown_content .dropdown_content__item .info_country .desc_airport_eng {
   margin-top: 6px;
@@ -2246,6 +2251,7 @@ input[type=button] {
 }
 .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list::-webkit-scrollbar, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
   background-color: #f9f9fd;
 }
 .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__type_document_list::-webkit-scrollbar-thumb, .passenger_info_block .passenger_info_block__forms_block .passenger_full_info__forms_block .passenger_full_info__forms_block__item .passenger_full_info__forms_block__form_passenger .passenger_full_info__forms_block__form_passenger__input_block .passenger__citizenship_list::-webkit-scrollbar-thumb {

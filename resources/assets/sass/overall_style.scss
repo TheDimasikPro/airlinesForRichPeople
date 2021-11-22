@@ -27,6 +27,7 @@ $fz_h3: 20px;
 @mixin custom_scroll_bar {
     &::-webkit-scrollbar {
         width: 7px;
+        height: 7px;
         background-color: $gray_2;
     }
       

@@ -276,7 +276,7 @@ main{
                 }
             }
             .flight_forms_block{
-                margin-left: 250px;
+                margin-left: 150px;
                 margin-top: 30%;
                 position: relative;
                 .flight_form{
@@ -300,6 +300,18 @@ main{
                                     position: relative;
                                     input{
                                         margin-top: 10px;
+                                    }
+                                    input::-webkit-calendar-picker-indicator {
+                                        background: transparent;
+                                        bottom: 0;
+                                        color: transparent;
+                                        cursor: pointer;
+                                        height: auto;
+                                        left: 0;
+                                        position: absolute;
+                                        right: 0;
+                                        top: 0;
+                                        width: auto;
                                     }
                                     button{
                                         width: 250px;
@@ -355,6 +367,8 @@ main{
                                                 width: 70%;
                                                 .airport_name{
                                                     font-size: $fz_second;
+                                                    max-width: 100%;
+                                                    word-wrap: break-word;
                                                 }
                                                 .desc_airport_eng{
                                                     margin-top: 6px;

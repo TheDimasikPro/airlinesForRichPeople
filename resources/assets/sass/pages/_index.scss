@@ -139,6 +139,8 @@
                                 width: 70%;
                                 .airport_name{
                                     font-size: $fz_second;
+                                    max-width: 100%;
+                                    word-wrap: break-word;
                                 }
                                 .desc_airport_eng{
                                     margin-top: 6px;
