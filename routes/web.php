@@ -154,8 +154,10 @@ Route::get('/ip', function () {
 
 
 
+Route::get('/operator',[FlightController::class,'returnViewOperatorWelcome'])->name('operator');
 Route::get('/edit_future_flights',[FlightController::class,'returnViewEditFutureFlight'])->name('edit_future_flights');
 Route::post('/edit_future_flights__send',[FlightController::class,'sendEditFutureFlight'])->name('edit_future_flights__send');
 Route::post('/edit_future_flights__delete',[FlightController::class,'deleteEditFutureFlight'])->name('edit_future_flights__delete');
 Route::post('/edit_future_flights__update',[FlightController::class,'updateEditFutureFlight'])->name('edit_future_flights__update');
-Route::get('/operator',[FlightController::class,'returnViewOperatorWelcome'])->name('operator');
+
+Route::get('/edit_operating_flights',[FlightController::class,'returnViewEditOperatingFlight'])->name('edit_operating_flights');

@@ -926,7 +926,7 @@ class FlightController extends Controller
         $itemCollection = collect($flight_arr);
 
         // Define how many items we want to be visible in each page
-        $perPage = 4;
+        $perPage = 8;
 
         // Slice the collection to get the items to display in current page
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
@@ -934,23 +934,18 @@ class FlightController extends Controller
         // Create our paginator and pass it to the view
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
 
-        $path_page = 'http://richairlines/edit_future_flights';
+        $url = $_SERVER['REQUEST_URI'];
+        $url = explode('?', $url);
+        $url = $url[0];
+        $path_page = $url;
         // set url path for generted links
         $paginatedItems->setPath($path_page);
 
-        // return view('items_view', ['items' => $paginatedItems]);
-
-
-
         $response = [
+            "status" => "future",
             "airport_data" => $airport_data,
             "flight_arr" => $paginatedItems
         ];
-        // return $flights_ids->get()->sortBy('id');
-        
-        
-        
-
 
         return view('Operator.flights',['operator' => array_reverse($response)] );
     }
@@ -1419,5 +1414,79 @@ class FlightController extends Controller
         ];
         return json_encode($response);
 
+    }
+
+    public function returnViewEditOperatingFlight()
+    {
+        $flight_arr = [];
+        $date_now = Carbon::now()->format('Y-m-d');
+        $time_start = Carbon::now()->subHour(2)->format('H:i:s');
+        $time_end = Carbon::now()->addHour(2)->format('H:i:s');
+        $date_add_3month = Carbon::now()->addMonths(3)->format('Y-m-d');
+        $booking_ids_arr = [];
+        $flights_ids = Flight::select('id','date_start')->orderBy('date_start');
+        if ($flights_ids->get()!=null) {
+            foreach ($flights_ids->get() as $key => $value) {
+                if (!in_array($value["id"],$booking_ids_arr)) {
+                    array_push($booking_ids_arr,$value["id"]);
+                    $id_flight_from = $value["id"];
+                    $airport_flight_from_start = null;
+                    $airport_flight_from_end = null;
+                    if ($id_flight_from != null) {
+                        
+                        $flight_from = Flight::select('id','flight_code','time_start','time_end','travel_time','cost','date_start','date_end','id_airport_start','id_airport_end')
+                        ->where([
+                            ['id',$id_flight_from],
+                            ['date_start', $date_now],
+                            ['date_end', $date_now],
+                            ['time_start', '<', $time_start],
+                            ['time_end', '>', $time_end]
+                        ])->first();
+                        
+                        if ($flight_from != null) {
+                            $airport_flight_from_start = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_start'])->first();
+                            $airport_flight_from_end = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_end'])->first();
+                            $flight_arr[$key]['flight'] = $flight_from;
+                            $flight_arr[$key]["airport_flight_start"] = $airport_flight_from_start;
+                            $flight_arr[$key]["airport_flight_end"] = $airport_flight_from_end;
+                            // $flight_arr[$key]["booking_status"] = $booking_status;
+                        }
+                    }
+                }
+                
+            }
+        }
+        $airport_data = DB::table('airports')->select('id','iata_code','name_eng','desc_airport_eng')->limit(50)->get();
+
+
+        // Get current page form url e.x. &page=1
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+        // Create a new Laravel collection from the array data
+        $itemCollection = collect($flight_arr);
+
+        // Define how many items we want to be visible in each page
+        $perPage = 8;
+
+        // Slice the collection to get the items to display in current page
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+
+        // Create our paginator and pass it to the view
+        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+        
+        $url = $_SERVER['REQUEST_URI'];
+        $url = explode('?', $url);
+        $url = $url[0];
+        $path_page = $url;
+        // set url path for generted links
+        $paginatedItems->setPath($path_page);
+
+        $response = [
+            "status" => "future",
+            "airport_data" => $airport_data,
+            "flight_arr" => $paginatedItems
+        ];
+
+        return view('Operator.flights',['operator' => array_reverse($response)] );
     }
 }

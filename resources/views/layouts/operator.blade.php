@@ -74,7 +74,7 @@
                     </li>
                     <!-- /.navbar__list__item -->
                     <li class="navbar__list__item">
-                        <a href="" class="navbar__list__item__link_icon"><i class="fas fa-plane"></i></a>
+                        <a href="{{ route('edit_operating_flights') }}" class="navbar__list__item__link_icon"><i class="fas fa-plane"></i></a>
                         <!-- /.navbar__list__item__link_icon -->
                     </li>
                     <!-- /.navbar__list__item -->
@@ -107,7 +107,7 @@
                     </li>
                     <!-- /.navbar_slide__list__item -->
                     <li class="navbar_slide__list__item">
-                        <a href="" class="navbar_slide__list__item_link">Действующие рейсы</a>
+                        <a href="{{ route('edit_operating_flights') }}" class="navbar_slide__list__item_link">Действующие рейсы</a>
                     </li>
                     <!-- /.navbar_slide__list__item -->
                     <li class="navbar_slide__list__item">

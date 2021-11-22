@@ -107,7 +107,7 @@
     <!-- /.flight_info_block -->
     
     <div class="flight_forms_block">
-        <form action="" method="post" class="flight_form">
+        <form action="#" method="post" class="flight_form">
             @csrf
 
             <div class="flight_form__main">
