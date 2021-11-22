@@ -1064,3 +1064,33 @@ main .btn_scroll_top {
   justify-content: center;
   align-items: center;
 }
+
+.paginate_block {
+  margin-top: 30px;
+  font-size: 16px;
+}
+.paginate_block .pagination {
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+.paginate_block .pagination li {
+  list-style-type: none;
+  float: left;
+  padding: 10px;
+  background: #004369;
+  color: #ffffff;
+}
+.paginate_block .pagination li span {
+  color: #ffffff;
+}
+.paginate_block .pagination li a {
+  color: #ffffff;
+}
+.paginate_block .pagination li.active {
+  background: #A01010;
+  color: #ffffff;
+}
+.paginate_block .pagination li .fas {
+  font-size: 14px;
+}

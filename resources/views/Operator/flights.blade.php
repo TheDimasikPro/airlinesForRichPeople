@@ -99,6 +99,10 @@
             @endif
         </ul>
         <!-- /.flght_table_block -->
+
+        <div class="paginate_block">
+            {{ $operator["flight_arr"]->links('Operator.paginate') }}
+        </div>
     </div>
     <!-- /.flight_info_block -->
     

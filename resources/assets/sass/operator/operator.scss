@@ -530,3 +530,35 @@ main{
         align-items: center;
     }
 }
+
+.paginate_block{
+    margin-top: 30px;
+    font-size: $fz_second;
+    .pagination {
+        height: 20px;
+        display: flex;
+        align-items: center;
+        li{
+            list-style-type: none;
+            float: left;
+            // margin-left: 10px;
+            padding: 10px;
+            background: $blue;
+            color: $white;
+            span {
+                color: $white;
+            }
+            a {
+                color: $white;
+            }
+            &.active{
+                background: #A01010;
+                color: $white;
+            }
+            .fas{
+                font-size: $fz_base;
+            }
+        }
+    }
+}
+

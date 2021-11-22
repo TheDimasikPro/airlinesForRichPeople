@@ -399,7 +399,7 @@ $(document).ready(function () {
     $('body').addClass('body_popup__open');
     $('.popup_fade').removeClass('non_view');
     $('.popup_modal').removeClass('non_view');
-    id_elem_delete__arr = $(this).attr('id');
+    id_elem_delete__arr = $(this).attr('id').split('_');
   });
   $('#btn_yes').click(function (e) {
     e.preventDefault();
