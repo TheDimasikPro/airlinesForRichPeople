@@ -8,7 +8,7 @@
     @yield('styles_link')
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Regular.ttf" crossorigin>
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Bold.ttf" crossorigin>
-    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
     <script src="https://kit.fontawesome.com/0b1222bcc2.js" crossorigin="anonymous"></script>
     <title>@yield('title_page')</title>
 </head>
