@@ -372,7 +372,7 @@ $(document).ready(function () {
           formData.append("series_numbers_document", series_numbers_document);
           formData.append("country_of_issue_id", country_of_issue_id);
           $.ajax({
-            url: "http://richairlines/profile/update_data",
+            url: "/profile/update_data",
             headers: {
               'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
             },

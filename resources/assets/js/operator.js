@@ -253,7 +253,7 @@ $(document).ready(function () {
                         },100);
                         $('.overlay_flight_forms .check_mark_flight_forms').addClass('check_mark_flight_forms__active');
 
-                        let last_id_list_item = 'new.' + (Number($('.flght_table_block .flght_table_block__item:last-child').attr('data-id')) + 1);
+                        let last_id_list_item = '!.' + (Number($('.flght_table_block .flght_table_block__item:last-child').attr('data-id')) + 1);
 
 
                         let flght_table_block__item = document.createElement('li');
@@ -510,6 +510,7 @@ $(document).ready(function () {
 
 
     var row;
+    var flight_code;
     $(document).on('click', '.flght_table_block__item__edit_btn',function (e) {
         e.preventDefault();
         $('.airport_end__list__item').removeClass('select_elem_airport');
@@ -575,7 +576,6 @@ $(document).ready(function () {
             error_list__item.setAttribute('class','errors_list__item');
             error_list__item.append('Выберите только 1 аэропорт старта');
             $('.errors_list').append(error_list__item);
-            
         }
         else if (count_airport_end_select > 1 || count_airport_end_select == 0) {
             $('.errors_list').removeClass('non_view');
@@ -590,7 +590,6 @@ $(document).ready(function () {
             error_list__item.setAttribute('class','errors_list__item');
             error_list__item.append('Аэропорт старта не может быть равен аэропорту прибытия');
             $('.errors_list').append(error_list__item);
-            
         }
         else if (date_start == "" || date_end == "" || time_start == "" || time_end == "") {
             $('.errors_list').removeClass('non_view');
@@ -598,7 +597,13 @@ $(document).ready(function () {
             error_list__item.setAttribute('class','errors_list__item');
             error_list__item.append('Проверьте заполненность полей. Все поля должны быть заполнены');
             $('.errors_list').append(error_list__item);
-            
+        }
+        else if (flight_code == null) {
+            $('.errors_list').removeClass('non_view');
+            let error_list__item = document.createElement('li');
+            error_list__item.setAttribute('class','errors_list__item');
+            error_list__item.append('Вы не выбрали рейс для редактирования');
+            $('.errors_list').append(error_list__item);
         }
         else{
             let formData = new FormData();

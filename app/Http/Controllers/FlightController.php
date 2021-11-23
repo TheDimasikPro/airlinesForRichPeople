@@ -1158,7 +1158,7 @@ class FlightController extends Controller
             "date_end" => $date_end_page,
             "travel_time" => $travel_time_in_page,
             "cost" => $cost,
-            "temporary_id" => 'new.' . Str::random(3)
+            "temporary_id" => '!.' . Str::random(3)
         ];
         return json_encode($response);
     }

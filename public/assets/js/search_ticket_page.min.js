@@ -238,7 +238,7 @@ $(document).ready(function (e) {
     if (cost != "") {
       var param_url_this_page = window.location.href.split('?')[1]; // console.log(id_flight_start);
 
-      location.href = "http://richairlines/search_tickets/passenger_info?" + param_url_this_page + "&id_flight_start=" + id_flight_start + "&id_flight_end=" + id_flight_end + "&cost=" + cost;
+      location.href = "/search_tickets/passenger_info?" + param_url_this_page + "&id_flight_start=" + id_flight_start + "&id_flight_end=" + id_flight_end + "&cost=" + cost;
     }
   }
 });

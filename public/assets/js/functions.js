@@ -826,7 +826,7 @@ $(document).ready(function () {
             $('.payment_tickets_block__info .overlay_profile_data_form').addClass('check_mark_payment__active'); // console.log(data.flights);
 
             setTimeout(function () {
-              location.href = "http://richairlines/";
+              location.href = "/";
             }, 400);
           } else {
             $('.payment_tickets_block__info .overlay_profile_data_form').removeClass('overlay_form_active');

@@ -313,6 +313,62 @@ input[type=button] {
   overflow: hidden;
 }
 
+.wrapper_welcome {
+  height: 100%;
+  width: 100%;
+}
+.wrapper_welcome .intro {
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+}
+.wrapper_welcome .intro:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.wrapper_welcome .intro .video {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 56.25%;
+}
+.wrapper_welcome .intro .video__media {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper_welcome .intro .intro__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+.wrapper_welcome .intro .intro__content .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.wrapper_welcome .intro .intro__content .container .intro__title {
+  margin: 0;
+  font-size: 45px;
+  color: #fff;
+  text-align: center;
+}
+
 .site_overlay {
   display: block;
   position: fixed;
@@ -397,13 +453,15 @@ main .navbar_slide__list__item__btn {
 }
 main .section_content {
   width: 100%;
-  padding: 15px;
   display: flex;
   margin-left: 60px;
   justify-content: space-between;
 }
 main .section_content h2 {
   margin: 0 0 20px 0;
+}
+main .section_content .content_block {
+  padding: 15px;
 }
 main .section_content .flight_info {
   display: flex;

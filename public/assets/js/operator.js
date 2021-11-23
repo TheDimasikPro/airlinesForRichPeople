@@ -255,7 +255,7 @@ $(document).ready(function () {
               height: "70px"
             }, 100);
             $('.overlay_flight_forms .check_mark_flight_forms').addClass('check_mark_flight_forms__active');
-            var last_id_list_item = 'new.' + (Number($('.flght_table_block .flght_table_block__item:last-child').attr('data-id')) + 1);
+            var last_id_list_item = '!.' + (Number($('.flght_table_block .flght_table_block__item:last-child').attr('data-id')) + 1);
             var flght_table_block__item = document.createElement('li');
             flght_table_block__item.setAttribute('data-id', data.temporary_id);
             flght_table_block__item.setAttribute('class', 'flght_table_block__item');
@@ -478,6 +478,7 @@ $(document).ready(function () {
     }, 50);
   });
   var row;
+  var flight_code;
   $(document).on('click', '.flght_table_block__item__edit_btn', function (e) {
     e.preventDefault();
     $('.airport_end__list__item').removeClass('select_elem_airport');
@@ -570,6 +571,16 @@ $(document).ready(function () {
       _error_list__item7.append('Проверьте заполненность полей. Все поля должны быть заполнены');
 
       $('.errors_list').append(_error_list__item7);
+    } else if (flight_code == null) {
+      $('.errors_list').removeClass('non_view');
+
+      var _error_list__item8 = document.createElement('li');
+
+      _error_list__item8.setAttribute('class', 'errors_list__item');
+
+      _error_list__item8.append('Вы не выбрали рейс для редактирования');
+
+      $('.errors_list').append(_error_list__item8);
     } else {
       var formData = new FormData();
       formData.append('id_airport_start', id_airport_start);
@@ -647,13 +658,13 @@ $(document).ready(function () {
             $('.errors_list').removeClass('non_view');
             $('.overlay_flight_forms').removeClass('overlay_form_active');
 
-            var _error_list__item8 = document.createElement('li');
+            var _error_list__item9 = document.createElement('li');
 
-            _error_list__item8.setAttribute('class', 'errors_list__item');
+            _error_list__item9.setAttribute('class', 'errors_list__item');
 
-            _error_list__item8.append(data.error_message);
+            _error_list__item9.append(data.error_message);
 
-            $('.errors_list').append(_error_list__item8);
+            $('.errors_list').append(_error_list__item9);
           }
         },
         error: function error() {

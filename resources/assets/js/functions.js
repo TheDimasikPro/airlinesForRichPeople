@@ -790,7 +790,7 @@ $(document).ready(function () {
 
                         // console.log(data.flights);
                         setTimeout(() => {
-                            location.href = "http://richairlines/";
+                            location.href = "/";
                         }, 400);
                     }
                     else{
