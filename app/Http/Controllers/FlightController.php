@@ -1495,11 +1495,10 @@ class FlightController extends Controller
     {
         $flight_arr = [];
         $date_now = Carbon::now()->format('Y-m-d');
-        $time_start = Carbon::now()->subHour(2)->format('H:i:s');
-        $time_end = Carbon::now()->addHour(2)->format('H:i:s');
-        $date_add_3month = Carbon::now()->addMonths(3)->format('Y-m-d');
         $booking_ids_arr = [];
-        $flights_ids = Flight::select('id','date_start')->orderBy('id');
+        $flights_ids = Flight::select('id','date_start')->where([
+            ['date_start','<',$date_now]
+        ])->orderBy('id');
         if ($flights_ids->get()!=null) {
             foreach ($flights_ids->get() as $key => $value) {
                 if (!in_array($value["id"],$booking_ids_arr)) {
@@ -1510,9 +1509,7 @@ class FlightController extends Controller
                     if ($id_flight_from != null) {
                         
                         $flight_from = Flight::select('id','flight_code','time_start','time_end','travel_time','cost','date_start','date_end','id_airport_start','id_airport_end')
-                        ->where([
-                            ['date_start','<',$date_now]
-                        ])->first();
+                        ->where('id','=',$id_flight_from)->first();
                         
                         if ($flight_from != null) {
                             $airport_flight_from_start = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_start'])->first();
@@ -1527,6 +1524,8 @@ class FlightController extends Controller
                 
             }
         }
+
+        // return $flights_ids->get();
         $airport_data = DB::table('airports')->select('id','iata_code','name_eng','desc_airport_eng')->limit(50)->get();
 
 

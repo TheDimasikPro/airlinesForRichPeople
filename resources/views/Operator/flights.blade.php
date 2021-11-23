@@ -48,7 +48,12 @@
         </div>
         <!-- /.flight_info_block_form_sort -->
         <ul class="flght_table_block">
-            <li class="flght_table_block__item_title">
+            @if ($operator["status"] == "invalid")
+                <li class="flght_table_block__item_title_invalid">
+            @else
+                <li class="flght_table_block__item_title">
+            @endif
+            
                 <div class="flght_table_block__item_title__text">№</div>
                 <!-- /.flght_table_block__item_title__text -->
                 <div class="flght_table_block__item_title__text">№ рейса</div>
@@ -57,10 +62,13 @@
                 <!-- /.flght_table_block__item_title__text -->
                 <div class="flght_table_block__item_title__text">Цена</div>
                 <!-- /.flght_table_block__item_title__text -->
-                <div class="flght_table_block__item_title__text">Edit</div>
-                <!-- /.flght_table_block__item_title__text -->
-                <div class="flght_table_block__item_title__text">Delete</div>
-                <!-- /.flght_table_block__item_title__text -->
+                @if ($operator["status"] != "invalid")
+                    <div class="flght_table_block__item_title__text">Edit</div>
+                    <!-- /.flght_table_block__item_title__text -->
+                    <div class="flght_table_block__item_title__text">Delete</div>
+                    <!-- /.flght_table_block__item_title__text -->
+                @endif
+                
             </li>
             <!-- /.flght_table_block__item -->
             @if (count($operator["flight_arr"]) > 0)
@@ -98,24 +106,33 @@
                                 <!-- /.flght_table_block__item__info__flight_plan__end -->
                             </div>
                             <!-- /.flght_table_block__item__info__flight_plan -->
-                            <div class="flght_table_block__item__info__flght_price">{{ $flight_arr__item["flight"]["cost"] }} <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
-                            <!-- /.flght_table_block__item__info__flght_price -->
+                            @if ($operator["status"] != "invalid")
+                                <div class="flght_table_block__item__info__flght_price">{{ $flight_arr__item["flight"]["cost"] }} <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
+                                <!-- /.flght_table_block__item__info__flght_price -->
+                            @else
+                                <div class="flght_table_block__item__info__flght_price invalid">{{ $flight_arr__item["flight"]["cost"] }} <i class="fas fa-ruble-sign" aria-hidden="true"></i></div>
+                                <!-- /.flght_table_block__item__info__flght_price -->
+                            @endif
+                            
                         </div>
                         <!-- /.flght_table_block__item__info -->
-                        <div class="flght_table_block__item__edit">
-                            <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_{{ $number }}" aria-label="flight_edit_btn_{{ $number }}">
-                                <i class="fas fa-pencil-alt"></i>
-                            </button> 
-                            <!-- /.flght_table_block__item__edit_btn -->
-                        </div>
-                        <!-- /.flght_table_block__item__edit -->
-                        <div class="flght_table_block__item__delete">
-                            <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_{{ $number }}" aria-label="flight_delete_btn_{{ $number }}">
-                                <i class="fas fa-backspace"></i>
-                            </button> 
-                            <!-- /.flght_table_block__item__delete_btn -->
-                        </div>
-                        <!-- /.flght_table_block__item__delete -->
+                        @if ($operator["status"] != "invalid")
+                            <div class="flght_table_block__item__edit">
+                                <button class="flght_table_block__item__edit_btn" id="flight_edit_btn_{{ $number }}" aria-label="flight_edit_btn_{{ $number }}">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button> 
+                                <!-- /.flght_table_block__item__edit_btn -->
+                            </div>
+                            <!-- /.flght_table_block__item__edit -->
+                            <div class="flght_table_block__item__delete">
+                                <button class="flght_table_block__item__delete_btn" id="flight_delete_btn_{{ $number }}" aria-label="flight_delete_btn_{{ $number }}">
+                                    <i class="fas fa-backspace"></i>
+                                </button> 
+                                <!-- /.flght_table_block__item__delete_btn -->
+                            </div>
+                            <!-- /.flght_table_block__item__delete -->
+                        @endif
+                        
                     </li>
                     <!-- /.flght_table_block__item -->
                 @endforeach
