@@ -7,7 +7,6 @@
     <div class="container df_jcc_aic content_flex">
         <div class="error_block">
             <h1>404...</h1>
-            
         </div>
         <!-- /"error_block -->
     </div>

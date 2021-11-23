@@ -24,7 +24,7 @@
                 </div>
                 <!-- /.form_auth__row -->
                 <div class="form_auth__row">
-                    <form action="" class="form_auth_contact_data" autocomplete="new">
+                    <form action="#" class="form_auth_contact_data" autocomplete="new">
                         <div class="overlay_contact_form">
                             <div id="fountainG">
                                 <div id="fountainG_1" class="fountainG"></div>
@@ -97,7 +97,7 @@
                         <!-- /.error_contact_data -->
                     </form>
                     <!-- /.form_auth_contact_data -->
-                    <form action="" class="form_auth_profile_data form_auth_non_view" autocomplete="off">
+                    <form action="#" class="form_auth_profile_data form_auth_non_view" autocomplete="off">
                         @csrf
                         <div class="overlay_profile_data_form">
                             <div id="fountainG">
@@ -207,7 +207,7 @@
                         <!-- /.error_profile_data -->
                     </form>
                     <!-- /.form_auth_profile_data -->
-                    <form class="form_auth_password_data form_auth_non_view">
+                    <form action="#" class="form_auth_password_data form_auth_non_view">
                         @csrf
                         <div class="overlay_password_data_form">
                             <div id="fountainG">
@@ -251,7 +251,7 @@
                         <!-- /.error_password_data -->
                     </form>
                     <!-- /.form_auth_password_data form_auth_non_view -->
-                    <form class="form_auth_finish_data form_auth_non_view">
+                    <form action="#" class="form_auth_finish_data form_auth_non_view">
                         @csrf
                         <div class="overlay_finish_form">
                             <div id="fountainG">

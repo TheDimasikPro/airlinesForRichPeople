@@ -102,7 +102,7 @@
             {{-- @include('inc.aside_bar_search_tickets') --}}
             <div class="passenger_info_block__forms_block">
                 <h2>Информация о пассажирах</h2>
-                <form action="" class="passenger_info_block__forms_block__form_feedback">
+                <form action="#" class="passenger_info_block__forms_block__form_feedback">
                     <h3>Контактная информация для обратной связи</h3>
                     <div class="passenger_info_block__forms_block__form_feedback__input_block">
                         <label for="email_feedback_tickets">Email</label>
@@ -126,7 +126,7 @@
                                 * Просьба вводить все данные на английском языке, иначе могут возникнуть проблемы с покупкой билетов
                             </p>
                             <h3>Врослый пассажир №{{ $i+1 }}</h3>
-                            <form action="" class="passenger_full_info__forms_block__form_passenger">
+                            <form action="#" class="passenger_full_info__forms_block__form_passenger">
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="last-name-{{ $i+1 }}"></label>
                                     <input type="text" class="sm_input" id="last-name-{{ $i+1 }}" name="last-name" placeholder="Фамилия *">
@@ -198,7 +198,7 @@
                                 * Просьба вводить все данные на английском языке, иначе могут возникнуть проблемы с покупкой билетов
                             </p>
                             <h3>Ребенок №{{ $i+1 }}</h3>
-                            <form action="" class="passenger_full_info__forms_block__form_passenger">
+                            <form action="#" class="passenger_full_info__forms_block__form_passenger">
                                 <div class="passenger_full_info__forms_block__form_passenger__input_block">
                                     <label for="last-name-{{ $i+1 }}"></label>
                                     <input type="text" class="sm_input" id="last-name-{{ $i+1 }}" name="last-name" placeholder="Фамилия *">

@@ -7,7 +7,7 @@
     <div class="container df_jcc_aic content_flex">
         <div class="order_managment_block">
             <h1>Управление заказом</h1>
-            <form action="" class="order_managment__form">
+            <form action="#" class="order_managment__form">
                 <div class="order_m_block__input">
                     <label for="number_order__number_ticket">Number order or number ticket</label>
                     <input type="text" id="number_order__number_ticket" name="number_order__number_ticket" class="order_m_input" placeholder="Номер заказа или номер билета">

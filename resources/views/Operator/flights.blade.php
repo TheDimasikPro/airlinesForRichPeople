@@ -18,7 +18,7 @@
 <div class="flight_info">
     <div class="flight_info_block">
         <div class="flight_info_block_form_sort">
-            <form action="" method="get">
+            <form action="#" method="get">
                 @csrf
                 @if ($operator["status"] == "future")
                     <h2>Форма поиска будущих рейсов</h2>

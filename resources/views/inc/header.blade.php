@@ -44,7 +44,7 @@
                     @csrf
                     <span class="span_big_input">
                         <input type="text" class="big_input search_input" placeholder="Поиск по сайту" autocomplete="off">
-                        <div class="bottom_slider_big_input"></div>
+                        <i class="bottom_slider_big_input"></i>
                         <!-- /.bottom_slider_big_input -->
                     </span>
                     <!-- /.span_big_input -->
@@ -71,14 +71,14 @@
                                 <input type="radio" name="radio_lang" id="rus_lang">
                                 <span>
                                     <img src="/assets/images/flags/ru.svg" alt="ru" class="lang_img">
-                                    <p>Russian</p>
+                                    <i>Russian</i>
                                 </span>
                             </li>
                             <li class="country_currency__item">
                                 <input type="radio" name="radio_lang" id="en_lang">
                                 <span>
                                     <img src="/assets/images/flags/en.svg" alt="en" class="lang_img">
-                                    <p>English</p>
+                                    <i>English</i>
                                 </span>
                             </li>
                         </ul>
@@ -91,14 +91,14 @@
                                 <input type="radio" name="radio_currency" id="ruble">
                                 <span>
                                     <i class="fas fa-ruble-sign" aria-hidden="true"></i>
-                                    <p>Ruble</p>
+                                    <i>Ruble</i>
                                 </span>
                             </li>
                             <li class="country_currency__item">
                                 <input type="radio" name="radio_currency" id="USA_dollar">
                                 <span>
                                     <i class="fas fa-dollar-sign"></i>
-                                    <p>United States dollar</p>
+                                    <i>United States dollar</i>
                                 </span>
                             </li>
                         </ul>

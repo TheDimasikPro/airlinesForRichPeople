@@ -25,7 +25,7 @@
                     <!-- /.check_mark_payment -->
                 </div>
                 <h1>Оплата</h1>
-                <form action="" class="payment_tickets_block__info__from">
+                <form action="#" class="payment_tickets_block__info__from">
                     <div class="payment_tickets_block__info__from__inputs_block">
                         <div class="credit_cards_block">
                             {{-- логотипы банков картинками --}}
