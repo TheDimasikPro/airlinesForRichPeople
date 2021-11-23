@@ -5,7 +5,7 @@
             {{-- <li class="disabled"><span><i class="fas fa-angle-left"></i></span></li> --}}
         @else
             <li>
-                <a href="http://richairlines/edit_future_flights" rel="next">
+                <a href="<?php echo explode('?', $_SERVER['REQUEST_URI'])[0] ?>" rel="next">
                     <i class="fas fa-angle-double-left"></i>
                 </a>
             </li>
@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li>
-                <a href="http://richairlines/edit_future_flights?page={{ $paginator->lastPage() }}" rel="next">
+                <a href="<?php echo explode('?', $_SERVER['REQUEST_URI'])[0] ?>?page={{ $paginator->lastPage() }}" rel="next">
                     <i class="fas fa-angle-double-right"></i>
                 </a>
             </li>

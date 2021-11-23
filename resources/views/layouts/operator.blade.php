@@ -15,7 +15,8 @@
     <link rel="prefetch" as="font" type="font/ttf" href="/assets/fonts/Roboto-Bold.ttf" crossorigin>
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/0b1222bcc2.js" crossorigin="anonymous"></script>
-    <title>Редактирование будующих рейсов</title>
+    {{-- <title>Редактирование будующих рейсов</title> --}}
+    <title>@yield('title')</title>
 </head>
 <body>
     <div class="site_overlay"></div>
@@ -79,7 +80,7 @@
                     </li>
                     <!-- /.navbar__list__item -->
                     <li class="navbar__list__item">
-                        <a href="" class="navbar__list__item__link_icon"><i class="fas fa-plane-slash"></i></a>
+                        <a href="{{ route('invalid_flights') }}" class="navbar__list__item__link_icon"><i class="fas fa-plane-slash"></i></a>
                         <!-- /.navbar__list__item__link_icon -->
                     </li>
                     <!-- /.navbar__list__item -->
@@ -111,7 +112,7 @@
                     </li>
                     <!-- /.navbar_slide__list__item -->
                     <li class="navbar_slide__list__item">
-                        <a href="" class="navbar_slide__list__item_link">Прошедшие рейсы</a>
+                        <a href="{{ route('invalid_flights') }}" class="navbar_slide__list__item_link">Прошедшие рейсы</a>
                     </li>
                     <!-- /.navbar_slide__list__item -->
                 </ul>

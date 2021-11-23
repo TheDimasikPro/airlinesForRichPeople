@@ -159,5 +159,5 @@ Route::get('/edit_future_flights',[FlightController::class,'returnViewEditFuture
 Route::post('/edit_future_flights__send',[FlightController::class,'sendEditFutureFlight'])->name('edit_future_flights__send');
 Route::post('/edit_future_flights__delete',[FlightController::class,'deleteEditFutureFlight'])->name('edit_future_flights__delete');
 Route::post('/edit_future_flights__update',[FlightController::class,'updateEditFutureFlight'])->name('edit_future_flights__update');
-
 Route::get('/edit_operating_flights',[FlightController::class,'returnViewEditOperatingFlight'])->name('edit_operating_flights');
+Route::get('/invalid_flights',[FlightController::class,'returnVieInvalidFlight'])->name('invalid_flights');

@@ -67,8 +67,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
-    // 'timezone' => 'Asia/Yekaterinburg',
+    // 'timezone' => 'Etc/UTC',
+    'timezone' => 'Asia/Yekaterinburg',
 
     /*
     |--------------------------------------------------------------------------

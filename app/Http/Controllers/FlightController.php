@@ -760,17 +760,17 @@ class FlightController extends Controller
         $mailController = new MailController();
         $mailController->sendMailAfterPaymentFlight($flight_arr,session("email_feedback"));
 
-        Session::forget('flight_order_info');
-        Session::forget('new_passenger_ids');
-        Session::forget('cost_tickets__all_passenger');
-        Session::forget('passenger_info');
+        // Session::forget('flight_order_info');
+        // Session::forget('new_passenger_ids');
+        // Session::forget('cost_tickets__all_passenger');
+        // Session::forget('passenger_info');
 
-        $response = [
-            "status" => true,
-            "message" => "Оплата успешно произведена",
-            "flights" => $flight_arr
-        ];
-        return $response;
+        // $response = [
+        //     "status" => true,
+        //     "message" => "Оплата успешно произведена",
+        //     "flights" => $flight_arr
+        // ];
+        // return $response;
 
     }
 
@@ -1074,14 +1074,14 @@ class FlightController extends Controller
                 ];
                 return json_encode($response);
             }
-            if($time_start < $time_end){
-                $response = [
-                    'status' => false,
-                    'type_error' => 2,
-                    'error_message' => "В одинаковые дни взлета и прибытия время старта должно быть меньше времени прибытия"
-                ];
-                return json_encode($response);
-            }
+            // if($time_start < $time_end){
+            //     $response = [
+            //         'status' => false,
+            //         'type_error' => 2,
+            //         'error_message' => "В одинаковые дни взлета и прибытия время старта должно быть меньше времени прибытия"
+            //     ];
+            //     return json_encode($response);
+            // }
         }
 
         $datetime1 = date_create($date_start);
@@ -1158,7 +1158,7 @@ class FlightController extends Controller
             "date_end" => $date_end_page,
             "travel_time" => $travel_time_in_page,
             "cost" => $cost,
-            "temporary_id" => 'new_' . Str::random(3)
+            "temporary_id" => 'new.' . Str::random(3)
         ];
         return json_encode($response);
     }
@@ -1435,12 +1435,83 @@ class FlightController extends Controller
                     if ($id_flight_from != null) {
                         
                         $flight_from = Flight::select('id','flight_code','time_start','time_end','travel_time','cost','date_start','date_end','id_airport_start','id_airport_end')
-                        ->where([
-                            ['id',$id_flight_from],
-                            ['date_start', $date_now],
-                            ['date_end', $date_now],
+                        ->orWhere([
                             ['time_start', '<', $time_start],
                             ['time_end', '>', $time_end]
+                        ])->where('id','=',$id_flight_from)->
+                        where(function ($query) use($date_now,$id_flight_from) {
+                            $query->where('date_start', '=', $date_now)
+                                  ->orWhere('date_end', '=', $date_now);
+                        })->first();
+                        
+                        if ($flight_from != null) {
+                            $airport_flight_from_start = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_start'])->first();
+                            $airport_flight_from_end = Airport::select('id','iata_code','city_rus','city_eng')->where('id',$flight_from['id_airport_end'])->first();
+                            $flight_arr[$key]['flight'] = $flight_from;
+                            $flight_arr[$key]["airport_flight_start"] = $airport_flight_from_start;
+                            $flight_arr[$key]["airport_flight_end"] = $airport_flight_from_end;
+                            // $flight_arr[$key]["booking_status"] = $booking_status;
+                        }
+                    }
+                }
+                
+            }
+        }
+        $airport_data = DB::table('airports')->select('id','iata_code','name_eng','desc_airport_eng')->limit(50)->get();
+
+
+        // Get current page form url e.x. &page=1
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+        // Create a new Laravel collection from the array data
+        $itemCollection = collect($flight_arr);
+
+        // Define how many items we want to be visible in each page
+        $perPage = 8;
+
+        // Slice the collection to get the items to display in current page
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+
+        // Create our paginator and pass it to the view
+        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+        
+        $url = $_SERVER['REQUEST_URI'];
+        $url = explode('?', $url);
+        $url = $url[0];
+        $path_page = $url;
+        // set url path for generted links
+        $paginatedItems->setPath($path_page);
+
+        $response = [
+            "status" => "operating",
+            "airport_data" => $airport_data,
+            "flight_arr" => $paginatedItems
+        ];
+
+        return view('Operator.flights',['operator' => array_reverse($response)] );
+    }
+
+    public function returnVieInvalidFlight()
+    {
+        $flight_arr = [];
+        $date_now = Carbon::now()->format('Y-m-d');
+        $time_start = Carbon::now()->subHour(2)->format('H:i:s');
+        $time_end = Carbon::now()->addHour(2)->format('H:i:s');
+        $date_add_3month = Carbon::now()->addMonths(3)->format('Y-m-d');
+        $booking_ids_arr = [];
+        $flights_ids = Flight::select('id','date_start')->orderBy('id');
+        if ($flights_ids->get()!=null) {
+            foreach ($flights_ids->get() as $key => $value) {
+                if (!in_array($value["id"],$booking_ids_arr)) {
+                    array_push($booking_ids_arr,$value["id"]);
+                    $id_flight_from = $value["id"];
+                    $airport_flight_from_start = null;
+                    $airport_flight_from_end = null;
+                    if ($id_flight_from != null) {
+                        
+                        $flight_from = Flight::select('id','flight_code','time_start','time_end','travel_time','cost','date_start','date_end','id_airport_start','id_airport_end')
+                        ->where([
+                            ['date_start','<',$date_now]
                         ])->first();
                         
                         if ($flight_from != null) {
@@ -1482,9 +1553,10 @@ class FlightController extends Controller
         $paginatedItems->setPath($path_page);
 
         $response = [
-            "status" => "future",
+            "status" => "invalid",
             "airport_data" => $airport_data,
-            "flight_arr" => $paginatedItems
+            "flight_arr" => $paginatedItems,
+            'path_page' => $url
         ];
 
         return view('Operator.flights',['operator' => array_reverse($response)] );
