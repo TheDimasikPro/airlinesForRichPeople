@@ -760,17 +760,17 @@ class FlightController extends Controller
         $mailController = new MailController();
         $mailController->sendMailAfterPaymentFlight($flight_arr,session("email_feedback"));
 
-        // Session::forget('flight_order_info');
-        // Session::forget('new_passenger_ids');
-        // Session::forget('cost_tickets__all_passenger');
-        // Session::forget('passenger_info');
+        Session::forget('flight_order_info');
+        Session::forget('new_passenger_ids');
+        Session::forget('cost_tickets__all_passenger');
+        Session::forget('passenger_info');
 
-        // $response = [
-        //     "status" => true,
-        //     "message" => "Оплата успешно произведена",
-        //     "flights" => $flight_arr
-        // ];
-        // return $response;
+        $response = [
+            "status" => true,
+            "message" => "Оплата успешно произведена",
+            "flights" => $flight_arr
+        ];
+        return $response;
 
     }
 
