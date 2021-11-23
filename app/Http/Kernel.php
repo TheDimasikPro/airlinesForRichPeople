@@ -44,6 +44,14 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        'operator' => [
+            \App\Http\Middleware\OperatorRole::class,
+        ],
+
+        'user' => [
+            \App\Http\Middleware\UserRole::class,
+        ]
     ];
 
     /**

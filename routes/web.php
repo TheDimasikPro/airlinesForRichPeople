@@ -33,6 +33,11 @@ use Illuminate\Support\Facades\Session;
 */
 
 Route::get('/', [IndexController::class,'index'])->name('index__page');
+
+Route::middleware(['user'])->group(function ()
+{
+    # code...
+});
 Route::get('/#section__add_services',[IndexController::class,'index'])->name('add_services__block_index');
 
 Route::get('/forgot_password', [ForgotPasswordController::class,'index'])->name('forgot_password__page');
@@ -75,8 +80,6 @@ Route::prefix('search_tickets')->group(function () {
     Route::post('/payment_tickets_redirect',[FlightController::class,'redirectViewPaymentTickets'])->name('payment_tickets_redirect__page');
     Route::get('/payment_tickets',[FlightController::class,'returnViewPaymentTickets'])->name('payment_tickets__page');
     Route::post('/payment_tickets',[FlightController::class,'paymentTickets'])->name('payment_tickets');
-
-    
 });
 
 route::prefix('pdf')->group(function ()
@@ -154,10 +157,12 @@ Route::get('/ip', function () {
 
 
 
-Route::get('/operator',[FlightController::class,'returnViewOperatorWelcome'])->name('operator');
-Route::get('/edit_future_flights',[FlightController::class,'returnViewEditFutureFlight'])->name('edit_future_flights');
-Route::post('/edit_future_flights__send',[FlightController::class,'sendEditFutureFlight'])->name('edit_future_flights__send');
-Route::post('/edit_future_flights__delete',[FlightController::class,'deleteEditFutureFlight'])->name('edit_future_flights__delete');
-Route::post('/edit_future_flights__update',[FlightController::class,'updateEditFutureFlight'])->name('edit_future_flights__update');
-Route::get('/edit_operating_flights',[FlightController::class,'returnViewEditOperatingFlight'])->name('edit_operating_flights');
-Route::get('/invalid_flights',[FlightController::class,'returnVieInvalidFlight'])->name('invalid_flights');
+Route::middleware(['operator'])->group(function () {
+    Route::get('/operator',[FlightController::class,'returnViewOperatorWelcome']);
+    Route::get('/edit_future_flights',[FlightController::class,'returnViewEditFutureFlight'])->name('edit_future_flights');
+    Route::post('/edit_future_flights__send',[FlightController::class,'sendEditFutureFlight'])->name('edit_future_flights__send');
+    Route::post('/edit_future_flights__delete',[FlightController::class,'deleteEditFutureFlight'])->name('edit_future_flights__delete');
+    Route::post('/edit_future_flights__update',[FlightController::class,'updateEditFutureFlight'])->name('edit_future_flights__update');
+    Route::get('/edit_operating_flights',[FlightController::class,'returnViewEditOperatingFlight'])->name('edit_operating_flights');
+    Route::get('/invalid_flights',[FlightController::class,'returnVieInvalidFlight'])->name('invalid_flights');
+});
