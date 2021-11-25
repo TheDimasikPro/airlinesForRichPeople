@@ -91,7 +91,7 @@
                         <div class="dropdown dd_count_pass">
                             <div class="input_count_pass_block df_jcc_aic">
                                 <label for="id_i_c_pass"></label>
-                                <input type="text" required name="count_pass" readonly autocomplete="off" name="" class="min_input" id="id_i_c_pass" value="0 пассажиров">
+                                <input type="text" required name="count_pass" readonly autocomplete="off" class="min_input" id="id_i_c_pass" value="0 пассажиров">
                                 <button class="dropbtn" type="button" id="dropbtn_count_pass">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
@@ -385,7 +385,7 @@
             </div>
             <label for="name_user"></label>
             <input type="text" name="name_user" required id="name_user" placeholder="Введите свое имя">
-            <label for="text_review"></label>
+            <label for="review_text"></label>
             <textarea name="text_review" id="review_text" required placeholder="Напишите свой отзыв..."></textarea>
             <button type="button" class="btn_style_1" id="btn_send_review" >Отправить</button>
         </form>
