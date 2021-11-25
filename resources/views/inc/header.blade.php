@@ -40,7 +40,7 @@
             
             <!-- /.logo_image -->
             <div class="search">
-                <form action="" class="form form_search df_aic">
+                <form action="#" class="form form_search df_aic">
                     @csrf
                     <span class="span_big_input">
                         <input type="text" class="big_input search_input" placeholder="Поиск по сайту" autocomplete="off">
@@ -123,10 +123,10 @@
     <!-- /.container -->
     <div class="container" id="mobile_search_geo">
         <div class="search_mobile">
-            <form action="" class="form form_search_mobile df_aic">
+            <form action="#" class="form form_search_mobile df_aic">
                 <span class="span_big_input">
                     <input type="text" class="big_input search_mobile_input" placeholder="Поиск по сайту" autocomplete="off">
-                    <div class="bottom_slider_big_input"></div>
+                    <i class="bottom_slider_big_input"></i>
                     <!-- /.bottom_slider_big_input -->
                 </span>
                 <!-- /.span_big_input -->

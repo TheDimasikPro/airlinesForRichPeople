@@ -119,6 +119,75 @@
         <!-- /.d_menu -->
     </div>
     <!-- /.container -->
+    <div class="container" id="mobile_search_geo">
+        <div class="search_mobile">
+            <form action="#" class="form form_search_mobile df_aic">
+                <span class="span_big_input">
+                    <input type="text" class="big_input search_mobile_input" placeholder="Поиск по сайту" autocomplete="off">
+                    <i class="bottom_slider_big_input"></i>
+                    <!-- /.bottom_slider_big_input -->
+                </span>
+                <!-- /.span_big_input -->
+                <button>
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <!-- /.form form_search_mobile -->
+        </div>
+        <!-- /.search_mobile -->
+        <div class="geo_posistion_people_mobile df_aic">
+            <i class="fas fa-globe"></i>
+            <p class="geo_info">
+                RU <span>(RUB, <i class="fas fa-ruble-sign"></i>)</span>
+            </p>
+            <!-- /.geo_info -->
+            {{-- <div class="language_currency">
+                <ul class="country_currency">
+                    <li class="country_currency__item">
+                        <p>Выберите язык</p>
+                    </li>
+                    <li class="country_currency__item">
+                        <input type="radio" name="radio_lang" id="rus_lang">
+                        <span>
+                            <img src="/assets/images/flags/ru.svg" alt="ru" class="lang_img">
+                            <p>Russian</p>
+                        </span>
+                    </li>
+                    <li class="country_currency__item">
+                        <input type="radio" name="radio_lang" id="en_lang">
+                        <span>
+                            <img src="/assets/images/flags/en.svg" alt="en" class="lang_img">
+                            <p>English</p>
+                        </span>
+                    </li>
+                </ul>
+                <!-- /.country_currency -->
+                <ul class="country_currency">
+                    <li class="country_currency__item">
+                        <p>Выберите валюту</p>
+                    </li>
+                    <li class="country_currency__item">
+                        <input type="radio" name="radio_currency" id="ruble">
+                        <span>
+                            <i class="fas fa-ruble-sign" aria-hidden="true"></i>
+                            <p>Ruble</p>
+                        </span>
+                    </li>
+                    <li class="country_currency__item">
+                        <input type="radio" name="radio_currency" id="USA_dollar">
+                        <span>
+                            <i class="fas fa-dollar-sign"></i>
+                            <p>United States dollar</p>
+                        </span>
+                    </li>
+                </ul>
+                <!-- /.country_currency -->
+            </div>
+            <!-- /.language_currency --> --}}
+        </div>
+        <!-- /.geo_posistion_people_mobile -->
+    </div>
+    <!-- /.container -->
     <div class="additional_sub_menu">
         <div class="container df_jcspb_aic">
             @include('inc.sub_menu_list')
