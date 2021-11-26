@@ -19,14 +19,16 @@ class PDFController extends Controller
     {
         $pdf = PDF::loadView('PDF.payment_ticket_complete_PDF',["response_mail" => $response_mail]);
         $output = $pdf->output();
-        $upload_folder = 'public/pdf/';
+        $upload_folder = 'pdf/';
         $now_date = Carbon::now()->format("d_m_Y");
-        if(!Storage::exists($upload_folder . $now_date)) {
-            Storage::makeDirectory($upload_folder . $now_date, 0775, true); //creates directory
-        }
+        // $path = public_path().'/images';
+        // // File::isDirectory($upload_folder . $now_date) or File::makeDirectory($upload_folder . $now_date, 0777, true, true);
+        // if(!Storage::exists($upload_folder . $now_date)) {
+        //     Storage::makeDirectory($upload_folder . $now_date, 0775, true); //creates directory
+        // }
         $filename = Str::random(20) .'.pdf';
-        Storage::put($upload_folder . $now_date . '/' . $filename, $output);
-        $file_url = Storage::url($upload_folder . $now_date . '/' . $filename);
+        Storage::disk('public_uploads')->put($upload_folder . $now_date . '/' . $filename, $output);
+        $file_url ='/' . $upload_folder . $now_date . '/' . $filename;
         return $file_url;
 
         
