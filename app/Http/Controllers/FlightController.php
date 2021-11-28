@@ -1064,7 +1064,6 @@ class FlightController extends Controller
             ];
             return json_encode($response);
         }
-
         if ($date_start == $date_end) {
             if ($time_start == $time_end) {
                 $response = [
@@ -1074,14 +1073,15 @@ class FlightController extends Controller
                 ];
                 return json_encode($response);
             }
-            // if($time_start < $time_end){
-            //     $response = [
-            //         'status' => false,
-            //         'type_error' => 2,
-            //         'error_message' => "В одинаковые дни взлета и прибытия время старта должно быть меньше времени прибытия"
-            //     ];
-            //     return json_encode($response);
-            // }
+            
+            if(strtotime($time_start) > strtotime($time_end)){
+                $response = [
+                    'status' => false,
+                    'type_error' => 2,
+                    'error_message' => "В одинаковые дни взлета и прибытия время старта должно быть меньше времени прибытия"
+                ];
+                return json_encode($response);
+            }
         }
 
         $datetime1 = date_create($date_start);
@@ -1330,6 +1330,14 @@ class FlightController extends Controller
                     'status' => false,
                     'type_error' => 2,
                     'error_message' => "В одинаковые дни взлета и прибытия время должно различаться"
+                ];
+                return json_encode($response);
+            }
+            if(strtotime($time_start) > strtotime($time_end)){
+                $response = [
+                    'status' => false,
+                    'type_error' => 2,
+                    'error_message' => "В одинаковые дни взлета и прибытия время старта должно быть меньше времени прибытия"
                 ];
                 return json_encode($response);
             }
