@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Mockery\Generator\StringManipulation\Pass\Pass;
 
@@ -879,7 +880,10 @@ class FlightController extends Controller
 
     public function returnViewOperatorWelcome()
     {
-        return view('Operator.operator_welcome');
+
+        return view('Operator.operator_welcome',[
+            "full_name_user" => Auth::user()->full_name
+        ]);
     }
 
     public function returnViewEditFutureFlight()
