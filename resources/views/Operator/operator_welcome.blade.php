@@ -1,4 +1,7 @@
 @extends('layouts.operator')
+@section('title')
+        Добро пожаловать
+    @endsection
 @section('content')
     <div class="wrapper_welcome">
         <div class="intro">
