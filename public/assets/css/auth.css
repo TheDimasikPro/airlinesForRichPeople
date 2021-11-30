@@ -728,7 +728,7 @@ input[type=button] {
   top: 50%;
   cursor: pointer;
 }
-.form_auth .form_auth_block .form_auth__row .form_auth_block_second #show_passwod, .form_auth .form_auth_block .form_auth__row .form_auth_block_second #hide_passwod {
+.form_auth .form_auth_block .form_auth__row .form_auth_block_second #show_passwod, .form_auth .form_auth_block .form_auth__row .form_auth_block_second #hide_password {
   position: absolute;
   top: 50%;
   right: 0;
