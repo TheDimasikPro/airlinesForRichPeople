@@ -251,14 +251,23 @@
                             </div>
                             <!-- /.flight_form__inputs__row -->
                             <div class="flight_form__inputs__row">
-                                <div class="input_block">
-                                    <button type="button" class="btn_style_1" name="add_flight" id="add_flight">Добавить</button>
-                                </div>
-                                <!-- /.inputs_block -->
-                                <div class="input_block">
-                                    <button type="button" class="btn_style_1" name="update_flight" id="update_flight">Сохранить</button>
-                                </div>
-                                <!-- /.inputs_block -->
+                                @if ($operator["status"] == "operating")
+                                    <div class="input_block">
+                                        <button type="button" class="btn_style_1" name="update_flight" id="update_flight">Сохранить</button>
+                                    </div>
+                                    <!-- /.inputs_block -->
+                                @else
+                                    <div class="input_block">
+                                        <button type="button" class="btn_style_1" name="add_flight" id="add_flight">Добавить</button>
+                                    </div>
+                                    <!-- /.inputs_block -->
+                                    <div class="input_block">
+                                        <button type="button" class="btn_style_1" name="update_flight" id="update_flight">Сохранить</button>
+                                    </div>
+                                    <!-- /.inputs_block -->
+                                @endif
+                                
+                                
                             </div>
                             <!-- /.flight_form__inputs__row -->
                         </div>
