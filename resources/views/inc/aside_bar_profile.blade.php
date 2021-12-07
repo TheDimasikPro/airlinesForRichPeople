@@ -26,6 +26,12 @@
             <button class="aside_user__list__item__btn upper" id="profile_btn_control_panel" aria-label="profile_btn_control_panel">Панель управления</button> 
             <!-- /.aside_user__list__item__btn -->
         </li>
+        @if ($auth_user["id_role"] == 2)
+        <li class="aside_user__list__item">
+            <button class="aside_user__list__item__btn upper" id="profile_btn_operator_panel" aria-label="profile_btn_control_panel">Оператор</button> 
+            <!-- /.aside_user__list__item__btn -->
+        </li>
+        @endif
         <li class="aside_user__list__item">
             <button class="aside_user__list__item__btn upper" id="profile_btn_personal_data" aria-label="profile_btn_personal_data">Личные данные</button> 
             <!-- /.aside_user__list__item__btn -->

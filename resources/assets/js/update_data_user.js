@@ -324,6 +324,9 @@ $(document).ready(function () {
                         }, 1200);
                     }
                 }
+                if ($(this).attr('id') == "profile_btn_operator_panel") {
+                    document.location = '/operator'
+                }
             } 
         }
     });
