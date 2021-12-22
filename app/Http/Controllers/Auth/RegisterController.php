@@ -65,6 +65,7 @@ class RegisterController extends Controller
 
         $email = $request['email'];
         $phone = $request['phone'];
+        $phone = str_replace(array('(',')'),'',$phone);
         if (User::where([
             ['email',$email],
             ['phone',$phone]

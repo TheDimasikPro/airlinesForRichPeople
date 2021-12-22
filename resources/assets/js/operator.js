@@ -259,7 +259,7 @@ $(document).ready(function () {
                         let flght_table_block__item = document.createElement('li');
                         flght_table_block__item.setAttribute('data-id',data.temporary_id);
                         flght_table_block__item.setAttribute('class','flght_table_block__item');
-                        $('.flght_table_block .flght_table_block__item')[0].before(flght_table_block__item);
+                        $('.flght_table_block .flght_table_block__item_title')[0].after(flght_table_block__item);
 
                         let flght_table_block__item__number_row = document.createElement('div');
                         flght_table_block__item__number_row.setAttribute('class','flght_table_block__item__number_row__ajax');
